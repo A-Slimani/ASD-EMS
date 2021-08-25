@@ -27,5 +27,6 @@ steps:
     displayName: 'npm test'
 
   - script: |
+      cd asd-ems
       npm run test
     displayName: 'npm run test'
