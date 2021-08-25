@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --ci --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +45,8 @@
       "default",
       "jest-junit"
     ]
+  },
+  "jest-junit": {
+    "outputName": "TEST-junit.xml"
   }
 }
