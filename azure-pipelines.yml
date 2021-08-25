@@ -17,6 +17,7 @@ steps:
 
   - script: |
       echo "$(pwd)"
+      cd asd-ems
       npm install
       npm run build
     displayName: 'npm install and build'
