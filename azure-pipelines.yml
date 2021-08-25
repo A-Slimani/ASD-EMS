@@ -28,7 +28,7 @@ steps:
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
-      testResultFiles: '**/TEST-junit.xml'
+      testResultFiles: '**/junit.xml'
 
     displayName: 'npm test'
 
