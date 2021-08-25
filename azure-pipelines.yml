@@ -21,6 +21,9 @@ steps:
       npm run build
     displayName: 'npm install and build'
 
+  - script: |
+      
+
   - task: PublishTestResults@2 
     condition: succeededOrFailed()
     inputs:
