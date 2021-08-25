@@ -17,5 +17,5 @@ steps:
 
   - script: |
       "cd asd-ems && npm install"
-      "cd asd-emd && npm run build"
+      "cd asd-ems && npm run build"
     displayName: 'npm install and build'
