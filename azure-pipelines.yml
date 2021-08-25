@@ -24,7 +24,10 @@ steps:
   - task: Npm@1 
     inputs:
       versionSpec: '14.17.3'
+      command: 'test'
+      arguments: 'cd asd-ems && npm run test'
       publishTestResults: true
+
     displayName: 'npm test'
 
   - script: |
