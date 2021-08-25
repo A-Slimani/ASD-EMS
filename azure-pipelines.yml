@@ -24,6 +24,7 @@ steps:
   - task: Npm@1 
     inputs:
       versionSpec: '14.17.3'
+      publishTestResults: true
     displayName: 'npm test'
 
   - script: |
