@@ -21,12 +21,11 @@ steps:
       npm run build
     displayName: 'npm install and build'
 
-  - task: Npm@1 
+  - task: PublishTestReults@0 
+    condition: succeededOrFailed()
     inputs:
-      versionSpec: '14.17.3'
-      command: 'test'
-      arguments: 'cd asd-ems && npm run test'
-      publishTestResults: true
+      testRunner: JUnit
+      testResultFiles: '**/TEST-RESULTS.xml'
 
     displayName: 'npm test'
 
