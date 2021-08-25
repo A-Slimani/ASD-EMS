@@ -28,7 +28,7 @@ steps:
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
-      testResultFiles: '**/junit.xml'
+      testResultFiles: 'asd-ems/junit.xml'
 
     displayName: 'npm test'
 
