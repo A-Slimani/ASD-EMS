@@ -16,6 +16,7 @@ steps:
     displayName: 'Install Node.js'
 
   - script: |
-      "cd asd-ems && npm install"
-      "cd asd-ems && npm run build"
+      cd asd-ems 
+      npm install
+      npm run build
     displayName: 'npm install and build'
