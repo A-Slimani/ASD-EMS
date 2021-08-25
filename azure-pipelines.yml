@@ -21,7 +21,7 @@ steps:
       npm run build
     displayName: 'npm install and build'
 
-  - task: PublishTestReults@1 
+  - task: PublishTestResults@0 
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
