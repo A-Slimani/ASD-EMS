@@ -22,7 +22,9 @@ steps:
     displayName: 'npm install and build'
 
   - task: npmtest
-    displayName: "npm test"
+    inputs:
+      versionSpec: '14.17.3'
+    displayName: 'npm test'
 
   - script: |
       npm run test
