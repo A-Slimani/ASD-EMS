@@ -35,7 +35,7 @@ steps:
       cd asd-ems
       npm run test
     displayName: 'npm run test'
-  
-  # gulp test
-  - task: gulp@1
-    displayName: 'Run gulp tasks' 
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'asd-ems'
