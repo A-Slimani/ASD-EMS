@@ -23,8 +23,7 @@ steps:
 
   - script: |
 
-
-  - task: PublishTestResults@2 
+  - task: PublishTestResults@2
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
@@ -36,3 +35,7 @@ steps:
       cd asd-ems
       npm run test
     displayName: 'npm run test'
+  
+  # gulp test
+  - task: gulp@1
+    displayName: 'Run gulp tasks' 
