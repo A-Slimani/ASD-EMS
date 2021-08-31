@@ -36,6 +36,5 @@ steps:
       npm run test
     displayName: 'npm run test'
 
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: 'asd-ems'
+
+  
