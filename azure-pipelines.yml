@@ -36,5 +36,13 @@ steps:
       npm run test
     displayName: 'npm run test'
 
-
+  - task: CopyFiles@2
+    inputs:
+      Contents: 'build/**' # Pull the build directory (React)
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory) # dist of build files
+      ArtifactName: 'www'
   
