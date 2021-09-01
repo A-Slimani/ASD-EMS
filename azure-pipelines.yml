@@ -52,6 +52,6 @@ steps:
 
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: 'asd-ems'
+      azureSubscription: 'Employee Management System'
       appName: '$(WebAppName)'
       package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
