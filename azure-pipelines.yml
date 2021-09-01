@@ -49,3 +49,9 @@ steps:
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: '$(System.DefaultWorkingDirectory)' # maybe use the build folder instead? 
+
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'asd-ems'
+      appName: '$(WebAppName)'
+      package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
