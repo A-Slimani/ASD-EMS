@@ -1,12 +1,19 @@
 import { Button, Flex, Heading, Input, FormControl, Spacer } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const validateForm = () => {
     return username.length > 0 && password.length > 0;
+  };
+
+  const toPage = e => {
+    e.preventDefault();
   };
 
   const handleSubmit = event => {
@@ -32,7 +39,7 @@ const Login = () => {
         />
       </FormControl>
       <Flex direction="row">
-        <Button colorScheme="teal" disabled={!validateForm()}>
+        <Button colorScheme="teal" disabled={!validateForm()} onClick={handleSubmit}>
           Log in
         </Button>
         <Spacer />
