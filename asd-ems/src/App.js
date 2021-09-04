@@ -1,20 +1,20 @@
-import Login from "./Login";
-import Dashboard from "./Dashboard";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Heading, Flex } from "@chakra-ui/react";
+import Login from './Login';
+import Routes from './Routes';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Dashboard from './Dashboard';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Login />
-      </div>
+    <BrowserRouter>
       <Switch>
-        <Route path="/Dashboard">
+        <Route exact path="/">
+          <Login />
+        </Route>
+        <Route exact path="/Dashboard">
           <Dashboard />
         </Route>
       </Switch>
-    </Router>
+    </BrowserRouter>
   );
 }
 

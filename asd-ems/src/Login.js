@@ -20,8 +20,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/Dashboard");
+    history.push('./Dashboard')
   };
+
 
   return (
     <Flex
