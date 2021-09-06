@@ -7,6 +7,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import './Dashboard.css';
+import officeimg from './office.jpg'
 import React from 'react';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -60,7 +61,7 @@ class Dashboard extends React.Component {
             <div
               className="site-layout-background"
               style={{ padding: 24, minHeight: 360 }}>
-              Bill is a cat.
+                <img src={officeimg} alt="office img"/> 
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Footer</Footer>
