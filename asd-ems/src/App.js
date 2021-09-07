@@ -7,6 +7,7 @@ import AddUser from './addUser';
 import DiscussionBoard from './discussionBoard';
 import FileComplaint from './fileComplaint';
 import Application from './application';
+import PayrollLog from './payrollLog';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/application">
           <Application />
+        </Route>
+        <Route exact path="/payrollLog">
+          <PayrollLog />
         </Route>
       </Switch>
     </BrowserRouter>
