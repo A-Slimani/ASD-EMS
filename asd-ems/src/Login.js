@@ -18,7 +18,7 @@ const Login = () => {
 
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center" direction="column">
-      <Heading mb={20}> Enterprise Management System </Heading>
+      <Heading mb={20}> Employee Management System </Heading>
       <Flex direction="column" background="gray.100" p={12} rounded={6}>
         <Heading mb={6}>Log in</Heading>
         <FormControl onSubmit={handleSubmit}>
@@ -41,9 +41,6 @@ const Login = () => {
             Log in
           </Button>
           <Spacer />
-          <Button colorScheme="teal" disabled={true}>
-            Create an Account
-          </Button>
         </Flex>
       </Flex>
     </Flex>
