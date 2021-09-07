@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
-            <h1 style={{ color: 'white', textAlign: 'center', fontSize :"20px" }}>Employee Management System</h1>
+            <h1 style={{ color: 'white', textAlign: 'center', fontSize :"20px" }}>Enterprise Management System</h1>
           </Header>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
