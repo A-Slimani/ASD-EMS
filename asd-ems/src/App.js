@@ -9,6 +9,7 @@ import PaymentPolicy from './paymentPolicy';
 import FileComplaint from './fileComplaint';
 import Application from './application';
 import PayrollLog from './payrollLog';
+import UpdateEmployee from './UpdateEmployee';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route exact path="/payrollLog">
           <PayrollLog />
+        </Route>
+        <Route exact path="/UpdateEmployee">
+          <UpdateEmployee />
         </Route>
       </Switch>
     </BrowserRouter>
