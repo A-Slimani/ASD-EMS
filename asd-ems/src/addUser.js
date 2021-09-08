@@ -40,6 +40,7 @@ class addUser extends React.Component {
             </SubMenu>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
               <Menu.Item key="6"> Employee Management </Menu.Item>
+              <Menu.Item key="6"><Link to="./payrollLog"><button> Payroll Log </button></Link></Menu.Item>
               <Menu.Item key="8"> 
                 <Link to="./paymentPolicy"><button> Payment Policy </button></Link>
               </Menu.Item>
