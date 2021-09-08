@@ -38,11 +38,14 @@ class discussionBoard extends React.Component {
               <Menu.Item key="5"> <Link to="./updateUser"><button> Update User </button> </Link></Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
-              <Menu.Item key="6"> Employee Management </Menu.Item>
-              <Menu.Item key="8"> Payment Policy </Menu.Item>
+            <Menu.Item key="7"> <Link to="./payrollHistory"><button> Payroll History </button> </Link>  </Menu.Item>
+              <Menu.Item key="6"><Link to="./payrollLog"><button> Payroll Log </button></Link></Menu.Item>
+              <Menu.Item key="8"> 
+                <Link to="./paymentPolicy"><button> Payment Policy </button></Link>
+              </Menu.Item>
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}> 
-              <Link to="./discussionBoard"><button> Discussion Board </button> </Link>
+              <Link to="./discussionBoard"><button> Voice Concern </button> </Link>
             </Menu.Item>
             <Menu.Item key="9" icon={<FileOutlined />}> 
               <Link to="./Logout"><button> Logout </button> </Link> 
@@ -57,25 +60,29 @@ class discussionBoard extends React.Component {
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item> EMS </Breadcrumb.Item>
-              <Breadcrumb.Item> Discussion Board </Breadcrumb.Item>
+              <Breadcrumb.Item> Voice Concern </Breadcrumb.Item>
             </Breadcrumb>
             
             <div>  
                 <form method="POST" className="form" name="dicussform">
-                    <h1 style={{textAlign: 'center'}}> Discussion Board </h1>
-                    <p style={{textAlign: 'center'}}> What's on your mind? </p>
+                    <h1 style={{textAlign: 'center'}}> Voice Concern </h1>
+                    <p style={{textAlign: 'center'}}> We are hearing you voice !!! </p>
 
                     <label> Name: </label> <br/>
                     <input type='text' placeholder="Name can be anonymous" name='anonymous' className="formtextfield"/> <br/> 
-                    <small>Up to 255 Characters </small> <p/>
+                     <p/>
 
                     <label> Topic: </label> <br/>
-                    <input type='text' placeholder="Last Name" name='topic' className="formtextfield"/> <br/> 
-                    <small>Up to 255 Characters </small> <p/>
+                    <input type='text' placeholder=" " name='topic' className="formtextfield"/> <br/> 
+                     <p/>
 
-                    <label> Content: </label> <br/>
+                    <label> Whar are you trying to achieve ? </label> <br/>
                     <textarea type='text' placeholder="Message" name='content' className="formtextfield"/> <br/>
-                    <small> Up to 255 Characters </small> <p/>
+                    <p/>
+
+                    <label> How differently you can do ?: </label> <br/>
+                    <textarea type='text' placeholder="Message" name='content' className="formtextfield"/> <br/>
+                     <p/>
                     
                     <div style={{textAlign: 'center', paddingTop: 10}}>
                         <Link to="./discussionBoard"> <button className="button" > Post </button> </Link>

@@ -39,11 +39,14 @@ class application extends React.Component {
               <Menu.Item key="7"> <Link to="./application"><button> Application </button> </Link></Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
-              <Menu.Item key="6"> Employee Management </Menu.Item>
-              <Menu.Item key="8"> Payment Policy </Menu.Item>
+            <Menu.Item key="7"> <Link to="./payrollHistory"><button> Payroll History </button> </Link>  </Menu.Item>
+              <Menu.Item key="6"><Link to="./payrollLog"><button> Payroll Log </button></Link></Menu.Item>
+              <Menu.Item key="8"> 
+                <Link to="./paymentPolicy"><button> Payment Policy </button></Link>
+              </Menu.Item>
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}> 
-              <Link to="./discussionBoard"><button> Discussion Board </button> </Link>
+              <Link to="./discussionBoard"><button> Voice Concern </button> </Link>
             </Menu.Item>
             <Menu.Item key="9" icon={<FileOutlined />}> 
               <Link to="./Logout"><button> Logout </button> </Link> 
