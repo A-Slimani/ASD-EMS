@@ -5,9 +5,10 @@ import Logout from './Logout';
 import UserList from './userList';
 import AddUser from './addUser';
 import DiscussionBoard from './discussionBoard';
+import PaymentPolicy from './paymentPolicy';
 import FileComplaint from './fileComplaint';
 import Application from './application';
-import UpdateEmployee from './UpdateEmployee';
+import PayrollLog from './payrollLog';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         <Route exact path="/userList">
           <UserList />
         </Route>
+        <Route exact path="/paymentPolicy">
+          <PaymentPolicy />
+        </Route>
         <Route exact path="/discussionBoard">
           <DiscussionBoard />
         </Route>
@@ -37,8 +41,8 @@ function App() {
         <Route exact path="/application">
           <Application />
         </Route>
-        <Route exact path="/UpdateEmployee">
-          <UpdateEmployee />
+        <Route exact path="/payrollLog">
+          <PayrollLog />
         </Route>
       </Switch>
     </BrowserRouter>

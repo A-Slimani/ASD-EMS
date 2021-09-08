@@ -40,7 +40,10 @@ class application extends React.Component {
             </SubMenu>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
               <Menu.Item key="6"> Employee Management </Menu.Item>
-              <Menu.Item key="8"> Payment Policy </Menu.Item>
+              <Menu.Item key="6"><Link to="./payrollLog"><button> Payroll Log </button></Link></Menu.Item>
+              <Menu.Item key="8"> 
+                <Link to="./paymentPolicy"><button> Payment Policy </button></Link>
+              </Menu.Item>
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}> 
               <Link to="./discussionBoard"><button> Discussion Board </button> </Link>

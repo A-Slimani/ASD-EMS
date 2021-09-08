@@ -1,3 +1,4 @@
+
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   DesktopOutlined,
@@ -13,7 +14,7 @@ import {Link} from "react-router-dom"
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-class fileComplaint extends React.Component {
+class payrollLog extends React.Component {
   state = {
     collapsed: false,
   };
@@ -41,9 +42,7 @@ class fileComplaint extends React.Component {
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
               <Menu.Item key="6"> Employee Management </Menu.Item>
               <Menu.Item key="6"><Link to="./payrollLog"><button> Payroll Log </button></Link></Menu.Item>
-              <Menu.Item key="8"> 
-                <Link to="./paymentPolicy"><button> Payment Policy </button></Link>
-              </Menu.Item>
+              <Menu.Item key="8"> Payment Policy </Menu.Item>
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}> 
               <Link to="./discussionBoard"><button> Discussion Board </button> </Link>
@@ -61,41 +60,54 @@ class fileComplaint extends React.Component {
 
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item> Employee Management </Breadcrumb.Item>
-              <Breadcrumb.Item> File Complaint </Breadcrumb.Item>
+              <Breadcrumb.Item> Payroll Manage </Breadcrumb.Item>
+              <Breadcrumb.Item> Payroll Log </Breadcrumb.Item>
             </Breadcrumb>
 
-                <div style={{textAlign: 'center'}}>
-                    <h1 style={{textAlign: 'center'}}> All File Complaints </h1>
-                    <input type="number" placeholder="File ID" name="requestedid" class="textfield"/>
-                    <input type="textfield" placeholder="Name" name="requestedfn" class="textfield"/>
-                    <input type="date" name="requesteddate" class="textfield"/>
-                    <button className="button" name="searchbtn" type="submit"> Search </button> <p/>
-                </div>
+            <div style={{textAlign: 'center'}}>
+              <h1 style={{textAlign: 'center'}}>Payroll Log</h1>
+              <input type="number" placeholder="Employee ID" name="requestedid" class="textfield"/>
+              <input type="textfield" placeholder="Name" name="requestedfn" class="textfield"/>
+              <input type="number" placeholder="Min Salary" name="Min Salary" class="textfield"/>
+              <input type="number" placeholder="Max Salary" name="Max Salary" class="textfield"/>
+              <button className="button" name="searchbtn" type="submit"> Search </button> <p/>
+            </div>
 
-                <div>
-                    <table className="table">
-                        <tr>
-                            <th> File ID </th>
-                            <th> Name </th>
-                            <th> Category </th>
-                            <th> Description </th>
-                            <th> Date Submitted </th>
-                            <th> Status </th>
-                            <th> Option </th>
-                        </tr>
+            <table className="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Employment Date</th>
+                    <th>Department ID</th>
+                    <th>Manager</th>
+                    <th>Salary</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Bob Rob</td>
+                    <td>23/07/2017</td>
+                    <td>100</td>
+                    <td>Bob Boss</td>
+                    <td>50000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bob Loss</td>
+                    <td>19/09/2015</td>
+                    <td>100</td>
+                    <td>Bob Boss</td>
+                    <td>75000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bob Toss</td>
+                    <td>19/09/2015</td>
+                    <td>200</td>
+                    <td>Bob Moss</td>
+                    <td>95000</td>
+                </tr>
+            </table>
 
-                        <tr>
-                            <td> 1 </td>
-                            <td> Hello World </td>
-                            <td> complaining </td>
-                            <td> why? </td>
-                            <td> dd/mm/yyyy </td>
-                            <td> Pending <br/> Solved </td>
-                            <td> <Link to="#"> View </Link> <br/> <Link to="#"> solved </Link> <br/> <Link to="#"> Delete </Link> </td>
-                        </tr>
-                    </table>
-                </div> 
           </Content>
 
           <Footer style={{ textAlign: 'center' }}> @Copyright 2021 - ASD Group 6  </Footer>
@@ -105,4 +117,4 @@ class fileComplaint extends React.Component {
     }
 }
 
-    export default fileComplaint
+    export default payrollLog;
