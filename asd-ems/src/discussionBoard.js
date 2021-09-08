@@ -45,8 +45,9 @@ class discussionBoard extends React.Component {
               </Menu.Item>
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}> 
-              <Link to="./discussionBoard"><button> Discussion Board </button> </Link>
+              <Link to="./discussionBoard"><button> Voice Concern </button> </Link>
             </Menu.Item>
+            
             <Menu.Item key="9" icon={<FileOutlined />}> 
               <Link to="./Logout"><button> Logout </button> </Link> 
             </Menu.Item>
@@ -60,7 +61,7 @@ class discussionBoard extends React.Component {
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item> EMS </Breadcrumb.Item>
-              <Breadcrumb.Item> Discussion Board </Breadcrumb.Item>
+              <Breadcrumb.Item> Voice Concern </Breadcrumb.Item>
             </Breadcrumb>
             
             <div>  
@@ -68,17 +69,19 @@ class discussionBoard extends React.Component {
                     <h1 style={{textAlign: 'center'}}> Discussion Board </h1>
                     <p style={{textAlign: 'center'}}> What's on your mind? </p>
 
-                    <label> Name: </label> <br/>
-                    <input type='text' placeholder="Name can be anonymous" name='anonymous' className="formtextfield"/> <br/> 
-                    <small>Up to 255 Characters </small> <p/>
+                    
 
                     <label> Topic: </label> <br/>
-                    <input type='text' placeholder="Last Name" name='topic' className="formtextfield"/> <br/> 
-                    <small>Up to 255 Characters </small> <p/>
+                    <input type='text' placeholder="" name='topic' className="formtextfield"/> <br/> 
+                     <p/>
 
                     <label> Content: </label> <br/>
-                    <textarea type='text' placeholder="Message" name='content' className="formtextfield"/> <br/>
-                    <small> Up to 255 Characters </small> <p/>
+                    <textarea type='text' placeholder="Your Voice" name='content' className="formtextfield"/> <br/>
+                    <small> 200 Characters Max </small> <p/>
+                    
+                    <label> Oppurtunity </label> <br/>
+                    <textarea type='text' placeholder="i.e How differently you can do?" name='content' className="formtextfield"/> <br/>
+                     <p/>
                     
                     <div style={{textAlign: 'center', paddingTop: 10}}>
                         <Link to="./discussionBoard"> <button className="button" > Post </button> </Link>
