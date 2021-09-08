@@ -66,21 +66,23 @@ class discussionBoard extends React.Component {
             
             <div>  
                 <form method="POST" className="form" name="dicussform">
-                    <h1 style={{textAlign: 'center'}}> Discussion Board </h1>
-                    <p style={{textAlign: 'center'}}> What's on your mind? </p>
+                    <h1 style={{textAlign: 'center'}}> Voice Concern </h1>
+                    <p style={{textAlign: 'center'}}> We are hearing you voice !!! </p>
 
-                    
-
-                    <label> Topic: </label> <br/>
-                    <input type='text' placeholder="" name='topic' className="formtextfield"/> <br/> 
+                    <label> Name: </label> <br/>
+                    <input type='text' placeholder="Name can be anonymous" name='anonymous' className="formtextfield"/> <br/> 
                      <p/>
 
-                    <label> Content: </label> <br/>
-                    <textarea type='text' placeholder="Your Voice" name='content' className="formtextfield"/> <br/>
-                    <small> 200 Characters Max </small> <p/>
-                    
-                    <label> Oppurtunity </label> <br/>
-                    <textarea type='text' placeholder="i.e How differently you can do?" name='content' className="formtextfield"/> <br/>
+                    <label> Topic: </label> <br/>
+                    <input type='text' placeholder=" " name='topic' className="formtextfield"/> <br/> 
+                     <p/>
+
+                    <label> Whar are you trying to achieve ? </label> <br/>
+                    <textarea type='text' placeholder="Message" name='content' className="formtextfield"/> <br/>
+                    <p/>
+
+                    <label> How differently you can do ?: </label> <br/>
+                    <textarea type='text' placeholder="Message" name='content' className="formtextfield"/> <br/>
                      <p/>
                     
                     <div style={{textAlign: 'center', paddingTop: 10}}>

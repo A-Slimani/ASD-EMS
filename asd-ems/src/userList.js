@@ -46,7 +46,7 @@ class userList extends React.Component {
               </Menu.Item>
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}> 
-              <Link to="./discussionBoard"><button> Discussion Board </button> </Link>
+              <Link to="./discussionBoard"><button> Voice Concern</button> </Link>
             </Menu.Item>
             <Menu.Item key="9" icon={<FileOutlined />}> 
               <Link to="./Logout"><button> Logout </button> </Link> 
