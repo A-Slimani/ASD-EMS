@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import './Dashboard.css';
 import React from 'react';
+import office from './office.jpg';
 import { Link } from 'react-router-dom';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -93,7 +94,7 @@ class Dashboard extends React.Component {
             <div
               className="site-layout-background"
               style={{ padding: 24, minHeight: 360 }}>
-              <img src="office.jpg" alt="office img" />
+              <img src={office} alt="office img" />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}> @Copyright 2021 - ASD Group 6 </Footer>
