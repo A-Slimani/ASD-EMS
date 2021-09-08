@@ -87,7 +87,7 @@ class payrollLog extends React.Component {
                     <td>Bob Rob</td>
                     <td>23/07/2017</td>
                     <td>100</td>
-                    <td>Bob Rock</td>
+                    <td>Bob Boss</td>
                     <td>50000</td>
                 </tr>
                 <tr>
@@ -95,8 +95,16 @@ class payrollLog extends React.Component {
                     <td>Bob Loss</td>
                     <td>19/09/2015</td>
                     <td>100</td>
-                    <td>Bob Rock</td>
+                    <td>Bob Boss</td>
                     <td>75000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bob Toss</td>
+                    <td>19/09/2015</td>
+                    <td>200</td>
+                    <td>Bob Moss</td>
+                    <td>95000</td>
                 </tr>
             </table>
 
