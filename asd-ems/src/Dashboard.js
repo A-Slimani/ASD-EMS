@@ -69,7 +69,7 @@ class Dashboard extends React.Component {
             </SubMenu>
             <Menu.Item key="2" icon={<DesktopOutlined />}>
               <Link to="./discussionBoard">
-                <button> Discussion Board </button>{' '}
+                <button> Voice Concern </button>{' '}
               </Link>
             </Menu.Item>
             <Menu.Item key="9" icon={<FileOutlined />}>
