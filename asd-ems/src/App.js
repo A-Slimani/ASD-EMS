@@ -7,6 +7,7 @@ import AddUser from './addUser';
 import DiscussionBoard from './discussionBoard';
 import FileComplaint from './fileComplaint';
 import Application from './application';
+import UpdateEmployee from './UpdateEmployee';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/application">
           <Application />
+        </Route>
+        <Route exact path="/UpdateEmployee">
+          <UpdateEmployee />
         </Route>
       </Switch>
     </BrowserRouter>

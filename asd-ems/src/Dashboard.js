@@ -7,8 +7,8 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import './Dashboard.css';
-import officeimg from './office.jpg'
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;

@@ -88,7 +88,7 @@ class userList extends React.Component {
                             <td> World </td>
                             <td> Human Resource </td>
                             <td> 600 </td>
-                            <td> <Link to="#"> View </Link> <br/> <Link to="#"> Update </Link> <br/> <Link to="#"> Delete </Link> </td>
+                            <td> <Link to="#"> View </Link> <br/> <Link to="./UpdateEmployee"> Update </Link> <br/> <Link to="#"> Delete </Link> </td>
                         </tr>
                     </table>
                 </div> 
