@@ -93,7 +93,7 @@ class Dashboard extends React.Component {
             <div
               className="site-layout-background"
               style={{ padding: 24, minHeight: 360 }}>
-              Bill is a cat.
+              <img src="office.jpg" alt="office img" />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}> @Copyright 2021 - ASD Group 6 </Footer>
