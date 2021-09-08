@@ -126,7 +126,7 @@ class UpdateEmployee extends React.Component {
                 <small> Use the calendar on the right </small> <p />
                 <input
                   type="date"
-                  placeholder="DD/MM/YYYY"
+									value="1992-07-02"
                   name="dob"
                   class="formtextfield"
                   required
@@ -210,7 +210,7 @@ class UpdateEmployee extends React.Component {
                 />{' '}
                 <p />
                 <label> Employment Type: </label> <p />
-                <input type="radio" id="html" name="employtype" value="fulltime" />
+                <input type="radio" id="html" name="employtype" value="fulltime" checked/>
                 <label for="fulltime"> Full Time </label> <p />
                 <input type="radio" id="css" name="employtype" value="parttime" />
                 <label for="parttime"> Part Time </label>
@@ -221,7 +221,7 @@ class UpdateEmployee extends React.Component {
                 <small> Use the calendar on the right </small> <p />
                 <input
                   type="date"
-                  placeholder="DD/MM/YYYY"
+									value="2019-02-02"
                   name="employdate"
                   class="formtextfield"
                   required
@@ -229,21 +229,16 @@ class UpdateEmployee extends React.Component {
                 <p />
                 <label> Department: </label> <br />
                 <select name="dept" class="formtextfield" required>
-                  <option value="select"> -- Select one -- </option>
-                  <option value="finance"> Finance </option>
                   <option value="HR"> Human Resource </option>
+                  <option value="finance"> Finance </option>
                   <option value="marketing"> Marketing </option>
                   <option value="operation"> Operation </option>
                 </select>{' '}
                 <p />
                 <div style={{ textAlign: 'center', paddingTop: 10 }}>
-                  <Link to="./addUser">
-                    {' '}
-                    <button className="button"> Reset </button>{' '}
-                  </Link>
                   <Link to="./userList">
                     {' '}
-                    <button className="button"> Create New User </button>{' '}
+                    <button className="button"> Update <b>Hello World</b> Profile</button>{' '}
                   </Link>
                 </div>
               </form>
