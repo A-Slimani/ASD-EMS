@@ -59,7 +59,7 @@ class paymentPolicy extends React.Component {
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item> EMS </Breadcrumb.Item>
-              <Breadcrumb.Item> Discussion Board </Breadcrumb.Item>
+              <Breadcrumb.Item> Payment Policy </Breadcrumb.Item>
             </Breadcrumb>
             
             <div>  
