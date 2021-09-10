@@ -2,13 +2,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Logout from './Logout';
-import UserList from './userList';
-import AddUser from './addUser';
+import UserList from './UserList';
+import AddUser from './AddUser';
 import DiscussionBoard from './discussionBoard';
-import PaymentPolicy from './paymentPolicy';
-import FileComplaint from './fileComplaint';
-import Application from './application';
-import PayrollLog from './payrollLog';
+import PaymentPolicy from './PaymentPolicy';
+import FileComplaint from './FileComplaint';
+import Application from './Application';
+import PayrollLog from './PayrollLog';
 import UpdateEmployee from './UpdateEmployee';
 
 function App() {
@@ -24,10 +24,10 @@ function App() {
         <Route exact path="/Logout">
           <Logout />
         </Route>
-        <Route exact path="/addUser">
+        <Route exact path="/AddUser">
           <AddUser />
         </Route>
-        <Route exact path="/userList">
+        <Route exact path="/UserList">
           <UserList />
         </Route>
         <Route exact path="/paymentPolicy">
@@ -36,17 +36,20 @@ function App() {
         <Route exact path="/discussionBoard">
           <DiscussionBoard />
         </Route>
-        <Route exact path="/fileComplaint">
+        <Route exact path="/FileComplaint">
           <FileComplaint />
         </Route>
-        <Route exact path="/application">
+        <Route exact path="/Application">
           <Application />
         </Route>
-        <Route exact path="/payrollLog">
+        <Route>
           <PayrollLog />
         </Route>
         <Route exact path="/UpdateEmployee">
           <UpdateEmployee />
+        </Route>
+        <Route>
+          <PaymentPolicy />
         </Route>
       </Switch>
     </BrowserRouter>
