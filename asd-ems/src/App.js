@@ -42,7 +42,7 @@ function App() {
         <Route exact path="/Application">
           <Application />
         </Route>
-        <Route>
+        <Route exact path="/PayrollLog">
           <PayrollLog />
         </Route>
         <Route exact path="/UpdateEmployee">
