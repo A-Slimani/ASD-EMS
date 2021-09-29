@@ -1,12 +1,12 @@
 import './style.css';
 import WebLayout from './components/WebLayout'
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const content = () => {
   function handleSubmit(e) {
     function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
     function isName(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR,OP,MK,FN]{2}$/.test(name) }
+    function isText(text) { return (/^[A-Za-z]+$/).test(text) }
 
     e.preventDefault();
     var s = window.confirm("Do you want add a new user with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
@@ -17,6 +17,9 @@ const content = () => {
       var username = document.forms["updateform"]["username"].value;
       var pwd = document.forms["updateform"]["pwd"].value;
       var phoneno = document.forms["updateform"]["phoneno"].value;
+      var accname = document.forms["updateform"]["accname"].value;
+      var accnum = document.forms["updateform"]["accnum"].value;
+      var accbsb = document.forms["updateform"]["bsb"].value;
       var address = document.forms["updateform"]["address"].value;
       var suburb = document.forms["updateform"]["suburb"].value;
       var state = document.forms["updateform"]["state"].value;
@@ -25,26 +28,25 @@ const content = () => {
       var employdate = document.forms["updateform"]["employdate"].value;
       var dept = document.forms["updateform"]["dept"].value;
 
-      if (fname === "") { alert("First Name must be filled out"); }
-      else if (lname === "") { alert("Last Name must be filled out"); }
-      else if (dob === "") { alert("Date of Birth must be fill out"); }
-      else if (username === "") { alert("Username must be fill out"); }
-      else if (isName(username) === false) { alert("Invalid username input \n\n Follow the given format"); }
-      else if (pwd === "") { alert("Password must be filled out"); }
-      else if (phoneno === "") { alert("Phone Number must be filled out"); }
-      else if (isNumber(phoneno) === false) { alert("Invalid phone number format") }
-      else if (address === "") { alert("Address must be filled out"); }
-      else if (suburb === "") { alert("Address must be filled out"); }
-      else if (state === "") { alert("State must be filled out"); }
-      else if (pcode === "") { alert("Post Code must be filled out"); }
-      else if (isNumber(pcode) === false) { alert("Invalid post code format") }
+      if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
+      else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
+      else if (dob === "") { alert("Date of Birth field must be select"); }
+      else if (username === "" || isName(username) === false) { alert("Username field is empty or invalid format input \n\n Follow the given format"); }
+      else if (pwd === "") { alert("Password field must be filled out"); }
+      else if (phoneno === "" || isNumber(phoneno) === false) { alert("Contact Number field is empty or invalid format input"); }
+      else if (accname === "" || isText(accname) === false) { alert("Account Name field is empty or invalid format input"); }
+      else if (accnum === "" || isNumber(accnum) === false) { alert("Account Number is empty or invalid format input"); }
+      else if (accbsb === "" || isNumber(accbsb) === false) { alert("Account BSB field is empty or invalid format input"); }
+      else if (address === "") { alert("Address field is empty or invalid format input"); }
+      else if (suburb === "" || isText(suburb) === false) { alert("Suburb field is empty or invalid format input"); }
+      else if (state === "" || isText(state) === false) { alert("State field is empty or invalid format input"); }
+      else if (pcode === "" || isNumber(pcode) === false) { alert("Post Code is empty or invalid format input"); }
       else if (employtype === "") { alert("Employement Type must be select"); }
-      else if (employdate === "") { alert("Employement Date must be filled out"); }
-      else if (dept === "") { alert("Department must be filled out"); }
+      else if (employdate === "") { alert("Employement Date must be select"); }
+      else if (dept === "") { alert("Department must be select"); }
       else if (dob > employdate) { alert("Invalid date of birth and employment date"); }
-      else {
-        window.location = "./UserList";
-      }
+      else if ((new Date().getFullYear() - new Date(dob).getFullYear()) <= 18) { alert("Employee age must be 18 or over"); }
+      else { window.location = "./UserList"; }
     }
     else {
       document.getElementById("updateform").reset();
@@ -61,41 +63,52 @@ const content = () => {
         <input type="text" defaultValue="Hello" name="fname" className="formtextfield" required />{' '}
         <br />
         <label> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
-        <input type="text" defaultValue="World" name="lname" class="formtextfield" required />{' '}
+        <input type="text" defaultValue="World" name="lname" className="formtextfield" required />{' '}
         <br />
         <label> Date of Birth: </label> <small> Use the calendar on the right </small>{' '}
         <p />
-        <input type="date" value="1992-07-02" name="dob" class="formtextfield" required />{' '}
+        <input type="date" value="1992-07-02" name="dob" className="formtextfield" required />{' '}
         <br />
         <label> Username: </label>
         <small>
-          {' '}
           After @ must be the system name 'EMS' followed by department initial: HR - Human
           Resource, OP - Operation, MK - Marketing, FN - Finance{' '}
-        </small>{' '}
+        </small>
         <p />
-        <input type="email" defaultValue="helloworld@EMSHR" name="username" pattern="[a-z0-9._%+-]+@EMS[A-Z]{2,}$" class="formtextfield" required />{' '}
+        <input type="email" defaultValue="helloworld@EMSHR" name="username" pattern="[a-z0-9._%+-]+@EMS[A-Z]{2,}$" className="formtextfield" required />{' '}
         <br />
         <label> Password: </label>{' '}
         <small> Maximum password length is 16 Characters </small> <p />
-        <input type="password" placeholder="Retype Password" maxlength="16" name="pwd" class="formtextfield" required />{' '}
+        <input type="password" placeholder="Retype Password" maxlength="16" name="pwd" className="formtextfield" required />{' '}
         <br />
         <label> Contact Number: </label> <small> Up to 10 digits </small> <p />
-        <input type="tel" defaultValue="0404990022" name="phoneno" maxlength="10" class="formtextfield"
-          required
-        />{' '}
+        <input type="tel" defaultValue="0404990022" name="phoneno" maxlength="10" className="formtextfield" required />{' '}
+        <br />
+        <label> Bank Account Name: </label> <small> Up to 255 Characters </small>
+        <p />
+        <input type="text" placeholder="Full Name" name="accname" className="formtextfield" required />{' '}
+        <br />
+        <label> Bank Account Number: </label>
+        <small> Up to 10 Digits </small>
+        <p />
+        <input type="text" placeholder="Account Number without space" name="accnum" minLength="6" maxLength="10" className="formtextfield" required />{' '}
+        <br />
+        <label> BSB: </label>
+        <small> Up to 6 Digits </small>
+        <p />
+        <input type="text" placeholder="BSB without space" name="bsb" maxLength="6" className="formtextfield" required />{' '}
         <br />
         <label> Address: </label> <small>Up to 255 Characters </small> <p />
-        <input type="text" defaultValue="15 Raleway Ave" maxlength="255" name="address" class="formtextfield" required />{' '}
+        <input type="text" defaultValue="15 Raleway Ave" maxlength="255" name="address" className="formtextfield" required />{' '}
         <br />
         <label> Suburb: </label> <small>Up to 255 Characters </small> <p />
-        <input type="text" defaultValue="Sydney" maxlength="255" name="suburb" class="formtextfield" required />{' '}
+        <input type="text" defaultValue="Sydney" maxlength="255" name="suburb" className="formtextfield" required />{' '}
         <br />
         <label> State: </label> <small> State code up 3 Character </small> <p />
-        <input type="text" defaultValue="NSW" name="state" maxlength="3" class="formtextfield" required />{' '}
+        <input type="text" defaultValue="NSW" name="state" maxlength="3" className="formtextfield" required />{' '}
         <br />
         <label> Post Code: </label> <small> Up 4 Digits </small> <p />
-        <input type="text" defaultValue="2000" name="pcode" maxlength="4" class="formtextfield" required />{' '}
+        <input type="text" defaultValue="2000" name="pcode" maxlength="4" className="formtextfield" required />{' '}
         <p />
         <label> Employment Type: </label> <p />
         <input type="radio" id="html" name="employtype" value="fulltime" checked />
@@ -107,10 +120,10 @@ const content = () => {
         <label for="casual"> Casual Worker </label> <p />
         <label> Employment Date: </label> <small> Use the calendar on the right </small>{' '}
         <p />
-        <input type="date" value="2019-02-02" name="employdate" class="formtextfield" required />{' '}
+        <input type="date" value="2019-02-02" name="employdate" className="formtextfield" required />{' '}
         <p />
         <label> Department: </label> <br />
-        <select name="dept" class="formtextfield" required>
+        <select name="dept" className="formtextfield" required>
           <option value="HR"> Human Resource </option>
           <option value="finance"> Finance </option>
           <option value="marketing"> Marketing </option>
@@ -118,9 +131,9 @@ const content = () => {
         </select>{' '}
         <p />
         <div style={{ textAlign: 'center', paddingTop: 10 }}>
-            <button className="button" id="updatesubmit" type="submit" onClick={handleSubmit}>
-              Update <b>Hello World</b> Profile
-            </button>{' '}          
+          <button className="button" id="updatesubmit" type="submit" onClick={handleSubmit}>
+            Update <b>Hello World</b> Profile
+          </button>{' '}
         </div>
       </form>
     </div>

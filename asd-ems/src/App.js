@@ -9,12 +9,15 @@ import PaymentPolicy from './PaymentPolicy';
 import FileComplaint from './FileComplaint';
 import Application from './Application';
 import ApplicationList from './ApplicationList';
-import PayrollLog from './PayrollLog';
+// import PayrollLog from './PayrollLog';
 import PayrollHistory from './PayrollHistory';
 import UpdateEmployee from './UpdateEmployee';
 import ComplaintList from './ComplaintList';
 import Personal from './Personal';
 import EmployeeDashboard from './EmployeeDashboard';
+import UpdatePolicy from './UpdatePolicy';
+
+import AddPayroll from './AddPayroll';
 
 function App() {
   return (
@@ -38,9 +41,12 @@ function App() {
         <Route exact path="/Application"> <Application /> </Route>
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>
 
-        <Route exact path="/PayrollLog"> <PayrollLog /> </Route>
+        {/* <Route exact path="/PayrollLog"> <PayrollLog /> </Route> */}
         <Route exact path="/PayrollHistory"> <PayrollHistory /> </Route>
         <Route exact path="/PaymentPolicy"> <PaymentPolicy /> </Route>
+        <Route exact path="/UpdatePolicy"> <UpdatePolicy /> </Route>
+
+        <Route exact path="/AddPayroll"> <AddPayroll /> </Route>
 
       </Switch>
     </BrowserRouter>

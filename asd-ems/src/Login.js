@@ -48,6 +48,7 @@ const Login = () => {
           <Input
             placeholder="Username"
             name="username"
+            id = "username"
             variant="filled"
             onChange={e => setUsername(e.target.value)}
             mb={3}

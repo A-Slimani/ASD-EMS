@@ -18,13 +18,14 @@ const WebLayout = ({ content }) => {
           </Menu.Item>
 
           <SubMenu key="sub1" icon={<UserOutlined />} title="Employee Manage">
+          <Menu.Item key="3">{' '} <Link to="./AddUser"> <button> Add Employee</button>{' '}</Link></Menu.Item>
             <Menu.Item key="2">{' '} <Link to="./UserList"> <button> Employee List </button>{' '}</Link>{' '}</Menu.Item>
-            <Menu.Item key="3">{' '} <Link to="./AddUser"> <button> Add Employee</button>{' '}</Link></Menu.Item>
           </SubMenu>
 
           <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
-            <Menu.Item key="4"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
-            <Menu.Item key="5"> <Link to="./PayrollLog"> <button> Payroll Log </button></Link></Menu.Item>
+          <Menu.Item key="4"> <Link to="./AddPayroll"> <button> New Payroll </button></Link></Menu.Item>
+            <Menu.Item key="5"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
+            {/* <Menu.Item key="5"> <Link to="./PayrollLog"> <button> Payroll Log </button></Link></Menu.Item> */}
             <Menu.Item key="6">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
           </SubMenu>
 

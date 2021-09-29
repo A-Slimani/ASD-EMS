@@ -3,6 +3,8 @@ import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
 
 const content = () => {
+  var date = new Date();
+
   return (
     <>
       <div style={{ textAlign: 'center', fontSize: 30 }}>
@@ -12,6 +14,8 @@ const content = () => {
 
       <div>
         <form method="POST" className="form" name="complaintform">
+          <label> Date and Time: </label> <br />
+          <input type="text" value={date} name="formdate" className="formtextfield" disabled />
           <label> Employee ID </label> <br />
           <input type="text" name="eid" className="formtextfield" required />{' '}
           <br /> <p />
@@ -34,7 +38,7 @@ const content = () => {
           </select>{' '}
 
           <label> Description </label> <br />
-          <textarea type="text" name="complaintdescription" className="formtextfield" required />{' '}
+          <textarea type="text" placeholder="Message" name="complaintdescription" className="formtextfield" required />{' '}
           <br /> <p />
 
           <div style={{ textAlign: 'center', paddingTop: 10 }}>

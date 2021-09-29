@@ -7,7 +7,7 @@ const content = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Applications </h1>
-        <input type="number" placeholder="File ID" name="requestedid" class="textfield" />
+        <input type="number" placeholder="Application ID" name="requestedid" class="textfield" />
         <input type="textfield" placeholder="Name" name="requestedfn" class="textfield" />
         <input type="date" name="requesteddate" class="textfield" />
         <button className="button" name="searchbtn" type="submit">
@@ -22,8 +22,8 @@ const content = () => {
           <tr>
             <th> Application ID </th>
             <th> Name </th>
-            <th> Category </th>
             <th> Description </th>
+            <th> Reason </th>
             <th> Owner </th>
             <th> Date Submitted </th>
             <th> Status </th>
@@ -32,19 +32,18 @@ const content = () => {
 
           <tr>
             <td> 1 </td>
-            <td> Hello World </td>
-            <td> complaining </td>
-            <td> what? </td>
+            <td> Transfer </td>
+            <td> Transfer from HR to OP </td>
+            <td> Why? </td>
             <td> Bill </td>
             <td> dd/mm/yyyy </td>
             <td>
-              {' '}
-              Pending <br /> Approved <br /> Rejected{' '}
+              {' '} Pending <br /> Approved <br /> Rejected {' '}
             </td>
             <td>
               {' '}
-              <Link to="#"> View </Link> <br /> <Link to="#"> approved </Link> <br />{' '}
-              <Link to="#"> rejected </Link>{' '}
+              <Link to="#"> Approved </Link> <br />{' '}
+              <Link to="#"> Rejected </Link>{' '}
             </td>
           </tr>
         </table>

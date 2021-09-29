@@ -7,10 +7,10 @@ const content = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Employee </h1>
-
-        <input type="number" placeholder="Employee ID" name="requestedid" class="textfield" />
-        <input type="textfield" placeholder="Employee First Name" name="requestedfn" class="textfield" />
-        <input type="textfield" placeholder="Employee Last Name" name="requestedln" class="textfield" />
+        <input type="textfield" placeholder="First Name" name="requestedfn" class="textfield" />
+        <input type="textfield" placeholder="Last Name" name="requestedln" class="textfield" />
+        <input type="number" placeholder="Department" name="requesteddep" class="textfield" />
+        <input type="textfield" placeholder="Employment Type" name="requestedet" class="textfield" />
 
         <button className="button" name="searchbtn" type="submit">
           <Link to="./UserList"> <button> Search</button></Link>
@@ -29,7 +29,7 @@ const content = () => {
             <th> First Name </th>
             <th> Last Name </th>
             <th> Department </th>
-            <th> Employment Date </th>
+            <th> Employment Type </th>
             <th> Option </th>
           </tr>
 
@@ -38,7 +38,7 @@ const content = () => {
             <td> Hello </td>
             <td> World </td>
             <td> Human Resource </td>
-            <td> 600 </td>
+            <td> Part-Time </td>
             <td>
               {' '}
               <Link to="#"> View </Link> <br />{' '}

@@ -21,9 +21,9 @@ const content = () => {
         <table className="table">
           <tr>
             <th> File ID </th>
-            <th> Name </th>
             <th> Category </th>
             <th> Description </th>
+            <th> Owner </th>
             <th> Date Submitted </th>
             <th> Status </th>
             <th> Option </th>
@@ -31,18 +31,16 @@ const content = () => {
 
           <tr>
             <td> 1 </td>
-            <td> Hello World </td>
-            <td> complaining </td>
+            <td> Work </td>
             <td> why? </td>
+            <td> Bob </td>
             <td> dd/mm/yyyy </td>
             <td>
-              {' '}
-              Pending <br /> Solved{' '}
+              {' '} Pending <br /> Solved {' '}
             </td>
             <td>
               {' '}
-              <Link to="#"> View </Link> <br /> <Link to="#"> solved </Link> <br />{' '}
-              <Link to="#"> Delete </Link>{' '}
+              <Link to="#"> Solved </Link> <br />{' '}
             </td>
           </tr>
         </table>

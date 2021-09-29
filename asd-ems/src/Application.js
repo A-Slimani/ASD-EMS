@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // import EmployeeWebLayout from './components/EmployeeWebLayout';
 
 const content = () => {
+  var date = new Date();
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
@@ -13,7 +15,9 @@ const content = () => {
 
       <div>
         <form method="POST" className="form" name="complaintform">
-          <label> Employee ID </label> <br />
+          <label> Date and Time: </label> <br />
+          <input type="text" value={date} name="formdate" className="formtextfield" disabled />
+          <label> Employee ID: </label> <br />
           <input type="text" name="eid" className="formtextfield" required />{' '}
           <br /> <p />
 
@@ -44,8 +48,10 @@ const content = () => {
           <br /> <p />
 
           <div style={{ textAlign: 'center', paddingTop: 10 }}>
-            <small> The application process may takes up to 3-5 business days </small> <br />
-            <small> User may check their submitted applications in the personal file </small> <br />
+            <small>
+              The application process may takes up to 3-5 business days <br />
+              User may check their submitted applications in the personal file
+            </small> <br />
             <Link to="./ApplicationList">
               <button type='submit' className="button"> Submit </button>{' '}
             </Link>
