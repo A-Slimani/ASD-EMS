@@ -13,13 +13,14 @@ const content = () => {
             var lname = document.forms["payrollform"]["lname"].value;
             var amount = document.forms["payrollform"]["amt"].value;
             var bonus = document.forms["payrollform"]["bonus"].value;
-            var totalsalary = document.forms["payrollform"]["totalsalary"].value;
+            var description = document.forms["payrollform"]["description"].value;
+
 
             if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
             else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
             else if (amount === "" || isNumber(amount) === false) { alert("Amount field is empty or invalid format input"); }
             else if (bonus === "" || isNumber(bonus) === false) { alert("Contact Number field is empty or invalid format input"); }
-            else if (totalsalary === "" || isNumber(totalsalary) === false) { alert("Account Number is empty or invalid format input"); }
+            else if (description === "") { alert("Provide payment reason for this payroll"); }
             else { window.location = "./PayrollHistory"; }
         }
         else { document.getElementById("payrollform").reset(); }
@@ -43,15 +44,11 @@ const content = () => {
                     <br />
                     <label> Amount $: </label>
                     <p />
-                    <input type="text" placeholder="Current Pay" name="amt" className="formtextfield" required />{' '}
+                    <input type="number" placeholder="Current Pay" name="amt" className="formtextfield" required />{' '}
                     <br />
                     <label> Bonus $: </label>
                     <p />
-                    <input type="text" placeholder="Bonus" name="bonus" minLength="6" maxLength="10" className="formtextfield" required />{' '}
-                    <br />
-                    <label> Total Payment $: </label>
-                    <p />
-                    <input type="text" placeholder="Total = Amount + Bonus" name="totalsalary" maxLength="6" className="formtextfield" required />{' '}
+                    <input type="number" placeholder="Bonus" name="bonus" className="formtextfield" required />{' '}
                     <br />
                     <label> Payment Method: </label> <br />
                     <select name="paymethod" className="formtextfield" required>
@@ -62,6 +59,10 @@ const content = () => {
                         <option value="others"> Others </option>
                     </select>{' '}
                     <p />
+                    <label> Description </label>
+                    <p />
+                    <textarea type="text" placeholder="Payment Reason" name="description" className="formtextfield" required />{' '}
+                    <br />
                     <div style={{ textAlign: 'center', paddingTop: 10 }}>
                         <button type="submit" id="submit" className="button" onClick={handleSubmit}> Create New Payroll </button>{' '}
                     </div>

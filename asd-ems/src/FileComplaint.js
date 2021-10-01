@@ -1,6 +1,7 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
+import EmployeeWebLayout from './components/EmployeeWebLayout';
 
 const content = () => {
   var date = new Date();
@@ -53,7 +54,8 @@ const content = () => {
 };
 
 const FileComplaint = () => {
-  return <WebLayout content={content()} />;
+  // return <WebLayout content={content()} />;
+  return <EmployeeWebLayout content={content()} />;
 };
 
 export default FileComplaint;

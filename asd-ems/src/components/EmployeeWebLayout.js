@@ -13,7 +13,7 @@ const EmployeeWebLayout = ({ content }) => {
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['menu1']} mode="inline">
           <Menu.Item key="menu1" icon={<PieChartOutlined />}>
-            <Link to="./Dashboard"> <button> Home </button>{' '}</Link>
+            <Link to="./EmployeeDashboard"> <button> Home </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu2" icon={<FileOutlined />}>
@@ -29,7 +29,7 @@ const EmployeeWebLayout = ({ content }) => {
           </Menu.Item>
 
           <Menu.Item key="menu5" icon={<RobotOutlined />}>
-            <Link to="./Personal"> <button> Personal File </button>{' '}</Link>
+            <Link to="./EmployeePersonal"> <button> Personal File </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu6" icon={<LoginOutlined />}>
@@ -51,7 +51,10 @@ const EmployeeWebLayout = ({ content }) => {
           </Breadcrumb>
           {content}
         </Content>
-        <Footer style={{ textAlign: 'center' }}> @Copyright 2021 - ASD Group 6 </Footer>
+        <Footer style={{ textAlign: 'center' }}>
+          @Copyright 2021 - ASD Group 6 <br />
+          My Duong, Catherine Pe Benito, George Hetrelezis, Reagan Brasch, Abdullah Slimani, Asif Bin Kabir
+        </Footer>
       </Layout>
     </Layout>
   );

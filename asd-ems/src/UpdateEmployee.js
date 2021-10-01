@@ -3,13 +3,19 @@ import WebLayout from './components/WebLayout'
 import React from 'react';
 
 const content = () => {
+  function goBack(e) {
+    e.preventDefault();
+    var option = window.confirm("Do you want leave the page?\n\nSelect OK to go back and data will not be saved\n\nSelect CANCEL to remain on the page")
+    if (option === true) { window.history.back(); }
+  }
+
   function handleSubmit(e) {
     function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
     function isName(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR,OP,MK,FN]{2}$/.test(name) }
     function isText(text) { return (/^[A-Za-z]+$/).test(text) }
 
     e.preventDefault();
-    var s = window.confirm("Do you want add a new user with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
+    var s = window.confirm("Do you update the information with entered data?\n\nSelect OK to proceed\n\nSelect CANCEL to remain on the page");
     if (s === true) {
       var fname = document.forms["updateform"]["fname"].value;
       var lname = document.forms["updateform"]["lname"].value;
@@ -48,13 +54,11 @@ const content = () => {
       else if ((new Date().getFullYear() - new Date(dob).getFullYear()) <= 18) { alert("Employee age must be 18 or over"); }
       else { window.location = "./UserList"; }
     }
-    else {
-      document.getElementById("updateform").reset();
-    }
   }
 
   return (
     <div>
+      <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button> <br />
       <form id="updateform" name="updateform" >
         <h1 style={{ textAlign: 'center', fontSize: 30, }}> Edit <b>Hello World</b> details </h1>
 
@@ -132,7 +136,7 @@ const content = () => {
         <p />
         <div style={{ textAlign: 'center', paddingTop: 10 }}>
           <button className="button" id="updatesubmit" type="submit" onClick={handleSubmit}>
-            Update <b>Hello World</b> Profile
+            Update <b> Hello World </b> Profile
           </button>{' '}
         </div>
       </form>

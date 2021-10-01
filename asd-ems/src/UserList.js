@@ -41,7 +41,7 @@ const content = () => {
             <td> Part-Time </td>
             <td>
               {' '}
-              <Link to="#"> View </Link> <br />{' '}
+              <Link to="./Profile"> View </Link> <br />{' '}
               <Link to="./UpdateEmployee"> Update </Link> <br />{' '}
               <Link to="#"> Delete </Link>{' '}
             </td>

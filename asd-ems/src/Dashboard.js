@@ -4,7 +4,7 @@ import WebLayout from './components/WebLayout';
 const testText = () => {
   return (
     <div>
-      <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, "Admin Name" </h1>
+      <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Admin </h1>
       <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Annoucement </h2>
       <li>
         System maintenance is due at midnight to tomorrow 7am. Ensure not to use the system during the maintenance time
@@ -40,8 +40,8 @@ const testText = () => {
         <li> Payroll Manage - Payroll History, Log and Payment Policy </li>
         <li> Application - Launch and Manage Application </li>
         <li> Complaints - File and Manage Complaints </li>
-        <li> Voice Concern - Acts as a discussion board where users can dicuss anonymously </li>
-        <li> Personal File - View information including: information, logtime, pay history, submmited application and compliants </li>
+        <li> Concern Manage - Manage Concerns from Employee </li>
+        <li> Personal File - View information including: personal, logtime, pay history, submmited application and compliants </li>
       </p>
 
       <p>

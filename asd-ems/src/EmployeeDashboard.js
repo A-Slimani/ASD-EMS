@@ -4,7 +4,7 @@ import EmployeeWebLayout from './components/EmployeeWebLayout';
 const testText = () => {
   return (
     <div>
-      <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, "Employee Name" </h1>
+      <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Employee </h1>
       <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Annoucement </h2>
       <li>
         System maintenance is due at midnight to tomorrow 7am. Ensure not to use the system during the maintenance time
