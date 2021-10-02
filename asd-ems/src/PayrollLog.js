@@ -6,30 +6,14 @@ const content = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <h1 style={{ textAlign: 'center' }}>Payroll Log</h1>
-        <input
-          type="number"
-          placeholder="Employee ID"
-          name="requestedid"
-          class="textfield"
-        />
+        <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}>Payroll Log</h1>
+
+        <input type="number" placeholder="Employee ID" name="requestedid" class="textfield" />
         <input type="textfield" placeholder="Name" name="requestedfn" class="textfield" />
-        <input
-          type="number"
-          placeholder="Min Salary"
-          name="Min Salary"
-          class="textfield"
-        />
-        <input
-          type="number"
-          placeholder="Max Salary"
-          name="Max Salary"
-          class="textfield"
-        />
-        <button className="button" name="searchbtn" type="submit">
-          {' '}
-          Search{' '}
-        </button>{' '}
+        <input type="number" placeholder="Min Salary" name="Min Salary" class="textfield" />
+        <input type="number" placeholder="Max Salary" name="Max Salary" class="textfield" />
+
+        <button className="button" name="searchbtn" type="submit"> {' '} Search {' '} </button>{' '}
         <p />
       </div>
 

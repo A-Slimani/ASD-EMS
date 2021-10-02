@@ -1,5 +1,6 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
+import { Link } from 'react-router-dom';
 
 const content = () => {
   return (
@@ -8,13 +9,7 @@ const content = () => {
         {' '}
         <b>Payment Policy</b>{' '}
       </h1>
-      <p
-        style={{
-          fontSize: '20px',
-          paddingLeft: '45px',
-          paddingTop: '50px',
-          textAlign: 'left',
-        }}>
+      <p style={{ fontSize: '20px', paddingLeft: '45px', paddingTop: '50px', textAlign: 'left',}}>
         {' '}
         Enterprise Management Systems reflects that by purchasing our Employee Management
         System, you will be agreeing to the following terms and conditions:
@@ -71,6 +66,9 @@ const content = () => {
           <b>Enterprise Management Systems</b>
         </p>
       </p>
+      <div style={{ textAlign: 'center', paddingTop: 10 }}>
+      <Link to="./UpdatePolicy"> <button className="button"> Update Policy </button> </Link>
+      </div>
     </div>
   );
 };

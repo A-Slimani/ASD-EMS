@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
-import './index.css';
+import './style.css';
 import { Space, Card } from 'antd';
 
 function SpaceVertical() {
