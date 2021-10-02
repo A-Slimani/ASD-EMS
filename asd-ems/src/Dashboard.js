@@ -1,75 +1,65 @@
-import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import './Dashboard.css';
 import React from 'react';
-import {Link} from "react-router-dom"
+import WebLayout from './components/WebLayout';
 
-const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu } = Menu;
+const testText = () => {
+  return (
+    <div>
+      <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Admin </h1>
+      <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Annoucement </h2>
+      <li>
+        System maintenance is due at midnight to tomorrow 7am. Ensure not to use the system during the maintenance time
+        as changed information may not be saved.
+      </li>
+      <li> Starting next year, a new payment policy is apply. Please read the new policy in the "Payment Policy" page. </li>
+      <li> End of year party ticket is open, date and time is to be annouce. </li>
+      <br /><p />
 
-class Dashboard extends React.Component {
-  state = {
-    collapsed: false,
-  };
+      <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> General Information </h2>
+      <li>
+        As an employee from the Human Resource (HR) department, also known as the admin in the EMS system, you have the
+        priviledge to view, add, delete and modify employees as well as your personal information.
+      </li>
+      <li>
+        As an EMS user, it is your responsibilities to ensure that all the provided information are accurate, relevant and recent.
+        Thus, all submitted applications and complaints are valid and reasonable.
+      </li>
+      <li>
+        As an admin, it is your responsibilities to assess the information
+        where all submitted applications and complaints will be required to be assessed before approving/decline.
+      </li>
+      <li>
+        EMS users are expected to visit and check the system regularly for new/updated information
+        such as changes in application and complaints status or simply daily annoucement.
+      </li>
+      <br /><p />
 
-  onCollapse = collapsed => {
-    this.setState({ collapsed });
-  };
+      <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Navigation in EMS </h2>
+      <p>
+        The navigations are categorised into groups including:
+        <li> Employee Manage - Employee List, Add New Employee </li>
+        <li> Payroll Manage - Payroll History, Log and Payment Policy </li>
+        <li> Application - Launch and Manage Application </li>
+        <li> Complaints - File and Manage Complaints </li>
+        <li> Concern Manage - Manage Concerns from Employee </li>
+        <li> Personal File - View information including: personal, logtime, pay history, submmited application and compliants </li>
+      </p>
 
-  render() {
-    const { collapsed } = this.state;
-    return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              Home
-            </Menu.Item>
-            <SubMenu key="sub1" icon={<UserOutlined />} title="Employee Manage">
-              <Menu.Item key="3"> <Link to="./userList"><button> Employee List </button> </Link> </Menu.Item>
-              <Menu.Item key="4"> <Link to="./addUser"><button> Add User </button> </Link></Menu.Item>
-              <Menu.Item key="5"> <Link to="./fileComplaint"><button> File Complaint </button> </Link></Menu.Item>
-              <Menu.Item key="7"> <Link to="./application"><button> Application </button> </Link></Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
-              <Menu.Item key="6"> Employee Management </Menu.Item>
-              <Menu.Item key="8"> Payment Policy </Menu.Item>
-            </SubMenu>
-            <Menu.Item key="2" icon={<DesktopOutlined />}> 
-              <Link to="./discussionBoard"><button> Voice Concern </button> </Link>
-            </Menu.Item>
-            <Menu.Item key="9" icon={<FileOutlined />}> 
-              <Link to="./Logout"><button> Logout </button> </Link> 
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            <h1 style={{ color: 'white', textAlign: 'center', fontSize :"20px" }}>Employee Management System</h1>
-          </Header>
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div
-              className="site-layout-background"
-              style={{ padding: 24, minHeight: 360 }}>
-              Bill is a cat.
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}> @Copyright 2021 - ASD Group 6  </Footer>
-        </Layout>
-      </Layout>
-    );
-  }
-}
+      <p>
+        <br></br>
+        <i>Many thanks,</i>
+        <br></br>
+        Martin Lym <br></br>
+        <br></br>
+        Human Resources Manager <br></br>
+        <b>Enterprise Management Systems</b>
+      </p>
+
+    </div>
+  );
+};
+
+const Dashboard = () => {
+  return <WebLayout content={testText()} />;
+};
 
 export default Dashboard;
