@@ -1,11 +1,11 @@
+import { Table } from 'antd';
 import React from 'react';
 import WebLayout from './components/WebLayout';
-import { Link } from 'react-router-dom';
 
 const content = () => {
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
+      {/* <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Employee </h1>
         <input type="textfield" placeholder="First Name" name="requestedfn" class="textfield" />
         <input type="textfield" placeholder="Last Name" name="requestedln" class="textfield" />
@@ -47,7 +47,10 @@ const content = () => {
             </td>
           </tr>
         </table>
-      </div>
+      </div> */}
+      <Table dataSource={/* insert data source here */}>
+        
+      </Table>
     </>
   );
 };

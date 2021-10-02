@@ -1,5 +1,5 @@
 import React from 'react';
-import WebLayout from './components/WebLayout';
+// import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
 import EmployeeWebLayout from './components/EmployeeWebLayout';
 
