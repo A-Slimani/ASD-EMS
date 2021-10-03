@@ -1,8 +1,10 @@
 import './style.css';
 import WebLayout from './components/WebLayout'
-import React from 'react';
+import React, { useState } from 'react';
 
-const content = () => {
+const Content = () => {
+  const [employee, setEmployee] = useState([])
+
   function goBack(e) {
     e.preventDefault();
     var option = window.confirm("Do you want leave the page?\n\nSelect OK to go back and data will not be saved\n\nSelect CANCEL to remain on the page")
@@ -145,7 +147,7 @@ const content = () => {
 };
 
 const UpdateEmployee = () => {
-  return <WebLayout content={content()} />;
+  return <WebLayout content={Content()} />;
 }
 
 export default UpdateEmployee;
