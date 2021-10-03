@@ -11,7 +11,7 @@ const testText = () => {
         as changed information may not be saved.
       </li>
       <li> Starting next year, a new payment policy is apply. Please read the new policy in the "Payment Policy" page. </li>
-      <li> End of year party ticket is open, date and time is to be annouce. </li>
+      <li> End of year party ticket is open, date and time is to be announced. </li>
       <br /><p />
 
       <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> General Information </h2>
