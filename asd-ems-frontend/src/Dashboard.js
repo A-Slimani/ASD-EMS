@@ -1,13 +1,6 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
 
-<<<<<<< HEAD
-
-const testText = () => {
-  return <h1>first header</h1>;
-};
-
-=======
 const testText = () => {
   return (
     <div>
@@ -65,7 +58,6 @@ const testText = () => {
   );
 };
 
->>>>>>> main
 const Dashboard = () => {
   return <WebLayout content={testText()} />;
 };

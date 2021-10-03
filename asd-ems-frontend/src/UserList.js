@@ -1,8 +1,22 @@
 import { Table } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
+import employeeService from "./services/Employee";
 
-const content = () => {
+const { Column } = Table;
+
+const Content = () => {
+  const [employees, setEmployees] = useState([])
+
+  useEffect(() => {
+    employeeService.getAll().then(employees => {
+      setEmployees(employees)
+    })
+  }, [])
+
+
+
   return (
     <>
       {/* <div style={{ textAlign: 'center' }}>
@@ -48,15 +62,18 @@ const content = () => {
           </tr>
         </table>
       </div> */}
-      <Table dataSource={/* insert data source here */}>
-        
+      <Table dataSource={employees}>
+        <Column title="Employee ID" dataIndex="id" key="id"/>
+        <Column title="First Name" dataIndex="firstName" key="firstName"/>
+        <Column title="Last Name" dataIndex="lastName" key="lastName"/>
+        <Column title="Employment Type" dataIndex="employmentType" key="employmentType"/>
       </Table>
     </>
   );
 };
 
 const UserList = () => {
-  return <WebLayout content={content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default UserList;

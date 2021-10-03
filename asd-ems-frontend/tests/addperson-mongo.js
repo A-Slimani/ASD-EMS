@@ -10,44 +10,42 @@ const url =
 mongoose.connect(url);
 
 // DEFINES THE VALUES OF THE SCHEMA
-const personSchema = new mongoose.Schema({
-  name: String,
-  age: Number,
+
+const employeeSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+    minlength: 2,
+  },
+  lastName: {
+    type: String,
+    required: true,
+    minlength: 2,
+  },
+	department: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+	employmentType: {
+		type: String,
+		required: true,
+		minLength: 2
+	}
 });
 
-const Person = mongoose.model('Person', personSchema);
+const Employee = mongoose.model('employee', employeeSchema);
 
-// CREATING AND SAVING OBJECTS
-const person = new Person({
-  name: 'John',
-  age: 30,
+
+const first = new Employee({
+  id: 1,
+			firstName: "Abdullah",
+			lastName: "Slimani",
+			department: "HR",
+			employmentType: "Full-time"
+})
+
+first.save().then(() => {
+  console.log('person saved!');
+  mongoose.connection.close();
 });
-
-// ADD NEW PERSON
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-var choice = 0;
-
-readline.question('View Database (1), Add Person to Database (2)', c => {
-  c = choice;
-  readline.close();
-});
-
-if (choice === 1) {
-  Person.find({}).then(result => {
-    result.forEach(person => {
-      console.log(person);
-    });
-    mongoose.connection.close();
-  });
-} else if (choice === 2) {
-
-}
-
-// person.save().then(() => {
-//   console.log('person saved!');
-//   mongoose.connection.close();
-// });

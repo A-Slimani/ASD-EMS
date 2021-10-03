@@ -22,13 +22,6 @@ import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
 
 function App() {
-  const [employees, setEmployees] = useState([])
-
-  useEffect(() => {
-
-  })
-
-
   return (
     <BrowserRouter>
       <Switch>

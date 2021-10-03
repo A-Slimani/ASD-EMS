@@ -1,0 +1,25 @@
+{
+	"employees":[
+		{
+			"id": 1,
+			"firstName": "Abdullah",
+			"lastName": "Slimani",
+			"department": "HR",
+			"employmentType": "Full-time"
+		},
+		{
+			"id": 2,
+			"firstName": "John",
+			"lastName": "Smith",
+			"department": "IT",
+			"employmentType": "Full-time"
+		},
+		{
+			"id": 3,
+			"firstName": "Alex",
+			"lastName": "Jones",
+			"department": "Finance",
+			"employmentType": "Part-time"
+		}
+	]
+}
