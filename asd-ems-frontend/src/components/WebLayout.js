@@ -24,10 +24,9 @@ const WebLayout = ({ content }) => {
 
           <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
             <Menu.Item key="4"> <Link to="./AddPayroll"> <button> New Payroll </button></Link></Menu.Item>
-            <Menu.Item key="5"> <Link to="./PayrollList"> <button> Employee Payroll </button> </Link> </Menu.Item>
-            <Menu.Item key="6"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
+            <Menu.Item key="5"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
             {/* <Menu.Item key="6"> <Link to="./PayrollLog"> <button> Payroll Log </button></Link></Menu.Item> */}
-            <Menu.Item key="7">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
+            <Menu.Item key="6">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
           </SubMenu>
 
           <SubMenu key="sub3" icon={<FileOutlined />} title="Applications">
