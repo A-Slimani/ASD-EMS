@@ -1,14 +1,25 @@
-import React from 'react';
+import { Button, Divider, Space, Table } from 'antd';
+import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
-import { Link } from 'react-router-dom';
+import complaintService from "./services/Complaint";
 
-const content = () => {
+const { Column } = Table;
+
+const Content = () => {
+  const [filecomplaint, setComplaint] = useState([]);
+
+  useEffect(() => {
+    complaintService.getAll().then(filecomplaint => {
+      setComplaint(filecomplaint)
+    })
+  }, [])
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All File Complaints </h1>
         <input type="number" placeholder="File ID" name="requestedid" class="textfield" />
-        <input type="textfield" placeholder="Name" name="requestedfn" class="textfield" />
+        <input type="textfield" placeholder="Type" name="requestedtype" class="textfield" />
         <input type="date" name="requesteddate" class="textfield" />
         <button className="button" name="searchbtn" type="submit">
           {' '}
@@ -17,40 +28,30 @@ const content = () => {
         <p />
       </div>
 
-      <div>
-        <table className="table">
-          <tr>
-            <th> File ID </th>
-            <th> Category </th>
-            <th> Description </th>
-            <th> Owner </th>
-            <th> Date Submitted </th>
-            <th> Status </th>
-            <th> Option </th>
-          </tr>
-
-          <tr>
-            <td> 1 </td>
-            <td> Work </td>
-            <td> why? </td>
-            <td> Bob </td>
-            <td> dd/mm/yyyy </td>
-            <td>
-              {' '} Pending <br /> Solved {' '}
-            </td>
-            <td>
-              {' '}
-              <Link to="#"> Solved </Link> <br />{' '}
-            </td>
-          </tr>
-        </table>
+      <div style={{ paddingTop: 10 }}>
+        <Table dataSource={filecomplaint}>
+          <Column title="Complaint ID" dataIndex="id" key="id" />
+          <Column title="First Name" dataIndex="fname" key="firstName" />
+          <Column title="Last Name" dataIndex="lname" key="lastName" />
+          <Column title="Type" dataIndex="complainttype" key="complainttype" />
+          <Column title="Description" dataIndex="complaintdescription" key="complaintdescription" />
+          <Column title="Date Submitted" dataIndex="complaintdate" key="complaintdate" />
+          <Column title="Status" dataIndex="status" key="status" />
+          <Column title="Options" key="id" render={(p) => (
+            <>
+              <Space split={<Divider type="vertical" />}>
+                <Button> Solved </Button>
+              </Space>
+            </>
+          )} />
+        </Table>
       </div>
     </>
   );
 };
 
 const ComplaintList = () => {
-  return <WebLayout content={content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default ComplaintList;

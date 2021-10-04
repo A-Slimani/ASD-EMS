@@ -5,13 +5,13 @@ const testText = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Admin </h1>
-      <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Announcement </h2>
+      <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Annoucement </h2>
       <li>
         System maintenance is due at midnight to tomorrow 7am. Ensure not to use the system during the maintenance time
         as changed information may not be saved.
       </li>
       <li> Starting next year, a new payment policy is apply. Please read the new policy in the "Payment Policy" page. </li>
-      <li> End of year party ticket is open, date and time is to be announced. </li>
+      <li> End of year party ticket is open, date and time is to be annouce. </li>
       <br /><p />
 
       <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> General Information </h2>

@@ -32,10 +32,7 @@ const Login = () => {
       history.push('./Dashboard');
     }
     else if (isEmployee(username) === true) {
-      history.push({
-        pathname: './EmployeeDashboard',
-        state: username
-      });
+      history.push('./EmployeeDashboard');
     }
     else {
       alert('Incorrect username and/or password');
