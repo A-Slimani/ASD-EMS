@@ -4,6 +4,7 @@ import Login from './Login';
 import Logout from './Logout';
 import UserList from './UserList';
 import AddUser from './AddUser';
+import Roster from './Roster';
 import DiscussionBoard from './discussionBoard';
 import PaymentPolicy from './PaymentPolicy';
 import FileComplaint from './FileComplaint';
@@ -32,6 +33,7 @@ function App() {
 
         <Route exact path="/Dashboard"> <Dashboard /> </Route>
         <Route exact path="/EmployeeDashboard"> <EmployeeDashboard /> </Route>
+        <Route exact path="/Roster"> <Roster /> </Route>
 
         <Route exact path="/discussionBoard"> <DiscussionBoard /> </Route>
         <Route exact path="/ConcernList"> <ConcernList /> </Route>

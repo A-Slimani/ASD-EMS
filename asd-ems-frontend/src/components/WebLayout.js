@@ -20,18 +20,26 @@ const WebLayout = ({ content }) => {
           <SubMenu key="sub1" icon={<UserOutlined />} title="Employee Manage">
             <Menu.Item key="3">{' '} <Link to="./AddUser"> <button> Add Employee</button>{' '}</Link></Menu.Item>
             <Menu.Item key="2">{' '} <Link to="./UserList"> <button> Employee List </button>{' '}</Link>{' '}</Menu.Item>
+            <Menu.Item key="4">{' '} <Link to="./Roster"> <button> Roster </button>{' '}</Link>{' '}</Menu.Item>
           </SubMenu>
 
           <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
-            <Menu.Item key="4"> <Link to="./AddPayroll"> <button> New Payroll </button></Link></Menu.Item>
-            <Menu.Item key="5"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
+            <Menu.Item key="5"> <Link to="./AddPayroll"> <button> New Payroll </button></Link></Menu.Item>
+            <Menu.Item key="6"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
             {/* <Menu.Item key="5"> <Link to="./PayrollLog"> <button> Payroll Log </button></Link></Menu.Item> */}
-            <Menu.Item key="6">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
+            <Menu.Item key="7">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
           </SubMenu>
 
+<<<<<<< Updated upstream
           <Menu.Item key="menu2" icon={<FileOutlined />}>
           <Link to="./ApplicationList"><button> Manage Application </button></Link>
           </Menu.Item>
+=======
+          <SubMenu key="sub3" icon={<FileOutlined />} title="Applications">
+            {/* <Menu.Item key="7"> <Link to="Application"> <button> Launch Application </button> </Link></Menu.Item> */}
+            <Menu.Item key="9">{' '} <Link to="./ApplicationList"><button> Manage Application </button></Link></Menu.Item>
+          </SubMenu>
+>>>>>>> Stashed changes
 
           <Menu.Item key="menu3" icon={<CommentOutlined />}>
           <Link to="./ComplaintList"><button> Manage Complaints </button></Link>
