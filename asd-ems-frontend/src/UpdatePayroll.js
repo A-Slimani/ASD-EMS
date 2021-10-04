@@ -20,14 +20,14 @@ const Content = () => {
     var s = window.confirm("Do you update the information with entered data?\n\nSelect OK to proceed\n\nSelect CANCEL to remain on the page");
     if (s === true) {
 
-      var currentpay = document.forms["updateform"]["currentpay"].value;
-      var pcode = document.forms["updateform"]["pcode"].value;
-      var paymentmethod = document.forms["updateform"]["paymentmethod"].value;
+      var amount = document.forms["updateform"]["amount"].value;
+      var bonus = document.forms["updateform"]["bonus"].value;
+      var paymethod = document.forms["updateform"]["paymethod"].value;
       var description = document.forms["updateform"]["description"].value;
 
-      if (currentpay === "" || isNumber(currentpay) === false) { alert("Current pay field is empty or invalid format input"); }
-      else if (pcode === "" || isNumber(pcode) === false) { alert("Post Code is empty or invalid format input"); }
-      else if (paymentmethod === "") { alert("Payment Method must be select"); }
+      if (amount === "" || isNumber(amount) === false) { alert("Current pay field is empty or invalid format input"); }
+      else if (bonus === "" || isNumber(bonus) === false) { alert("Post Code is empty or invalid format input"); }
+      else if (paymethod === "") { alert("Payment Method must be select"); }
       else if (description === "") { alert("Provide payment reason for this payroll");}
       else { window.location = "./UserList"; }
     }
@@ -40,13 +40,13 @@ const Content = () => {
         <h1 style={{ textAlign: 'center', fontSize: 30, }}> Edit <b>Employee</b> payroll details </h1>
 
         <label> Current Pay: </label> <small> Up to 10 digits </small> <p />
-        <input type="text" defaultValue="50000" name="currentpay" maxlength="10" className="formtextfield" required />{' '}
+        <input type="text" defaultValue="50000" name="amount" maxlength="10" className="formtextfield" required />{' '}
         <br />
         <label> Bonus: </label> <small> Up to 6 digits </small> <p />
-        <input type="text" defaultValue="5000" name="pcode" maxlength="6" className="formtextfield" required />{' '}
+        <input type="text" defaultValue="5000" name="bonus" maxlength="6" className="formtextfield" required />{' '}
         <p />
         <label> Payment Method: </label> <br />
-        <select name="paymentmethod" className="formtextfield" required>
+        <select name="paymethod" className="formtextfield" required>
           <option value="HR"> Cash </option>
           <option value="finance"> Cheques </option>
           <option value="marketing"> Eftpos </option>
