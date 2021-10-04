@@ -2,24 +2,33 @@
 	"employees":[
 		{
 			"id": 1,
-			"firstName": "Abdullah",
-			"lastName": "Slimani",
-			"department": "HR",
-			"employmentType": "Full-time"
-		},
-		{
-			"id": 2,
-			"firstName": "John",
-			"lastName": "Smith",
-			"department": "IT",
-			"employmentType": "Full-time"
-		},
-		{
-			"id": 3,
-			"firstName": "Alex",
-			"lastName": "Jones",
-			"department": "Finance",
-			"employmentType": "Part-time"
+		"firstName": "Abdullah",
+		"lastName": "Slimani",
+		"department": "HR",
+		"employmentType": "Full-time",
+		"currentPay":"50000",
+		"bonus":"5000",
+		"paymentMethod":"Eftpos"
+	},
+	{
+		"id": 2,
+		"firstName": "John",
+		"lastName": "Smith",
+		"department": "IT",
+		"employmentType": "Full-time",
+		"currentPay":"100000",
+		"bonus":"2000",
+		"paymentMethod":"Eftpos"
+	},
+	{
+		"id": 3,
+		"firstName": "Alex",
+		"lastName": "Jones",
+		"department": "Finance",
+		"employmentType": "Part-time",
+		"currentPay":"70000",
+		"bonus":"200",
+		"paymentMethod":"Eftpos"
 		}
 	]
 }

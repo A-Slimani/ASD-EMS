@@ -59,9 +59,9 @@ const content = () => {
                         <option value="others"> Others </option>
                     </select>{' '}
                     <p />
-                    <label> Description </label>
+                    <label> Description: </label>
                     <p />
-                    <textarea type="text" placeholder="Payment Reason" name="description" className="formtextfield" required />{' '}
+                    <textarea type="text" placeholder="Please provide reason for chosen payment method. If unapplicable, write 'n/a'." name="description" className="formtextfield" required />{' '}
                     <br />
                     <div style={{ textAlign: 'center', paddingTop: 10 }}>
                         <button type="submit" id="submit" className="button" onClick={handleSubmit}> Create New Payroll </button>{' '}
@@ -72,8 +72,8 @@ const content = () => {
     );
 };
 
-const AddUser = () => {
+const AddPayroll = () => {
     return <WebLayout content={content()} />;
 };
 
-export default AddUser;
+export default AddPayroll;
