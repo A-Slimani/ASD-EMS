@@ -8,12 +8,6 @@ const Content = () => {
   const match = useRouteMatch('/UpdateEmployee/:id');
   const [employee, setEmployee] = useState()
 
-//    const showTemp = () => {
-//     return weatherInfo.DailyForecasts !== undefined
-//       ? weatherInfo.DailyForecasts[0].Temperature.Maximum.Value
-//       : "";
-//   };
-
   const showEmployee = () => {
     return employee !== undefined ? employee : "";
   }
@@ -80,18 +74,18 @@ const Content = () => {
    <div>
      <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button> <br />
      <form id="updateform" name="updateform" >
-       <h1 style={{ textAlign: 'center', fontSize: 30, }}> Edit <b>{showEmployee().fname}</b> details </h1>
+       <h1 style={{ textAlign: 'center', fontSize: 30, }}> Edit <b>{showEmployee().fname + " " + showEmployee().lname}</b> details </h1>
 
        <label> First Name: </label>
        <small>Up to 255 Characters </small> <p> </p>
-       <input type="text" defaultValue="Hello" name="fname" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().fname} name="fname" className="formtextfield" required />{' '}
        <br />
        <label> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
-       <input type="text" defaultValue="World" name="lname" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().lname} name="lname" className="formtextfield" required />{' '}
        <br />
        <label> Date of Birth: </label> <small> Use the calendar on the right </small>{' '}
        <p />
-       <input type="date" value="1992-07-02" name="dob" className="formtextfield" required />{' '}
+       <input type="date" value={showEmployee().dob} name="dob" className="formtextfield" required />{' '}
        <br />
        <label> Username: </label>
        <small>
@@ -99,40 +93,40 @@ const Content = () => {
          Resource, OP - Operation, MK - Marketing, FN - Finance{' '}
        </small>
        <p />
-       <input type="email" defaultValue="helloworld@EMSHR" name="username" pattern="[a-z0-9._%+-]+@EMS[A-Z]{2,}$" className="formtextfield" required />{' '}
+       <input type="email" defaultValue={showEmployee().username} name="username" pattern="[a-z0-9._%+-]+@EMS[A-Z]{2,}$" className="formtextfield" required />{' '}
        <br />
        <label> Password: </label>{' '}
        <small> Maximum password length is 16 Characters </small> <p />
        <input type="password" placeholder="Retype Password" maxlength="16" name="pwd" className="formtextfield" required />{' '}
        <br />
        <label> Contact Number: </label> <small> Up to 10 digits </small> <p />
-       <input type="tel" defaultValue="0404990022" name="phoneno" maxlength="10" className="formtextfield" required />{' '}
+       <input type="tel" defaultValue={showEmployee().phoneno} name="phoneno" maxlength="10" className="formtextfield" required />{' '}
        <br />
        <label> Bank Account Name: </label> <small> Up to 255 Characters </small>
        <p />
-       <input type="text" placeholder="Full Name" name="accname" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().accname} name="accname" className="formtextfield" required />{' '}
        <br />
        <label> Bank Account Number: </label>
        <small> Up to 10 Digits </small>
        <p />
-       <input type="text" placeholder="Account Number without space" name="accnum" minLength="6" maxLength="10" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().accnum} name="accnum" minLength="6" maxLength="10" className="formtextfield" required />{' '}
        <br />
        <label> BSB: </label>
        <small> Up to 6 Digits </small>
        <p />
-       <input type="text" placeholder="BSB without space" name="bsb" maxLength="6" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().accbsb} name="bsb" maxLength="6" className="formtextfield" required />{' '}
        <br />
        <label> Address: </label> <small>Up to 255 Characters </small> <p />
-       <input type="text" defaultValue="15 Raleway Ave" maxlength="255" name="address" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().address} maxlength="255" name="address" className="formtextfield" required />{' '}
        <br />
        <label> Suburb: </label> <small>Up to 255 Characters </small> <p />
-       <input type="text" defaultValue="Sydney" maxlength="255" name="suburb" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().suburb} maxlength="255" name="suburb" className="formtextfield" required />{' '}
        <br />
        <label> State: </label> <small> State code up 3 Character </small> <p />
-       <input type="text" defaultValue="NSW" name="state" maxlength="3" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().state} name="state" maxlength="3" className="formtextfield" required />{' '}
        <br />
        <label> Post Code: </label> <small> Up 4 Digits </small> <p />
-       <input type="text" defaultValue="2000" name="pcode" maxlength="4" className="formtextfield" required />{' '}
+       <input type="text" defaultValue={showEmployee().pcode} name="pcode" maxlength="4" className="formtextfield" required />{' '}
        <p />
        <label> Employment Type: </label> <p />
        <input type="radio" id="html" name="employtype" value="fulltime" checked />
@@ -144,7 +138,7 @@ const Content = () => {
        <label for="casual"> Casual Worker </label> <p />
        <label> Employment Date: </label> <small> Use the calendar on the right </small>{' '}
        <p />
-       <input type="date" value="2019-02-02" name="employdate" className="formtextfield" required />{' '}
+       <input type="date" defaultvalue={showEmployee().employdate} name="employdate" className="formtextfield" required />{' '}
        <p />
        <label> Department: </label> <br />
        <select name="dept" className="formtextfield" required>
@@ -156,7 +150,7 @@ const Content = () => {
        <p />
        <div style={{ textAlign: 'center', paddingTop: 10 }}>
          <button className="button" id="updatesubmit" type="submit" onClick={handleSubmit}>
-           Update <b> Hello World </b> Profile
+           Update <b> {showEmployee().fname + " " + showEmployee().lname}</b> Profile
          </button>{' '}
        </div>
      </form>
