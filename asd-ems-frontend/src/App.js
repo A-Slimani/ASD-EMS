@@ -13,7 +13,6 @@ import ApplicationList from './ApplicationList';
 import PayrollList from './PayrollList';
 import PayrollHistory from './PayrollHistory';
 import UpdateEmployee from './UpdateEmployee';
-import PayrollList from './PayrollList';
 import ComplaintList from './ComplaintList';
 import Personal from './Personal';
 import UpdatePayroll from './UpdatePayroll';
