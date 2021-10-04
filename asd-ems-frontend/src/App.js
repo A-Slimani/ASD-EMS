@@ -1,9 +1,10 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Logout from './Logout';
 import UserList from './UserList';
 import AddUser from './AddUser';
+import Roster from './Roster';
 import DiscussionBoard from './discussionBoard';
 import PaymentPolicy from './PaymentPolicy';
 import FileComplaint from './FileComplaint';
@@ -23,6 +24,9 @@ import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
 
 function App() {
+  
+    
+
   return (
     <BrowserRouter>
       <Switch>
@@ -34,6 +38,7 @@ function App() {
 
         <Route exact path="/Dashboard"> <Dashboard /> </Route>
         <Route exact path="/EmployeeDashboard"> <EmployeeDashboard /> </Route>
+        <Route exact path="/Roster"> <Roster /> </Route>
 
         <Route exact path="/discussionBoard"> <DiscussionBoard /> </Route>
         <Route exact path="/ConcernList"> <ConcernList /> </Route>
@@ -44,7 +49,7 @@ function App() {
         <Route exact path="/Profile"> <Profile /> </Route>
         <Route exact path="/AddUser"> <AddUser /> </Route>
         <Route exact path="/UserList"> <UserList /> </Route>
-        <Route exact path="/UpdateEmployee"> <UpdateEmployee /> </Route>
+        <Route exact path="/UpdateEmployee/:id"> <UpdateEmployee /> </Route>
 
         <Route exact path="/Application"> <Application /> </Route>
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>

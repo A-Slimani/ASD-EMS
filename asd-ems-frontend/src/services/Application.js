@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "/api/employees"
+const baseUrl = "/applicationform"
 
 const getAll = () => {
   const request = axios.get(baseUrl);

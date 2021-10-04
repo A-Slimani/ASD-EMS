@@ -1,6 +1,6 @@
 import { Button, Divider, Space, Table } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
 import employeeService from "./services/Employee";
 
@@ -8,38 +8,13 @@ const { Column } = Table;
 
 const Content = () => {
   const [employees, setEmployees] = useState([])
-  const history = useHistory();
 
   useEffect(() => {
     employeeService.getAll().then(employees => {
       setEmployees(employees)
     })
   }, [])
-
-  // const deletePerson = e => {
-  //   console.log(e.currentTarget.id);
-  //   const p = persons.find(n => n.id === e.currentTarget.id);
-  //   console.log('test p: ', p);
-  //   if (window.confirm(`Delete ${p.name}`)) {
-  //     personService.remove(p.id);
-  //     setRefresh(true);
-  //     // setMessage(`${p.name} removed`);
-  //     setTimeout(() => {
-  //        // setMessage(null);
-  //     }, 5000);
-  //   }
-  // };
-
-  const handleEditRoute = e => {
-    console.log("e.id: ", e.currentTarget.id)
-    console.log(employees)
-    const employee = employees.find(x => x.id === e.currentTarget.id)
-    console.log('test employee: ', employee) 
-    history.push({
-      pathname: `./UpdateEmployee/${employee.id}`,
-    })
-  } 
-
+      
   return (
     <>
       <Table dataSource={employees}>
@@ -51,7 +26,7 @@ const Content = () => {
           <>
           <Space split={<Divider type="vertical" />}>
             <Button>view</Button>
-            <Button id={p.id} onClick={handleEditRoute}>update</Button>
+            <Link to="./UpdateEmployee"><Button>update </Button></Link>
             <Button>delete</Button>
           </Space>
           </>

@@ -15,13 +15,19 @@ const content = () => {
                 </ul>
             </div>
             <div>
-                <textarea type="text" className="formtextfield" cols="50" rows="50" >
+                <form> 
+                <textarea 
+                type="text" 
+                className="formtextfield" 
+                cols="50" rows="50" 
+                >
                     "payment policy get from the database"
                 </textarea>
 
                 <div style={{ textAlign: 'center', paddingTop: 10 }}>
                     <Link to="./PaymentPolicy"> <button className="button"> Updated New Policy </button> </Link>
                 </div>
+                </form>
             </div>
         </div>
     );

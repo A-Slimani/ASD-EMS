@@ -1,8 +1,19 @@
-import React from 'react';
+import { Button, Divider, Space, Table } from 'antd';
+import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
-import { Link } from 'react-router-dom';
+import voiceconcernService from "./services/Concern";
 
-const content = () => {
+const { Column } = Table;
+
+const Content = () => {
+  const [voiceconcern, setConcern] = useState([]);
+
+  useEffect(() => {
+    voiceconcernService.getAll().then(voiceconcern => {
+      setConcern(voiceconcern)
+    })
+  }, [])
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
@@ -10,44 +21,34 @@ const content = () => {
         <input type="number" placeholder="Concern ID" name="requestedid" class="textfield" />
         <input type="textfield" placeholder="Name" name="requestedfn" class="textfield" />
         <input type="date" name="requesteddate" class="textfield" />
-        <button className="button" name="searchbtn" type="submit">
-          {' '}
-          Search{' '}
-        </button>{' '}
+        <button className="button" name="searchbtn" type="submit"> {' '} Search {' '} </button>{' '}
         <p />
       </div>
 
-      <div>
-        <table className="table">
-          <tr>
-            <th> Concern ID </th>
-            <th> Name </th>
-            <th> Topic </th>
-            <th> What </th>
-            <th> How/Why </th>
-            <th> Date Submitted </th>
-            <th> Status </th>
-            <th> Option </th>
-          </tr>
-
-          <tr>
-            <td> 1 </td>
-            <td> Bill </td>
-            <td> today </td>
-            <td> Not Happy </td>
-            <td> No bonus</td>
-            <td> dd/mm/yyyy </td>
-            <td> Pending <br/> Solved </td>
-            <td> <Link to="#"> Solved </Link> <br /> </td>
-          </tr>
-        </table>
+      <div style={{ paddingTop: 10 }}>
+        <Table dataSource={voiceconcern}>
+          <Column title="Concern ID" dataIndex="id" key="id" />
+          <Column title="Name" dataIndex="name" key="name" />
+          <Column title="Topic" dataIndex="topic" key="topic" />
+          <Column title="Goal" dataIndex="achivementgoal" key="achivementgoal" />
+          <Column title="Method" dataIndex="methodachievement" key="methodachievement" />
+          <Column title="Discuss Date" dataIndex="discussdate" key="discussdate" />
+          <Column title="Status" dataIndex="status" key="status" />
+          <Column title="Options" key="id" render={(p) => (
+            <>
+              <Space split={<Divider type="vertical" />}>
+                <Button> Solved </Button>
+              </Space>
+            </>
+          )} />
+        </Table>
       </div>
     </>
   );
 };
 
 const ConcernList = () => {
-  return <WebLayout content={content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default ConcernList;
