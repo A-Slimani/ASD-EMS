@@ -33,7 +33,7 @@ const Login = () => {
     }
     else if (isEmployee(username) === true) {
       history.push({
-        pathname: './EmployeeDashboard',
+        pathname: './EmployeeDashboard/',
         state: username
       });
     }
