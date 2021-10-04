@@ -2,29 +2,29 @@
   "employees": [
     {
       "id": 1,
-      "fname": "Abdullah",
-      "lname": "Slimani",
+      "firstName": "Abdullah",
+      "lastName": "Slimani",
       "dept": "HR",
-      "employtype": "Full-time",
+      "employmentType": "Full-time",
       "dob": "10/10/10"
     },
     {
       "id": 2,
-      "fname": "John",
-      "lname": "Smith",
+      "firstName": "John",
+      "lastName": "Smith",
       "dept": "IT",
-      "employtype": "Full-time"
+      "employmentType": "Full-time"
     },
     {
       "id": 3,
-      "fname": "Alex",
-      "lname": "Jones",
+      "firstName": "Alex",
+      "lastName": "Jones",
       "dept": "Finance",
-      "employtype": "Part-time"
+      "employmentType": "Part-time"
     },
     {
-      "fname": "a",
-      "lname": "a",
+      "firstName": "a",
+      "lastName": "a",
       "dob": "1980-10-05",
       "phoneno": "0404",
       "username": "a@EMSHR",
@@ -38,14 +38,14 @@
       "pcode": "1111",
       "employdate": "2011-10-10",
       "dept": "HR",
-      "employtype": "fulltime",
+      "employmentType": "fulltime",
       "id": 4
     }
   ],
   "payroll": [
     {
-      "fname": "Hello",
-      "lname": "World",
+      "firstName": "Hello",
+      "lastName": "World",
       "amount": "1000",
       "bonus": "1000",
       "paydate": "2021-10-06",
@@ -56,8 +56,8 @@
   ],
   "applicationform": [
     {
-      "fname": "hello",
-      "lname": "world",
+      "firstName": "hello",
+      "lastName": "world",
       "applicationtype": "transfer between department",
       "applicationdate": "2021-10-1",
       "status": "pending",
@@ -66,8 +66,8 @@
       "id": 1
     },
     {
-      "fname": "bob",
-      "lname": "rob",
+      "firstName": "bob",
+      "lastName": "rob",
       "applicationtype": "business claim",
       "applicationdate": "2021-10-11",
       "status": "pending",
@@ -76,8 +76,8 @@
       "id": 2
     },
     {
-      "fname": "scasd",
-      "lname": "dasdas",
+      "firstName": "scasd",
+      "lastName": "dasdas",
       "applicationtype": "leave",
       "applicationdate": "2021-10-06",
       "status": "pending",
@@ -88,8 +88,8 @@
   ],
   "filecomplaint": [
     {
-      "fname": "hello",
-      "lname": "world",
+      "firstName": "hello",
+      "lastName": "world",
       "complaintdescription": "Process take more than 5 days, application submitted a week ago",
       "complaintdate": "2021-09-28",
       "status": "pending",
@@ -97,8 +97,8 @@
       "id": 1
     },
     {
-      "fname": "bob",
-      "lname": "rob",
+      "firstName": "bob",
+      "lastName": "rob",
       "complaintdescription": "why",
       "complaintdate": "2021-10-05",
       "status": "pending",
@@ -106,8 +106,8 @@
       "id": 2
     },
     {
-      "fname": "scasd",
-      "lname": "dasdas",
+      "firstName": "scasd",
+      "lastName": "dasdas",
       "complaintdescription": "un healthy evi",
       "complaintdate": "2021-10-05",
       "status": "pending",

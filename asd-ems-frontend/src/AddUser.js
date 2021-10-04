@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 
 const Content = () => {
   const [employees, setEmployee] = useState({
-    fname: "", lname: "", dob: "", phoneno: "",
+    firstName: "", lastName: "", dob: "", phoneno: "",
     username: "", pwd: "",
     accname: "", accnum: "", accbsb: "",
     address: "", suburb: "", state: "", pcode: "",
-    employdate: "", dept: "", employtype: ""
+    employdate: "", dept: "", employmentType: ""
   });
 
   const {
