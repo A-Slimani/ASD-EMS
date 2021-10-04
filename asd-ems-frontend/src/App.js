@@ -19,6 +19,7 @@ import AddPayroll from './AddPayroll';
 import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
+import UpdatePayroll from './UpdatePayroll';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
 
         <Route exact path="/AddPayroll"> <AddPayroll /> </Route>
         <Route exact path="/PayrollHistory"> <PayrollHistory /> </Route>
+        <Route exact path="/UpdatePayroll"> <UpdatePayroll /> </Route>
 
         <Route exact path="/PaymentPolicy"> <PaymentPolicy /> </Route>
         <Route exact path="/UpdatePolicy"> <UpdatePolicy /> </Route>

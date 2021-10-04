@@ -21,6 +21,25 @@
       "lname": "Jones",
       "dept": "Finance",
       "employtype": "Part-time"
+    },
+    {
+      "fname": "rob",
+      "lname": "boi",
+      "dob": "2000-03-17",
+      "phoneno": "123456789",
+      "username": "rob@EMSHR",
+      "pwd": "p",
+      "accname": "rob",
+      "accnum": "123456789",
+      "accbsb": "3412",
+      "address": "21 rob st",
+      "suburb": "rob",
+      "state": "rob",
+      "pcode": "2249",
+      "employdate": "2020-03-31",
+      "dept": "marketing",
+      "employtype": "casual",
+      "id": 4
     }
   ],
   "payroll": [

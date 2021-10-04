@@ -44,7 +44,10 @@ const Content = () => {
           <Column title="Options" key="id" render={(p) => (
             <>
               <Space split={<Divider type="vertical" />}>
-                <Button> delete</Button>
+                <Link to="./UpdatePayroll">
+                  <Button type="primary" ghost>Update</Button>
+                </Link>
+                <Button danger>Delete</Button>
               </Space>
             </>
           )} />
