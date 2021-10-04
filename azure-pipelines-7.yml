@@ -19,4 +19,4 @@ steps:
   condition: succeededOrFailed()
   inputs:
       testRunner: JUnit
-      testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
+      testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
