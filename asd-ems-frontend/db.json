@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "employees": [
     {
       "id": 1,
@@ -24,18 +23,18 @@
       "employtype": "Part-time"
     },
     {
-      "fname": "a",
-      "lname": "a",
+      "fname": "jon",
+      "lname": "jones",
       "dob": "1980-10-05",
       "phoneno": "0404",
       "username": "a@EMSHR",
       "pwd": "a",
-      "accname": "aass",
+      "accname": "jonjones",
       "accnum": "1234",
-      "accbsb": "1234",
-      "address": "12 Test",
-      "suburb": "Liv",
-      "state": "nsw",
+      "accbsb": "111",
+      "address": "12 Teste Rd",
+      "suburb": "Liverpool",
+      "state": "NSW",
       "pcode": "1111",
       "employdate": "2011-10-10",
       "dept": "HR",
@@ -145,29 +144,4 @@
   "logtime": [
     {}
   ]
-=======
-	"employees":[
-		{
-			"id": "1",
-			"firstName": "Abdullah",
-			"lastName": "Slimani",
-			"department": "HR",
-			"employmentType": "Full-time"
-		},
-		{
-			"id": "2",
-			"firstName": "John",
-			"lastName": "Smith",
-			"department": "IT",
-			"employmentType": "Full-time"
-		},
-		{
-			"id": "3",
-			"firstName": "Alex",
-			"lastName": "Jones",
-			"department": "Finance",
-			"employmentType": "Part-time"
-		}
-	]
->>>>>>> Abdullah-branch
 }

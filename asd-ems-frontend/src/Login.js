@@ -32,14 +32,7 @@ const Login = () => {
       history.push('./Dashboard');
     }
     else if (isEmployee(username) === true) {
-<<<<<<< HEAD
       history.push('./EmployeeDashboard');
-=======
-      history.push({
-        pathname: './EmployeeDashboard/',
-        state: username
-      });
->>>>>>> Abdullah-branch
     }
     else {
       alert('Incorrect username and/or password');
