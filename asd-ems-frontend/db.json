@@ -1,25 +1,128 @@
 {
-	"employees":[
-		{
-			"id": 1,
-			"firstName": "Abdullah",
-			"lastName": "Slimani",
-			"department": "HR",
-			"employmentType": "Full-time"
-		},
-		{
-			"id": 2,
-			"firstName": "John",
-			"lastName": "Smith",
-			"department": "IT",
-			"employmentType": "Full-time"
-		},
-		{
-			"id": 3,
-			"firstName": "Alex",
-			"lastName": "Jones",
-			"department": "Finance",
-			"employmentType": "Part-time"
-		}
-	]
+  "employees": [
+    {
+      "id": 1,
+      "fname": "Abdullah",
+      "lname": "Slimani",
+      "dept": "HR",
+      "employtype": "Full-time",
+      "dob": "10/10/10"
+    },
+    {
+      "id": 2,
+      "fname": "John",
+      "lname": "Smith",
+      "dept": "IT",
+      "employtype": "Full-time"
+    },
+    {
+      "id": 3,
+      "fname": "Alex",
+      "lname": "Jones",
+      "dept": "Finance",
+      "employtype": "Part-time"
+    }
+  ],
+  "payroll": [
+    {
+      "fname": "Hello",
+      "lname": "World",
+      "amount": "1000",
+      "bonus": "1000",
+      "paydate": "2021-10-06",
+      "paymethod": "cheque",
+      "description": "Business Claim",
+      "id": 1
+    }
+  ],
+  "applicationform": [
+    {
+      "fname": "hello",
+      "lname": "world",
+      "applicationtype": "transfer between department",
+      "applicationdate": "2021-10-1",
+      "status": "pending",
+      "subcategory": "transfer to HR",
+      "reason": "change work environment",
+      "id": 1
+    },
+    {
+      "fname": "bob",
+      "lname": "rob",
+      "applicationtype": "business claim",
+      "applicationdate": "2021-10-11",
+      "status": "pending",
+      "subcategory": "business trip",
+      "reason": "busines",
+      "id": 2
+    },
+    {
+      "fname": "scasd",
+      "lname": "dasdas",
+      "applicationtype": "leave",
+      "applicationdate": "2021-10-06",
+      "status": "pending",
+      "subcategory": "Leave for 1 week",
+      "reason": "holiday leave",
+      "id": 3
+    }
+  ],
+  "filecomplaint": [
+    {
+      "fname": "hello",
+      "lname": "world",
+      "complaintdescription": "Process take more than 5 days, application submitted a week ago",
+      "complaintdate": "2021-09-28",
+      "status": "pending",
+      "complainttype": "work",
+      "id": 1
+    },
+    {
+      "fname": "bob",
+      "lname": "rob",
+      "complaintdescription": "why",
+      "complaintdate": "2021-10-05",
+      "status": "pending",
+      "complainttype": "general",
+      "id": 2
+    },
+    {
+      "fname": "scasd",
+      "lname": "dasdas",
+      "complaintdescription": "un healthy evi",
+      "complaintdate": "2021-10-05",
+      "status": "pending",
+      "complainttype": "work",
+      "id": 3
+    }
+  ],
+  "voiceconcern": [
+    {
+      "name": "sad",
+      "discussdate": "2021-10-05",
+      "topic": "general",
+      "status": "pending",
+      "achivementgoal": "business",
+      "methodachievement": "file complaint",
+      "id": 1
+    },
+    {
+      "name": "asd",
+      "discussdate": "2021-10-13",
+      "topic": "saasd",
+      "status": "pending",
+      "achivementgoal": "scas",
+      "methodachievement": "ascas",
+      "id": 2
+    }
+  ],
+  "paymentpolicy": [
+    {
+      "content": "",
+      "id": 1
+    }
+  ],
+  "logtime": [
+    {}
+  ]
 }
