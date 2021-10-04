@@ -9,6 +9,8 @@ const content = () => {
         {' '}
         <b>Payment Policy</b>{' '}
       </h1>
+
+      {/* content */}
       <p style={{ fontSize: '20px', paddingLeft: '45px', paddingTop: '50px', textAlign: 'left',}}>
         {' '}
         Enterprise Management Systems reflects that by purchasing our Employee Management

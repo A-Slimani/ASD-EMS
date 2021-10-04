@@ -1,8 +1,20 @@
-import React from 'react';
+import { Button, Divider, Space, Table } from 'antd';
+import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
+import payrollService from "./services/Payroll";
 
-const content = () => {
+const { Column } = Table;
+
+const Content = () => {
+  const [payroll, setPayroll] = useState([]);
+
+  useEffect(() => {
+    payrollService.getAll().then(payroll => {
+      setPayroll(payroll)
+    })
+  }, [])
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
@@ -19,51 +31,31 @@ const content = () => {
         </button>
       </div>
 
-      <table className="table">
-        <tr>
-          <th> Payroll ID </th>
-          <th> Employee Name </th>
-          <th>Amount </th>
-          <th> Bonus </th>
-          <th> Payment Method </th>
-          <th> Pay Date </th>
-          <th> Option </th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Bob Rob</td>
-          <td>100</td>
-          <td>100</td>
-          <td>Cash</td>
-          <td>23/07/2017</td>
-          <td><Link to="#"> <button> Delete</button></Link> </td>
-
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Bob Loss</td>
-          <td>200</td>
-          <td>100</td>
-          <td>Cheque</td>
-          <td>19/09/2015</td>
-          <td><Link to="#"> <button> Delete</button></Link> </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Bob Toss</td>
-          <td>300</td>
-          <td>200</td>
-          <td>EFTPOS</td>
-          <td>19/09/2015</td>
-          <td><Link to="#"> <button> Delete</button></Link> </td>
-        </tr>
-      </table>
+      <div style={{paddingTop: 10}}>
+        <Table dataSource={payroll}>
+          <Column title="Payroll ID" dataIndex="id" key="id" value="id"/>
+          <Column title="First Name" dataIndex="fname" key="firstName" />
+          <Column title="Last Name" dataIndex="lname" key="lastName" />
+          <Column title="Amount" dataIndex="amount" key="amount" />
+          <Column title="Bonus" dataIndex="bonus" key="bonus" />
+          <Column title="Payment Method" dataIndex="paymethod" key="paymethod" />
+          <Column title="Pay Date" dataIndex="paydate" key="paydate" />
+          <Column title="Description" dataIndex="description" key="Description" />
+          <Column title="Options" key="id" render={(p) => (
+            <>
+              <Space split={<Divider type="vertical" />}>
+                <Button> delete</Button>
+              </Space>
+            </>
+          )} />
+        </Table>
+      </div>
     </>
   );
 };
 
 const PayrollHistory = () => {
-  return <WebLayout content={content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default PayrollHistory;

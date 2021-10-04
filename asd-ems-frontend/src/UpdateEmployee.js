@@ -3,7 +3,6 @@ import WebLayout from './components/WebLayout'
 import React, { useState } from 'react';
 
 const Content = () => {
-  const [employee, setEmployee] = useState([])
 
   function goBack(e) {
     e.preventDefault();

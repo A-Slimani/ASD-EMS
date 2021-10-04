@@ -20,6 +20,7 @@ const WebLayout = ({ content }) => {
           <SubMenu key="sub1" icon={<UserOutlined />} title="Employee Manage">
             <Menu.Item key="3">{' '} <Link to="./AddUser"> <button> Add Employee</button>{' '}</Link></Menu.Item>
             <Menu.Item key="2">{' '} <Link to="./UserList"> <button> Employee List </button>{' '}</Link>{' '}</Menu.Item>
+            <Menu.Item key="4">{' '} <Link to="./Roster"> <button> Roster </button>{' '}</Link>{' '}</Menu.Item>
           </SubMenu>
 
           <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
@@ -29,25 +30,23 @@ const WebLayout = ({ content }) => {
             <Menu.Item key="6">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
           </SubMenu>
 
-          <SubMenu key="sub3" icon={<FileOutlined />} title="Applications">
-            {/* <Menu.Item key="7"> <Link to="Application"> <button> Launch Application </button> </Link></Menu.Item> */}
-            <Menu.Item key="8">{' '} <Link to="./ApplicationList"><button> Manage Application </button></Link></Menu.Item>
-          </SubMenu>
+          <Menu.Item key="menu2" icon={<FileOutlined />}>
+          <Link to="./ApplicationList"><button> Manage Application </button></Link>
+          </Menu.Item>
 
-          <SubMenu key="sub4" icon={<CommentOutlined />} title="Complaints">
-            {/* <Menu.Item key="9"> <Link to="./FileComplaint"> <button> File Complaint </button>{' '}</Link> </Menu.Item> */}
-            <Menu.Item key="10"> {' '} <Link to="./ComplaintList"> <button> Manage Complaints </button> </Link></Menu.Item>
-          </SubMenu>
+          <Menu.Item key="menu3" icon={<CommentOutlined />}>
+          <Link to="./ComplaintList"><button> Manage Complaints </button></Link>
+          </Menu.Item>
 
-          <Menu.Item key="menu2" icon={<DesktopOutlined />}>
+          <Menu.Item key="menu4" icon={<DesktopOutlined />}>
             <Link to="./ConcernList"> <button> Concern Manage </button>{' '} </Link>
           </Menu.Item>
 
-          <Menu.Item key="menu3" icon={<RobotOutlined />}>
+          <Menu.Item key="menu5" icon={<RobotOutlined />}>
             <Link to="./Personal"> <button> Personal File </button>{' '} </Link>
           </Menu.Item>
 
-          <Menu.Item key="menu4" icon={<LoginOutlined />}>
+          <Menu.Item key="menu6" icon={<LoginOutlined />}>
             <Link to="./Logout"> <button> Logout </button>{' '}</Link>
           </Menu.Item>
         </Menu>
