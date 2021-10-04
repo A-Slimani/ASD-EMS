@@ -21,6 +21,25 @@
       "lname": "Jones",
       "dept": "Finance",
       "employtype": "Part-time"
+    },
+    {
+      "fname": "a",
+      "lname": "a",
+      "dob": "1980-10-05",
+      "phoneno": "0404",
+      "username": "a@EMSHR",
+      "pwd": "a",
+      "accname": "aass",
+      "accnum": "1234",
+      "accbsb": "1234",
+      "address": "12 Test",
+      "suburb": "Liv",
+      "state": "nsw",
+      "pcode": "1111",
+      "employdate": "2011-10-10",
+      "dept": "HR",
+      "employtype": "fulltime",
+      "id": 4
     }
   ],
   "payroll": [
