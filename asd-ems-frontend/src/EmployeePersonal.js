@@ -70,6 +70,28 @@ const content = () => {
                 </table>
             </div>
 
+            <div id='payment-updates'>
+                <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingTop: 15, paddingBottom: 15, }}> Salary Update Requests </h2>
+                <table className="table">
+                    <tr>
+                        <th> Request ID </th>
+                        <th> Date Submitted </th>
+                        <th> Name </th>
+                        <th> Description </th>
+                        <th> Requested Salary </th>
+                        <th> Status </th>
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td> dd/mm/yyyy </td>
+                        <td> work issue </td>
+                        <td> description </td>
+                        <td> $80,000 </td>
+                        <td> pending <br /> solved <br /> </td>
+                    </tr>
+                </table>
+            </div>
+
             <div id='logtime'>
                 <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingTop: 15, paddingBottom: 15, }}> Logtime </h2>
                 <table className="table">
@@ -102,6 +124,50 @@ const content = () => {
                         <td> 70000 </td>
                         <td> 5000 </td>
                         <td> Business Claim </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id='transfer-requests'>
+                <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingTop: 15, paddingBottom: 15, }}> Branch Transfer Requests </h2>
+                <table className="table">
+                    <tr>
+                        <th> Transfer ID </th>
+                        <th> Date Submitted </th>
+                        <th> Name </th>
+                        <th> Description </th>
+                        <th> Current Branch </th>
+                        <th> New Branch </th>
+                        <th> Status </th>
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td> dd/mm/yyyy </td>
+                        <td> work issue </td>
+                        <td> description </td>
+                        <td> Bankstown </td>
+                        <td> Canley Vale </td>
+                        <td> pending <br /> solved <br /> </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id='resignation'>
+                <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingTop: 15, paddingBottom: 15, }}> Resignation Requests </h2>
+                <table className="table">
+                    <tr>
+                        <th> Resignation ID </th>
+                        <th> Date Submitted </th>
+                        <th> Name </th>
+                        <th> Description </th>
+                        <th> Status </th>
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td> dd/mm/yyyy </td>
+                        <td> work issue </td>
+                        <td> description </td>
+                        <td> received</td>
                     </tr>
                 </table>
             </div>
