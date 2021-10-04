@@ -15,12 +15,14 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: VSTest@2
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+      testRunner: JUnit
+      testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
 
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+      testRunner: JUnit
+      testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
