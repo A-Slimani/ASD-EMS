@@ -6,6 +6,11 @@ const getAll = () => {
   return request.then(response => response.data);
 };
 
+const get = id => {
+  const request = axios.get(`${baseUrl}/${id}`)
+  return request.then(response => response.data)
+}
+
 const create = newObj => {
   return axios.post(baseUrl, newObj);
 };
@@ -18,4 +23,4 @@ const remove = id => {
   return axios.delete(`${baseUrl}/${id}`);
 };
 
-export default { getAll, create, update, remove };
+export default { get, getAll, create, update, remove };
