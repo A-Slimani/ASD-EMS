@@ -15,8 +15,8 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: VSTest@2
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: 'junit.xml'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+      testRunner: JUnit
+      testResultFiles: 'asd-ems-frontend/TEST-*.xml'
