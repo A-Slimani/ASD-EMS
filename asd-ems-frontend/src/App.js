@@ -10,6 +10,7 @@ import PaymentPolicy from './PaymentPolicy';
 import FileComplaint from './FileComplaint';
 import Application from './Application';
 import ApplicationList from './ApplicationList';
+import PayrollList from './PayrollList';
 import PayrollHistory from './PayrollHistory';
 import UpdateEmployee from './UpdateEmployee';
 import PayrollList from './PayrollList';
