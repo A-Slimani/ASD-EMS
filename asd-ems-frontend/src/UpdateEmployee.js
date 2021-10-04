@@ -6,12 +6,21 @@ import employeeService from './services/Employee'
 
 const Content = () => {
   const match = useRouteMatch('/UpdateEmployee/:id');
-  const [employee, setEmployee] = useState();
+  const [employee, setEmployee] = useState()
 
-  console.log("current employee: ", employee)
+//    const showTemp = () => {
+//     return weatherInfo.DailyForecasts !== undefined
+//       ? weatherInfo.DailyForecasts[0].Temperature.Maximum.Value
+//       : "";
+//   };
+
+  const showEmployee = () => {
+    return employee !== undefined ? employee : "";
+  }
+
 
   useEffect(() => {
-    employeeService.get(match.params.id).then(employee =>  {setEmployee(employee)})
+    employeeService.get(match.params.id).then(e => setEmployee(e))
   }, [])
 
   function goBack(e) {
@@ -71,7 +80,7 @@ const Content = () => {
    <div>
      <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button> <br />
      <form id="updateform" name="updateform" >
-       <h1 style={{ textAlign: 'center', fontSize: 30, }}> Edit <b>{employee.fname}</b> details </h1>
+       <h1 style={{ textAlign: 'center', fontSize: 30, }}> Edit <b>{showEmployee().fname}</b> details </h1>
 
        <label> First Name: </label>
        <small>Up to 255 Characters </small> <p> </p>
