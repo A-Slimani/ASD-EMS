@@ -17,3 +17,7 @@ steps:
 
 - script: |
   displayName: 'npm install and build'
+
+- script: |
+    npm test -- --watchAll=false || exit 1
+  displayName: 'unit test 04/10'
