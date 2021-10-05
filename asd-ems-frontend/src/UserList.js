@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
 import employeeService from "./services/Employee";
+import axios from 'axios';
 
 const { Column } = Table;
 

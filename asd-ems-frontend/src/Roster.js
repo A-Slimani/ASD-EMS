@@ -6,7 +6,7 @@ import employeeService from "./services/Employee";
 
 const { Column } = Table;
 
-const Content = () => {
+const Content = (event) => {
   const [employees, setEmployees] = useState([])
 
   useEffect(() => {
@@ -17,20 +17,24 @@ const Content = () => {
       
   return (
     <>
+
+      <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
+        <input type="date" placeholder="Filter by date" name="Max Salary" class="textfield " />
+        <button className="button" name="searchbtn" type="submit"> {' '} Search {' '} </button>{' '}
+      </div>
       <Table dataSource={employees}>
         <Column title="Employee ID" dataIndex="id" key="id"/>
-        <Column title="First Name" dataIndex="firstName" key="firstName"/>
-        <Column title="Last Name" dataIndex="lastName" key="lastName"/>
-        <Column title="Employment Type" dataIndex="employmentType" key="employmentType"/>
+        <Column title="First Name" dataIndex="fname" key="firstName"/>
+        <Column title="Last Name" dataIndex="lname" key="lastName"/>
+        <Column title="Rostered Dates (dd/mm/yyyy)" dataIndex="dateworking" key="roster"/>
         <Column title="Options" key="id" render={(p) => (
           <>
           <Space split={<Divider type="vertical" />}>
             <Button>view</Button>
-            <Link to="./UpdateEmployee"><Button>update </Button></Link>
-            <Button>delete</Button>
           </Space>
           </>
         )}/>
+        {/* <Column title="Employment Type" dataIndex="employmentType" key="employmentType"/> */}
       </Table>
     </>
   );
