@@ -1,8 +1,8 @@
 import React from 'react';
 import EmployeeWebLayout from './components/EmployeeWebLayout';
-// import { Link } from 'react-router-dom';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 
-const content = () => {
+const Content = () => {
     return (
         <>
             <div style={{ textAlign: 'center' }}>
@@ -16,7 +16,7 @@ const content = () => {
             </div>
 
             <div id='personal'>
-                <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 15, }}> Personal Information </h2>
+                <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'underline', paddingBottom: 15, }}> Personal Information </h2>
                 <button style={{ float: 'right' }} type='submit' className="update"> Update Details </button>
                 <h3> Employee ID: </h3>
                 <h3> Full Name: </h3>
@@ -176,7 +176,8 @@ const content = () => {
 };
 
 const EmployeePersonal = () => {
-    return <EmployeeWebLayout content={content()} />;
+    const match = useRouteMatch('/EmployeePersonal/:id')
+    return <EmployeeWebLayout id={match.params.id} content={Content()} />;
 };
 
 export default EmployeePersonal;

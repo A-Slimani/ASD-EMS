@@ -1,6 +1,7 @@
 import EmployeeWebLayout from './components/EmployeeWebLayout';
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useRouteMatch} from 'react-router-dom'
 
 const Content = () => {
   const [application, setApplication] = useState({
@@ -126,7 +127,8 @@ const Content = () => {
 };
 
 const Application = () => {
-  return <EmployeeWebLayout content={Content()} />;
+  const match = useRouteMatch('/Application/:id')
+  return <EmployeeWebLayout id={match.params.id}content={Content()} />;
 };
 
 export default Application;

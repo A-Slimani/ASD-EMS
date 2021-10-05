@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import EmployeeWebLayout from './components/EmployeeWebLayout';
+import { useRouteMatch, useHistory, useLocation } from 'react-router-dom'
 
-const testText = () => {
+
+const TestText = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Employee </h1>
@@ -54,7 +56,8 @@ const testText = () => {
 };
 
 const EmployeeDashboard = () => {
-  return <EmployeeWebLayout content={testText()} />;
+  const match = useRouteMatch('/EmployeeDashboard/:id')
+  return <EmployeeWebLayout id={match.params.id} content={TestText()} />;
 };
 
 export default EmployeeDashboard;

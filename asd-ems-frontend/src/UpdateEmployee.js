@@ -7,6 +7,7 @@ import './style.css';
 
 const Content = () => {
   const match = useRouteMatch('/UpdateEmployee/:id');
+  console.log('match: ', match)
   const [employee, setEmployee] = useState({
     fname: '',
     lname: '',

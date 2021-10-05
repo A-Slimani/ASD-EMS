@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import EmployeeWebLayout from "./components/EmployeeWebLayout";
 
 const Content = () => {
@@ -120,7 +120,8 @@ const Content = () => {
 };
 
 const DiscussionBoard = () => {
-  return <EmployeeWebLayout content={Content()} />;
+  const match = useRouteMatch('/discussionBoard/:id')
+  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
 };
 
 export default DiscussionBoard;

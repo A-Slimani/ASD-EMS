@@ -19,14 +19,15 @@ const Login = () => {
     return username.length > 0 && password.length > 0;
   };
 
+  const user = employees.find(x => x.username === username)
+
   const getAccount = () => {
-    const user = employees.find(x => x.username === username)
     if (user === undefined) return false;
     return user.pwd === password 
   }
 
   const handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
     function isAdmin(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name); }
     function isEmployee(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name); }
 
@@ -48,8 +49,7 @@ const Login = () => {
     }
     else if (isEmployee(username) && getAccount()) {
       history.push({
-        pathname: './EmployeeDashboard/',
-        state: username
+        pathname: `./EmployeeDashboard/${user.id}`,
       });
     }
     else {
