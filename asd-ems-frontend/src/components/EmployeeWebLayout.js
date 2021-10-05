@@ -13,27 +13,27 @@ const EmployeeWebLayout = ({ content }) => {
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['menu1']} mode="inline">
           <Menu.Item key="menu1" icon={<PieChartOutlined />}>
-            <Link to="./EmployeeDashboard"> <button> Home </button>{' '}</Link>
+            <Link to="/EmployeeDashboard"> <button> Home </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu2" icon={<FileOutlined />}>
-            <Link to="./Application"> <button name='applaunch'> Launch Application </button>{' '}</Link>
+            <Link to="/Application"> <button name='applaunch'> Launch Application </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu3" icon={<CommentOutlined />}>
-            <Link to="./FileComplaint"> <button> File Complaint </button>{' '}</Link>
+            <Link to="/FileComplaint"> <button> File Complaint </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu4" icon={<DesktopOutlined />}>
-            <Link to="./discussionBoard"> <button> Voice Concern </button>{' '}</Link>
+            <Link to="/discussionBoard"> <button> Voice Concern </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu5" icon={<RobotOutlined />}>
-            <Link to="./EmployeePersonal"> <button> Personal File </button>{' '}</Link>
+            <Link to="/EmployeePersonal"> <button> Personal File </button>{' '}</Link>
           </Menu.Item>
 
           <Menu.Item key="menu6" icon={<LoginOutlined />}>
-            <Link to="./Logout"> <button> Logout </button>{' '}</Link>
+            <Link to="/Logout"> <button> Logout </button>{' '}</Link>
           </Menu.Item>
         </Menu>
       </Sider>
