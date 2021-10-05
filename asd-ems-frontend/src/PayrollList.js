@@ -33,7 +33,7 @@ const Content = () => {
       <Table dataSource={payrolldb}>
         <Column title="Employee ID" dataIndex="id" key="id"/>
         <Column title="First Name" dataIndex="fname" key="fname"/>
-        <Column title="Last Name" dataIndex="fname" key="lname"/>
+        <Column title="Last Name" dataIndex="lname" key="lname"/>
         <Column title="Current Pay" dataIndex="amount" key="amount"/>
         <Column title="Bonus" dataIndex="bonus" key="bonus"/>
         <Column title="Payment Method" dataIndex="paymethod" key="paymethod"/>

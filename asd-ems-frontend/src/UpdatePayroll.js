@@ -142,7 +142,7 @@ const Content = () => {
           </select>{' '}
           <p />
 
-          <label> Description: </label> <small> Up to 500 Characters </small> <p />
+          <label> Description: </label> <small> Up to 500 Characters. Type 'n/a' if unapplicable. </small> <p />
           <input
             type="text"
             defaultValue={showPayroll().description}
