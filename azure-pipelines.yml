@@ -1,4 +1,4 @@
-# Node.js with React
+ Node.js with React
 # Build a Node.js project that uses React.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -20,20 +20,29 @@ steps:
       npm install
       npm run build
     displayName: 'npm install and build'
+  
+  - bash: npm run test 
+    workingDirectory: #
+    displayName: #
+    failOnStderr: #
+    env:  # mapping of environment variables to add
 
-  - task: PublishTestResults@2
-    condition: succeededOrFailed()
-    inputs:
-      testRunner: JUnit
-      testResultFiles: 'asd-ems/TEST-*.xml'
-
-    displayName: 'npm test'
 
   - script: |
       cd asd-ems
       npm run test
     displayName: 'npm run test'
 
+  - task: PublishTestResults@2
+    condition: succeededOrFailed()
+    inputs:
+      testRunner: JUnit
+      testResultFiles: 'asd-ems/TEST-*.xml'
+      testRunTitle: 'test'
+    displayName: 'npm test'
+
+
+  
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: '$(Build.BinariesDirectory)'
