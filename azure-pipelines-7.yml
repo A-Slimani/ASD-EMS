@@ -15,17 +15,6 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\ASD-EMS.*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    runTestsInIsolation: true
-    codeCoverageEnabled: true
-
 # - task: PublishTestResults@2
 #   inputs:
 #       testRunner: JUnit
