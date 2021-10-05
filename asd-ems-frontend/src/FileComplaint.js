@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import EmployeeWebLayout from './components/EmployeeWebLayout';
+import {useRouteMatch} from 'react-router-dom'
 
 const Content = () => {
   const [filecomplaint, setComplaint] = useState({
@@ -114,7 +115,8 @@ const Content = () => {
 };
 
 const FileComplaint = () => {
-  return <EmployeeWebLayout content={Content()} />;
+  const match = useRouteMatch('/FileComplaint/:id')
+  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
 };
 
 export default FileComplaint;

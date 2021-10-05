@@ -6,7 +6,7 @@ import employeeService from './services/Employee';
 import './style.css';
 
 const Content = () => {
-  const match = useRouteMatch('/UpdateEmployee/:id');
+  const match = useRouteMatch('/UpdateUser/:id');
   console.log('match: ', match)
   const [employee, setEmployee] = useState({
     fname: '',
@@ -52,7 +52,7 @@ const Content = () => {
 
   const onSubmit = async e => {
     await axios.put(`http://localhost:3001/employees/${match.params.id}`, employee)
-    window.location = "/userList"
+    window.location = `/EmployeePersonal/${employee.id}`
   }
 
   function goBack(e) {
@@ -114,7 +114,7 @@ const Content = () => {
   <>
       <div>
         <form id='updateform' name='updateform' onSubmit={e => onSubmit(e)}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showEmployee().fname + " " + showEmployee().lname}</h1>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showEmployee().fname + " " + showEmployee().lname} </h1>
           <p style={{ textAlign: 'center' }}> {' '} Please fill out the details below, all fields are required{' '} </p>
 
           <label> First Name: </label>
@@ -299,10 +299,10 @@ const Content = () => {
           <label> Department: </label> <br />
           <select name="dept" className="formtextfield" value={dept} defaultValue={showEmployee().dept} onChange={e => onInputChange(e)} required>
             <option value="select"> -- Select one -- </option>
-            <option value="Finance"> Finance </option>
+            <option value="finance"> Finance </option>
             <option value="HR"> Human Resource </option>
-            <option value="Marketing"> Marketing </option>
-            <option value="Operation"> Operation </option>
+            <option value="marketing"> Marketing </option>
+            <option value="operation"> Operation </option>
           </select>{' '}
           <p />
 
@@ -315,8 +315,8 @@ const Content = () => {
   );
 };
 
-const UpdateEmployee = () => {
+const UpdateUser = () => {
   return <WebLayout content={Content()} />;
 }
 
-export default UpdateEmployee;
+export default UpdateUser;
