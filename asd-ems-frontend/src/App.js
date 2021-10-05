@@ -23,8 +23,6 @@ import EmployeePersonal from './EmployeePersonal';
 
 
 function App() {
-  
-    
 
   return (
     <BrowserRouter>
