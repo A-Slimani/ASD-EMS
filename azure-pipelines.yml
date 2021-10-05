@@ -16,13 +16,13 @@ steps:
     displayName: 'Install Node.js'
 
   - script: |
-      cd asd-ems
+      cd asd-ems-frontend
       npm install
       npm run build
     displayName: 'npm install and build'
 
   - script: |
-      cd asd-ems
+      cd asd-ems-frontend
       npm run test
     displayName: 'npm run test'
 
@@ -30,7 +30,7 @@ steps:
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
-      testResultFiles: 'asd-ems/TEST-*.xml'
+      testResultFiles: 'asd-ems-frontend/TEST-*.xml'
       testRunTitle: 'test'
     displayName: 'npm test'
 
