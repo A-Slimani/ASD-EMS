@@ -26,3 +26,9 @@ steps:
   inputs:
       testRunner: JUnit
       testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+      testRunner: JUnit
+      testResultFiles: 'asd-ems-frontend/tests/Login.test.js'
