@@ -53,13 +53,15 @@ const Content = () => {
       var lname = document.forms["payrollform"]["lname"].value;
       var amount = document.forms["payrollform"]["amount"].value;
       var bonus = document.forms["payrollform"]["bonus"].value;
+      var paymethod = document.forms["payrollform"]["paymethod"].value;
       var paydate = document.forms["payrollform"]["paydate"].value;
-      var description = document.forms["updateform"]["description"].value;
+      var description = document.forms["payrollform"]["description"].value;
 
       if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
       else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
       else if (amount === "" || isNumber(amount) === false) { alert("Amount field is empty or invalid format input"); }
       else if (bonus === "" || isNumber(bonus) === false) { alert("Contact Number field is empty or invalid format input"); }
+      else if (paymethod === "" || isText(paymethod) === false) { alert("Pay Method field is empty or invalid format input"); }
       else if (description === "") { alert("Provide payment reason for this payroll"); }
       else if ((new Date().getFullYear() - new Date(paydate).getFullYear()) >= 3) { alert("Payment cannot exceed 3 years"); }
       else { onSubmit() }
@@ -112,7 +114,7 @@ const Content = () => {
           <input
             type="text"
             defaultValue={showPayroll().bonus}
-            name="pcode" maxLength="6"
+            name="bonus" maxLength="6"
             className="formtextfield"
             value={bonus}
             onChange={e => onInputChange(e)}
@@ -144,7 +146,7 @@ const Content = () => {
           <input
             type="text"
             defaultValue={showPayroll().description}
-            name="state" maxLength="500"
+            name="description" maxLength="500"
             className="formtextfield"
             value={description}
             onChange={e => onInputChange(e)}

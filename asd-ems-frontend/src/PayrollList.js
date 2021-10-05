@@ -20,7 +20,7 @@ const Content = () => {
     console.log("e.id: ", e.currentTarget.id)
     console.log(payrolldb)
     
-    const payroll = payroll.find(x => x.id.toString() === e.currentTarget.id)
+    const payroll = payrolldb.find(x => x.id.toString() === e.currentTarget.id)
     
     console.log('test payroll: ', payroll) 
     history.push({

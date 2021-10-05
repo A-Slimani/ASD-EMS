@@ -1,10 +1,15 @@
 import axios from "axios";
-const baseUrl = "/api/payroll"
+const baseUrl = "/api/payrolldb"
 
 const getAll = () => {
   const request = axios.get(baseUrl);
   return request.then(response => response.data);
 };
+
+const get = id => {
+  const request = axios.get(`${baseUrl}/${id}`)
+  return request.then(response => response.data)
+}
 
 const create = newObj => {
   return axios.post(baseUrl, newObj);
@@ -18,4 +23,4 @@ const remove = id => {
   return axios.delete(`${baseUrl}/${id}`);
 };
 
-export default { getAll, create, update, remove };
+export default { get, getAll, create, update, remove };

@@ -55,7 +55,7 @@ function App() {
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>
 
         <Route exact path="/AddPayroll"> <AddPayroll /> </Route>
-        <Route exact path="/UpdatePayroll"> <UpdatePayroll /> </Route>
+        <Route exact path="/UpdatePayroll/:id"> <UpdatePayroll /> </Route>
         <Route exact path="/PayrollList"> <PayrollList /> </Route>
         <Route exact path="/PayrollHistory"> <PayrollHistory /> </Route>
 
