@@ -23,9 +23,8 @@ import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
 
+
 function App() {
-  
-    
 
   return (
     <BrowserRouter>
@@ -49,7 +48,8 @@ function App() {
         <Route exact path="/Profile"> <Profile /> </Route>
         <Route exact path="/AddUser"> <AddUser /> </Route>
         <Route exact path="/UserList"> <UserList /> </Route>
-        <Route exact path="/UpdateEmployee/:id"> <UpdateEmployee /> </Route>
+
+        <Route exact path="/UpdateEmployee/:id" render={props => <UpdateEmployee {...props}/>} />
 
         <Route exact path="/Application"> <Application /> </Route>
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>

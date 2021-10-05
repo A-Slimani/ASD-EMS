@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 
 const Content = () => {
   const [employees, setEmployee] = useState({
-    firstName: "", lastName: "", dob: "", phoneno: "",
+    fname: "", lname: "", dob: "", phoneno: "",
     username: "", pwd: "",
     accname: "", accnum: "", accbsb: "",
     address: "", suburb: "", state: "", pcode: "",
     employdate: "", dept: "", employmentType: ""
   });
+
 
   const {
     fname, lname, dob, phoneno,
@@ -19,13 +20,14 @@ const Content = () => {
     employdate, dept, employtype
   } = employees;
 
+
   const onInputChange = e => {
     setEmployee({ ...employees, [e.target.name]: e.target.value })
   };
 
   const onSubmit = async e => {
-    await axios.post("http://localhost:3002/employees", employees);
-    window.location = "./UserList";
+    await axios.post("http://localhost:3001/employees", employees);
+    window.location = "/UserList";
   };
 
   const handleSubmit = e => {
@@ -246,9 +248,9 @@ const Content = () => {
           <label> Employment Type: </label> <p />
           <select name="employtype" className="formtextfield" value={employtype} onChange={e => onInputChange(e)} >
             <option value="select"> -- Select one -- </option>
-            <option value="fulltime"> Full-Time </option>
-            <option value="parttime"> Part-Time </option>
-            <option value="casual"> Casual </option>
+            <option value="Full-Time"> Full-Time </option>
+            <option value="Part-Time"> Part-Time </option>
+            <option value="Casual"> Casual </option>
           </select>{' '}
 
           <label> Employment Date: </label>{' '}
