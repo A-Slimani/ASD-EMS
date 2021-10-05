@@ -38,8 +38,27 @@
       "pcode": "1111",
       "employdate": "2011-10-10",
       "dept": "HR",
-      "employtype": "fulltime",
+      "employtype": "Full-Time",
       "id": 4
+    },
+    {
+      "dob": "1981-10-06",
+      "phoneno": "0434334433",
+      "username": "bjon@EMSHR",
+      "pwd": "123",
+      "accname": "bjon",
+      "accnum": "122233",
+      "accbsb": "111",
+      "address": "15 Bigge St",
+      "suburb": "Liverpool",
+      "state": "NSW",
+      "pcode": "2122",
+      "employdate": "2019-10-22",
+      "dept": "HR",
+      "fname": "Big",
+      "lname": "Jonathan",
+      "employtype": "Full-Time",
+      "id": 5
     }
   ],
   "payroll": [
