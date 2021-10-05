@@ -27,9 +27,9 @@ steps:
       testRunner: JUnit
       testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
 
-- task: Npm@1
-  displayName: "Run unit test"
+- task: PublishTestResults@2
+  condition: suceededOrFailed()
   inputs:
-    command: 'custom'
-    workingDir: 'ASD-EMS\asd-ems-frontend'
-    customCommand: 'run test'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'asd-ems-frontend/tests/Login.test.js'
+    testRunTitle: 'Run unit test'
