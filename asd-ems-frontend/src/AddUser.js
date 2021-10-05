@@ -8,7 +8,7 @@ const Content = () => {
     username: "", pwd: "",
     accname: "", accnum: "", accbsb: "",
     address: "", suburb: "", state: "", pcode: "",
-    employdate: "", dept: "", employmentType: ""
+    employdate: "", dept: "", employtype: ""
   });
 
 
