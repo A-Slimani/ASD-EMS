@@ -16,18 +16,20 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm test
-  displayName: 'npm test'
+    npm install
+    npm run build
+    npm test run
+  displayName: 'npm install and build'
 
 # - task: PublishTestResults@2
 #   inputs:
 #       testRunner: JUnit
 #       testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
 
-- task: PublishTestResults@2
-  inputs:
-      testRunner: JUnit
-      testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
+# - task: PublishTestResults@2
+#   inputs:
+#       testRunner: JUnit
+#       testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
 
 # - task: PublishTestResults@2
 #   inputs:
