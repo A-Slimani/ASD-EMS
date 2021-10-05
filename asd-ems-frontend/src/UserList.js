@@ -25,6 +25,14 @@ const Content = () => {
       pathname: `./UpdateEmployee/${employee.id}`,
     })
   } 
+  
+  const handleDelete = e => {
+    var option = window.confirm("Do you want to delete employee with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+    if (option === true) {
+      axios.delete(`http://localhost:3001/employees/${e.currentTarget.id}`);
+      window.location = "./UserList"
+    }
+  }
 
   return (
     <>
@@ -38,7 +46,7 @@ const Content = () => {
           <Space split={<Divider type="vertical" />}>
             <Button>view</Button>
             <Button id={p.id} onClick={handleEditRoute}>update</Button>
-            <Button>delete</Button>
+            <Button id={p.id} onClick={handleDelete}>delete</Button>
           </Space>
           </>
         )}/>
