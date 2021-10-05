@@ -386,6 +386,24 @@
       "status": "pending",
       "complainttype": "personal",
       "id": 9
+    },
+    {
+      "fname": "Leigh",
+      "lname": "Dale",
+      "complaintdescription": "I need more holidays ",
+      "complaintdate": "2021-08-29",
+      "status": "pending",
+      "complainttype": "work",
+      "id": 10
+    },
+    {
+      "fname": "Janette",
+      "lname": "Drake",
+      "complaintdescription": "Im done with all the extra hours. If it continues im gonnna quit!!!!",
+      "complaintdate": "2021-08-11",
+      "status": "pending",
+      "complainttype": "general",
+      "id": 11
     }
   ],
   "voiceconcern": [
