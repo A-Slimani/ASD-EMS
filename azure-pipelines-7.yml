@@ -15,35 +15,20 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm test run
-  displayName: 'npm install and build'
+- task: PublishTestResults@2
+  inputs:
+      testRunner: JUnit
+      testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
 
-# - task: PublishTestResults@2
-#   inputs:
-#       testRunner: JUnit
-#       testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
-
-# - task: PublishTestResults@2
-#   inputs:
-#       testRunner: JUnit
-#       testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
-
-# - task: PublishTestResults@2
-#   inputs:
-#     testResultsFormat: 'JUnit'
-#     testResultsFiles: 'asd-ems-frontend/tests/Login.test.js'
-#     testRunTitle: 'Run unit test'
-
-# - task: Npm@1
-#   displayName: "unit test"
-#   inputs:
-#     command: 'custom'
-#     workingDir: 'ASD-EMS'
-#     customCommand: 'run test'
+- task: PublishTestResults@2
+  inputs:
+      testRunner: JUnit
+      testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: 'asd-ems-frontend/tests/Login.test.js'
+
+
 
