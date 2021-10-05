@@ -79,8 +79,7 @@
         "14/11/2021 "
       ]
     },
-   [
-  {
+    {
     "id": 365,
     "fname": "Janette",
     "lname": "Drake",
@@ -160,9 +159,98 @@
     "dob": "1980-11-02",
     "accnum": 5510,
     "accbsb": 767
+  },
+  {
+    "id": 571,
+    "fname": "Glover",
+    "lname": "Hatfield",
+    "phoneno": "0(869) 467-3903",
+    "address": "421 Ira Court",
+    "suburb": "Nicut",
+    "state": "Kansas",
+    "employdate": "2017-04-29",
+    "dept": "Operations",
+    "employtype": "Full-Time",
+    "dob": "1980-11-02",
+    "accnum": 9001,
+    "accbsb": 465
+  },
+  {
+    "id": 250,
+    "fname": "Sherman",
+    "lname": "Garner",
+    "phoneno": "0(941) 479-2655",
+    "address": "255 Durland Place",
+    "suburb": "Wyoming",
+    "state": "Texas",
+    "employdate": "2015-08-19",
+    "dept": "Operations",
+    "employtype": "Full-Time",
+    "dob": "1980-11-02",
+    "accnum": 8763,
+    "accbsb": 367
+  },
+  {
+    "id": 474,
+    "fname": "Annie",
+    "lname": "Mayer",
+    "phoneno": "0(983) 565-3193",
+    "address": "205 George Street",
+    "suburb": "Wacissa",
+    "state": "Nevada",
+    "employdate": "2018-07-04",
+    "dept": "Operations",
+    "employtype": "Full-Time",
+    "dob": "1980-11-02",
+    "accnum": 9559,
+    "accbsb": 675
+  },
+  {
+    "id": 580,
+    "fname": "Leigh",
+    "lname": "Dale",
+    "phoneno": "0(891) 536-3451",
+    "address": "250 Dean Street",
+    "suburb": "Kenvil",
+    "state": "Tennessee",
+    "employdate": "2021-04-06",
+    "dept": "Operations",
+    "employtype": "Full-Time",
+    "dob": "1980-11-02",
+    "accnum": 8517,
+    "accbsb": 924
+  },
+  {
+    "id": 654,
+    "fname": "Moran",
+    "lname": "Holcomb",
+    "phoneno": "0(809) 591-3466",
+    "address": "679 Claver Place",
+    "suburb": "Thynedale",
+    "state": "South Dakota",
+    "employdate": "2021-03-27",
+    "dept": "Operations",
+    "employtype": "Full-Time",
+    "dob": "1980-11-02",
+    "accnum": 7249,
+    "accbsb": 139
+  },
+  {
+    "id": 999,
+    "fname": "Winifred",
+    "lname": "Charles",
+    "phoneno": "0(874) 422-2736",
+    "address": "782 Hewes Street",
+    "suburb": "Hiseville",
+    "state": "American Samoa",
+    "employdate": "2019-07-24",
+    "dept": "Operations",
+    "employtype": "Full-Time",
+    "dob": "1980-11-02",
+    "accnum": 8524,
+    "accbsb": 512
   }
-] 
-  ],
+  ], 
   "payroll": [
     {
       "fname": "Jon",
