@@ -2,6 +2,13 @@ import React from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
 
+import testiboi from './paymentPolicyText.json';
+
+let text = '';
+testiboi.data.forEach(element => {
+    text += element + '\n';
+});
+
 const content = () => {
     return (
         <div>
@@ -17,11 +24,10 @@ const content = () => {
             <div>
                 <form> 
                 <textarea 
-                type="text" 
-                className="formtextfield" 
-                cols="50" rows="50" 
-                >
-                    "payment policy get from the database"
+                    type="text" 
+                    className="formtextfield" 
+                    cols="50" rows="50">
+                        {text}
                 </textarea>
 
                 <div style={{ textAlign: 'center', paddingTop: 10 }}>
