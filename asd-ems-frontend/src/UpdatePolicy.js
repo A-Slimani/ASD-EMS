@@ -2,10 +2,10 @@ import React from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
 
-import testiboi from './paymentPolicyText.json';
+import paymentPolicyText from './paymentPolicyText.json';
 
 let text = '';
-testiboi.data.forEach(element => {
+paymentPolicyText.data.forEach(element => {
     text += element + '\n';
 });
 
