@@ -59,7 +59,7 @@
       "lname": "Jonathan",
       "employtype": "Full-Time",
       "id": 5
-    }, 
+    },
     {
       "dob": "1981-10-06",
       "phoneno": "0434334433",
@@ -122,6 +122,16 @@
       "subcategory": "Leave for 1 week",
       "reason": "holiday leave",
       "id": 3
+    },
+    {
+      "fname": "sdfgsdfg",
+      "lname": "dfgsdgsdfg",
+      "applicationtype": "transfer",
+      "applicationdate": "2021-10-10",
+      "status": "pending",
+      "subcategory": "sdgfsdfg",
+      "reason": "sdfgsfdgsfg",
+      "id": 4
     }
   ],
   "filecomplaint": [
@@ -151,6 +161,15 @@
       "status": "pending",
       "complainttype": "work",
       "id": 3
+    },
+    {
+      "fname": "sdfgsdfg",
+      "lname": "sdfgsdfg",
+      "complaintdescription": "ssdfgsdfg",
+      "complaintdate": "2021-10-10",
+      "status": "pending",
+      "complainttype": "work",
+      "id": 4
     }
   ],
   "voiceconcern": [
