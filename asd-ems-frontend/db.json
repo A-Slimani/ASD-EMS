@@ -1,26 +1,23 @@
 {
   "employees": [
     {
-      "id": 1,
-      "fname": "Abdullah",
-      "lname": "Slimani",
-      "dept": "HR",
-      "employtype": "Full-time",
-      "dob": "10/10/10"
-    },
-    {
-      "id": 2,
-      "fname": "John",
-      "lname": "Smith",
-      "dept": "IT",
-      "employtype": "Full-time"
-    },
-    {
-      "id": 3,
-      "fname": "Alex",
+      "fname": "Jon",
       "lname": "Jones",
-      "dept": "Finance",
-      "employtype": "Part-time"
+      "dob": "1980-10-05",
+      "phoneno": "0404",
+      "username": "JonJones@EMSHR",
+      "pwd": "jon123",
+      "accname": "jjones",
+      "accnum": "1234",
+      "accbsb": "111",
+      "address": "12 Test st",
+      "suburb": "Liverpool",
+      "state": "NSW",
+      "pcode": "1111",
+      "employdate": "2011-10-10",
+      "dept": "Operation",
+      "employtype": "Full-Time",
+      "id": 3
     },
     {
       "fname": "Jon",
@@ -46,25 +43,6 @@
       "phoneno": "0434334433",
       "username": "bjon@EMSOP",
       "pwd": "big99",
-      "accname": "bjonop",
-      "accnum": "122233",
-      "accbsb": "111",
-      "address": "15 Bigge St",
-      "suburb": "Liverpool",
-      "state": "NSW",
-      "pcode": "2122",
-      "employdate": "2019-10-22",
-      "dept": "Operations",
-      "fname": "Big",
-      "lname": "Jonathan",
-      "employtype": "Full-Time",
-      "id": 5
-    },
-    {
-      "dob": "1981-10-06",
-      "phoneno": "0434334433",
-      "username": "bjon@EMSHR",
-      "pwd": "big99",
       "accname": "bjon",
       "accnum": "122233",
       "accbsb": "111",
@@ -77,10 +55,20 @@
       "fname": "Big",
       "lname": "Jonathan",
       "employtype": "Full-Time",
-      "id": 6
+      "id": 5
     }
   ],
   "payroll": [
+    {
+      "fname": "Jon",
+      "lname": "Jones",
+      "amount": "1000",
+      "bonus": "1000",
+      "paydate": "2021-10-06",
+      "paymethod": "Cash",
+      "description": "Salary",
+      "id": 1
+    },
     {
       "fname": "Hello",
       "lname": "World",
@@ -89,7 +77,7 @@
       "paydate": "2021-10-06",
       "paymethod": "cheque",
       "description": "Business Claim",
-      "id": 1
+      "id": 2
     }
   ],
   "applicationform": [
@@ -114,24 +102,14 @@
       "id": 2
     },
     {
-      "fname": "scasd",
-      "lname": "dasdas",
+      "fname": "Big",
+      "lname": "Johnathan",
       "applicationtype": "leave",
       "applicationdate": "2021-10-06",
       "status": "pending",
       "subcategory": "Leave for 1 week",
       "reason": "holiday leave",
       "id": 3
-    },
-    {
-      "fname": "sdfgsdfg",
-      "lname": "dfgsdgsdfg",
-      "applicationtype": "transfer",
-      "applicationdate": "2021-10-10",
-      "status": "pending",
-      "subcategory": "sdgfsdfg",
-      "reason": "sdfgsfdgsfg",
-      "id": 4
     }
   ],
   "filecomplaint": [
@@ -154,22 +132,13 @@
       "id": 2
     },
     {
-      "fname": "scasd",
-      "lname": "dasdas",
+      "fname": "Big",
+      "lname": "Johnathan",
       "complaintdescription": "un healthy evi",
       "complaintdate": "2021-10-05",
       "status": "pending",
       "complainttype": "work",
       "id": 3
-    },
-    {
-      "fname": "sdfgsdfg",
-      "lname": "sdfgsdfg",
-      "complaintdescription": "ssdfgsdfg",
-      "complaintdate": "2021-10-10",
-      "status": "pending",
-      "complainttype": "work",
-      "id": 4
     }
   ],
   "voiceconcern": [
