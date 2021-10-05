@@ -45,10 +45,10 @@
       "employtype": "Full-Time",
       "id": 4,
       "dateworking": [
-        "06/11/2021 | " ,
-        "07/11/2021 | " ,
-        "08/11/2021 | " ,
-        "10/11/2021 | " ,
+        "06/11/2021 | ",
+        "07/11/2021 | ",
+        "08/11/2021 | ",
+        "10/11/2021 | ",
         "11/11/2021 "
       ]
     },
@@ -71,11 +71,11 @@
       "employtype": "Full-Time",
       "id": 5,
       "dateworking": [
-        "02/11/2021 | " ,
-        "05/11/2021 | " ,
-        "09/11/2021 | " ,
-        "10/11/2021 | " ,
-        "13/11/2021 | " ,
+        "02/11/2021 | ",
+        "05/11/2021 | ",
+        "09/11/2021 | ",
+        "10/11/2021 | ",
+        "13/11/2021 | ",
         "14/11/2021 "
       ]
     }
@@ -161,6 +161,51 @@
       "status": "pending",
       "complainttype": "work",
       "id": 3
+    },
+    {
+      "fname": "Small",
+      "lname": "Jonathan",
+      "complaintdescription": "I hate my life.... :(",
+      "complaintdate": "2021-10-06",
+      "status": "pending",
+      "complainttype": "personal",
+      "id": 4
+    },
+    {
+      "fname": "Jon",
+      "lname": "Jones",
+      "complaintdescription": "I work too much ",
+      "complaintdate": "2021-10-05",
+      "status": "pending",
+      "complainttype": "work",
+      "id": 5
+    },
+    {
+      "fname": "Jon",
+      "lname": "Jones",
+      "complaintdescription": "I need my coffee now!!!",
+      "complaintdate": "2021-10-05",
+      "status": "pending",
+      "complainttype": "general",
+      "id": 6
+    },
+    {
+      "fname": "Big",
+      "lname": "Jonathan",
+      "complaintdescription": "Not enough cookies at work. I starving here",
+      "complaintdate": "2021-10-04",
+      "status": "pending",
+      "complainttype": "suggestion",
+      "id": 7
+    },
+    {
+      "fname": "no",
+      "lname": "name",
+      "complaintdescription": "Can we get the aircon working. Its too hot here",
+      "complaintdate": "2021-10-05",
+      "status": "pending",
+      "complainttype": "general",
+      "id": 8
     }
   ],
   "voiceconcern": [

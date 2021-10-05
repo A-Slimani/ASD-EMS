@@ -9,6 +9,8 @@ const Content = () => {
     status: "pending", complainttype: ""
   });
 
+  const match = useRouteMatch('/FileComplaint/:id')
+
   const { fname, lname, complaintdescription, complainttype, complaintdate } = filecomplaint;
 
   const onInputChange = e => {
@@ -20,7 +22,7 @@ const Content = () => {
     //change me back to :3002 when using Mongo. 3001 for local
     await axios.post("http://localhost:3001/filecomplaint", filecomplaint);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
-    window.location = "./EmployeeDashboard";
+    window.location = `/EmployeeDashboard/${match.params.id}`;
   };
 
   const handleSubmit = e => {

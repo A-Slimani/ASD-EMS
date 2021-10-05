@@ -59,7 +59,7 @@ const Content = () => {
         <h3> <b>Username:</b> {showEmployee().username}</h3>
       </div>
 
-      <div id="applicationsubmit">
+      {/* <div id="applicationsubmit">
         <h2
           style={{
             textAlign: 'left',
@@ -280,7 +280,7 @@ const Content = () => {
             <td> received</td>
           </tr>
         </table>
-      </div>
+      </div> */}
     </>
   );
 };
