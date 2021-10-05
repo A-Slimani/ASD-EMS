@@ -16,7 +16,7 @@ const Content = () => {
   };
 
   const onSubmit = async e => {
-    await axios.post("http://localhost:3002/voiceconcern", voiceconcern);
+    await axios.post("http://localhost:3001/voiceconcern", voiceconcern);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
     window.location = "./EmployeeDashboard";
   };
