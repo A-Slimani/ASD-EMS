@@ -20,13 +20,6 @@ steps:
       npm install
       npm run build
     displayName: 'npm install and build'
-  
-  - bash: npm run test 
-    workingDirectory: #
-    displayName: #
-    failOnStderr: #
-    env:  # mapping of environment variables to add
-
 
   - script: |
       cd asd-ems
