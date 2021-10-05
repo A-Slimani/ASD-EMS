@@ -6,16 +6,27 @@ import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 const Content = () => {
   const match = useRouteMatch('/EmployeePersonal/:id');
   const [employee, setEmployee] = useState();
+	const history = useHistory();
+
+	const showEmployee = () => {
+		return employee !== undefined ? employee : ""
+	}
 
   useEffect(() => {
     employeeService.get(match.params.id).then(emp => setEmployee(emp));
   }, []);
 
+	const handleEditRoute = e => {
+		history.push({
+			pathname: `/UpdateUser/${employee.id}`
+		})	
+	}
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
-          Welcome, {}
+          Welcome, {showEmployee().fname + " " + showEmployee().lname}
         </h1>
         <h2>
           <a href="#applicationsubmit"> Application Submitted </a> |
@@ -34,20 +45,18 @@ const Content = () => {
           }}>
           Personal Information{' '}
         </h2>
-        <button style={{ float: 'right' }} type="submit" className="update">
+        <button style={{ float: 'right' }} type="submit" className="update" onClick={handleEditRoute}>
           {' '}
           Update Details{' '}
         </button>
-        <h3> Employee ID: </h3>
-        <h3> Full Name: </h3>
-        <h3> Date of Birth: </h3>
-        <h3> Address: </h3>
-        <h3> Bank Details </h3>
-        <h3> Department: </h3>
-        <h3> Employment Date: </h3>
-        <h3> Username: </h3>
-        <h3> Password: </h3>
-        <h3> Bank Details: </h3>
+        <h3> <b>Employee ID:</b> {showEmployee().id}</h3>
+        <h3> <b>Full Name:</b> {showEmployee().fname + " " + showEmployee().lname}</h3>
+        <h3> <b>Date of Birth:</b> {showEmployee().dob}</h3>
+        <h3> <b>Address:</b> {showEmployee().address + " " + showEmployee().suburb + " " + showEmployee().pcode}</h3>
+        <h3> <b>Bank Number:</b>. {showEmployee().accnum} </h3>
+        <h3> <b>Department:</b> {showEmployee().dept}</h3>
+        <h3> <b>Employment Date:</b> {showEmployee().employdate}</h3>
+        <h3> <b>Username:</b> {showEmployee().username}</h3>
       </div>
 
       <div id="applicationsubmit">

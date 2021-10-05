@@ -20,6 +20,7 @@ import AddPayroll from './AddPayroll';
 import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
+import UpdateUser from './UpdateUser'
 
 
 function App() {
@@ -47,7 +48,8 @@ function App() {
         <Route exact path="/AddUser"> <AddUser /> </Route>
         <Route exact path="/UserList"> <UserList /> </Route>
 
-        <Route exact path="/UpdateEmployee/:id" render={props => <UpdateEmployee {...props}/>} />
+        <Route exact path="/UpdateEmployee/:id"> <UpdateEmployee /> </Route>
+        <Route exact path="/UpdateUser/:id"> <UpdateUser /> </Route> 
 
         <Route exact path="/Application/:id"> <Application /> </Route>
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>

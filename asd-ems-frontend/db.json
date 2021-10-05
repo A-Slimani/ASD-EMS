@@ -37,7 +37,7 @@
       "state": "NSW",
       "pcode": "1111",
       "employdate": "2011-10-10",
-      "dept": "Operation",
+      "dept": "HR",
       "employtype": "Full-Time",
       "id": 4
     },
@@ -52,10 +52,10 @@
       "address": "15 Bigge St",
       "suburb": "Liverpool",
       "state": "NSW",
-      "pcode": "2122",
+      "pcode": "2170",
       "employdate": "2019-10-22",
-      "dept": "Operations",
-      "fname": "Big",
+      "dept": "Operation",
+      "fname": "Small",
       "lname": "Jonathan",
       "employtype": "Full-Time",
       "id": 5
