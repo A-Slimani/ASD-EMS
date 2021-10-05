@@ -42,10 +42,10 @@
 		"id": 4
 	  }
 	],
-	"payroll": [
+	"payrolldb": [
 	  {
-		"firstName": "Hello",
-		"lastName": "World",
+		"fname": "Hello",
+		"lname": "World",
 		"amount": "1000",
 		"bonus": "1000",
 		"paydate": "2021-10-06",
