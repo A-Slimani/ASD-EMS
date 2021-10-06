@@ -17,10 +17,11 @@ const Content = () => {
     })
   }, [])
   
+  //execute delete payroll based on id after select the "delete" button
   const handleDelete = e => {
     var option = window.confirm("Do you want to delete payroll with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
     if (option === true) {
-      axios.delete(`http://localhost:3001/payroll/${e.currentTarget.id}`);
+      axios.delete(`http://localhost:3001/payrolldb/${e.currentTarget.id}`);
       window.location = "./PayrollHistory"
     }
   }
