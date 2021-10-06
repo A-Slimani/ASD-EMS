@@ -11,6 +11,6 @@ test("login using employee username", () => {
 })
 
 test("login using invalid username", () => {
-    const invalid = "def@EMSJK"
+    const invalid = "ghi@EMSJK"
     expect(handleSubmit(invalid)).toBe(false);
 })
