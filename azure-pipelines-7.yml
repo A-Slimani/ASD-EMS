@@ -23,8 +23,9 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
-    testResultsFiles: 'asd-ems-frontend/TEST-junit.xml'
+    testResultsFiles: 'asd-ems-frontend/TEST-*.xml'
     testRunTitle: 'Test payroll'
+  displayName: 'test Abdullah'
 
 
 
