@@ -15,6 +15,7 @@ import PayrollHistory from './PayrollHistory';
 import UpdateEmployee from './UpdateEmployee';
 import ComplaintList from './ComplaintList';
 import Personal from './Personal';
+import UpdatePayroll from './UpdatePayroll';
 import EmployeeDashboard from './EmployeeDashboard';
 import UpdatePolicy from './UpdatePolicy';
 import AddPayroll from './AddPayroll';
@@ -56,6 +57,8 @@ function App() {
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>
 
         <Route exact path="/AddPayroll"> <AddPayroll /> </Route>
+        <Route exact path="/UpdatePayroll/:id"> <UpdatePayroll /> </Route>
+        <Route exact path="/PayrollList"> <PayrollList /> </Route>
         <Route exact path="/PayrollHistory"> <PayrollHistory /> </Route>
 
         <Route exact path="/PaymentPolicy"> <PaymentPolicy /> </Route>

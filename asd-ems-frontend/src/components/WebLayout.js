@@ -28,12 +28,19 @@ const WebLayout = ({ content }) => {
             <Menu.Item key="5"> <Link to="./PayrollHistory"> <button> Payroll History </button> </Link> </Menu.Item>
             {/* <Menu.Item key="6"> <Link to="./PayrollLog"> <button> Payroll Log </button></Link></Menu.Item> */}
             <Menu.Item key="6">{' '} <Link to="./PaymentPolicy"><button> Payment Policy</button></Link></Menu.Item>
+            <Menu.Item key="7">{' '} <Link to="./PayrollList"><button>Employee Payroll</button></Link></Menu.Item>
           </SubMenu>
 
+<<<<<<< HEAD
           <SubMenu key="sub3" icon={<FileOutlined />} title="Applications">
             {/* <Menu.Item key="7"> <Link to="Application"> <button> Launch Application </button> </Link></Menu.Item> */}
             <Menu.Item key="9">{' '} <Link to="./ApplicationList"><button> Manage Application </button></Link></Menu.Item>
           </SubMenu>
+=======
+          <Menu.Item key="menu2" icon={<FileOutlined />}>
+          <Link to="./ApplicationList"><button> Manage Application </button></Link>
+          </Menu.Item>
+>>>>>>> Catherine
 
           <Menu.Item key="menu3" icon={<CommentOutlined />}>
           <Link to="./ComplaintList"><button> Manage Complaints </button></Link>

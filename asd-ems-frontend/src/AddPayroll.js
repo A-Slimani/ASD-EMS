@@ -112,7 +112,7 @@ const Content = () => {
                     <select name="paymethod" className="formtextfield" value={paymethod} onChange={e => onInputChange(e)}>
                         <option value="select"> -- Select one -- </option>
                         <option value="cash"> Cash </option>
-                        <option value="cheque"> Cheques </option>
+                        <option value="cheque"> Cheque </option>
                         <option value="eftpos"> EFTPOS </option>
                         <option value="others"> Others </option>
                     </select>{' '}
@@ -138,8 +138,8 @@ const Content = () => {
     );
 };
 
-const AddUser = () => {
+const AddPayroll = () => {
     return <WebLayout content={Content()} />;
 };
 
-export default AddUser;
+export default AddPayroll;
