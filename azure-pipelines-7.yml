@@ -15,6 +15,11 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- script: |
+    cd asd-ems-frontend
+    npm run test
+  displayName: 'npm run test'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
