@@ -272,6 +272,38 @@
       "description": "Business Claim",
       "id": 2
     }
+],
+  "payrolldb": [
+    {
+      "fname": "Hello",
+      "lname": "World",
+      "amount": "10000",
+      "bonus": "1000",
+      "paydate": "2021-10-06",
+      "paymethod": "cheque",
+      "description": "Business Claim",
+      "id": 1
+    },
+    {
+      "fname": "John",
+      "lname": "Smith",
+      "amount": "50000",
+      "bonus": "2000",
+      "paydate": "2021-09-22",
+      "paymethod": "cash",
+      "description": "Wants cash",
+      "id": 2
+    },
+    {
+      "fname": "Jane",
+      "lname": "Doe",
+      "amount": "70000",
+      "bonus": "500",
+      "paydate": "2021-10-01",
+      "paymethod": "eftpos",
+      "description": "n/a",
+      "id": 3
+    }
   ],
   "applicationform": [
     {

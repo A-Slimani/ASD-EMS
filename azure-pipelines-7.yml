@@ -17,20 +17,11 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-      testRunner: JUnit
-      testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
-      testRunTitle: 'Test employee'
-
-- task: PublishTestResults@2
-  inputs:
-      testRunner: JUnit
-      testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
-      testRunTitle: 'Test sum'
-
-- task: PublishTestResults@2
-  inputs:
     testResultsFormat: JUnit
-    testResultsFiles: 'asd-ems-frontend/tests/payroll.test.js'
+    testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
     testRunTitle: 'Test payroll'
+
+
+
 
 
