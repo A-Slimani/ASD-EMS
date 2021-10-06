@@ -32,7 +32,7 @@ const Content = () => {
 
   const onSubmit = async e => {
     await axios.put(`http://localhost:3001/payrolldb/${match.params.id}`, payroll)
-    window.location = "/PayrollList"
+    window.location = "/PayrollHistory"
   }
 
   function goBack(e) {
