@@ -49,6 +49,9 @@ const Content = () => {
         else { document.getElementById("payrollform").reset(); }
     }
 
+    //the payroll form enable admin to create new payroll for each payment paid
+    //each element has an input validation such that correct data inputted into each field
+    //the button called the create/add function when selected to store the data into the database
     return (
         <>
             <div>
