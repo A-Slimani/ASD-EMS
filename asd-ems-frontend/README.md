@@ -1,70 +1,60 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About EMS project
+This project is an Employee Management System (EMS) created by ASD-Group 6 using Node.js React. The system aims to provide business employer with an environement to manage their employees. 
 
-## Available Scripts
+There are 2 types of users in the system known as 'Admin' (employer) who is categorise into the HR (Human Resource) employment type, and the other user is 'Employee' who is in the OP (Operation), FN (Finance) and MK (Makerting) employement type.
+
+Within the EMS system, Admin enables to manage, create, view, update, remove and edit employee's information, payroll, applications, complaints and concerns. Whilst, Employee able to update their information, view submitted application, concerns and complaints.
+
+The following instructions instruct user on how to run the project/system:
+
+## Instructions
 
 In the project directory, you can run:
 
-### `yarn start`
+### `cd ASD-EMS/asd-ems-frontend` 
 
-Runs the app in the development mode.\
+To navigate to the project file/directory
+
+Note: does not need to execute this command if already in the 'asd-ems-frontend' file/directory
+
+### `npm install`
+
+To install the required packages the commands to run the EMS react project
+
+### `npm start`
+
+To runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A login page can be seen and user will be able to interact with the system after logged into the system
 
-### `yarn test`
+User can use the sample login details to the system:
+-- admin
+    username: JonJones@EMSHR
+    password: jon123
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-- employee
+    username: JonJones@EMSMK
+    password: big99
 
-### `yarn build`
+However, before interacting with the system, ensure to follow the steps below to run the system database
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm install json-server`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To install the local database server which will enable to store data after each function is executed
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run server`
 
-### `yarn eject`
+Runs the server for the project.
+Open [http://localhost:3001](http://localhost:3001) to view the local database in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+It is not necessary to open and view the database in the browser, the purpose of this command is to run the database
+for the system to function
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run test`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+There are a few input validation test cases for R1 prototype that can be executed using this command
+for system's unit testing purpose
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
