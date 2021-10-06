@@ -28,6 +28,7 @@ steps:
 
 - script: |
     cd asd-ems-frontend
+    npm install --save-dev jest
     jest ApplicationGeorge.test.js
   displayName: 'Run George Test'
 
