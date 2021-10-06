@@ -26,6 +26,12 @@ steps:
     npm run test
   displayName: 'npm run test'
 
+- script: |
+    cd asd-ems-frontend
+    npm install --save-dev jest
+    jest ApplicationGeorge.test.js
+  displayName: 'Run George Test'
+
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
