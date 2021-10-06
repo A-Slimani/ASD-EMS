@@ -17,6 +17,12 @@ steps:
 
 - script: |
     cd asd-ems-frontend
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- script: |
+    cd asd-ems-frontend
     npm run test
   displayName: 'npm run test'
 
