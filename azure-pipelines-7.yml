@@ -18,7 +18,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
-    testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
+    testResultsFiles: 'asd-ems-frontend/tests/TEST-junit.xml'
     testRunTitle: 'Test payroll'
 
 
