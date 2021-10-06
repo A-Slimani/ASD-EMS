@@ -1,79 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testsuites name="jest tests" tests="15" failures="2" errors="0" time="1.068">
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2021-10-05T23:15:39" time="0.362" tests="1">
-    <testcase classname=" adds employee to database" name=" adds employee to database" time="0.001">
-      <failure>ReferenceError: newObj is not defined
-    at Object.&lt;anonymous&gt; (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/tests/employees.test.js:12:10)
-    at Object.asyncJestTest (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:75:41
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)</failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2021-10-05T23:15:40" time="0.091" tests="1">
-    <testcase classname=" check for form is clicked" name=" check for form is clicked" time="0.004">
-      <failure>ReferenceError: container is not defined
-    at Object.&lt;anonymous&gt; (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/tests/Application.test.js:9:12)
-    at Object.asyncJestLifecycle (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:58:37)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:75:41</failure>
-      <failure>ReferenceError: Content is not defined
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/tests/Application.test.js:20:22
-    at batchedUpdates$1 (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-    at act (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-    at Object.&lt;anonymous&gt; (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/tests/Application.test.js:19:3)
-    at Object.asyncJestTest (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:75:41</failure>
-      <failure>ReferenceError: container is not defined
-    at Object.&lt;anonymous&gt; (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/tests/Application.test.js:14:29)
-    at Object.asyncJestLifecycle (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:58:37)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (/home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
-    at /home/aboud/UNI/ASD/Project/ASD-EMS/asd-ems-frontend/node_modules/jest-jasmine2/build/queueRunner.js:75:41</failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-05T23:15:40" time="0.066" tests="5">
-    <testcase classname=" create user with correct data input" name=" create user with correct data input" time="0.001">
-    </testcase>
-    <testcase classname=" create user with wrong data input, number input in all textfield" name=" create user with wrong data input, number input in all textfield" time="0">
-    </testcase>
-    <testcase classname=" create user with wrong data input, text input in all number field" name=" create user with wrong data input, text input in all number field" time="0">
-    </testcase>
-    <testcase classname=" create user with wrong data input, incorrect date format - user must be at least 18 years old" name=" create user with wrong data input, incorrect date format - user must be at least 18 years old" time="0.001">
-    </testcase>
-    <testcase classname=" create user not following the requried username format" name=" create user not following the requried username format" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-05T23:15:40" time="0.058" tests="4">
-    <testcase classname=" create payroll with correct data input" name=" create payroll with correct data input" time="0">
-    </testcase>
-    <testcase classname=" create payroll with incorrect data input - text entered into number field" name=" create payroll with incorrect data input - text entered into number field" time="0">
-    </testcase>
-    <testcase classname=" create payroll with incorrect data input - number entered into textfield" name=" create payroll with incorrect data input - number entered into textfield" time="0">
-    </testcase>
-    <testcase classname=" create payroll with incorrect date input, pay date create cannot be more than 3 years ago" name=" create payroll with incorrect date input, pay date create cannot be more than 3 years ago" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-05T23:15:40" time="0.053" tests="3">
-    <testcase classname=" login using admin username" name=" login using admin username" time="0.001">
-    </testcase>
-    <testcase classname=" login using employee username" name=" login using employee username" time="0">
-    </testcase>
-    <testcase classname=" login using invalid username" name=" login using invalid username" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="addition test (ABDULLAH SLIMANI)" errors="0" failures="0" skipped="0" timestamp="2021-10-05T23:15:40" time="0.102" tests="1">
-    <testcase classname="addition test (ABDULLAH SLIMANI) adds 1 + 2 to equal 3" name="addition test (ABDULLAH SLIMANI) adds 1 + 2 to equal 3" time="0.001">
-=======
 <testsuites name="jest tests" tests="15" failures="2" errors="0" time="18.81">
   <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2021-10-06T00:03:10" time="14.78" tests="1">
     <testcase classname=" adds employee to database" name=" adds employee to database" time="0.015">
@@ -148,7 +73,6 @@
   </testsuite>
   <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T00:03:26" time="0.212" tests="1">
     <testcase classname=" adds 1 + 2 to equal 3" name=" adds 1 + 2 to equal 3" time="0.001">
->>>>>>> 234afb2ff377ae908be5e69ef763964ddb604f2f
     </testcase>
   </testsuite>
 </testsuites>

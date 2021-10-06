@@ -8,7 +8,6 @@ const { Column } = Table;
 const Content = () => {
   const [complaints, setComplaints] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
-  const [typeFilter, setTypeFilter] = useState('');
 
   const filterByName = nameFilter === '' ? complaints : complaints.filter(c => c.fname.toLowerCase().match(nameFilter))
 
