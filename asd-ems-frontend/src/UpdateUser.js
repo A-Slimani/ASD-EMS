@@ -1,61 +1,93 @@
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
+import { useRouteMatch } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
-import React, { useState } from 'react';
+import employeeService from './services/Employee';
+import './style.css';
 
 const Content = () => {
-  const [employees, setEmployee] = useState({
-    fname: "", lname: "", dob: "", phoneno: "",
-    username: "", pwd: "",
-    accname: "", accnum: "", accbsb: "",
-    address: "", suburb: "", state: "", pcode: "",
-    employdate: "", dept: "", employtype: ""
+  const match = useRouteMatch('/UpdateUser/:id');
+  console.log('match: ', match)
+  const [employee, setEmployee] = useState({
+    fname: '',
+    lname: '',
+    dob: '',
+    phoneno: '',
+    username: '',
+    pwd: '',
+    accname: '',
+    accnum: '',
+    accbsb: '',
+    address: '',
+    suburb: '',
+    state: '',
+    pcode: '',
+    employdate: '',
+    dept: '',
+    employmentType: '',
   });
 
+  const showEmployee = () => {
+    return employee !== undefined ? employee : "";
+  }
 
-  const {
+ const {
     fname, lname, dob, phoneno,
     username, pwd,
     accname, accnum, accbsb,
     address, suburb, state, pcode,
     employdate, dept, employtype
-  } = employees;
+  } = employee;
 
+  useEffect(() => {
+    employeeService.get(match.params.id).then(e => setEmployee(e))
+  }, [])
+
+  console.log("employee test: ", employee)
+  console.log("match params id type", typeof match.params.id)
 
   const onInputChange = e => {
-    setEmployee({ ...employees, [e.target.name]: e.target.value })
-  };
+    setEmployee({...employee, [e.target.name]: e.target.value})
+  }
 
   const onSubmit = async e => {
-    await axios.post("http://localhost:3001/employees", employees);
-    window.location = "/UserList";
-  };
+    await axios.put(`http://localhost:3001/employees/${match.params.id}`, employee)
+    window.location = `/EmployeePersonal/${employee.id}`
+  }
 
-  const handleSubmit = e => {
+  function goBack(e) {
+    e.preventDefault();
+    var option = window.confirm("Do you want leave the page?\n\nSelect OK to go back and data will not be saved\n\nSelect CANCEL to remain on the page")
+    if (option === true) { window.history.back(); }
+  }
+
+  function handleSubmit(e) {
     function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
-    function isName(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR,OP,MK,FN]{2}$/.test(name); }
+    function isName(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR,OP,MK,FN]{2}$/.test(name) }
     function isText(text) { return (/^[A-Za-z]+$/).test(text) }
 
     e.preventDefault();
-    var s = window.confirm("Do you want add a new user with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
+    var s = window.confirm("Do you update the information with entered data?\n\nSelect OK to proceed\n\nSelect CANCEL to remain on the page");
     if (s === true) {
-      var fname = document.forms["registerform"]["fname"].value;
-      var lname = document.forms["registerform"]["lname"].value;
-      var dob = document.forms["registerform"]["dob"].value;
-      var username = document.forms["registerform"]["username"].value;
-      var pwd = document.forms["registerform"]["pwd"].value;
-      var phoneno = document.forms["registerform"]["phoneno"].value;
-      var accname = document.forms["registerform"]["accname"].value;
-      var accnum = document.forms["registerform"]["accnum"].value;
-      var accbsb = document.forms["registerform"]["accbsb"].value;
-      var address = document.forms["registerform"]["address"].value;
-      var suburb = document.forms["registerform"]["suburb"].value;
-      var state = document.forms["registerform"]["state"].value;
-      var pcode = document.forms["registerform"]["pcode"].value;
-      var employtype = document.forms["registerform"]["employtype"].value;
-      var employdate = document.forms["registerform"]["employdate"].value;
-      var dept = document.forms["registerform"]["dept"].value;
+      console.log(document.forms)
+      var fname = document.forms["updateform"]["fname"].value;
+      var lname = document.forms["updateform"]["lname"].value;
+      var dob = document.forms["updateform"]["dob"].value;
+      var username = document.forms["updateform"]["username"].value;
+      var pwd = document.forms["updateform"]["pwd"].value;
+      var phoneno = document.forms["updateform"]["phoneno"].value;
+      var accname = document.forms["updateform"]["accname"].value;
+      var accnum = document.forms["updateform"]["accnum"].value;
+      var accbsb = document.forms["updateform"]["accbsb"].value;
+      var address = document.forms["updateform"]["address"].value;
+      var suburb = document.forms["updateform"]["suburb"].value;
+      var state = document.forms["updateform"]["state"].value;
+      var pcode = document.forms["updateform"]["pcode"].value;
+      var employtype = document.forms["updateform"]["employtype"].value;
+      var employdate = document.forms["updateform"]["employdate"].value;
+      var dept = document.forms["updateform"]["dept"].value;
 
-      if (fname === "" || isText(lname) === false) { alert("First Name field is empty or invalid format input"); }
+      if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
       else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
       else if (dob === "") { alert("Date of Birth field must be select"); }
       else if (username === "" || isName(username) === false) { alert("Username field is empty or invalid format input \n\n Follow the given format"); }
@@ -73,23 +105,23 @@ const Content = () => {
       else if (dept === "") { alert("Department must be select"); }
       else if (dob > employdate) { alert("Invalid date of birth and employment date"); }
       else if ((new Date().getFullYear() - new Date(dob).getFullYear()) <= 18) { alert("Employee age must be 18 or over"); }
-      else { onSubmit(); }
+      else { onSubmit() }
     }
-    else { document.getElementById("registerform").reset(); }
+    else {document.getElementById("updateform").reset()}
   }
 
   return (
-    <>
+  <>
       <div>
-        <form id='registerform' name='registerform' onSubmit={e => onSubmit(e)}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Add New User </h1>
+        <form id='updateform' name='updateform' onSubmit={e => onSubmit(e)}>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showEmployee().fname + " " + showEmployee().lname} </h1>
           <p style={{ textAlign: 'center' }}> {' '} Please fill out the details below, all fields are required{' '} </p>
 
           <label> First Name: </label>
           <small>Up to 255 Characters </small> <p> </p>
           <input
             type="text"
-            placeholder="First Name"
+            defaultValue={showEmployee().fname}
             name="fname"
             className="formtextfield"
             value={fname}
@@ -100,8 +132,8 @@ const Content = () => {
           <label> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
           <input
             type="text"
-            placeholder="Last Name"
             name="lname"
+            defaultValue={showEmployee().lname}
             className="formtextfield"
             value={lname}
             onChange={e => onInputChange(e)}
@@ -112,7 +144,7 @@ const Content = () => {
           <small> Use the calendar on the right </small> <p />
           <input
             type="date"
-            placeholder="DD/MM/YYYY"
+            defaultValue={showEmployee().dob}
             name="dob"
             className="formtextfield"
             value={dob}
@@ -128,7 +160,7 @@ const Content = () => {
           <p />
           <input
             type="email"
-            placeholder="example@EMSHR"
+            defaultValue={showEmployee().username}
             name="username"
             className="formtextfield"
             value={username}
@@ -140,10 +172,10 @@ const Content = () => {
           <small> Maximum password length is 16 Characters </small> <p />
           <input
             type="password"
-            placeholder="Password"
+            defaultValue={showEmployee().pwd}
             maxLength="16" name="pwd"
-            className="formtextfield"
             value={pwd}
+            className="formtextfield"
             onChange={e => onInputChange(e)}
           />{' '}
           <br />
@@ -151,7 +183,7 @@ const Content = () => {
           <label> Contact Number: </label> <small> Up to 10 digits </small> <p />
           <input
             type="text"
-            placeholder="Phone Number"
+            defaultValue={showEmployee().phoneno}
             name="phoneno"
             maxLength="10"
             className="formtextfield"
@@ -164,7 +196,7 @@ const Content = () => {
           <p />
           <input
             type="text"
-            placeholder="Full Name"
+            defaultValue={showEmployee().accname}
             name="accname"
             className="formtextfield"
             value={accname}
@@ -177,7 +209,7 @@ const Content = () => {
           <p />
           <input
             type="text"
-            placeholder="Account Number without space"
+            defaultValue={showEmployee().accnum}
             name="accnum"
             minLength="6" maxLength="10"
             className="formtextfield"
@@ -191,7 +223,7 @@ const Content = () => {
           <p />
           <input
             type="text"
-            placeholder="BSB without space"
+            defaultValue={showEmployee().accbsb}
             name="accbsb" maxLength="6"
             className="formtextfield"
             value={accbsb}
@@ -202,7 +234,7 @@ const Content = () => {
           <label> Address: </label> <small> Up to 255 Characters </small> <p />
           <input
             type="text"
-            placeholder="Address"
+            defaultValue={showEmployee().address}
             maxLength="255"
             name="address"
             className="formtextfield"
@@ -214,7 +246,7 @@ const Content = () => {
           <label> Suburb: </label> <small>Up to 255 Characters </small> <p />
           <input
             type="text"
-            placeholder="Suburb"
+            defaultValue={showEmployee().suburb}
             maxLength="255"
             name="suburb"
             className="formtextfield"
@@ -226,7 +258,7 @@ const Content = () => {
           <label> State: </label> <small> Up 3 Character </small> <p />
           <input
             type="text"
-            placeholder="State"
+            defaultValue={showEmployee().state}
             name="state" maxLength="3"
             className="formtextfield"
             value={state}
@@ -237,7 +269,7 @@ const Content = () => {
           <label> Post Code: </label> <small> Up 4 Digits </small> <p />
           <input
             type="text"
-            placeholder="Post Code"
+            defaultValue={showEmployee().pcode}
             name="pcode" maxLength="4"
             className="formtextfield"
             value={pcode}
@@ -246,7 +278,7 @@ const Content = () => {
           <p />
 
           <label> Employment Type: </label> <p />
-          <select name="employtype" className="formtextfield" value={employtype} onChange={e => onInputChange(e)} >
+          <select name="employtype" className="formtextfield" value={employtype} defaultValue={showEmployee().employtype}  onChange={e => onInputChange(e)} >
             <option value="select"> -- Select one -- </option>
             <option value="Full-Time"> Full-Time </option>
             <option value="Part-Time"> Part-Time </option>
@@ -257,15 +289,15 @@ const Content = () => {
           <small> Use the calendar on the right </small> <p />
           <input
             type="date"
-            placeholder="DD/MM/YYYY"
+            defaultValue={showEmployee().employdate}
             name="employdate"
-            className="formtextfield"
             value={employdate}
+            className="formtextfield"
             onChange={e => onInputChange(e)} />{' '}
           <p />
 
           <label> Department: </label> <br />
-          <select name="dept" className="formtextfield" value={dept} onChange={e => onInputChange(e)} required>
+          <select name="dept" className="formtextfield" value={dept} defaultValue={showEmployee().dept} onChange={e => onInputChange(e)} required>
             <option value="select"> -- Select one -- </option>
             <option value="finance"> Finance </option>
             <option value="HR"> Human Resource </option>
@@ -275,16 +307,16 @@ const Content = () => {
           <p />
 
           <div style={{ textAlign: 'center', paddingTop: 10 }}>
-            <button type="submit" id="submit" className="button" onClick={handleSubmit} > Create New User </button>{' '}
+            <button type="submit" id="submit" className="button" onClick={handleSubmit} > Update <b>{showEmployee().username}</b> </button>{' '}
           </div>
         </form>
       </div>
-    </>
+    </> 
   );
 };
 
-const AddUser = () => {
+const UpdateUser = () => {
   return <WebLayout content={Content()} />;
-};
+}
 
-export default AddUser;
+export default UpdateUser;

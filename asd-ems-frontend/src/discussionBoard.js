@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import EmployeeWebLayout from "./components/EmployeeWebLayout";
 
 const Content = () => {
@@ -16,7 +16,7 @@ const Content = () => {
   };
 
   const onSubmit = async e => {
-    await axios.post("http://localhost:3002/voiceconcern", voiceconcern);
+    await axios.post("http://localhost:3001/voiceconcern", voiceconcern);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
     window.location = "./EmployeeDashboard";
   };
@@ -120,7 +120,8 @@ const Content = () => {
 };
 
 const DiscussionBoard = () => {
-  return <EmployeeWebLayout content={Content()} />;
+  const match = useRouteMatch('/discussionBoard/:id')
+  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
 };
 
 export default DiscussionBoard;

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
 import payrollService from "./services/Payroll";
+import axios from 'axios';
 
 const { Column } = Table;
 
@@ -14,6 +15,14 @@ const Content = () => {
       setPayroll(payroll)
     })
   }, [])
+  
+  const handleDelete = e => {
+    var option = window.confirm("Do you want to delete payroll with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+    if (option === true) {
+      axios.delete(`http://localhost:3001/payroll/${e.currentTarget.id}`);
+      window.location = "./PayrollHistory"
+    }
+  }
 
   return (
     <>
@@ -44,7 +53,7 @@ const Content = () => {
           <Column title="Options" key="id" render={(p) => (
             <>
               <Space split={<Divider type="vertical" />}>
-                <Button> delete</Button>
+                <Button id={p.id} onClick={handleDelete}> delete</Button>
               </Space>
             </>
           )} />

@@ -16,13 +16,12 @@ steps:
   displayName: 'Install Node.js'
 
 - task: PublishTestResults@2
-  condition: succeededOrFailed()
   inputs:
-      testRunner: JUnit
-      testResultFiles: 'asd-ems-frontend/tests/employees.test.js'
+    testResultsFormat: JUnit
+    testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
+    testRunTitle: 'Test payroll'
 
-- task: PublishTestResults@2
-  condition: succeededOrFailed()
-  inputs:
-      testRunner: JUnit
-      testResultFiles: 'asd-ems-frontend/tests/sum.test.js'
+
+
+
+

@@ -17,7 +17,7 @@ const Content = () => {
     };
 
     const onSubmit = async e => {
-        await axios.post("http://localhost:3002/payroll", payroll);
+        await axios.post("http://localhost:3001/payroll", payroll);
         window.location = "./PayrollHistory";
     };
 
