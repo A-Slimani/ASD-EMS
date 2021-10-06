@@ -21,16 +21,7 @@ steps:
     testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
     testRunTitle: 'Test payroll'
 
-- task: PublishTestResults@3
-  inputs:
-    testResultsFormat: JUnit
-    testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
-    testRunTitle: 'Test payroll 2'
 
-- task: PublishTestResults@4
-  inputs:
-    testResultsFormat: JUnit
-    testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
-    testRunTitle: 'Test payroll 3'
+
 
 
