@@ -1,4 +1,4 @@
-import { Button, Divider, Space, Table } from 'antd';
+import { Button, Divider, Space, Table, Input } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import complaintService from "./services/Complaint";
@@ -6,11 +6,16 @@ import complaintService from "./services/Complaint";
 const { Column } = Table;
 
 const Content = () => {
-  const [filecomplaint, setComplaint] = useState([]);
+  const [complaints, setComplaints] = useState([]);
+  const [nameFilter, setNameFilter] = useState('');
+  const [typeFilter, setTypeFilter] = useState('');
+
+  const filterByName = nameFilter === '' ? complaints : complaints.filter(c => c.fname.toLowerCase().match(nameFilter))
+
 
   useEffect(() => {
     complaintService.getAll().then(filecomplaint => {
-      setComplaint(filecomplaint)
+      setComplaints(filecomplaint)
     })
   }, [])
 
@@ -18,18 +23,12 @@ const Content = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All File Complaints </h1>
-        <input type="number" placeholder="File ID" name="requestedid" class="textfield" />
-        <input type="textfield" placeholder="Type" name="requestedtype" class="textfield" />
-        <input type="date" name="requesteddate" class="textfield" />
-        <button className="button" name="searchbtn" type="submit">
-          {' '}
-          Search{' '}
-        </button>{' '}
+        <input type="name" placeholder="Name" name="requestedname" class="textfield" onChange={({target}) => {setNameFilter(target.value)}}/>
         <p />
       </div>
 
       <div style={{ paddingTop: 10 }}>
-        <Table dataSource={filecomplaint}>
+        <Table dataSource={filterByName}>
           <Column title="Complaint ID" dataIndex="id" key="id" />
           <Column title="First Name" dataIndex="fname" key="firstName" />
           <Column title="Last Name" dataIndex="lname" key="lastName" />
