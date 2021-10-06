@@ -16,11 +16,14 @@ const Content = () => {
         setPayroll({ ...payroll, [e.target.name]: e.target.value })
     };
 
+    //execute add function to create new payroll
     const onSubmit = async e => {
-        await axios.post("http://localhost:3001/payroll", payroll);
+        await axios.post("http://localhost:3001/payrolldb", payroll);
         window.location = "./PayrollHistory";
     };
 
+    //handle create payroll form validation
+    //will display notification when incorrect format input and prevent from proceed to next page
     function handleSubmit(e) {
         function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
         function isText(text) { return (/^[A-Za-z]+$/).test(text) }
@@ -46,6 +49,9 @@ const Content = () => {
         else { document.getElementById("payrollform").reset(); }
     }
 
+    //the payroll form enable admin to create new payroll for each payment paid
+    //each element has an input validation such that correct data inputted into each field
+    //the button called the create/add function when selected to store the data into the database
     return (
         <>
             <div>
