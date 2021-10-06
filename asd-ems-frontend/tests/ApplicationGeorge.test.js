@@ -40,4 +40,20 @@ test("launch application with incorrect data input - number input into textfield
 
 })
 
+test("launch application with incorrect data input - number input into textfield", () => {
+
+    const fname = "2345234";
+
+    const lname = "rob123";
+
+    const subcategory = "apply for leave";
+
+    const reason = "holiday leave";
+
+    const applicationdate = "1/1/2020";
+
+    expect(handleApplication(fname, lname, subcategory, reason, applicationdate)).toBe(false);
+
+})
+
 

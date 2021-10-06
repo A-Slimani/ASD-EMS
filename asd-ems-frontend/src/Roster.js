@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
 import employeeService from "./services/Employee";
 
+//Ensures table is able to be referenced as a Const throughout the file
 const { Column } = Table;
 
+//Creates const for all content throughout file. Const uses state to ensure all relevant employees are shown
 const Content = (event) => {
   const [employees, setEmployees] = useState([])
 
@@ -14,7 +16,9 @@ const Content = (event) => {
       setEmployees(employees)
     })
   }, [])
-      
+  
+  //Returns all content within the page, such as all relevant divs which are placed to guarantee the page's
+  //format appears as planned
   return (
     <>
 
