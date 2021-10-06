@@ -38,6 +38,9 @@ const Content = () => {
    })
  } 
 
+  //table display a the list of all created payrols
+  //the update button will call the update function when selected
+  //the delete button will call the delete function when selected
   return (
     <>
       <div style={{ textAlign: 'center' }}>
