@@ -80,6 +80,9 @@ const Content = () => {
     else { document.getElementById("registerform").reset(); }
   }
 
+  //register form where admin can fill out user details to add new user to the system
+  //each element has an input validation such that correct data inputted into each field
+  //the button called the add function when selected
   return (
     <>
       <div>
