@@ -66,7 +66,7 @@
       "pcode": "2170",
       "employdate": "2019-10-22",
       "dept": "Operation",
-      "fname": "Small",
+      "fname": "Asif",
       "lname": "Jonathan",
       "employtype": "Full-Time",
       "id": 5,
@@ -330,16 +330,6 @@
   ],
   "payrolldb": [
     {
-      "fname": "Hello",
-      "lname": "World",
-      "amount": "10000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "cheque",
-      "description": "Business Claim",
-      "id": 1
-    },
-    {
       "fname": "John",
       "lname": "Smith",
       "amount": "50000",
@@ -390,6 +380,16 @@
       "subcategory": "Leave for 1 week",
       "reason": "holiday leave",
       "id": 3
+    },
+    {
+      "fname": "Asif",
+      "lname": "Kabir",
+      "applicationtype": "transfer",
+      "applicationdate": "2021-10-06",
+      "status": "pending",
+      "subcategory": "N/A",
+      "reason": "N/A",
+      "id": 4
     }
   ],
   "filecomplaint": [

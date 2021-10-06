@@ -2,7 +2,7 @@ import { Button, Divider, Space, Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import voiceconcernService from "./services/Concern";
-
+import axios from 'axios';
 const { Column } = Table;
 
 const Content = () => {
@@ -13,6 +13,15 @@ const Content = () => {
       setConcern(voiceconcern)
     })
   }, [])
+
+   //execute delete payroll based on id after select the "delete" button
+   const handleDelete = e => {
+    var option = window.confirm("Do you want to delete Concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+    if (option === true) {
+      axios.delete(`http://localhost:3001/voiceconcern${e.currentTarget.id}`);
+      window.location = "./ConcernList"
+    }
+  }
 
   return (
     <>
@@ -37,7 +46,7 @@ const Content = () => {
           <Column title="Options" key="id" render={(p) => (
             <>
               <Space split={<Divider type="vertical" />}>
-                <Button> Solved </Button>
+              <Button id={p.id} onClick={handleDelete}> Solved</Button>
               </Space>
             </>
           )} />
