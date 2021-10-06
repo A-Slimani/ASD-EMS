@@ -24,7 +24,7 @@ const Content = () => {
     pcode: '',
     employdate: '',
     dept: '',
-    employmentType: '',
+    employtype: '',
   });
 
   const showEmployee = () => {
