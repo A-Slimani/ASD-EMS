@@ -27,6 +27,7 @@ const Content = () => {
     employtype: '',
   });
 
+  // fixes
   const showEmployee = () => {
     return employee !== undefined ? employee : "";
   }
