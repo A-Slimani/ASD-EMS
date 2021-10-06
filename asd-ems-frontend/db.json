@@ -339,28 +339,6 @@
       ]
     }
   ],
-  "payroll": [
-    {
-      "fname": "Jon",
-      "lname": "Jones",
-      "amount": "1000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "Cash",
-      "description": "Salary",
-      "id": 1
-    },
-    {
-      "fname": "Hello",
-      "lname": "World",
-      "amount": "1000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "cheque",
-      "description": "Business Claim",
-      "id": 2
-    }
-  ],
   "payrolldb": [
     {
       "fname": "Hello",
