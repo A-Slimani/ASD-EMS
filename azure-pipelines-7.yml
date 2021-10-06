@@ -15,11 +15,17 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- script: |
+    cd asd-ems-frontend
+    npm run test
+  displayName: 'npm run test'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
-    testResultsFiles: 'asd-ems-frontend/tests/payrollReagan.test.js'
+    testResultsFiles: 'asd-ems-frontend/TEST-*.xml'
     testRunTitle: 'Test payroll'
+  displayName: 'test Abdullah'
 
 
 
