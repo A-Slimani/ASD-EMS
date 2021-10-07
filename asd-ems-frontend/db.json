@@ -516,7 +516,7 @@
       "name": "sad",
       "discussdate": "2021-10-05",
       "topic": "general",
-      "status": "pending",
+      "status": "solved",
       "achivementgoal": "business",
       "methodachievement": "file complaint",
       "id": 1
@@ -525,10 +525,19 @@
       "name": "asd",
       "discussdate": "2021-10-13",
       "topic": "saasd",
-      "status": "pending",
+      "status": "solved",
       "achivementgoal": "scas",
       "methodachievement": "ascas",
       "id": 2
+    },
+    {
+      "name": "Naila",
+      "discussdate": "2021-10-08",
+      "topic": "Working Hours",
+      "status": "solved",
+      "achivementgoal": "Working hours are not matching with my availabilities, Please change",
+      "methodachievement": "Do you want to change my new work availability?",
+      "id": 3
     }
   ],
   "paymentpolicy": [
