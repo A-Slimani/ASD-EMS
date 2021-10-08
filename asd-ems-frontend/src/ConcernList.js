@@ -8,9 +8,6 @@ const { Column } = Table;
 const Content = () => {
     const [voiceconcern, setConcern] = useState([]);
     const [displayList, setDisplayList] = useState([])
-    const [idSearchParam, setIdSearchParam] = useState("")
-    const [nameSearchParam, setNameSearchParam] = useState("")
-    const [dateSearchParam, setDateSearchParam] = useState("")
 
   useEffect(() => {
     voiceconcernService.getAll().then(voiceconcern => {
@@ -20,59 +17,31 @@ const Content = () => {
   }, [])
 
 
-    const search = function(str, field) {
+    const search = function(str) {
         const foundList = []
-        if (field == "date") {
-            for(let i of voiceconcern)  {
-                if (i.discussdate == str){
-                    foundList.push(i);
-                }
-           }
-        }else if (field == "name") {
-            for(let i of voiceconcern)  {
-                if (i.name == str){
-                    foundList.push(i);
-                }
-           }
-        }else if (field == "id") {
-            for(let i of voiceconcern)  {
-                if (i.id == str){
-                    foundList.push(i);
-                }
-           }
+        for(let i of voiceconcern)  {
+            console.log(i.discussdate)
+            console.log(str)
+            if (i.discussdate == str){
+                foundList.push(i);
+            }
         }
         return foundList;
     }
 
     const handleSearch = e => {
-        if (idSearchParam == "" && nameSearchParam == "" && dateSearchParam == "") {
-            setDisplayList(voiceconcern);
-        }
-        const foundList1 =  search(idSearchParam, "id");
-        const foundList2 = search(nameSearchParam, "name");
-        const foundList3 = search(dateSearchParam, "date")
+        if(e.currentTarget.valueAsDate != null) {
+            const dateStr = e.currentTarget.valueAsDate.toLocaleDateString("en-GB")
+              .split("/").reverse()
+              .join("-");
 
-        // concatenate sets
-        const union = function (setA, setB) {
-            let _union = new Set(setA)
-            for (let elem of setB) {
-                _union.add(elem)
-            }
-            return _union
-        }
+            const foundList3 = search(dateStr)
 
-        let set1 = union(new Set(foundList1), new Set(foundList2));
-        let set2 = union(set1, new Set(foundList3));
-
-        setDisplayList(Array.from(set2))
-    }
-
-    const searchInput = e => {
-        if (e.currentTarget.name = "requestedid") {
-            setIdSearchParam(e.currentTarget.value);
+            setDisplayList(foundList3)
         }else {
-            setNameSearchParam(e.currentTarget.value);
+            setDisplayList(voiceconcern)
         }
+
     }
 
    //execute delete payroll based on id after select the "delete" button
@@ -96,10 +65,7 @@ const Content = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Employee Concerns </h1>
-          <input type="number" placeholder="Concern ID" onChange={searchInput} name="requestedid" class="textfield" />
-          <input type="textfield" placeholder="Name" onChange={searchInput} name="requestedfn" class="textfield" />
-          <input type="date" name="requesteddate" onChange={searchInput} class="textfield" />
-          <button className="button" name="searchbtn" onClick={handleSearch}> {' '} Search {' '} </button>
+          <input type="date" name="requesteddate" onChange={handleSearch} class="textfield" />
         <p />
       </div>
 
