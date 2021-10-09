@@ -20,16 +20,18 @@ const Content = () => {
     employdate, dept, employtype
   } = employees;
 
-
+  //collect data entered into the register form
   const onInputChange = e => {
     setEmployee({ ...employees, [e.target.name]: e.target.value })
   };
-
+  
+  // execute the add function after form validation is complete
   const onSubmit = async e => {
     await axios.post("http://localhost:3001/employees", employees);
     window.location = "/UserList";
   };
-
+  
+  //validate register form to ensure correct data in entered before submit the form or execute the add function
   const handleSubmit = e => {
     function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
     function isName(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR,OP,MK,FN]{2}$/.test(name); }
@@ -78,6 +80,9 @@ const Content = () => {
     else { document.getElementById("registerform").reset(); }
   }
 
+  //register form where admin can fill out user details to add new user to the system
+  //each element has an input validation such that correct data inputted into each field
+  //the button called the add function when selected
   return (
     <>
       <div>

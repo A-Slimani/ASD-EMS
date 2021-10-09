@@ -31,7 +31,7 @@
       "lname": "Bigbones",
       "dob": "1980-10-05",
       "phoneno": "0404",
-      "username": "JonJones@EMSMK",
+      "username": "bjon@EMSMK",
       "pwd": "big99",
       "accname": "jjones",
       "accnum": "1234",
@@ -55,8 +55,8 @@
     {
       "dob": "1981-10-06",
       "phoneno": "0434334433",
-      "username": "bjon@EMSOP",
-      "pwd": "big99",
+      "username": "JonJones@EMSOP",
+      "pwd": "jon123",
       "accname": "bjon",
       "accnum": "122233",
       "accbsb": "111",
@@ -66,17 +66,19 @@
       "pcode": "2170",
       "employdate": "2019-10-22",
       "dept": "Operation",
+<<<<<<< HEAD
       "fname": "Average",
+=======
+      "fname": "Asif",
+>>>>>>> f813dec3f2190233dd6628b506afc76a412f4a8e
       "lname": "Jonathan",
       "employtype": "Full-Time",
       "id": 5,
       "dateworking": [
-        "02/11/2021 | ",
-        "05/11/2021 | ",
         "09/11/2021 | ",
         "10/11/2021 | ",
         "13/11/2021 | ",
-        "14/11/2021 "
+        "14/11/2021 | "
       ]
     },
     {
@@ -98,9 +100,8 @@
       "accbsb": "924",
       "dateworking": [
         "02/11/2021 | ",
-        "05/11/2021 | ",
-        "09/11/2021 | ",
-        "10/11/2021 | ",
+        "03/11/2021 | ",
+        "11/11/2021 | ",
         "13/11/2021 | ",
         "14/11/2021 "
       ]
@@ -120,11 +121,10 @@
       "accnum": "4719",
       "accbsb": "110",
       "dateworking": [
-        "02/11/2021 | ",
-        "05/11/2021 | ",
+        "01/11/2021 | ",
+        "08/11/2021 | ",
         "09/11/2021 | ",
-        "10/11/2021 | ",
-        "13/11/2021 | ",
+        "12/11/2021 | ",
         "14/11/2021 "
       ]
     },
@@ -147,9 +147,8 @@
       "accbsb": "854",
       "dateworking": [
         "02/11/2021 | ",
-        "05/11/2021 | ",
-        "09/11/2021 | ",
-        "10/11/2021 | ",
+        "07/11/2021 | ",
+        "12/11/2021 | ",
         "13/11/2021 | ",
         "14/11/2021 "
       ]
@@ -169,12 +168,11 @@
       "accnum": 3714,
       "accbsb": 330,
       "dateworking": [
-        "02/11/2021 | ",
-        "05/11/2021 | ",
+        "01/11/2021 | ",
+        "04/11/2021 | ",
         "09/11/2021 | ",
-        "10/11/2021 | ",
-        "13/11/2021 | ",
-        "14/11/2021 "
+        "12/11/2021 | ",
+        "13/11/2021 | "
       ]
     },
     {
@@ -192,11 +190,11 @@
       "accnum": 5510,
       "accbsb": 767,
       "dateworking": [
-        "02/11/2021 | ",
         "05/11/2021 | ",
+        "07/11/2021 | ",
+        "08/11/2021 | ",
         "09/11/2021 | ",
-        "10/11/2021 | ",
-        "13/11/2021 | ",
+        "12/11/2021 | ",
         "14/11/2021 "
       ]
     },
@@ -215,11 +213,11 @@
       "accnum": 9001,
       "accbsb": 465,
       "dateworking": [
+        "01/11/2021 | ",
         "02/11/2021 | ",
-        "05/11/2021 | ",
+        "04/11/2021 | ",
         "09/11/2021 | ",
-        "10/11/2021 | ",
-        "13/11/2021 | ",
+        "12/11/2021 | ",
         "14/11/2021 "
       ]
     },
@@ -238,11 +236,10 @@
       "accnum": 8763,
       "accbsb": 367,
       "dateworking": [
-        "02/11/2021 | ",
+        "03/11/2021 | ",
         "05/11/2021 | ",
-        "09/11/2021 | ",
-        "10/11/2021 | ",
-        "13/11/2021 | ",
+        "06/11/2021 | ",
+        "11/11/2021 | ",
         "14/11/2021 "
       ]
     },
@@ -262,11 +259,7 @@
       "accbsb": 675,
       "dateworking": [
         "02/11/2021 | ",
-        "05/11/2021 | ",
-        "09/11/2021 | ",
-        "10/11/2021 | ",
-        "13/11/2021 | ",
-        "14/11/2021 "
+        "05/11/2021 | "
       ]
     },
     {
@@ -339,39 +332,7 @@
       ]
     }
   ],
-  "payroll": [
-    {
-      "fname": "Jon",
-      "lname": "Jones",
-      "amount": "1000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "Cash",
-      "description": "Salary",
-      "id": 1
-    },
-    {
-      "fname": "Hello",
-      "lname": "World",
-      "amount": "1000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "cheque",
-      "description": "Business Claim",
-      "id": 2
-    }
-  ],
   "payrolldb": [
-    {
-      "fname": "Hello",
-      "lname": "World",
-      "amount": "10000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "cheque",
-      "description": "Business Claim",
-      "id": 1
-    },
     {
       "fname": "John",
       "lname": "Smith",
@@ -423,6 +384,16 @@
       "subcategory": "Leave for 1 week",
       "reason": "holiday leave",
       "id": 3
+    },
+    {
+      "fname": "Asif",
+      "lname": "Kabir",
+      "applicationtype": "transfer",
+      "applicationdate": "2021-10-06",
+      "status": "pending",
+      "subcategory": "N/A",
+      "reason": "N/A",
+      "id": 4
     }
   ],
   "filecomplaint": [
@@ -549,7 +520,7 @@
       "name": "sad",
       "discussdate": "2021-10-05",
       "topic": "general",
-      "status": "pending",
+      "status": "solved",
       "achivementgoal": "business",
       "methodachievement": "file complaint",
       "id": 1
@@ -558,10 +529,37 @@
       "name": "asd",
       "discussdate": "2021-10-13",
       "topic": "saasd",
-      "status": "pending",
+      "status": "solved",
       "achivementgoal": "scas",
       "methodachievement": "ascas",
       "id": 2
+    },
+    {
+      "name": "Naila",
+      "discussdate": "2021-10-08",
+      "topic": "Working Hours",
+      "status": "solved",
+      "achivementgoal": "Working hours are not matching with my availabilities, Please change",
+      "methodachievement": "Do you want to change my new work availability?",
+      "id": 3
+    },
+    {
+      "name": "asdf",
+      "discussdate": "2021-10-08",
+      "topic": "sda",
+      "status": "pending",
+      "achivementgoal": "asdasd",
+      "methodachievement": "asdasda",
+      "id": 4
+    },
+    {
+      "name": "asu",
+      "discussdate": "2021-10-08",
+      "topic": "work quality",
+      "status": "solved",
+      "achivementgoal": "nothing",
+      "methodachievement": "nothing",
+      "id": 5
     }
   ],
   "paymentpolicy": [

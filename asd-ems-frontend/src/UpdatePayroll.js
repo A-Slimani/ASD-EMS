@@ -30,6 +30,7 @@ const Content = () => {
     setPayroll({...payroll, [e.target.name]: e.target.value})
   }
 
+  // takes id from payroll history
   const onSubmit = async e => {
     await axios.put(`http://localhost:3001/payrolldb/${match.params.id}`, payroll)
     window.location = "/PayrollHistory"
@@ -41,10 +42,12 @@ const Content = () => {
     if (option === true) { window.history.back(); }
   }
 
+  //validate update payroll form to ensure correct data in entered before submit the form or execute the update function
   function handleSubmit(e) {
     function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
     function isText(text) { return (/^[A-Za-z]+$/).test(text) }
 
+    // takes the inputs in the form and updates according to the information provided
     e.preventDefault();
     var s = window.confirm("Do you wish to update the payroll details with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to remain on the page");
     if (s === true) {
@@ -56,7 +59,8 @@ const Content = () => {
       var paymethod = document.forms["payrollform"]["paymethod"].value;
       var paydate = document.forms["payrollform"]["paydate"].value;
       var description = document.forms["payrollform"]["description"].value;
-
+    
+      // cases that ensure the user inputs are valid
       if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
       else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
       else if (amount === "" || isNumber(amount) === false) { alert("Amount field is empty or invalid format input"); }
@@ -73,7 +77,7 @@ const Content = () => {
   <>
       <div>
         <form id='payrollform' name='payrollform' onSubmit={e => onSubmit(e)}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update Payroll Details </h1>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showPayroll().fname}'s Payroll Details </h1>
           <p style={{ textAlign: 'center' }}> {' '} Please fill out the payroll details{' '} </p>
           <label> First Name: </label>
           <small>Up to 255 Characters </small> <p> </p>
