@@ -66,7 +66,7 @@
       "pcode": "2170",
       "employdate": "2019-10-22",
       "dept": "Operation",
-      "fname": "Small",
+      "fname": "Asif",
       "lname": "Jonathan",
       "employtype": "Full-Time",
       "id": 5,
@@ -330,16 +330,6 @@
   ],
   "payrolldb": [
     {
-      "fname": "Hello",
-      "lname": "World",
-      "amount": "10000",
-      "bonus": "1000",
-      "paydate": "2021-10-06",
-      "paymethod": "cheque",
-      "description": "Business Claim",
-      "id": 1
-    },
-    {
       "fname": "John",
       "lname": "Smith",
       "amount": "50000",
@@ -390,6 +380,16 @@
       "subcategory": "Leave for 1 week",
       "reason": "holiday leave",
       "id": 3
+    },
+    {
+      "fname": "Asif",
+      "lname": "Kabir",
+      "applicationtype": "transfer",
+      "applicationdate": "2021-10-06",
+      "status": "pending",
+      "subcategory": "N/A",
+      "reason": "N/A",
+      "id": 4
     }
   ],
   "filecomplaint": [
@@ -516,7 +516,7 @@
       "name": "sad",
       "discussdate": "2021-10-05",
       "topic": "general",
-      "status": "pending",
+      "status": "solved",
       "achivementgoal": "business",
       "methodachievement": "file complaint",
       "id": 1
@@ -525,10 +525,37 @@
       "name": "asd",
       "discussdate": "2021-10-13",
       "topic": "saasd",
-      "status": "pending",
+      "status": "solved",
       "achivementgoal": "scas",
       "methodachievement": "ascas",
       "id": 2
+    },
+    {
+      "name": "Naila",
+      "discussdate": "2021-10-08",
+      "topic": "Working Hours",
+      "status": "solved",
+      "achivementgoal": "Working hours are not matching with my availabilities, Please change",
+      "methodachievement": "Do you want to change my new work availability?",
+      "id": 3
+    },
+    {
+      "name": "asdf",
+      "discussdate": "2021-10-08",
+      "topic": "sda",
+      "status": "pending",
+      "achivementgoal": "asdasd",
+      "methodachievement": "asdasda",
+      "id": 4
+    },
+    {
+      "name": "asu",
+      "discussdate": "2021-10-08",
+      "topic": "work quality",
+      "status": "solved",
+      "achivementgoal": "nothing",
+      "methodachievement": "nothing",
+      "id": 5
     }
   ],
   "paymentpolicy": [
