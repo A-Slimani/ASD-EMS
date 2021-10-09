@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="19" failures="0" errors="0" time="7.612">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:23" time="4.645" tests="2">
-    <testcase classname=" launch application with correct data input" name=" launch application with correct data input" time="0.004">
-    </testcase>
-    <testcase classname=" launch application with incorrect data input - number input into textfield" name=" launch application with incorrect data input - number input into textfield" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:23" time="4.805" tests="5">
-    <testcase classname=" create user with correct data input" name=" create user with correct data input" time="0.009">
+<testsuites name="jest tests" tests="20" failures="0" errors="0" time="0.943">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:42" time="0.481" tests="5">
+    <testcase classname=" create user with correct data input" name=" create user with correct data input" time="0.002">
     </testcase>
     <testcase classname=" create user with wrong data input, number input in all textfield" name=" create user with wrong data input, number input in all textfield" time="0">
     </testcase>
-    <testcase classname=" create user with wrong data input, text input in all number field" name=" create user with wrong data input, text input in all number field" time="0.001">
+    <testcase classname=" create user with wrong data input, text input in all number field" name=" create user with wrong data input, text input in all number field" time="0">
     </testcase>
-    <testcase classname=" create user with wrong data input, incorrect date format - user must be at least 18 years old" name=" create user with wrong data input, incorrect date format - user must be at least 18 years old" time="0.001">
+    <testcase classname=" create user with wrong data input, incorrect date format - user must be at least 18 years old" name=" create user with wrong data input, incorrect date format - user must be at least 18 years old" time="0">
     </testcase>
-    <testcase classname=" create user not following the requried username format" name=" create user not following the requried username format" time="0.001">
+    <testcase classname=" create user not following the requried username format" name=" create user not following the requried username format" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:23" time="4.77" tests="4">
-    <testcase classname=" create payroll with correct data input" name=" create payroll with correct data input" time="0.057">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:42" time="0.083" tests="4">
+    <testcase classname=" create payroll with correct data input" name=" create payroll with correct data input" time="0.001">
     </testcase>
-    <testcase classname=" create payroll with incorrect data input - text entered into number field" name=" create payroll with incorrect data input - text entered into number field" time="0.001">
+    <testcase classname=" create payroll with incorrect data input - text entered into number field" name=" create payroll with incorrect data input - text entered into number field" time="0">
     </testcase>
-    <testcase classname=" create payroll with incorrect data input - number entered into textfield" name=" create payroll with incorrect data input - number entered into textfield" time="0.001">
+    <testcase classname=" create payroll with incorrect data input - number entered into textfield" name=" create payroll with incorrect data input - number entered into textfield" time="0">
     </testcase>
     <testcase classname=" create payroll with incorrect date input, pay date create cannot be more than 3 years ago" name=" create payroll with incorrect date input, pay date create cannot be more than 3 years ago" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="addition test (ABDULLAH SLIMANI)" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:28" time="0.417" tests="1">
-    <testcase classname="addition test (ABDULLAH SLIMANI) adds 1 + 2 to equal 3" name="addition test (ABDULLAH SLIMANI) adds 1 + 2 to equal 3" time="0.002">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:43" time="0.085" tests="3">
+    <testcase classname=" launch application with correct data input" name=" launch application with correct data input" time="0">
+    </testcase>
+    <testcase classname=" launch application with incorrect data input - number input into textfield" name=" launch application with incorrect data input - number input into textfield" time="0">
+    </testcase>
+    <testcase classname=" launch application with incorrect data input - number input into textfield" name=" launch application with incorrect data input - number input into textfield" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:28" time="0.483" tests="3">
-    <testcase classname=" login using admin username" name=" login using admin username" time="0.001">
-    </testcase>
-    <testcase classname=" login using employee username" name=" login using employee username" time="0.001">
-    </testcase>
-    <testcase classname=" login using invalid username" name=" login using invalid username" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:28" time="0.5" tests="2">
-    <testcase classname=" voice concern with correct data format input" name=" voice concern with correct data format input" time="0.001">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:43" time="0.062" tests="2">
+    <testcase classname=" voice concern with correct data format input" name=" voice concern with correct data format input" time="0">
     </testcase>
     <testcase classname=" voice concern with incorrect data format input - number in textfield" name=" voice concern with incorrect data format input - number in textfield" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T01:09:28" time="0.358" tests="2">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:43" time="0.061" tests="3">
+    <testcase classname=" login using admin username" name=" login using admin username" time="0">
+    </testcase>
+    <testcase classname=" login using employee username" name=" login using employee username" time="0">
+    </testcase>
+    <testcase classname=" login using invalid username" name=" login using invalid username" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="addition test (ABDULLAH SLIMANI)" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:43" time="0.054" tests="1">
+    <testcase classname="addition test (ABDULLAH SLIMANI) adds 1 + 2 to equal 3" name="addition test (ABDULLAH SLIMANI) adds 1 + 2 to equal 3" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-06T04:18:43" time="0.058" tests="2">
     <testcase classname=" file a complaint with correct data format input" name=" file a complaint with correct data format input" time="0.001">
     </testcase>
     <testcase classname=" file a complaint with incorrect data format input - number in textfield" name=" file a complaint with incorrect data format input - number in textfield" time="0">
