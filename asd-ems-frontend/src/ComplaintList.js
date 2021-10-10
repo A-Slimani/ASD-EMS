@@ -3,19 +3,15 @@ import { Button, Divider, Space, Table, Input, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import complaintService from './services/Complaint';
-import './style.css'
 
 const { Column } = Table;
 
 const Content = () => {
   const [complaints, setComplaints] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
-<<<<<<< HEAD
-=======
   const [typeFilter, setTypeFilter] = useState('');
   const [dateFilter, setDateFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
->>>>>>> f813dec3f2190233dd6628b506afc76a412f4a8e
 
   const filterByName =
     nameFilter === ''

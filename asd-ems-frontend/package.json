@@ -15,6 +15,7 @@
     "antd": "^4.16.13",
     "axios": "^0.22.0",
     "craco": "^0.0.3",
+    "craco-less": "^1.20.0",
     "framer-motion": "^4.1.17",
     "history": "^4.10.1",
     "jest-junit": "^12.2.0",

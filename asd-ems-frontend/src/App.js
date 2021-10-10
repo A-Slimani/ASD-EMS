@@ -22,6 +22,7 @@ import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
 import UpdateUser from './UpdateUser'
+import './App.less'
 
 
 function App() {
