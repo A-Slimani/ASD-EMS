@@ -3,6 +3,7 @@ import { Button, Divider, Space, Table, Input, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import complaintService from './services/Complaint';
+import './css/complaintList.less'
 
 const { Column } = Table;
 
@@ -43,8 +44,10 @@ const Content = () => {
         </h1>
         <br />
         <Input.Group compact>
-          <Input size="large" style={{ width: '20%' }} placeholder="Name" bordered={false}/>
-          <Input size="large" style={{ width: '20%' }} placeholder="Type" bordered={false}/>
+          <Input size="large" style={{ width: '20%' }} placeholder="Name" />
+          <Input size="large" style={{ width: '20%' }} placeholder="Type" />
+          <Input size="large" style={{ width: '20%' }} placeholder="Date" />
+          <Input size="large" style={{ width: '20%' }} placeholder="Status" />
         </Input.Group>
         <br />
         <p />
