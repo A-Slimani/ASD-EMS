@@ -46,11 +46,11 @@ const Content = () => {
 
    //execute delete payroll based on id after select the "delete" button
    const handleDelete = async e => {
-       var option = window.confirm("Do you want to delete Concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+       var option = window.confirm("Do you want to resolve the concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
 
        if (option === true) {
            for (let i of voiceconcern) {
-               if(e.currentTarget.id == i.id) {
+               if(e.currentTarget.id === i.id) {
                    var concern = Object.assign({}, i);
                    concern.status = "solved";
                    await axios.put(`http://localhost:3001/voiceconcern/${e.currentTarget.id}`, concern);

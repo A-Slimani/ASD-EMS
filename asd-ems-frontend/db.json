@@ -400,6 +400,26 @@
       "subcategory": "test sub-category",
       "reason": "test reason",
       "id": 5
+    },
+    {
+      "fname": "asd",
+      "lname": "dwadw",
+      "applicationtype": "claim",
+      "applicationdate": "2021-10-12",
+      "status": "pending",
+      "subcategory": "sad",
+      "reason": "sad",
+      "id": 6
+    },
+    {
+      "fname": "dasd",
+      "lname": "dwad",
+      "applicationtype": "claim",
+      "applicationdate": "2021-10-12",
+      "status": "pending",
+      "subcategory": "safadsf",
+      "reason": "faefwf",
+      "id": 7
     }
   ],
   "filecomplaint": [
@@ -535,7 +555,7 @@
       "name": "asd",
       "discussdate": "2021-10-13",
       "topic": "saasd",
-      "status": "solved",
+      "status": "pending",
       "achivementgoal": "scas",
       "methodachievement": "ascas",
       "id": 2
@@ -544,7 +564,7 @@
       "name": "Naila",
       "discussdate": "2021-10-08",
       "topic": "Working Hours",
-      "status": "solved",
+      "status": "pending",
       "achivementgoal": "Working hours are not matching with my availabilities, Please change",
       "methodachievement": "Do you want to change my new work availability?",
       "id": 3
@@ -562,7 +582,7 @@
       "name": "asu",
       "discussdate": "2021-10-08",
       "topic": "work quality",
-      "status": "solved",
+      "status": "pending",
       "achivementgoal": "nothing",
       "methodachievement": "nothing",
       "id": 5
