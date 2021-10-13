@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useRouteMatch } from 'react-router-dom';
+import {useRouteMatch } from 'react-router-dom';
 import EmployeeWebLayout from "./components/EmployeeWebLayout";
 
 const Content = () => {
+  const match = useRouteMatch('/discussionBoard/:id');
   const [voiceconcern, setConcern] = useState({
+    userid: match.params.id,
     name: "",  discussdate: "", topic: "",
     status: "pending", achivementgoal: "", methodachievement: ""
   });
 
-  const { name, discussdate, topic, status, achivementgoal, methodachievement } = voiceconcern;
+  const { userid, name, discussdate, topic, status, achivementgoal, methodachievement } = voiceconcern;
 
   const onInputChange = e => {
     setConcern({ ...voiceconcern, [e.target.name]: e.target.value })
@@ -18,7 +20,7 @@ const Content = () => {
   const onSubmit = async e => {
     await axios.post("http://localhost:3001/voiceconcern", voiceconcern);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
-    window.location = "./EmployeeDashboard";
+    window.location = `/EmployeeDashboard/${match.params.id}`;
   };
 
   const handleSubmit = e => {
@@ -40,7 +42,7 @@ const Content = () => {
       else if (discussdate === "") { alert("Date  must be select"); }
       else { onSubmit(); }
     }
-    else { document.getElementById("dicussform").reset(); }
+    else { window.location.reload(); }
   }
 
   return (

@@ -4,14 +4,14 @@ import EmployeeWebLayout from './components/EmployeeWebLayout';
 import {useRouteMatch} from 'react-router-dom'
 
 const Content = () => {
+  const match = useRouteMatch('/FileComplaint/:id');
   const [filecomplaint, setComplaint] = useState({
+    userid: match.params.id, 
     fname: "", lname: "", complaintdescription: "", complaintdate: "",
     status: "pending", complainttype: ""
   });
 
-  const match = useRouteMatch('/FileComplaint/:id')
-
-  const { fname, lname, complaintdescription, complainttype, complaintdate } = filecomplaint;
+  const { userid, fname, lname, complaintdescription, complainttype, complaintdate } = filecomplaint;
 
   const onInputChange = e => {
     setComplaint({ ...filecomplaint, [e.target.name]: e.target.value })
@@ -42,7 +42,7 @@ const Content = () => {
       else if (complaintdate === "") { alert("Complaint Date  must be select"); }
       else { onSubmit(); }
     }
-    else { document.getElementById("complaintform").reset(); }
+    else { window.location.reload(); }
   }
 
   return (

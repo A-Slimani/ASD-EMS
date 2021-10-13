@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 
 const Content = () => {
     const [payroll, setPayroll] = useState({
+        empid: "",
         fname: "", lname: "",
         amount: "", bonus: "",
         paydate: "", paymethod: "",
         description: ""
     });
 
-    const { fname, lname, amount, bonus, paydate, paymethod, description } = payroll;
+    const { empid, fname, lname, amount, bonus, paydate, paymethod, description } = payroll;
 
     const onInputChange = e => {
         setPayroll({ ...payroll, [e.target.name]: e.target.value })
@@ -31,6 +32,7 @@ const Content = () => {
         e.preventDefault();
         var s = window.confirm("Do you want add a new user with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
         if (s === true) {
+            var empid = document.forms["payrollform"]["empid"].value;
             var fname = document.forms["payrollform"]["fname"].value;
             var lname = document.forms["payrollform"]["lname"].value;
             var amount = document.forms["payrollform"]["amount"].value;
@@ -40,6 +42,7 @@ const Content = () => {
 
             if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
             else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
+            else if (empid === "" || isNumber(empid) === false) { alert("ID field is empty or invalid format input"); }
             else if (amount === "" || isNumber(amount) === false) { alert("Amount field is empty or invalid format input"); }
             else if (bonus === "" || isNumber(bonus) === false) { alert("Contact Number field is empty or invalid format input"); }
             else if (description === "") { alert("Provide payment reason for this payroll"); }
@@ -64,6 +67,17 @@ const Content = () => {
                         name="paydate"
                         className="formtextfield"
                         value={paydate}
+                        onChange={e => onInputChange(e)}
+                    />{' '}
+                    <br />
+
+                    <label> Employee ID: </label>
+                    <input
+                        type="number"
+                        placeholder="Employee ID"
+                        name="empid"
+                        className="formtextfield"
+                        value={empid}
                         onChange={e => onInputChange(e)}
                     />{' '}
                     <br />
