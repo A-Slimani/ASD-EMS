@@ -1,39 +1,50 @@
-import { InputRightAddon } from '@chakra-ui/input';
-import { Button, Divider, Space, Table, Input, DatePicker } from 'antd';
+import { Button, Divider, Space, Table, Input } from 'antd';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import WebLayout from './components/WebLayout';
 import complaintService from './services/Complaint';
-import './css/complaintList.less'
+import './css/complaintList.less';
 
 const { Column } = Table;
 
 const Content = () => {
   const [complaints, setComplaints] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
-  const [typeFilter, setTypeFilter] = useState('');
-  const [dateFilter, setDateFilter] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
+  // const [typeFilter, setTypeFilter] = useState('');
 
   const filterByName =
     nameFilter === ''
       ? complaints
       : complaints.filter(c => c.fname.toLowerCase().match(nameFilter));
 
-  const filteredComplaints =
-    nameFilter === ''
-      ? complaints
-      : complaints.filter(complaint => {
-          complaint.fname.toLowerCase().match(nameFilter) &&
-            complaint.type.match(typeFilter) &&
-            complaint.type.match(dateFilter) &&
-            complaint.type.match(statusFilter);
-        });
-
   useEffect(() => {
     complaintService.getAll().then(filecomplaint => {
       setComplaints(filecomplaint);
     });
   }, []);
+
+  const handleSolved = async e => {
+    var option = window.confirm(
+      'Do you want to solve complaint with ID ' +
+        e.currentTarget.id +
+        '? \n\n Select OK to delete or CANCEL action'
+    );
+
+    if (option === true) {
+      for (let i of complaints) {
+        if (e.currentTarget.id == i.id) {
+          var concern = Object.assign({}, i);
+          concern.status = 'solved';
+          await axios.put(
+            `http://localhost:3001/filecomplaint/${e.currentTarget.id}`,
+            concern
+          );
+          break;
+        }
+      }
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -72,7 +83,10 @@ const Content = () => {
             render={p => (
               <>
                 <Space split={<Divider type="vertical" />}>
-                  <Button> Solved </Button>
+                  <Button id={p.id} onClick={handleSolved}>
+                    {' '}
+                    Solved{' '}
+                  </Button>
                 </Space>
               </>
             )}
