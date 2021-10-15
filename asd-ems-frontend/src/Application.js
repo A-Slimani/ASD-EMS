@@ -1,5 +1,5 @@
 import EmployeeWebLayout from './components/EmployeeWebLayout';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouteMatch } from 'react-router-dom';
 
@@ -31,7 +31,7 @@ const Content = () => {
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
-    window.location = '/EmployeeDashboard';
+    // window.location = '/EmployeeDashboard';
   };
 
   //Function has been created to validate form, with variables and if statements below to ensure no issues arise
