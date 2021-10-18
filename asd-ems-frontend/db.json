@@ -356,7 +356,7 @@
       "lname": "world",
       "applicationtype": "transfer between department",
       "applicationdate": "2021-10-1",
-      "status": "pending",
+      "status": "approved",
       "subcategory": "transfer to HR",
       "reason": "change work environment",
       "id": 1
