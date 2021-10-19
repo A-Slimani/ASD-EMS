@@ -48,20 +48,17 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <Login />{' '}
+        <Route exact path="/" component={Login}>
         </Route>
         <Route exact path="/Logout">
-          <Logout />{' '}
+          <Logout />
         </Route>
-
         <Route exact path="/ComplaintList">
-          <ComplaintList />{' '}
+          <ComplaintList />
         </Route>
         <Route exact path="/FileComplaint/:id">
           <FileComplaint />{' '}
         </Route>
-
         <Route exact path="/Dashboard/:id">
           <Dashboard />{' '}
         </Route>
