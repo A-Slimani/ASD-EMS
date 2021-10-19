@@ -23,7 +23,7 @@ const Content = () => {
 
     if (option === true) {
       for (let i of applicationform) {
-        if (e.currentTarget.id == i.id) {
+        if (e.currentTarget.id === i.id) {
           var concern = Object.assign({}, i);
           concern.status = "approved";
           await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);

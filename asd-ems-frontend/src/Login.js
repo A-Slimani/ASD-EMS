@@ -1,36 +1,51 @@
 import { Button, Flex, Heading, Input, FormControl, Spacer } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import employeeService from './services/Employee'
+import employeeService from './services/Employee';
+import PropTypes from 'prop-types';
 
-const Login = () => {
+const Login = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [employees, setEmployees] = useState([])
+  const [employees, setEmployees] = useState([]);
   const history = useHistory();
 
-  useEffect(() =>{
+  useEffect(() => {
     employeeService.getAll().then(employees => {
-      setEmployees(employees)
-    })
-  }, [])
+      setEmployees(employees);
+    });
+  }, []);
 
   const validateForm = () => {
     return username.length > 0 && password.length > 0;
   };
 
-  const user = employees.find(x => x.username === username)
+  const user = employees.find(x => x.username === username);
 
   const getAccount = () => {
     if (user === undefined) return false;
-    return user.pwd === password 
+    return user.pwd === password;
+  };
+
+  async function loginUser(credentials) {
+    return fetch('http://localhost:3000/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials),
+    }).then(data => data.json());
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     // e.preventDefault();
-    function isAdmin(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name); }
-    function isEmployee(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name); }
 
+    // function isAdmin(name) {
+    //   return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name);
+    // }
+    // function isEmployee(name) {
+    //   return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name);
+    // }
 
     // this is a login validate to redirect to 2 different dashboard
     // before this validate will have to verify username and password with the database
@@ -41,20 +56,25 @@ const Login = () => {
     // if username end with OP, MK or FN - view employee dashboard and navbar
     // if username end is not HR, OP, MK, or FN - user unable to login
     // if username/password entered not match data in database - user unable to login - this is after connect the page to database
-    
+
     // try example@EMSHR and example@EMSOP to see the difference
 
-    if (isAdmin(username) && getAccount()) {
-      history.push('./Dashboard');
-    }
-    else if (isEmployee(username) && getAccount()) {
-      history.push({
-        pathname: `./EmployeeDashboard/${user.id}`,
-      });
-    }
-    else {
-      alert('Incorrect username and/or password');
-    }
+    // if (isAdmin(username) && getAccount()) {
+    //   history.push(`/Dashboard`);
+    // } else if (isEmployee(username) && getAccount()) {
+    //   history.push({
+    //     pathname: `./EmployeeDashboard/${user.id}`,
+    //   });
+    // } else {
+    //   alert('Incorrect username and/or password');
+    // }
+
+    e.preventDefault();
+    const token = await loginUser({
+      username,
+      password,
+    });
+    setToken(token);
   };
 
   return (
@@ -62,11 +82,11 @@ const Login = () => {
       <Heading mb={20}> Employee Management System </Heading>
       <Flex direction="column" background="gray.100" p={12} rounded={6}>
         <Heading mb={6}>Log in</Heading>
-        <FormControl onSubmit={handleSubmit} id="loginform" name="loginform" >
+        <FormControl onSubmit={handleSubmit} id="loginform" name="loginform">
           <Input
             placeholder="Username"
             name="username"
-            id = "username"
+            id="username"
             variant="filled"
             onChange={e => setUsername(e.target.value)}
             mb={3}
@@ -88,6 +108,10 @@ const Login = () => {
       </Flex>
     </Flex>
   );
+};
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired,
 };
 
 export default Login;
