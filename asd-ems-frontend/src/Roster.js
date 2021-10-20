@@ -22,7 +22,8 @@ const Content = (event) => {
   const filteredList = () => {
     return employees.filter(
       c =>
-        c.dateworking.match(dateFilter)
+        c.dateworking[0].match(dateFilter)
+
     );
   };
 
@@ -36,7 +37,6 @@ const Content = (event) => {
   //format appears as planned
   return (
     <>
-
       <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
       <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee Roster </h1>
       <Input.Group compact>
