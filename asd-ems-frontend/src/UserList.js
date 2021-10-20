@@ -1,4 +1,4 @@
-import { Button, Divider, Space, Table } from 'antd';
+import { Button, Divider, Space, Table, Input, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
@@ -6,10 +6,13 @@ import employeeService from "./services/Employee";
 import axios from 'axios';
 
 const { Column } = Table;
+const { Option } = Select;
 
 const Content = () => {
   const [employees, setEmployees] = useState([])
   const [deptFilter, setDeptFilter] = useState('');
+  const [nameFilter, setNameFilter] = useState('');
+  const [typeFilter, setTypeFilter] = useState('');
 
   const history = useHistory();
 
@@ -19,7 +22,36 @@ const Content = () => {
     })
   }, [])
 
-  const filterByDept = deptFilter === '' ? employees : employees.filter(c => c.dept.toLowerCase().match(deptFilter.toLowerCase()));
+  // filters the values with all the inputs
+  const filteredList = () => {
+    return employees.filter(
+      c =>
+        c.employtype.match(typeFilter) &&
+        c.dept.match(deptFilter) &&
+        (c.fname.toLowerCase().match(nameFilter.toLowerCase()) ||
+          c.lname.toLowerCase().match(nameFilter.toLowerCase))
+    );
+  };
+
+  // updates each input
+  const handleChangeType = event => {
+    setTypeFilter(event);
+  };
+
+  const handleChangeDept = event => {
+    setDeptFilter(event);
+  };
+
+  //view function
+  const handleView = e => {
+    console.log("e.id: ", e.currentTarget.id)
+    console.log(employees)
+    const employee = employees.find(x => x.id.toString() === e.currentTarget.id)
+    console.log('test employee: ', employee)
+    history.push({
+      pathname: `./Profile/${employee.id}`,
+    })
+  }
 
   //update function
   const handleEditRoute = e => {
@@ -48,17 +80,52 @@ const Content = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee List </h1>
-        <input type="text" placeholder="Department" name="requesteddept" className="textfield" onChange={({ target }) => { setDeptFilter(target.value) }} />
-        <p />
+        <div style={{ textAlign: 'center' }}>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee List </h1>
+          <br />
+          <Input.Group compact>
+            <Input
+              size="large"
+              style={{ width: '20%' }}
+              placeholder="Name"
+              onChange={({ target }) => {
+                setNameFilter(target.value);
+              }}
+            />
 
+            <Select
+              id="type"
+              placeholder="Department"
+              size="large"
+              style={{ width: '20%' }}
+              onChange={handleChangeDept}
+              allowClear>
+              <Option value="HR">HR</Option>
+              <Option value="Operation">Operation</Option>
+              <Option value="Marketing">Marketing</Option>
+              <Option value="Finance">Finance</Option>
+            </Select>
+
+            <Select
+              id="type"
+              placeholder="Employment Type"
+              size="large"
+              style={{ width: '20%' }}
+              onChange={handleChangeType}
+              allowClear>
+              <Option value="Full-Time">Full-Time</Option>
+              <Option value="Part-Time">Part-Time</Option>
+            </Select>
+          </Input.Group>
+          <br />
+        </div>
         <button className="button" name="addnew" type="submit">
           <Link to="./AddUser"> <button> Add New Employee </button></Link>
         </button>
       </div>
 
       <div style={{ paddingTop: 10 }}>
-        <Table dataSource={filterByDept}>
+        <Table dataSource={filteredList()}>
           <Column title="Employee ID" dataIndex="id" key="id" />
           <Column title="First Name" dataIndex="fname" key="firstName" />
           <Column title="Last Name" dataIndex="lname" key="lastName" />
@@ -67,7 +134,7 @@ const Content = () => {
           <Column title="Options" key="id" render={(p) => (
             <>
               <Space split={<Divider type="vertical" />}>
-                <Button>view</Button>
+                <Button id={p.id} onClick={handleView}>view</Button>
                 <Button id={p.id} onClick={handleEditRoute}>update</Button>
                 <Button id={p.id} onClick={handleDelete}>delete</Button>
               </Space>

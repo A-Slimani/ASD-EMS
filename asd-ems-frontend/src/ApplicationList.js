@@ -1,14 +1,18 @@
-import { Button, Divider, Space, Table } from 'antd';
+import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import applicationService from "./services/Application";
 import axios from 'axios';
 
 const { Column } = Table;
+const { Option } = Select;
 
 const Content = () => {
   const [applicationform, setApplications] = useState([]);
-  const [formTypeFilter, setFormTypeFilter] = useState('');
+  const [nameFilter, setNameFilter] = useState('');
+  const [typeFilter, setTypeFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
+  const [dateFilter, setDateFilter] = useState('');
 
   useEffect(() => {
     applicationService.getAll().then(applicationform => {
@@ -16,7 +20,32 @@ const Content = () => {
     })
   }, [])
 
-  const filterByType = formTypeFilter === '' ? applicationform : applicationform.filter(c => c.applicationtype.toLowerCase().match(formTypeFilter.toLowerCase()));
+  // filters the values with all the inputs
+  const filteredList = () => {
+    return applicationform.filter(
+      c =>
+        c.applicationtype.match(typeFilter) &&
+        c.status.match(statusFilter) &&
+        c.applicationdate.match(dateFilter) &&
+        (c.fname.toLowerCase().match(nameFilter.toLowerCase()) ||
+          c.lname.toLowerCase().match(nameFilter.toLowerCase))
+    );
+  };
+
+  // updates each input
+  const handleChangeType = event => {
+    setTypeFilter(event);
+  };
+
+  const handleChangeStatus = event => {
+    setStatusFilter(event);
+  };
+
+  const handleChangeDate = event => {
+    console.log(event);
+    event !== null ? setDateFilter(event._d.toJSON().substr(0, 9)) : setDateFilter('');
+    console.log('date filter: ', dateFilter);
+  };
 
   const handleApprove = async e => {
     var option = window.confirm("Do you want to approve application with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
@@ -54,12 +83,50 @@ const Content = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Applications </h1>
-        <input type="textfield" placeholder="Application Type" name="requestedtype" class="textfield" onChange={({ target }) => { setFormTypeFilter(target.value) }} />
+        <br />
+        <Input.Group compact>
+          <Input
+            size="large"
+            style={{ width: '20%' }}
+            placeholder="Name"
+            onChange={({ target }) => {
+              setNameFilter(target.value);
+            }}
+          />
+          <Select
+            id="type"
+            placeholder="type"
+            size="large"
+            style={{ width: '20%' }}
+            onChange={handleChangeType}
+            allowClear>
+            <Option value="transfer between department">Transfer between Department</Option>
+            <Option value="business claim">Business Claim</Option>
+            <Option value="apply leave">Apply Leave</Option>
+            <Option value="resignation">Resignation</Option>
+            <Option value="others">Others</Option>
+          </Select>
+
+          <DatePicker size="large" onChange={handleChangeDate} />
+
+          <Select
+            id="type"
+            placeholder="status"
+            size="large"
+            style={{ width: '20%' }}
+            onChange={handleChangeStatus}
+            allowClear>
+            <Option value="pending">Pending</Option>
+            <Option value="approved">Approved</Option>
+            <Option value="rejected">Rejected</Option>
+          </Select>
+        </Input.Group>
+        <br />
         <p />
       </div>
 
       <div style={{ paddingTop: 10 }}>
-        <Table dataSource={filterByType}>
+        <Table dataSource={filteredList()}>
           <Column title="Application ID" dataIndex="id" key="id" />
           <Column title="First Name" dataIndex="fname" key="firstName" />
           <Column title="Last Name" dataIndex="lname" key="lastName" />
