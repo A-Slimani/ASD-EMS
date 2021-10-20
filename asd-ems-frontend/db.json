@@ -335,7 +335,7 @@
       "amount": "50000",
       "bonus": "2000",
       "paydate": "2021-09-22",
-      "paymethod": "cash",
+      "paymethod": "eftpos",
       "description": "Wants cash",
       "id": 2
     },

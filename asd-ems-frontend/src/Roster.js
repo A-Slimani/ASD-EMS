@@ -11,6 +11,7 @@ const { Column } = Table;
 const Content = (event) => {
   const [employees, setEmployees] = useState([])
 
+  //Gets all employees from const and ensures all getter and setter functionalities are in places
   useEffect(() => {
     employeeService.getAll().then(employees => {
       setEmployees(employees)
@@ -27,6 +28,7 @@ const Content = (event) => {
         <input type="date" placeholder="Filter by date" name="Max Salary" class="textfield " />
         <button className="button" name="searchbtn" type="submit"> {' '} Search {' '} </button>{' '}
       </div>
+      {/* Contains table with current roster information */}
       <Table dataSource={employees}>
         <Column title="Employee ID" dataIndex="id" key="id"/>
         <Column title="First Name" dataIndex="fname" key="firstName"/>
@@ -45,6 +47,7 @@ const Content = (event) => {
   );
 };
 
+//Displays uniform Staff navigation bar
 const UserList = () => {
   return <WebLayout content={Content()} />;
 };
