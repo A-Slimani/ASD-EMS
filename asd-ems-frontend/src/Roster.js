@@ -23,6 +23,7 @@ const Content = (event) => {
     <>
 
       <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
+      <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee Rooster </h1>
         <input type="date" placeholder="Filter by date" name="Max Salary" class="textfield " />
         <button className="button" name="searchbtn" type="submit"> {' '} Search {' '} </button>{' '}
       </div>

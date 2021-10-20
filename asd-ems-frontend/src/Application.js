@@ -39,7 +39,7 @@ const Content = () => {
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
-    // window.location = '/EmployeeDashboard';
+    window.location = `/EmployeeDashboard/${match.params.id}`;
   };
 
   const handleSubmit = e => {
@@ -124,11 +124,11 @@ const Content = () => {
             value={applicationtype}
             onChange={e => onInputChange(e)}>
             <option value="select"> -- Select one -- </option>
-            <option value="transfer"> Transfer between Departments </option>
-            <option value="claim"> Business Claims </option>
-            <option value="leave"> Apply Leave </option>
-            <option value="resign"> Resignation </option>
-            <option value="other"> Others </option>
+            <option value="transfer between department"> Transfer between Departments </option>
+            <option value="business claim"> Business Claims </option>
+            <option value="appply leave"> Apply Leave </option>
+            <option value="resignation"> Resignation </option>
+            <option value="others"> Others </option>
           </select>{' '}
           <br /> <p />
           <label> Sub-Category: </label> <br />
