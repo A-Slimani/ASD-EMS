@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import employeeService from './services/Employee';
 import PropTypes from 'prop-types';
 
-const Login = ({ setToken }) => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [employees, setEmployees] = useState([]);
@@ -27,25 +27,22 @@ const Login = ({ setToken }) => {
     return user.pwd === password;
   };
 
-  async function loginUser(credentials) {
-    return fetch('http://localhost:3000/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(credentials),
-    }).then(data => data.json());
+  // TODO: HANDLING TOKEN FOR LOGIN
+  async function loginUser(cred) {
+    employeeService.get(user);
   }
 
-  const handleSubmit = async e => {
-    // e.preventDefault();
 
-    // function isAdmin(name) {
-    //   return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name);
-    // }
-    // function isEmployee(name) {
-    //   return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name);
-    // }
+  // ensures the login have correct values
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    function isAdmin(name) {
+      return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name);
+    }
+    function isEmployee(name) {
+      return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name);
+    }
 
     // this is a login validate to redirect to 2 different dashboard
     // before this validate will have to verify username and password with the database
@@ -59,22 +56,15 @@ const Login = ({ setToken }) => {
 
     // try example@EMSHR and example@EMSOP to see the difference
 
-    // if (isAdmin(username) && getAccount()) {
-    //   history.push(`/Dashboard`);
-    // } else if (isEmployee(username) && getAccount()) {
-    //   history.push({
-    //     pathname: `./EmployeeDashboard/${user.id}`,
-    //   });
-    // } else {
-    //   alert('Incorrect username and/or password');
-    // }
-
-    e.preventDefault();
-    const token = await loginUser({
-      username,
-      password,
-    });
-    setToken(token);
+    if (isAdmin(username) && getAccount()) {
+      history.push(`/Dashboard`);
+    } else if (isEmployee(username) && getAccount()) {
+      history.push({
+        pathname: `./EmployeeDashboard/${user.id}`,
+      });
+    } else {
+      alert('Incorrect username and/or password');
+    }
   };
 
   return (

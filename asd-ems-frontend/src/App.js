@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { ProtectedRoute } from './components/protectedRoute';
 
 import Dashboard from './Dashboard';
 import Login from './Login';
@@ -24,62 +25,30 @@ import ConcernList from './ConcernList';
 import Profile from './Profile';
 import EmployeePersonal from './EmployeePersonal';
 import UpdateUser from './UpdateUser';
-import useToken from './services/useToken';
 import './App.less';
 
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token;
-}
-
 function App() {
-  // const [token, setToken] = useState();
-  const { token, setToken } = useToken();
-
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
-
   return (
     <BrowserRouter>
+
       <Switch>
-        <Route exact path="/" component={Login}>
-        </Route>
-        <Route exact path="/Logout">
-          <Logout />
-        </Route>
-        <Route exact path="/ComplaintList">
-          <ComplaintList />
-        </Route>
-        <Route exact path="/FileComplaint/:id">
-          <FileComplaint />{' '}
-        </Route>
-        <Route exact path="/Dashboard/:id">
-          <Dashboard />{' '}
-        </Route>
+        <Route exact path="/" component={Login}></Route>
+        <Route exact path="/Logout" component={Logout} />
+        <Route exact path="/ComplaintList" component={ComplaintList} />
+        <Route exact path="/FileComplaint" component={FileComplaint} />
+        <Route exact path="/Dashboard" component={Dashboard} />
         <Route exact path="/EmployeeDashboard/:id">
-          {' '}
-          <EmployeeDashboard />{' '}
+          <EmployeeDashboard />
         </Route>
         <Route exact path="/Roster">
-          {' '}
-          <Roster />{' '}
+          <Roster />
         </Route>
-
         <Route exact path="/discussionBoard/:id">
-          {' '}
-          <DiscussionBoard />{' '}
+          <DiscussionBoard />
         </Route>
         <Route exact path="/ConcernList">
-          {' '}
-          <ConcernList />{' '}
+          <ConcernList />
         </Route>
-
         <Route exact path="/Personal">
           {' '}
           <Personal />{' '}
@@ -103,11 +72,9 @@ function App() {
         </Route>
 
         <Route exact path="/UpdateEmployee/:id">
-          {' '}
           <UpdateEmployee />{' '}
         </Route>
         <Route exact path="/UpdateUser/:id">
-          {' '}
           <UpdateUser />{' '}
         </Route>
 
@@ -141,6 +108,7 @@ function App() {
           {' '}
           <UpdatePolicy />{' '}
         </Route>
+        <Route path="*" component={() => '404 NOT FOUND'} />
       </Switch>
     </BrowserRouter>
   );

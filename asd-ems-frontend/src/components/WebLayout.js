@@ -16,21 +16,21 @@ import { Link } from 'react-router-dom';
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-const WebLayout = ({ id, content }) => {
+const WebLayout = ({ content }) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['menu1']} mode="inline">
           <Menu.Item key="menu1" icon={<PieChartOutlined />}>
-            <Link to={`/Dashboard/${id}`}>
+            <Link to={`/Dashboard`}>
               <button> Home </button>{' '}
             </Link>
           </Menu.Item>
 
           <SubMenu key="sub1" icon={<UserOutlined />} title="Employee Manage">
             <Menu.Item key="3">
-              <Link to={`/AddUser/${id}`}>
+              <Link to={`/AddUser`}>
                 <button> Add Employee</button>{' '}
               </Link>
             </Menu.Item>
@@ -40,7 +40,7 @@ const WebLayout = ({ id, content }) => {
               </Link>
             </Menu.Item>
             <Menu.Item key="4">
-              <Link to={`/Roster/${id}`}>
+              <Link to={`/Roster`}>
                 <button> Roster </button>{' '}
               </Link>
             </Menu.Item>
@@ -48,50 +48,50 @@ const WebLayout = ({ id, content }) => {
 
           <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
             <Menu.Item key="4">
-              <Link to={`/Payroll/${id}`}>
+              <Link to={`/Payroll`}>
                 <button> New Payroll </button>
               </Link>
             </Menu.Item>
 
             <Menu.Item key="5">
-              <Link to={`/PayrollHistory/${id}`}>
+              <Link to={`/PayrollHistory`}>
                 <button> Payroll History </button>{' '}
               </Link>
             </Menu.Item>
 
             <Menu.Item key="5">
-              <Link to={`/PayrollLog/${id}`}>
+              <Link to={`/PayrollLog`}>
                 <button> Payroll Log </button>
               </Link>
             </Menu.Item>
 
             <Menu.Item key="7">
-              <Link to={`/PaymentPolicy/${id}`}>
+              <Link to={`/PaymentPolicy`}>
                 <button> Payment Policy</button>
               </Link>
             </Menu.Item>
           </SubMenu>
 
           <Menu.Item key="menu2" icon={<FileOutlined />}>
-            <Link to={`/ApplicationList/${id}`}>
+            <Link to={`/ApplicationList`}>
               <button> Manage Application </button>
             </Link>
           </Menu.Item>
 
           <Menu.Item key="menu3" icon={<CommentOutlined />}>
-            <Link to={`/ComplaintList/${id}`}>
+            <Link to={`/ComplaintList`}>
               <button> Manage Complaints </button>
             </Link>
           </Menu.Item>
 
           <Menu.Item key="menu4" icon={<DesktopOutlined />}>
-            <Link to={`/ConcernList/${id}`}>
+            <Link to={`/ConcernList`}>
               <button> Concern Manage </button>
             </Link>
           </Menu.Item>
 
           <Menu.Item key="menu5" icon={<RobotOutlined />}>
-            <Link to={`/Personal/${id}`}>
+            <Link to={`/Personal`}>
               <button> Personal File </button>
             </Link>
           </Menu.Item>
