@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import { Link, useHistory } from 'react-router-dom';
 import payrollService from "./services/Payroll";
+import { useRouteMatch } from 'react-router';
 import axios from 'axios';
 
 const { Column } = Table;
@@ -141,7 +142,8 @@ const Content = () => {
 };
 
 const PayrollHistory = () => {
-  return <WebLayout content={Content()} />;
+  const match = useRouteMatch('/PayrollHistory/:id');
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default PayrollHistory;

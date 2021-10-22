@@ -1,6 +1,7 @@
 import axios from 'axios';
 import WebLayout from './components/WebLayout';
 import React, { useState } from 'react';
+import { useRouteMatch } from 'react-router';
 
 const Content = () => {
   const [employees, setEmployee] = useState({
@@ -10,7 +11,6 @@ const Content = () => {
     address: "", suburb: "", state: "", pcode: "",
     employdate: "", dept: "", employtype: ""
   });
-
 
   const {
     fname, lname, dob, phoneno,
@@ -289,7 +289,8 @@ const Content = () => {
 };
 
 const AddUser = () => {
-  return <WebLayout content={Content()} />;
+  const match = useRouteMatch('/AddUser/:id');
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default AddUser;

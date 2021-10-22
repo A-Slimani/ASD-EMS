@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
 import employeeService from "./services/Employee";
 import axios from 'axios';
+import { useRouteMatch } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -147,7 +148,8 @@ const Content = () => {
 };
 
 const UserList = () => {
-  return <WebLayout content={Content()} />;
+  const match = useRouteMatch('/UserList/:id');
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default UserList;

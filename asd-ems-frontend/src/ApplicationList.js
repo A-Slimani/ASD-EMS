@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import applicationService from "./services/Application";
 import axios from 'axios';
+import { useRouteMatch } from 'react-router-dom';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -150,7 +151,8 @@ const Content = () => {
 };
 
 const ApplicationList = () => {
-  return <WebLayout content={Content()} />;
+  const match = useRouteMatch('/ApplicationList/:id');
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default ApplicationList;

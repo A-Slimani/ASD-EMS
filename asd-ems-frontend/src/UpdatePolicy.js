@@ -1,7 +1,7 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
-
+import { useRouteMatch } from 'react-router';
 import paymentPolicyText from './paymentPolicyText.json';
 
 let text = '';
@@ -9,7 +9,8 @@ paymentPolicyText.data.forEach(element => {
     text += element + '\n';
 });
 
-const content = () => {
+const Content = () => {
+    const match = useRouteMatch('/UpdatePolicy/:id');
     return (
         <div>
             <div className="navbar">
@@ -22,25 +23,26 @@ const content = () => {
                 </ul>
             </div>
             <div>
-                <form> 
-                <textarea 
-                    type="text" 
-                    className="formtextfield" 
-                    cols="50" rows="50">
+                <form>
+                    <textarea
+                        type="text"
+                        className="formtextfield"
+                        cols="50" rows="50">
                         {text}
-                </textarea>
+                    </textarea>
 
-                <div style={{ textAlign: 'center', paddingTop: 10 }}>
-                    <Link to="./PaymentPolicy"> <button className="button"> Updated New Policy </button> </Link>
-                </div>
+                    <div style={{ textAlign: 'center', paddingTop: 10 }}>
+                        <Link to={`/PaymentPolicy/${match.params.id}`}> <button className="button"> Updated New Policy </button> </Link>
+                    </div>
                 </form>
             </div>
         </div>
     );
 };
 
-const PaymentPolicy = () => {
-    return <WebLayout content={content()} />;
+const UpdatePolicy = () => {
+    const match = useRouteMatch('/UpdatePolicy/:id');
+    return <WebLayout id={match.params.id} content={Content()} />;
 };
 
-export default PaymentPolicy;
+export default UpdatePolicy;

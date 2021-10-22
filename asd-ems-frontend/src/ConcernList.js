@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import voiceconcernService from "./services/Concern";
 import axios from 'axios';
+import { useRouteMatch } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -121,7 +122,8 @@ const Content = () => {
 };
 
 const ConcernList = () => {
-  return <WebLayout content={Content()} />;
+  const match = useRouteMatch('/ConcernList/:id');
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default ConcernList;

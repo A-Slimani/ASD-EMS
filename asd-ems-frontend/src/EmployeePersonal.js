@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import EmployeeWebLayout from './components/EmployeeWebLayout';
 import employeeService from './services/Employee';
-import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 
 const Content = () => {
   const match = useRouteMatch('/EmployeePersonal/:id');
@@ -19,7 +19,7 @@ const Content = () => {
 	const handleEditRoute = e => {
 		history.push({
 			pathname: `/UpdateUser/${employee.id}`
-		})	
+		})
 	}
 
   return (

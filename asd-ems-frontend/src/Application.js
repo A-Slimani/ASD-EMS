@@ -2,7 +2,6 @@ import EmployeeWebLayout from './components/EmployeeWebLayout';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouteMatch } from 'react-router-dom';
-// import UserList from './UserList';
 
 const Content = () => {
   const match = useRouteMatch('/Application/:id');

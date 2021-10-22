@@ -1,16 +1,12 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
+import { useRouteMatch } from 'react-router-dom'
 
 const testText = () => {
-  //Page's layout is displayed within return function, separated with divs to ensure all pages are laid out
-  //as planned
   return (
     <div>
-      {/* Headings listed on page which are present on the dashboard for all staff */}
       <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Admin </h1>
       <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Announcement </h2>
-      
-      {/* Below content is to be updated by staff as often as changes are required */}
       <li>
         System maintenance is due at midnight to tomorrow 7am. Ensure not to use the system during the maintenance time
         as changed information may not be saved.
@@ -63,9 +59,9 @@ const testText = () => {
   );
 };
 
-//Function which enables uniform navigation bar across all staff pages
 const Dashboard = () => {
-  return <WebLayout content={testText()} />;
+  const match = useRouteMatch('/Dashboard/:id')
+  return <WebLayout id={match.params.id} content={testText()} />;
 };
 
 export default Dashboard;

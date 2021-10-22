@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, Input, FormControl, Spacer } from '@chakra-ui/react';
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import employeeService from './services/Employee'
@@ -9,7 +10,7 @@ const Login = () => {
   const [employees, setEmployees] = useState([])
   const history = useHistory();
 
-  useEffect(() =>{
+  useEffect(() => {
     employeeService.getAll().then(employees => {
       setEmployees(employees)
     })
@@ -23,7 +24,7 @@ const Login = () => {
 
   const getAccount = () => {
     if (user === undefined) return false;
-    return user.pwd === password 
+    return user.pwd === password
   }
 
   const handleSubmit = e => {
@@ -41,11 +42,13 @@ const Login = () => {
     // if username end with OP, MK or FN - view employee dashboard and navbar
     // if username end is not HR, OP, MK, or FN - user unable to login
     // if username/password entered not match data in database - user unable to login - this is after connect the page to database
-    
+
     // try example@EMSHR and example@EMSOP to see the difference
 
     if (isAdmin(username) && getAccount()) {
-      history.push('./Dashboard');
+      history.push({
+        pathname: `./Dashboard/${user.id}`,
+      });
     }
     else if (isEmployee(username) && getAccount()) {
       history.push({
@@ -66,7 +69,7 @@ const Login = () => {
           <Input
             placeholder="Username"
             name="username"
-            id = "username"
+            id="username"
             variant="filled"
             onChange={e => setUsername(e.target.value)}
             mb={3}

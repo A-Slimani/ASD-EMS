@@ -1,8 +1,8 @@
-import { Button, Divider, Space, Table, Input, DatePicker } from 'antd';
+import { Table, Input, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
 import employeeService from "./services/Employee";
+import { useRouteMatch } from 'react-router';
 
 //Ensures table is able to be referenced as a Const throughout the file
 const { Column } = Table;
@@ -23,7 +23,6 @@ const Content = (event) => {
     return employees.filter(
       c =>
         c.dateworking[0].match(dateFilter)
-
     );
   };
 
@@ -51,13 +50,6 @@ const Content = (event) => {
         <Column title="First Name" dataIndex="fname" key="firstName"/>
         <Column title="Last Name" dataIndex="lname" key="lastName"/>
         <Column title="Rostered Dates (dd/mm/yyyy)" dataIndex="dateworking" key="dateworking"/>
-        <Column title="Options" key="id" render={(p) => (
-          <>
-          <Space split={<Divider type="vertical" />}>
-            <Button>view</Button>
-          </Space>
-          </>
-        )}/>
         {/* <Column title="Employment Type" dataIndex="employmentType" key="employmentType"/> */}
       </Table>
     </>
@@ -65,8 +57,9 @@ const Content = (event) => {
 };
 
 //Displays uniform Staff navigation bar
-const UserList = () => {
-  return <WebLayout content={Content()} />;
+const Roster = () => {
+  const match = useRouteMatch('/Roster/:id');
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
-export default UserList;
+export default Roster;

@@ -9,7 +9,7 @@ import {
 } from '@ant-design/icons';
 import './Dashboard.css';
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -78,7 +78,7 @@ const EmployeeWebLayout = ({ id, content }) => {
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           @Copyright 2021 - ASD Group 6 <br />
-          My Duong, Catherine Pe Benito, George Hetrelezis, Reagan Brasch, Abdullah
+          Misty Duong, Catherine Pe Benito, George Hetrelezis, Reagan Brasch, Abdullah
           Slimani, Asif Bin Kabir
         </Footer>
       </Layout>

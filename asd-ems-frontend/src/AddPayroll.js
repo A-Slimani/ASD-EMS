@@ -1,6 +1,7 @@
 import WebLayout from './components/WebLayout';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useRouteMatch } from 'react-router';
 
 const Content = () => {
     const [payroll, setPayroll] = useState({
@@ -159,7 +160,8 @@ const Content = () => {
 };
 
 const AddPayroll = () => {
-    return <WebLayout content={Content()} />;
+    const match = useRouteMatch('/AddPayroll/:id');
+    return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default AddPayroll;
