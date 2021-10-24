@@ -1,6 +1,5 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
-import { useRouteMatch } from 'react-router-dom';
 
 const testText = () => {
   return (
@@ -103,8 +102,7 @@ const testText = () => {
 };
 
 const Dashboard = () => {
-  const match = useRouteMatch('/Dashboard/:id')
-  return <WebLayout id={match.params.id} content={testText()} />;
+  return <WebLayout  content={testText()} />;
 };
 
 export default Dashboard;
