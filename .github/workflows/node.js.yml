@@ -22,4 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
-      
+    - run: cd asd-ems-frontend
+    - run: npm install
+    - run: npm run build
+    - run: npm run test 
