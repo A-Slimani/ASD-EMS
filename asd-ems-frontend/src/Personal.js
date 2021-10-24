@@ -12,11 +12,7 @@ const Content = () => {
     const [logtime, setLogTime] = useState([]);
     const [payroll, setPayroll] = useState([]);
 
-    useEffect(() => {
-        employeeService.get(match.params.id).then(emp => setEmployee(emp));
-    }, []);
-
-    const handleEditRoute = e => {
+       const handleEditRoute = e => {
         history.push({
             pathname: `/UpdateUser/${employee.id}`
         })
