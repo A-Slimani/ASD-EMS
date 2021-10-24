@@ -36,11 +36,6 @@ const Content = () => {
     const sbs = employee["accbsb"];
     const maskedSBS = MaskData.maskPassword(sbs, maskCardOptions); //mask sbs number details
 
-
-    useEffect(() => {
-        employeeService.get(match.params.id).then(emp => setEmployee(emp));
-    }, []);
-
     const handleEditRoute = e => {
         history.push({
             pathname: `/UpdateUser/${employee.id}`
@@ -131,8 +126,7 @@ const Content = () => {
 };
 
 const Personal = () => {
-    const match = useRouteMatch('/Personal/:id');
-    return <WebLayout id={match.params.id} content={Content()} />;
+    return <WebLayout content={Content()} />;
 };
 
 export default Personal;
