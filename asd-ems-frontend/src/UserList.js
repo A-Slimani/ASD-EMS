@@ -4,7 +4,6 @@ import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
 import employeeService from './services/Employee';
 import axios from 'axios';
-import { useRouteMatch } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -23,7 +22,6 @@ const Content = () => {
     });
   }, []);
 
-<<<<<<< HEAD
   // filters the values with all the inputs
   const filteredList = () => {
     return employees.filter(
@@ -54,12 +52,6 @@ const Content = () => {
       pathname: `./Profile/${employee.id}`,
     })
   }
-=======
-  const filterByDept =
-    deptFilter === ''
-      ? employees
-      : employees.filter(c => c.dept.toLowerCase().match(deptFilter.toLowerCase()));
->>>>>>> Abdullah-branch
 
   //update function
   const handleEditRoute = e => {
@@ -92,7 +84,6 @@ const Content = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-<<<<<<< HEAD
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee List </h1>
           <br />
@@ -118,22 +109,6 @@ const Content = () => {
               <Option value="Marketing">Marketing</Option>
               <Option value="Finance">Finance</Option>
             </Select>
-=======
-        <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
-          {' '}
-          Employee List{' '}
-        </h1>
-        <input
-          type="text"
-          placeholder="Department"
-          name="requesteddept"
-          className="textfield"
-          onChange={({ target }) => {
-            setDeptFilter(target.value);
-          }}
-        />
-        <p />
->>>>>>> Abdullah-branch
 
             <Select
               id="type"
@@ -163,7 +138,6 @@ const Content = () => {
           <Column title="Last Name" dataIndex="lname" key="lastName" />
           <Column title="Department" dataIndex="dept" key="employmentType" />
           <Column title="Employment Type" dataIndex="employtype" key="employmentType" />
-<<<<<<< HEAD
           <Column title="Options" key="id" render={(p) => (
             <>
               <Space split={<Divider type="vertical" />}>
@@ -173,25 +147,6 @@ const Content = () => {
               </Space>
             </>
           )} />
-=======
-          <Column
-            title="Options"
-            key="id"
-            render={p => (
-              <>
-                <Space split={<Divider type="vertical" />}>
-                  <Button>view</Button>
-                  <Button id={p.id} onClick={handleEditRoute}>
-                    update
-                  </Button>
-                  <Button id={p.id} onClick={handleDelete}>
-                    delete
-                  </Button>
-                </Space>
-              </>
-            )}
-          />
->>>>>>> Abdullah-branch
         </Table>
       </div>
     </>
