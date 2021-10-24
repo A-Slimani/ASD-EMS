@@ -104,8 +104,7 @@ const Content = () => {
 };
 
 const Personal = () => {
-    const match = useRouteMatch('/Personal/:id');
-    return <WebLayout id={match.params.id} content={Content()} />;
+    return <WebLayout content={Content()} />;
 };
 
 export default Personal;
