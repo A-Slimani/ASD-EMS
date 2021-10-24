@@ -1,15 +1,16 @@
 import { Button, Divider, Space, Table, Input, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import WebLayout from './components/WebLayout';
-import employeeService from './services/Employee';
+import employeeService from "./services/Employee";
 import axios from 'axios';
+import { useRouteMatch } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
 
 const Content = () => {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([])
   const [deptFilter, setDeptFilter] = useState('');
   const [nameFilter, setNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
@@ -18,9 +19,9 @@ const Content = () => {
 
   useEffect(() => {
     employeeService.getAll().then(employees => {
-      setEmployees(employees);
-    });
-  }, []);
+      setEmployees(employees)
+    })
+  }, [])
 
   // filters the values with all the inputs
   const filteredList = () => {
@@ -49,34 +50,30 @@ const Content = () => {
     const employee = employees.find(x => x.id.toString() === e.currentTarget.id)
     console.log('test employee: ', employee)
     history.push({
-      pathname: `./Profile/${employee.id}`,
+      pathname: `/Profile/${employee.id}`,
     })
   }
 
   //update function
   const handleEditRoute = e => {
-    console.log('e.id: ', e.currentTarget.id);
-    console.log(employees);
-    const employee = employees.find(x => x.id.toString() === e.currentTarget.id);
-    console.log('test employee: ', employee);
+    console.log("e.id: ", e.currentTarget.id)
+    console.log(employees)
+    const employee = employees.find(x => x.id.toString() === e.currentTarget.id)
+    console.log('test employee: ', employee)
     history.push({
-      pathname: `./UpdateEmployee/${employee.id}`,
-    });
-  };
+      pathname: `/UpdateEmployee/${employee.id}`,
+    })
+  }
 
   //execute delete payroll based on id after select the "delete" button
   //also update the database when the function is executed
   const handleDelete = e => {
-    var option = window.confirm(
-      'Do you want to delete employee with ID ' +
-        e.currentTarget.id +
-        '? \n\n Select OK to delete or CANCEL action'
-    );
+    var option = window.confirm("Do you want to delete employee with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
     if (option === true) {
       axios.delete(`http://localhost:3001/employees/${e.currentTarget.id}`);
-      window.location = './UserList';
+      window.location.reload();
     }
-  };
+  }
 
   //table display a the list of all created users
   //the update button will call the update function when selected
@@ -124,10 +121,7 @@ const Content = () => {
           <br />
         </div>
         <button className="button" name="addnew" type="submit">
-          <Link to="./AddUser">
-            {' '}
-            <button> Add New Employee </button>
-          </Link>
+          <Link to="./AddUser"> <button> Add New Employee </button></Link>
         </button>
       </div>
 
@@ -155,7 +149,7 @@ const Content = () => {
 
 const UserList = () => {
   const match = useRouteMatch('/UserList/:id');
-  return <WebLayout  content={Content()} />;
+  return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default UserList;

@@ -3,16 +3,45 @@ import { Button, Divider, Space, Table } from 'antd';
 import WebLayout from './components/WebLayout';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import employeeService from './services/Employee';
-import axios from 'axios';
 
 const Content = () => {
     const match = useRouteMatch('/Personal/:id');
     const history = useHistory();
     const [employee, setEmployee] = useState({});
+    
     const [logtime, setLogTime] = useState([]);
     const [payroll, setPayroll] = useState([]);
 
-       const handleEditRoute = e => {
+    const MaskData = require('maskdata');
+
+    const maskPasswordOptions = {
+        maskWith: "*", //default masking value 
+        maxMaskedCharacters: 20, //number of masking value is limited to 20
+        unMaskedCharacters: 0, //to show unmasked value - first
+        unMaskedEndCharacters: 0 //to show unmasked value - last
+    };
+
+    const maskCardOptions = {
+        maskWith: "X", //default masking value
+        unmaskedStartDigits: 10, // max value is 10
+        unmaskedEndDigits: 1
+    };
+
+    const password = employee["pwd"];
+    const maskedPassword = MaskData.maskPassword(password, maskPasswordOptions); //mask password
+
+    const bankno = employee["accnum"];
+    const maskedBankNo = MaskData.maskPassword(bankno, maskCardOptions); //mask bank number details
+    
+    const sbs = employee["accbsb"];
+    const maskedSBS = MaskData.maskPassword(sbs, maskCardOptions); //mask sbs number details
+
+
+    useEffect(() => {
+        employeeService.get(match.params.id).then(emp => setEmployee(emp));
+    }, []);
+
+    const handleEditRoute = e => {
         history.push({
             pathname: `/UpdateUser/${employee.id}`
         })
@@ -53,10 +82,12 @@ const Content = () => {
                 <h3> Full Name: {employee["fname"] + " " + employee["lname"]}</h3>
                 <h3> Date of Birth:  {employee["dob"]}  </h3>
                 <h3> Address: {employee["address"] + " " + employee["suburb"] + " " + employee["state"] + " " + employee["pcode"]} </h3>
-                <h3> Bank Number: {employee["accnum"]} </h3>
+                <h3> Bank Number: {maskedBankNo} </h3>
+                <h3> SBS Number: {maskedSBS} </h3>
                 <h3> Department: {employee["dept"]} </h3>
                 <h3> Employment Date: {employee["employdate"]} </h3>
                 <h3> Username: {employee["username"]} </h3>
+                <h3> Password: {maskedPassword} </h3>
                 <h3> Employment Type: {employee["employtype"]}</h3>
             </div>
 
@@ -100,7 +131,8 @@ const Content = () => {
 };
 
 const Personal = () => {
-    return <WebLayout content={Content()} />;
+    const match = useRouteMatch('/Personal/:id');
+    return <WebLayout id={match.params.id} content={Content()} />;
 };
 
 export default Personal;

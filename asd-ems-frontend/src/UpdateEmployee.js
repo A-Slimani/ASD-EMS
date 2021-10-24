@@ -7,6 +7,7 @@ import './style.css';
 
 const Content = () => {
   const match = useRouteMatch('/UpdateEmployee/:id');
+  function goBack() { window.history.back(); }
   console.log('match: ', match)
   const [employee, setEmployee] = useState({
     fname: '',
@@ -115,6 +116,7 @@ const Content = () => {
   <>
       <div>
         <form id='updateform' name='updateform' onSubmit={e => onSubmit(e)}>
+        <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showEmployee().fname + " " + showEmployee().lname}</h1>
           <p style={{ textAlign: 'center' }}> {' '} Please fill out the details below, all fields are required{' '} </p>
 

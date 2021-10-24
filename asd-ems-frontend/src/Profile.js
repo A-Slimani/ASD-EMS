@@ -7,6 +7,7 @@ const Content = () => {
     const match = useRouteMatch('/Profile/:id');
     const [employee, setEmployee] = useState();
     const history = useHistory();
+    const MaskData = require('maskdata');
 
     function goBack() { window.history.back(); }
 
@@ -23,6 +24,28 @@ const Content = () => {
             pathname: `/UpdateUser/${employee.id}`
         })
     }
+
+    const maskPasswordOptions = {
+        maskWith: "*", //default masking value 
+        maxMaskedCharacters: 20, //number of masking value is limited to 20
+        unMaskedCharacters: 0, //to show unmasked value - first
+        unMaskedEndCharacters: 0 //to show unmasked value - last
+    };
+
+    const maskCardOptions = {
+        maskWith: "X", //default masking value
+        unmaskedStartDigits: 10, // max value is 10
+        unmaskedEndDigits: 1
+    };
+
+    const password = showEmployee().pwd;
+    const maskedPassword = MaskData.maskPassword(password, maskPasswordOptions); //mask password
+
+    const bankno = showEmployee().accnum;
+    const maskedBankNo = MaskData.maskPassword(bankno, maskCardOptions); //mask bank number details
+
+    const sbs = showEmployee().accbsb;
+    const maskedSBS = MaskData.maskPassword(sbs, maskCardOptions); //mask sbs number details
 
     return (
         <>
@@ -54,10 +77,13 @@ const Content = () => {
                 <h3> <b>Full Name:</b> {showEmployee().fname + " " + showEmployee().lname}</h3>
                 <h3> <b>Date of Birth:</b> {showEmployee().dob}</h3>
                 <h3> <b>Address:</b> {showEmployee().address + " " + showEmployee().suburb + " " + showEmployee().pcode}</h3>
-                <h3> <b>Bank Number:</b>. {showEmployee().accnum} </h3>
+                <h3> <b>Bank Number:</b>. {maskedBankNo} </h3>
+                <h3> <b>SBS:</b> {maskedSBS}</h3>
                 <h3> <b>Department:</b> {showEmployee().dept}</h3>
                 <h3> <b>Employment Date:</b> {showEmployee().employdate}</h3>
                 <h3> <b>Username:</b> {showEmployee().username}</h3>
+                <h3> <b>Password:</b> {maskedPassword}</h3>
+                <h3> <b>Employment Type:</b> {showEmployee().employtype}</h3>
             </div>
 
             <div id="applicationsubmit">
