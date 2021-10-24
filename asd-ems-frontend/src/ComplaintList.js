@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import WebLayout from './components/WebLayout';
 import complaintService from './services/Complaint';
-import { useRouteMatch } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -150,8 +149,7 @@ const Content = () => {
 };
 
 const ComplaintList = () => {
-  const match = useRouteMatch('/ComplaintList/:id');
-  return <WebLayout id={match.params.id} content={Content()} />;
+  return <WebLayout  content={Content()} />;
 };
 
 export default ComplaintList;

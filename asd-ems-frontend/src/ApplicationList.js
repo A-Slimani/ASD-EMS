@@ -151,8 +151,7 @@ const Content = () => {
 };
 
 const ApplicationList = () => {
-  const match = useRouteMatch('/ApplicationList/:id');
-  return <WebLayout id={match.params.id} content={Content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default ApplicationList;
