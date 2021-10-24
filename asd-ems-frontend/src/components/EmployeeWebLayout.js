@@ -56,8 +56,7 @@ const EmployeeWebLayout = ({ id, content }) => {
 
           <Menu.Item key="menu6" icon={<LoginOutlined />}>
             <Link to="/Logout">
-              {' '}
-              <button> Logout </button>{' '}
+              <button> Logout </button>
             </Link>
           </Menu.Item>
         </Menu>

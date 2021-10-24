@@ -2,36 +2,48 @@ import { Button, Flex, Heading, Input, FormControl, Spacer } from '@chakra-ui/re
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import employeeService from './services/Employee'
+import employeeService from './services/Employee';
+import PropTypes from 'prop-types';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [employees, setEmployees] = useState([])
+  const [employees, setEmployees] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
     employeeService.getAll().then(employees => {
-      setEmployees(employees)
-    })
-  }, [])
+      setEmployees(employees);
+    });
+  }, []);
 
   const validateForm = () => {
     return username.length > 0 && password.length > 0;
   };
 
-  const user = employees.find(x => x.username === username)
+  const user = employees.find(x => x.username === username);
 
   const getAccount = () => {
     if (user === undefined) return false;
-    return user.pwd === password
+    return user.pwd === password;
+  };
+
+  // TODO: HANDLING TOKEN FOR LOGIN
+  async function loginUser(cred) {
+    employeeService.get(user);
   }
 
-  const handleSubmit = e => {
-    // e.preventDefault();
-    function isAdmin(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name); }
-    function isEmployee(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name); }
 
+  // ensures the login have correct values
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    function isAdmin(name) {
+      return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name);
+    }
+    function isEmployee(name) {
+      return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name);
+    }
 
     // this is a login validate to redirect to 2 different dashboard
     // before this validate will have to verify username and password with the database
@@ -46,16 +58,12 @@ const Login = () => {
     // try example@EMSHR and example@EMSOP to see the difference
 
     if (isAdmin(username) && getAccount()) {
-      history.push({
-        pathname: `./Dashboard/${user.id}`,
-      });
-    }
-    else if (isEmployee(username) && getAccount()) {
+      history.push(`/Dashboard`);
+    } else if (isEmployee(username) && getAccount()) {
       history.push({
         pathname: `./EmployeeDashboard/${user.id}`,
       });
-    }
-    else {
+    } else {
       alert('Incorrect username and/or password');
     }
   };
@@ -65,7 +73,7 @@ const Login = () => {
       <Heading mb={20}> Employee Management System </Heading>
       <Flex direction="column" background="gray.100" p={12} rounded={6}>
         <Heading mb={6}>Log in</Heading>
-        <FormControl onSubmit={handleSubmit} id="loginform" name="loginform" >
+        <FormControl onSubmit={handleSubmit} id="loginform" name="loginform">
           <Input
             placeholder="Username"
             name="username"
@@ -91,6 +99,10 @@ const Login = () => {
       </Flex>
     </Flex>
   );
+};
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired,
 };
 
 export default Login;
