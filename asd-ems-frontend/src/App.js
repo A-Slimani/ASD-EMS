@@ -62,10 +62,7 @@ function App() {
           {' '}
           <Profile />{' '}
         </Route>
-        <Route exact path="/AddUser/:id">
-          {' '}
-          <AddUser />{' '}
-        </Route>
+        <Route exact path="/AddUser" component={AddUser} />
         <Route exact path="/UserList">
           {' '}
           <UserList />{' '}
