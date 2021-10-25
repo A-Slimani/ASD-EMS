@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build && cp -r build ../asd-ems-backend",
+    "build": "react-scripts build && cp -r build ../asd-ems-backend",
     "test": "jest --ci --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject",
     "server": "json-server -p3001 --routes routes.json --watch db.json"
