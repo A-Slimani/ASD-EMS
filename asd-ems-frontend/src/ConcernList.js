@@ -76,7 +76,7 @@ const Content = () => {
             <Input
               size="large"
               style={{ width: '20%' }}
-              placeholder="Name"
+              placeholder="First Name"
               onChange={({ target }) => {
                 setNameFilter(target.value);
               }}
@@ -91,8 +91,8 @@ const Content = () => {
               style={{ width: '20%' }}
               onChange={handleChangeStatus}
               allowClear>
-              <Option value="pending">Pending</Option>
-              <Option value="solved">Solved</Option>
+              <Option value="Pending">Pending</Option>
+              <Option value="Solved">Solved</Option>
             </Select>
           </Input.Group>
           <br />
@@ -105,7 +105,7 @@ const Content = () => {
             <Column title="Concern ID" dataIndex="id" key="id" />
             <Column title="Name" dataIndex="name" key="name" />
             <Column title="Topic" dataIndex="topic" key="topic" />
-            <Column title="Enquiry" dataIndex="achivementgoal" key="achivementgoal" />
+            <Column title="Enquiry/Description" dataIndex="description" key="description" />
             <Column title="Discuss Date" dataIndex="discussdate" key="discussdate" />
             <Column title="Status" dataIndex="status" key="status" />
             <Column title="Options" key="id" render={(p) => (

@@ -82,33 +82,33 @@ const Content = () => {
             <Input
               size="large"
               style={{ width: '20%' }}
-              placeholder="Name"
+              placeholder="First Name"
               onChange={({ target }) => {
                 setNameFilter(target.value);
               }}
             />
             <Select
               id="type"
-              placeholder="type"
+              placeholder="Complaint Type"
               size="large"
               style={{ width: '20%' }}
               onChange={handleChangeType}
               allowClear>
-              <Option value="general">general</Option>
-              <Option value="work">work</Option>
-              <Option value="personal">personal</Option>
-              <Option value="suggestion">suggestion</Option>
+              <Option value="General">General</Option>
+              <Option value="Work">Work</Option>
+              <Option value="Personal">Personal</Option>
+              <Option value="Suggestion">Suggestion</Option>
             </Select>
             <DatePicker size="large" onChange={handleChangeDate} />
             <Select
               id="type"
-              placeholder="status"
+              placeholder="Status"
               size="large"
               style={{ width: '20%' }}
               onChange={handleChangeStatus}
               allowClear>
-              <Option value="pending">pending</Option>
-              <Option value="solved">solved</Option>
+              <Option value="Pending">Pending</Option>
+              <Option value="Solved">Solved</Option>
             </Select>
           </Input.Group>
           <br />

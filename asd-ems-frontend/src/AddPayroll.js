@@ -32,7 +32,6 @@ const Content = () => {
         e.preventDefault();
         var s = window.confirm("Do you want add a new user with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
         if (s === true) {
-            var empid = document.forms["payrollform"]["empid"].value;
             var fname = document.forms["payrollform"]["fname"].value;
             var lname = document.forms["payrollform"]["lname"].value;
             var amount = document.forms["payrollform"]["amount"].value;
@@ -42,7 +41,6 @@ const Content = () => {
 
             if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
             else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
-            else if (empid === "" || isNumber(empid) === false) { alert("ID field is empty or invalid format input"); }
             else if (amount === "" || isNumber(amount) === false) { alert("Amount field is empty or invalid format input"); }
             else if (bonus === "" || isNumber(bonus) === false) { alert("Contact Number field is empty or invalid format input"); }
             else if (description === "") { alert("Provide payment reason for this payroll"); }
@@ -121,10 +119,10 @@ const Content = () => {
                         <label> Payment Method: </label> <br />
                         <select name="paymethod" className="formtextfield" value={paymethod} onChange={e => onInputChange(e)}>
                             <option value="select"> -- Select one -- </option>
-                            <option value="cash"> Cash </option>
-                            <option value="cheque"> Cheque </option>
-                            <option value="eftpos"> EFTPOS </option>
-                            <option value="others"> Others </option>
+                            <option value="Cash"> Cash </option>
+                            <option value="Cheque"> Cheque </option>
+                            <option value="EFTPOS"> EFTPOS </option>
+                            <option value="Others"> Others </option>
                         </select>{' '}
                         <p />
 
