@@ -142,8 +142,7 @@ const Content = () => {
 };
 
 const PayrollHistory = () => {
-  const match = useRouteMatch('/PayrollHistory/:id');
-  return <WebLayout id={match.params.id} content={Content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default PayrollHistory;

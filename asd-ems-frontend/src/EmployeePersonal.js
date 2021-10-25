@@ -313,8 +313,7 @@ const Content = () => {
 };
 
 const EmployeePersonal = () => {
-  const match = useRouteMatch('/EmployeePersonal/:id');
-  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
+  return <EmployeeWebLayout content={Content()} />;
 };
 
 export default EmployeePersonal;

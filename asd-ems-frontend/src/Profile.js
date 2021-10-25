@@ -187,8 +187,7 @@ const Content = () => {
 };
 
 const Profile = () => {
-    const match = useRouteMatch('/Profile/:id');
-    return <WebLayout id={match.params.id} content={Content()} />;
+    return <WebLayout content={Content()} />;
 };
 
 export default Profile;

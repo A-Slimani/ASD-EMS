@@ -168,8 +168,7 @@ const Content = () => {
 };
 
 const Application = () => {
-  const match = useRouteMatch('/Application/:id');
-  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
+  return <EmployeeWebLayout content={Content()} />;
 };
 
 export default Application;

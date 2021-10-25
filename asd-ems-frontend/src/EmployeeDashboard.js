@@ -55,8 +55,7 @@ const TestText = () => {
 };
 
 const EmployeeDashboard = () => {
-  const match = useRouteMatch('/EmployeeDashboard/:id')
-  return <EmployeeWebLayout id={match.params.id} content={TestText()} />;
+  return <EmployeeWebLayout content={TestText()} />;
 };
 
 export default EmployeeDashboard;

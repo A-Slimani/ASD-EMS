@@ -117,8 +117,7 @@ const Content = () => {
 };
 
 const FileComplaint = () => {
-  const match = useRouteMatch('/FileComplaint/:id')
-  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
+  return <EmployeeWebLayout content={Content()} />;
 };
 
 export default FileComplaint;

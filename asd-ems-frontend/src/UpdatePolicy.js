@@ -41,7 +41,6 @@ const Content = () => {
 };
 
 const UpdatePolicy = () => {
-    const match = useRouteMatch('/UpdatePolicy/:id');
     return <WebLayout  content={Content()} />;
 };
 

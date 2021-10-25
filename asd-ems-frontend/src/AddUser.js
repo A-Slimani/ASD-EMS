@@ -352,8 +352,7 @@ const Content = () => {
 };
 
 const AddUser = () => {
-  const match = useRouteMatch('/AddUser/:id');
-  return <WebLayout id={match.params.id} content={Content()} />;
+  return <WebLayout content={Content()} />;
 };
 
 export default AddUser;

@@ -122,8 +122,8 @@ const Content = () => {
 };
 
 const DiscussionBoard = () => {
-  const match = useRouteMatch('/discussionBoard/:id')
-  return <EmployeeWebLayout id={match.params.id} content={Content()} />;
+  return <EmployeeWebLayout content={Content()} />;
+
 };
 
 export default DiscussionBoard;
