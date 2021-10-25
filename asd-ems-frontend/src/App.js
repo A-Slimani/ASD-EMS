@@ -21,6 +21,7 @@ import AddPayroll from './AddPayroll';
 import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
+import AddRoster from './AddRoster';
 import './App.less'
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
         <Route exact path="/Dashboard"> <Dashboard /> </Route>
         <Route exact path="/EmployeeDashboard"> <EmployeeDashboard /> </Route>
+        <Route exact path="/AddRoster"> <AddRoster /> </Route>
         <Route exact path="/Roster"> <Roster /> </Route>
 
         <Route exact path="/discussionBoard"> <DiscussionBoard /> </Route>
