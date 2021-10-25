@@ -2,8 +2,7 @@
   "name": "ASD-EMS",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd asd-ems-backend && npm start",
-    "postinstall": "cd asd-ems-frontend && npm run build"
+    "start": "cd asd-ems-backend && npm start"
   },
   "dependencies": {
     "cors": "^2.8.5",
