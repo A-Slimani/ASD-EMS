@@ -1,0 +1,7 @@
+{
+  "name": "ASD-EMS",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm install --prefix asd-ems-backend && npm install --prefix asd-ems-frontend"
+  }
+}
