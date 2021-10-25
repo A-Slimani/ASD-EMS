@@ -19,7 +19,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
-    - name: create build
     - run: | 
         cd asd-ems-frontend
         npm install
