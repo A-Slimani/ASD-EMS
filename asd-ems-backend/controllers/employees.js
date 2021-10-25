@@ -5,6 +5,7 @@ const Employee = require('../models/employee');
 employeeRouter.get('/', (req, res) => {
   Employee.find({})
     .then(employee => {
+      console.log("test")
       res.json(employee);
     })
     .catch(error => next(error));
