@@ -4,14 +4,12 @@ import { Redirect } from 'react-router';
 import EmployeeWebLayout from "./components/EmployeeWebLayout";
 
 const Content = () => {
-  const empid = localStorage.getItem("id");
   const [voiceconcern, setConcern] = useState({
-    userid: empid,
     name: "", discussdate: "", topic: "",
-    status: "pending", achivementgoal: "", methodachievement: ""
+    status: "Pending", description: ""
   });
 
-  const { userid, name, discussdate, topic, status, achivementgoal, methodachievement } = voiceconcern;
+  const { name, discussdate, topic, status, description } = voiceconcern;
 
   const onInputChange = e => {
     setConcern({ ...voiceconcern, [e.target.name]: e.target.value })
@@ -30,14 +28,12 @@ const Content = () => {
     var s = window.confirm("Do you want submit the application with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
     if (s === true) {
       var name = document.forms["dicussform"]["name"].value;
-      var methodachievement = document.forms["dicussform"]["methodachievement"].value;
+      var description = document.forms["dicussform"]["description"].value;
       var discussdate = document.forms["dicussform"]["discussdate"].value;
       var topic = document.forms["dicussform"]["topic"].value;
-      var achivementgoal = document.forms["dicussform"]["achivementgoal"].value;
 
       if (name === "" || isText(name) === false) { alert("Name field is empty or invalid format input"); }
-      else if (methodachievement === "") { alert("Last field is empty"); }
-      else if (achivementgoal === "") { alert("'What are you trying to achieve' field is empty"); }
+      else if (description === "") { alert("Description field is empty"); }
       else if (topic === "") { alert("Topic field is empty"); }
       else if (discussdate === "") { alert("Date  must be select"); }
       else { onSubmit(); }
@@ -86,28 +82,16 @@ const Content = () => {
           />{' '}
           <br /> <p />
 
-          <label> What are you trying to achieve ? </label> <br />
+          <label> Description: </label> <br />
           <textarea
             type="text"
             placeholder="Message"
-            name="achivementgoal"
+            name="description"
             className="formtextfield"
-            value={achivementgoal}
+            value={description}
             onChange={e => onInputChange(e)}
           />{' '}
           <br /> <p />
-
-          <label> How differently you can do ? </label> <br />
-          <textarea
-            type="text"
-            placeholder="Message"
-            name="methodachievement"
-            className="formtextfield"
-            value={methodachievement}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br />
-          <p />
 
           <div style={{ textAlign: 'center', paddingTop: 10 }}>
             <small>

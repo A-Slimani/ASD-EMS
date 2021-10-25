@@ -101,9 +101,9 @@ const Content = () => {
                 style={{ width: '20%' }}
                 onChange={handleChangeMethod}
                 allowClear>
-                <Option value="cheque">Cheque</Option>
-                <Option value="cash">Cash</Option>
-                <Option value="eftpos">EFTPOS</Option>
+                <Option value="Cheque">Cheque</Option>
+                <Option value="Cash">Cash</Option>
+                <Option value="EFTPOS">EFTPOS</Option>
               </Select>
 
               <DatePicker size="large" onChange={handleChangeDate} />

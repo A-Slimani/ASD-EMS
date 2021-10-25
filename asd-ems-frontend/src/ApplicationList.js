@@ -55,7 +55,7 @@ const Content = () => {
       for (let i of applicationform) {
         if (e.currentTarget.id === i.id) {
           var concern = Object.assign({}, i);
-          concern.status = "approved";
+          concern.status = "Approved";
           await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
           break;
         }
@@ -71,7 +71,7 @@ const Content = () => {
       for (let i of applicationform) {
         if (e.currentTarget.id === i.id) {
           var concern = Object.assign({}, i);
-          concern.status = "rejected";
+          concern.status = "Rejected";
           await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
           break;
         }
@@ -97,30 +97,30 @@ const Content = () => {
             />
             <Select
               id="type"
-              placeholder="type"
+              placeholder="Application Type"
               size="large"
               style={{ width: '20%' }}
               onChange={handleChangeType}
               allowClear>
-              <Option value="transfer between department">Transfer between Department</Option>
-              <Option value="business claim">Business Claim</Option>
-              <Option value="apply leave">Apply Leave</Option>
-              <Option value="resignation">Resignation</Option>
-              <Option value="others">Others</Option>
+              <Option value="Transfer between Department">Transfer between Department</Option>
+              <Option value="Business Claim">Business Claim</Option>
+              <Option value="Apply Leave">Apply Leave</Option>
+              <Option value="Resignation">Resignation</Option>
+              <Option value="Others">Others</Option>
             </Select>
 
             <DatePicker size="large" onChange={handleChangeDate} />
 
             <Select
               id="type"
-              placeholder="status"
+              placeholder="Status"
               size="large"
               style={{ width: '20%' }}
               onChange={handleChangeStatus}
               allowClear>
-              <Option value="pending">Pending</Option>
-              <Option value="approved">Approved</Option>
-              <Option value="rejected">Rejected</Option>
+              <Option value="Pending">Pending</Option>
+              <Option value="Approved">Approved</Option>
+              <Option value="Rejected">Rejected</Option>
             </Select>
           </Input.Group>
           <br />

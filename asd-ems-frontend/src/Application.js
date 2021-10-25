@@ -11,7 +11,7 @@ const Content = () => {
     lname: '',
     applicationtype: '',
     applicationdate: '',
-    status: 'pending',
+    status: 'Pending',
     subcategory: '',
     reason: '',
   });
@@ -124,11 +124,11 @@ const Content = () => {
               value={applicationtype}
               onChange={e => onInputChange(e)}>
               <option value="select"> -- Select one -- </option>
-              <option value="transfer between department"> Transfer between Departments </option>
-              <option value="business claim"> Business Claims </option>
-              <option value="appply leave"> Apply Leave </option>
-              <option value="resignation"> Resignation </option>
-              <option value="others"> Others </option>
+              <option value="Transfer between Departments"> Transfer between Departments </option>
+              <option value="Business Claims"> Business Claims </option>
+              <option value="Apply Leave"> Apply Leave </option>
+              <option value="Resignation"> Resignation </option>
+              <option value="Others"> Others </option>
             </select>{' '}
             <br /> <p />
             <label> Sub-Category: </label> <br />

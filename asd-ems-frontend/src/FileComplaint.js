@@ -8,7 +8,7 @@ const Content = () => {
   const [filecomplaint, setComplaint] = useState({
     userid: empid,
     fname: "", lname: "", complaintdescription: "", complaintdate: "",
-    status: "pending", complainttype: ""
+    status: "Pending", complainttype: ""
   });
 
   const { userid, fname, lname, complaintdescription, complainttype, complaintdate } = filecomplaint;
@@ -86,10 +86,10 @@ const Content = () => {
             <label> Type of Complaint: </label> <br />
             <select name="complainttype" className="formtextfield" value={complainttype} onChange={e => onInputChange(e)}>
               <option value="select"> -- Select one -- </option>
-              <option value="personal"> Personal </option>
-              <option value="work"> Work </option>
-              <option value="general"> General </option>
-              <option value="suggestion"> Suggestion </option>
+              <option value="Personal"> Personal </option>
+              <option value="Work"> Work </option>
+              <option value="General"> General </option>
+              <option value="Suggestion"> Suggestion </option>
             </select>{' '}
             <br /> <p />
 

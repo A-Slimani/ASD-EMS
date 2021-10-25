@@ -115,6 +115,7 @@ const Content = () => {
               allowClear>
               <Option value="Full-Time">Full-Time</Option>
               <Option value="Part-Time">Part-Time</Option>
+              <Option value="Casual">Casual</Option>
             </Select>
           </Input.Group>
           <br />
