@@ -2,6 +2,7 @@
   "name": "ASD-EMS",
   "version": "1.0.0",
   "scripts": {
+    "start": "cd asd-ems-backend && node index.js",
     "postinstall": "npm install --prefix backend"
   }
 }
