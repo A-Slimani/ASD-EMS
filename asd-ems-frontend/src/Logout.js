@@ -2,7 +2,7 @@ import { Button, Flex, Heading, Spacer } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Logout = () => {
+function Logout () {
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center" direction="column">
       <Heading mb={20}> Employee Management System </Heading>

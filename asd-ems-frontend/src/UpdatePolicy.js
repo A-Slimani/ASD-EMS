@@ -1,7 +1,7 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
-import { useRouteMatch } from 'react-router';
+import { Redirect } from 'react-router';
 import paymentPolicyText from './paymentPolicyText.json';
 
 let text = '';
@@ -25,20 +25,22 @@ function updatePreview() {
 }
 
 const Content = () => {
-    return (
-        <div className="container">
-            <div className="navbar">
-                <ul>
-                    <li> <button onClick={() => {setText("\n<ul>\n\t<li style='padding-left: 20px'>...</li>\n</ul>")}}> Bullet Point </button> </li>
-                    <li> <button onClick={() => {setText("\n<b>\n\t\n</b>")}}> Bold </button> </li>
-                    <li> <button onClick={() => {setText("\n<i>\n\t\n</i>")}}> Italic </button> </li>
-                    <li> <button onClick={() => {setText("\n<u>\n\t\n</u>")}}> Underline </button> </li>
-                    <li> <button onClick={() => {setText("\n<span color=red>\n\t\n</span>")}}> Text Color </button> </li>
-                </ul>
-            </div>
-            <div style={{display: "flex"}}>
-                <div className="thing" style={{width: "50%"}}>
-                    <div>
+    if (localStorage.getItem("id") !== null) {
+        return (
+            <div className="container">
+                <div className="navbar">
+                    <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update Payment Policy </h1>
+                    <p style={{ textAlign: 'center' }}> Please use HTML tags to structure the payment policy </p>
+                    <ul>
+                        <li> <button onClick={() => {setText("\n<ul>\n\t<li style='padding-left: 20px'>...</li>\n</ul>")}}> Bullet Point </button> </li>
+                        <li> <button onClick={() => {setText("\n<b>\n\t\n</b>")}}> Bold </button> </li>
+                        <li> <button onClick={() => {setText("\n<i>\n\t\n</i>")}}> Italic </button> </li>
+                        <li> <button onClick={() => {setText("\n<u>\n\t\n</u>")}}> Underline </button> </li>
+                        <li> <button onClick={() => {setText("\n<span color=red>\n\t\n</span>")}}> Text Color </button> </li>
+                    </ul>
+                </div>
+                <div style={{display: "flex"}}>
+                    <div className="thing" style={{width: "50%"}}>
                         <form>
                             <textarea
                                 type="text"
@@ -49,21 +51,23 @@ const Content = () => {
                             </textarea>
 
                             <div style={{ textAlign: 'center', paddingTop: 10 }}>
-                                <Link to="/PaymentPolicy"> <button className="button"> Updated New Policy </button> </Link>
+                                <Link to={`/PaymentPolicy`}> <button className="button"> Updated New Policy </button> </Link>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div className="preview-container" style={{margin: "0 3em", width: "50%"}}>
-                    <div className="preview" style={{backgroundColor: "white"}}></div>
+                    <div className="preview-container" style={{margin: "0 3em", width: "50%"}}>
+                        <div className="preview" style={{backgroundColor: "white"}}></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return <Redirect to={{ pathname: '/' }} />
+    }
 };
 
 const UpdatePolicy = () => {
-    return <WebLayout  content={Content()} />;
+    return <WebLayout content={Content()} />;
 };
 
 export default UpdatePolicy;
