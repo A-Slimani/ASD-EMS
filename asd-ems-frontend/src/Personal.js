@@ -89,7 +89,7 @@ const Content = () => {
                 <h3> Employment Type: {employee["employtype"]}</h3>
             </div>
 
-            <div id='payhistory'>
+            {/* <div id='payhistory'>
                 <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingTop: 15, }}> Pay History </h2>
                 <table className="table">
                     <tr>
@@ -107,7 +107,7 @@ const Content = () => {
                         <td> Business Claim </td>
                     </tr>
                 </table>
-            </div>
+            </div> */}
         </>
     );
 } else {

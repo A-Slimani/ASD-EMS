@@ -5,14 +5,13 @@ import { Redirect } from 'react-router';
 
 const Content = () => {
     const [payroll, setPayroll] = useState({
-        empid: "",
         fname: "", lname: "",
         amount: "", bonus: "",
         paydate: "", paymethod: "",
         description: ""
     });
 
-    const { empid, fname, lname, amount, bonus, paydate, paymethod, description } = payroll;
+    const { fname, lname, amount, bonus, paydate, paymethod, description } = payroll;
 
     const onInputChange = e => {
         setPayroll({ ...payroll, [e.target.name]: e.target.value })
@@ -73,18 +72,7 @@ const Content = () => {
                         />{' '}
                         <br />
 
-                        <label> Employee ID: </label>
-                        <input
-                            type="number"
-                            placeholder="Employee ID"
-                            name="empid"
-                            className="formtextfield"
-                            value={empid}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
-
-                        <label> Employee First Name: </label>
+                        <label> First Name: </label>
                         <input
                             type="text"
                             placeholder="First Name"
@@ -95,7 +83,7 @@ const Content = () => {
                         />{' '}
                         <br />
 
-                        <label> Employee Last Name: </label>
+                        <label> Last Name: </label>
                         <input
                             type="text"
                             placeholder="Last Name"

@@ -74,6 +74,9 @@ const Content = () => {
       else if (employdate === "") { alert("Employement Date must be select"); }
       else if (dept === "") { alert("Department must be select"); }
       else if (dob > employdate) { alert("Invalid date of birth and employment date"); }
+      else if ((new Date().getDate() > new Date(employdate).getDate())) { alert("Invalid date"); }
+      else if ((new Date().getMonth() > new Date(employdate).getMonth())) { alert("Invalid month"); }
+      else if ((new Date().getFullYear() > new Date(employdate).getFullYear())) { alert("Invalid year"); }
       else if ((new Date().getFullYear() - new Date(dob).getFullYear()) <= 18) { alert("Employee age must be 18 or over"); }
       else { onSubmit(); }
     }
@@ -196,7 +199,7 @@ const Content = () => {
             <small> Up to 6 Digits </small>
             <p />
             <input
-              type="text"
+              type="password"
               placeholder="BSB without space"
               name="accbsb" maxLength="6"
               className="formtextfield"

@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "/applicationform"
+const baseUrl = "/api/roster"
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -23,4 +23,4 @@ const remove = id => {
   return axios.delete(`${baseUrl}/${id}`);
 };
 
-export default { getAll, create, update, remove };
+export default { get, getAll, create, update, remove };
