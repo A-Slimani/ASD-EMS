@@ -1,12 +1,12 @@
 import EmployeeWebLayout from './components/EmployeeWebLayout';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouteMatch } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const Content = () => {
-  const match = useRouteMatch('/Application/:id');
+  const empid = localStorage.getItem("id");
   const [application, setApplication] = useState({
-    userid: match.params.id,
+    userid: empid,
     fname: '',
     lname: '',
     applicationtype: '',
@@ -38,7 +38,7 @@ const Content = () => {
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
-    window.location = `/EmployeeDashboard/${match.params.id}`;
+    window.location = `/EmployeeDashboard`;
   };
 
   const handleSubmit = e => {
@@ -75,96 +75,100 @@ const Content = () => {
     }
   };
 
-  return (
-    <>
-      <div>
-        <form
-          id="applicationform"
-          className="form"
-          name="applicationform"
-          onSubmit={e => onSubmit(e)}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
-            {' '}
-            Launch Application{' '}
-          </h1>
-          <p />
-          <label> Date: </label> <br />
-          <input
-            type="date"
-            placeholder="DD/MM/YYYY"
-            name="applicationdate"
-            className="formtextfield"
-            value={applicationdate}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
-          <label> First Name: </label> <br />
-          <input
-            type="text"
-            name="fname"
-            className="formtextfield"
-            value={fname}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
-          <label> Last Name: </label> <br />
-          <input
-            type="text"
-            name="lname"
-            className="formtextfield"
-            value={lname}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
-          <label> Type of Application: </label> <br />
-          <select
-            name="applicationtype"
-            className="formtextfield"
-            value={applicationtype}
-            onChange={e => onInputChange(e)}>
-            <option value="select"> -- Select one -- </option>
-            <option value="transfer between department"> Transfer between Departments </option>
-            <option value="business claim"> Business Claims </option>
-            <option value="appply leave"> Apply Leave </option>
-            <option value="resignation"> Resignation </option>
-            <option value="others"> Others </option>
-          </select>{' '}
-          <br /> <p />
-          <label> Sub-Category: </label> <br />
-          <textarea
-            type="text"
-            placeholder="Provide detailed description of the application"
-            name="subcategory"
-            className="formtextfield"
-            value={subcategory}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
-          <label> Reason </label> <br />
-          <textarea
-            type="text"
-            placeholder="Provide detailed and valid reason"
-            name="reason"
-            className="formtextfield"
-            value={reason}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
-          <div style={{ textAlign: 'center', paddingTop: 10 }}>
-            <small>
-              The application process may takes up to 3-5 business days <br />
-              User may check their submitted applications in the personal file
-            </small>{' '}
-            <br />
-            <button type="submit" id="submit" className="button" onClick={handleSubmit}>
+  if (localStorage.getItem("id") !== null) {
+    return (
+      <>
+        <div>
+          <form
+            id="applicationform"
+            className="form"
+            name="applicationform"
+            onSubmit={e => onSubmit(e)}>
+            <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
               {' '}
-              Submit{' '}
-            </button>{' '}
-          </div>
-        </form>
-      </div>
-    </>
-  );
+              Launch Application{' '}
+            </h1>
+            <p />
+            <label> Date: </label> <br />
+            <input
+              type="date"
+              placeholder="DD/MM/YYYY"
+              name="applicationdate"
+              className="formtextfield"
+              value={applicationdate}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+            <label> First Name: </label> <br />
+            <input
+              type="text"
+              name="fname"
+              className="formtextfield"
+              value={fname}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+            <label> Last Name: </label> <br />
+            <input
+              type="text"
+              name="lname"
+              className="formtextfield"
+              value={lname}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+            <label> Type of Application: </label> <br />
+            <select
+              name="applicationtype"
+              className="formtextfield"
+              value={applicationtype}
+              onChange={e => onInputChange(e)}>
+              <option value="select"> -- Select one -- </option>
+              <option value="transfer between department"> Transfer between Departments </option>
+              <option value="business claim"> Business Claims </option>
+              <option value="appply leave"> Apply Leave </option>
+              <option value="resignation"> Resignation </option>
+              <option value="others"> Others </option>
+            </select>{' '}
+            <br /> <p />
+            <label> Sub-Category: </label> <br />
+            <textarea
+              type="text"
+              placeholder="Provide detailed description of the application"
+              name="subcategory"
+              className="formtextfield"
+              value={subcategory}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+            <label> Reason </label> <br />
+            <textarea
+              type="text"
+              placeholder="Provide detailed and valid reason"
+              name="reason"
+              className="formtextfield"
+              value={reason}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+            <div style={{ textAlign: 'center', paddingTop: 10 }}>
+              <small>
+                The application process may takes up to 3-5 business days <br />
+                User may check their submitted applications in the personal file
+              </small>{' '}
+              <br />
+              <button type="submit" id="submit" className="button" onClick={handleSubmit}>
+                {' '}
+                Submit{' '}
+              </button>{' '}
+            </div>
+          </form>
+        </div>
+      </>
+    );
+  } else {
+    return <Redirect to={{ pathname: '/' }} />
+  }
 };
 
 const Application = () => {

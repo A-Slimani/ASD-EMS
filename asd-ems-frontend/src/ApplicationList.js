@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import applicationService from "./services/Application";
 import axios from 'axios';
-import { useRouteMatch } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -69,7 +69,7 @@ const Content = () => {
 
     if (option === true) {
       for (let i of applicationform) {
-        if (e.currentTarget.id == i.id) {
+        if (e.currentTarget.id === i.id) {
           var concern = Object.assign({}, i);
           concern.status = "rejected";
           await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
@@ -80,74 +80,78 @@ const Content = () => {
     }
   }
 
-  return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Applications </h1>
-        <br />
-        <Input.Group compact>
-          <Input
-            size="large"
-            style={{ width: '20%' }}
-            placeholder="Name"
-            onChange={({ target }) => {
-              setNameFilter(target.value);
-            }}
-          />
-          <Select
-            id="type"
-            placeholder="type"
-            size="large"
-            style={{ width: '20%' }}
-            onChange={handleChangeType}
-            allowClear>
-            <Option value="transfer between department">Transfer between Department</Option>
-            <Option value="business claim">Business Claim</Option>
-            <Option value="apply leave">Apply Leave</Option>
-            <Option value="resignation">Resignation</Option>
-            <Option value="others">Others</Option>
-          </Select>
+  if (localStorage.getItem("id") !== null) {
+    return (
+      <>
+        <div style={{ textAlign: 'center' }}>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Applications </h1>
+          <br />
+          <Input.Group compact>
+            <Input
+              size="large"
+              style={{ width: '20%' }}
+              placeholder="Name"
+              onChange={({ target }) => {
+                setNameFilter(target.value);
+              }}
+            />
+            <Select
+              id="type"
+              placeholder="type"
+              size="large"
+              style={{ width: '20%' }}
+              onChange={handleChangeType}
+              allowClear>
+              <Option value="transfer between department">Transfer between Department</Option>
+              <Option value="business claim">Business Claim</Option>
+              <Option value="apply leave">Apply Leave</Option>
+              <Option value="resignation">Resignation</Option>
+              <Option value="others">Others</Option>
+            </Select>
 
-          <DatePicker size="large" onChange={handleChangeDate} />
+            <DatePicker size="large" onChange={handleChangeDate} />
 
-          <Select
-            id="type"
-            placeholder="status"
-            size="large"
-            style={{ width: '20%' }}
-            onChange={handleChangeStatus}
-            allowClear>
-            <Option value="pending">Pending</Option>
-            <Option value="approved">Approved</Option>
-            <Option value="rejected">Rejected</Option>
-          </Select>
-        </Input.Group>
-        <br />
-        <p />
-      </div>
+            <Select
+              id="type"
+              placeholder="status"
+              size="large"
+              style={{ width: '20%' }}
+              onChange={handleChangeStatus}
+              allowClear>
+              <Option value="pending">Pending</Option>
+              <Option value="approved">Approved</Option>
+              <Option value="rejected">Rejected</Option>
+            </Select>
+          </Input.Group>
+          <br />
+          <p />
+        </div>
 
-      <div style={{ paddingTop: 10 }}>
-        <Table dataSource={filteredList()}>
-          <Column title="Application ID" dataIndex="id" key="id" />
-          <Column title="First Name" dataIndex="fname" key="firstName" />
-          <Column title="Last Name" dataIndex="lname" key="lastName" />
-          <Column title="Application Type" dataIndex="applicationtype" key="applicationtype" />
-          <Column title="Sub-Category" dataIndex="subcategory" key="subcategory" />
-          <Column title="Reason" dataIndex="reason" key="reason" />
-          <Column title="Date Submitted" dataIndex="applicationdate" key="applicationdate" />
-          <Column title="Status" dataIndex="status" key="status" />
-          <Column title="Options" key="id" render={(p) => (
-            <>
-              <Space split={<Divider type="vertical" />}>
-                <Button id={p.id} onClick={handleApprove}> Approve </Button>
-                <Button id={p.id} onClick={handleReject}> Reject </Button>
-              </Space>
-            </>
-          )} />
-        </Table>
-      </div>
-    </>
-  );
+        <div style={{ paddingTop: 10 }}>
+          <Table dataSource={filteredList()}>
+            <Column title="Application ID" dataIndex="id" key="id" />
+            <Column title="First Name" dataIndex="fname" key="firstName" />
+            <Column title="Last Name" dataIndex="lname" key="lastName" />
+            <Column title="Application Type" dataIndex="applicationtype" key="applicationtype" />
+            <Column title="Sub-Category" dataIndex="subcategory" key="subcategory" />
+            <Column title="Reason" dataIndex="reason" key="reason" />
+            <Column title="Date Submitted" dataIndex="applicationdate" key="applicationdate" />
+            <Column title="Status" dataIndex="status" key="status" />
+            <Column title="Options" key="id" render={(p) => (
+              <>
+                <Space split={<Divider type="vertical" />}>
+                  <Button id={p.id} onClick={handleApprove}> Approve </Button>
+                  <Button id={p.id} onClick={handleReject}> Reject </Button>
+                </Space>
+              </>
+            )} />
+          </Table>
+        </div>
+      </>
+    );
+  } else {
+    return <Redirect to={{ pathname: '/' }} />
+  }
 };
 
 const ApplicationList = () => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useRouteMatch } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import WebLayout from './components/WebLayout';
 import payrollService from './services/Payroll';
 import './style.css';
@@ -17,9 +18,9 @@ const Content = () => {
     return payroll !== undefined ? payroll : "";
   }
 
- const { fname, lname, amount, bonus, paydate, paymethod, description } = payroll;
- 
- useEffect(() => {
+  const { fname, lname, amount, bonus, paydate, paymethod, description } = payroll;
+
+  useEffect(() => {
     payrollService.get(match.params.id).then(e => setPayroll(e))
   }, [])
 
@@ -27,7 +28,7 @@ const Content = () => {
   console.log("match params id type", typeof match.params.id)
 
   const onInputChange = e => {
-    setPayroll({...payroll, [e.target.name]: e.target.value})
+    setPayroll({ ...payroll, [e.target.name]: e.target.value })
   }
 
   // takes id from payroll history
@@ -59,7 +60,7 @@ const Content = () => {
       var paymethod = document.forms["payrollform"]["paymethod"].value;
       var paydate = document.forms["payrollform"]["paydate"].value;
       var description = document.forms["payrollform"]["description"].value;
-    
+
       // cases that ensure the user inputs are valid
       if (fname === "" || isText(fname) === false) { alert("First Name field is empty or invalid format input"); }
       else if (lname === "" || isText(lname) === false) { alert("Last Name field is empty or invalid format input"); }
@@ -70,13 +71,15 @@ const Content = () => {
       else if ((new Date().getFullYear() - new Date(paydate).getFullYear()) >= 3) { alert("Payment cannot exceed 3 years"); }
       else { onSubmit() }
     }
-    else {document.getElementById("payrollform").reset()}
+    else { document.getElementById("payrollform").reset() }
   }
 
+  if (localStorage.getItem("id") !== null) {
   return (
-  <>
+    <>
       <div>
         <form id='payrollform' name='payrollform' onSubmit={e => onSubmit(e)}>
+          <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showPayroll().fname}'s Payroll Details </h1>
           <p style={{ textAlign: 'center' }}> {' '} Please fill out the payroll details{' '} </p>
           <label> First Name: </label>
@@ -162,8 +165,11 @@ const Content = () => {
           </div>
         </form>
       </div>
-    </> 
+    </>
   );
+} else {
+  return <Redirect to={{ pathname: '/' }} />
+}
 };
 
 const UpdatePayroll = () => {
