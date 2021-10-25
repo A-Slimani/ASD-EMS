@@ -10,7 +10,6 @@ paymentPolicyText.data.forEach(element => {
 });
 
 const Content = () => {
-    const match = useRouteMatch('/UpdatePolicy/:id');
     return (
         <div>
             <div className="navbar">
@@ -32,7 +31,7 @@ const Content = () => {
                     </textarea>
 
                     <div style={{ textAlign: 'center', paddingTop: 10 }}>
-                        <Link to={`/PaymentPolicy/${match.params.id}`}> <button className="button"> Updated New Policy </button> </Link>
+                        <Link to="/PaymentPolicy"> <button className="button"> Updated New Policy </button> </Link>
                     </div>
                 </form>
             </div>

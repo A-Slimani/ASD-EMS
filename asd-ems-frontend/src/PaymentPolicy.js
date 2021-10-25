@@ -20,7 +20,7 @@ const Content = () => {
       <div dangerouslySetInnerHTML={{ __html: text }}></div>
 
       <div style={{ textAlign: 'center', paddingTop: 10 }}>
-        <Link to={`/UpdatePolicy/${match.params.id}`}> <button className="button"> Update Policy </button> </Link>
+        <Link to="/UpdatePolicy/"> <button className="button"> Update Policy </button> </Link>
       </div>
     </div>
   );
