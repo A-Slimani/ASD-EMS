@@ -4,5 +4,8 @@
   "scripts": {
     "start": "cd asd-ems-backend && node index.js",
     "postinstall": "npm install --prefix backend"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
   }
 }
