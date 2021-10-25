@@ -2,7 +2,7 @@
   "name": "ASD-EMS",
   "version": "1.0.0",
   "scripts": {
-    "preinstall": "npm install --prefix backend"
+    "start": "cd asd-ems-backend"
   },
   "dependencies": {
     "dotenv": "^10.0.0"
