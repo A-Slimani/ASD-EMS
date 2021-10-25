@@ -2,7 +2,6 @@ import { Table, Input, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import employeeService from "./services/Employee";
-import { useRouteMatch } from 'react-router';
 
 //Ensures table is able to be referenced as a Const throughout the file
 const { Column } = Table;
@@ -27,13 +26,13 @@ const Content = (event) => {
   };
 
   const handleChangeDate = event => {
-    console.log(event);
     event !== null ? setDateFilter(event._d.toJSON().substr(0, 9)) : setDateFilter('');
     console.log('date filter: ', dateFilter);
   };
   
   //Returns all content within the page, such as all relevant divs which are placed to guarantee the page's
   //format appears as planned
+
   return (
     <>
       <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
@@ -58,8 +57,7 @@ const Content = (event) => {
 
 //Displays uniform Staff navigation bar
 const Roster = () => {
-  const match = useRouteMatch('/Roster/:id');
-  return <WebLayout id={match.params.id} content={Content()} />;
+  return <WebLayout  content={Content()} />;
 };
 
 export default Roster;

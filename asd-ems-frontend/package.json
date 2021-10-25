@@ -32,8 +32,8 @@
     "yarn": "^1.22.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && cp -r build ../asd-ems-backend",
+    "start": "craco start",
+    "build": "craco build build && cp -r build ../asd-ems-backend",
     "test": "jest --ci --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject",
     "server": "json-server -p3001 --routes routes.json --watch db.json"

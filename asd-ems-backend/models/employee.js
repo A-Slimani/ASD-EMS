@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
@@ -21,26 +20,91 @@ mongoose
   });
 
 const employeeSchema = new mongoose.Schema({
-  firstName: {
+  fname: {
     type: String,
     required: true,
     minlength: 2,
   },
-  lastName: {
+  lname: {
     type: String,
     required: true,
     minlength: 2,
   },
-	department: {
+	dob: {
 		type: String,
 		required: true,
 		minLength: 2,
 	},
-	EmploymentType: {
+	phoneno: {
 		type: String,
 		required: true,
 		minLength: 2
-	}
+	},
+  username: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  pwd: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  accname: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+	accnum: {
+		type: String,
+		required: true,
+		minLength: 2
+	},
+  accbsb: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  address: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  suburb: {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  state : {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+	pcode : {
+		type: String,
+		required: true,
+		minLength: 2
+	},
+  employdate : {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  dept : {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  employtype : {
+		type: String,
+		required: true,
+		minLength: 2,
+	},
+  id : {
+		type: String,
+		required: true,
+		minLength: 1
+	},
 });
 
 //Application of unique validator
@@ -48,10 +112,9 @@ employeeSchema.plugin(uniqueValidator, { message: 'Error, expected unique employ
 
 employeeSchema.set('toJSON', {
   transform: (document, returnedObj) => {
-    returnedObj.id = returnedObj._id.toString();
     delete returnedObj._id;
     delete returnedObj.__v;
   },
 });
 
-module.exports = mongoose.model('employee', employeeSchema);
+module.exports = mongoose.model('Employee', employeeSchema);

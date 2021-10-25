@@ -4,8 +4,8 @@ const Employee = require('../models/employee');
 
 employeeRouter.get('/', (req, res) => {
   Employee.find({})
-    .then(person => {
-      res.json(person);
+    .then(employee => {
+      res.json(employee);
     })
     .catch(error => next(error));
 });
@@ -26,8 +26,23 @@ employeeRouter.post('/', (request, response, next) => {
   }
 
   const person = new Employee({
-    name: body.name,
-    number: body.number,
+    fname: body.fname,
+    lname: body.lname,
+    // dob: body.dob,
+    // phoneno: body.phoneno,
+    // username: body.username,
+    // pwd: body.pwd,
+    // accname: body.accname,
+    // accnum: body.accnum,
+    // accbsb: body.accbsb,
+    // address: body.address,
+    // suburb: body.suburb,
+    // state: body.state,
+    // pcode: body.pcode,
+    // employdate: body.employdate,
+    // dept: body.dept,
+    // employtype: body.employtype,
+    // id: body.id,
   });
 
   person
