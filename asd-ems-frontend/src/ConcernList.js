@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
 import voiceconcernService from "./services/Concern";
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
@@ -48,9 +49,9 @@ const Content = () => {
     console.log('date filter: ', dateFilter);
   };
 
-  //execute delete payroll based on id after select the "delete" button
-  const handleDelete = async e => {
-    var option = window.confirm("Do you want to resolve the concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+  //execute function to change the status from "pending" to "solved"
+  const handleSolve = async e => {
+    var option = window.confirm("Do you want to resolve concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
 
     if (option === true) {
       for (let i of voiceconcern) {
@@ -61,63 +62,66 @@ const Content = () => {
           break;
         }
       }
-      window.location = "./ConcernList"
+      window.location.reload();
     }
   }
 
-  return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee Concerns </h1>
-        <br />
-        <Input.Group compact>
-          <Input
-            size="large"
-            style={{ width: '20%' }}
-            placeholder="Name"
-            onChange={({ target }) => {
-              setNameFilter(target.value);
-            }}
-          />
+  if (localStorage.getItem("id") !== null) {
+    return (
+      <>
+        <div style={{ textAlign: 'center' }}>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee Concerns </h1>
+          <br />
+          <Input.Group compact>
+            <Input
+              size="large"
+              style={{ width: '20%' }}
+              placeholder="Name"
+              onChange={({ target }) => {
+                setNameFilter(target.value);
+              }}
+            />
 
-          <DatePicker size="large" onChange={handleChangeDate} />
+            <DatePicker size="large" onChange={handleChangeDate} />
 
-          <Select
-            id="type"
-            placeholder="Status"
-            size="large"
-            style={{ width: '20%' }}
-            onChange={handleChangeStatus}
-            allowClear>
-            <Option value="pending">Pending</Option>
-            <Option value="solved">Solved</Option>
-          </Select>
-        </Input.Group>
-        <br />
-        <p />
-      </div>
+            <Select
+              id="type"
+              placeholder="Status"
+              size="large"
+              style={{ width: '20%' }}
+              onChange={handleChangeStatus}
+              allowClear>
+              <Option value="pending">Pending</Option>
+              <Option value="solved">Solved</Option>
+            </Select>
+          </Input.Group>
+          <br />
+          <p />
+        </div>
 
 
-      <div style={{ paddingTop: 10 }}>
-        <Table dataSource={filteredList()}>
-          <Column title="Concern ID" dataIndex="id" key="id" />
-          <Column title="Name" dataIndex="name" key="name" />
-          <Column title="Topic" dataIndex="topic" key="topic" />
-          <Column title="Goal" dataIndex="achivementgoal" key="achivementgoal" />
-          <Column title="Method" dataIndex="methodachievement" key="methodachievement" />
-          <Column title="Discuss Date" dataIndex="discussdate" key="discussdate" />
-          <Column title="Status" dataIndex="status" key="status" />
-          <Column title="Options" key="id" render={(p) => (
-            <>
-              <Space split={<Divider type="vertical" />}>
-                <Button id={p.id} onClick={handleDelete}> Solved</Button>
-              </Space>
-            </>
-          )} />
-        </Table>
-      </div>
-    </>
-  );
+        <div style={{ paddingTop: 10 }}>
+          <Table dataSource={filteredList()}>
+            <Column title="Concern ID" dataIndex="id" key="id" />
+            <Column title="Name" dataIndex="name" key="name" />
+            <Column title="Topic" dataIndex="topic" key="topic" />
+            <Column title="Enquiry" dataIndex="achivementgoal" key="achivementgoal" />
+            <Column title="Discuss Date" dataIndex="discussdate" key="discussdate" />
+            <Column title="Status" dataIndex="status" key="status" />
+            <Column title="Options" key="id" render={(p) => (
+              <>
+                <Space split={<Divider type="vertical" />}>
+                  <Button id={p.id} onClick={handleSolve}> Solved</Button>
+                </Space>
+              </>
+            )} />
+          </Table>
+        </div>
+      </>
+    );
+  } else {
+    return <Redirect to={{ pathname: '/' }} />
+  }
 };
 
 const ConcernList = () => {

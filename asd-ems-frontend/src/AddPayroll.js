@@ -1,7 +1,7 @@
 import WebLayout from './components/WebLayout';
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useRouteMatch } from 'react-router';
+import { Redirect } from 'react-router';
 
 const Content = () => {
     const [payroll, setPayroll] = useState({
@@ -56,111 +56,115 @@ const Content = () => {
     //the payroll form enable admin to create new payroll for each payment paid
     //each element has an input validation such that correct data inputted into each field
     //the button called the create/add function when selected to store the data into the database
-    return (
-        <>
-            <div>
-                <form id='payrollform' name='payrollform' onSubmit={e => onSubmit(e)} >
-                    <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Create New Payroll </h1>
-                    <p style={{ textAlign: 'center' }}> {' '} Please fill out the payroll details </p>
-                    <label> Pay Date: </label>
-                    <input
-                        type="date"
-                        name="paydate"
-                        className="formtextfield"
-                        value={paydate}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
+    if (localStorage.getItem("id") !== null) {
+        return (
+            <>
+                <div>
+                    <form id='payrollform' name='payrollform' onSubmit={e => onSubmit(e)} >
+                        <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Create New Payroll </h1>
+                        <p style={{ textAlign: 'center' }}> {' '} Please fill out the payroll details </p>
+                        <label> Pay Date: </label>
+                        <input
+                            type="date"
+                            name="paydate"
+                            className="formtextfield"
+                            value={paydate}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
 
-                    <label> Employee ID: </label>
-                    <input
-                        type="number"
-                        placeholder="Employee ID"
-                        name="empid"
-                        className="formtextfield"
-                        value={empid}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
+                        <label> Employee ID: </label>
+                        <input
+                            type="number"
+                            placeholder="Employee ID"
+                            name="empid"
+                            className="formtextfield"
+                            value={empid}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
 
-                    <label> Employee First Name: </label>
-                    <input
-                        type="text"
-                        placeholder="First Name"
-                        name="fname"
-                        className="formtextfield"
-                        value={fname}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
+                        <label> Employee First Name: </label>
+                        <input
+                            type="text"
+                            placeholder="First Name"
+                            name="fname"
+                            className="formtextfield"
+                            value={fname}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
 
-                    <label> Employee Last Name: </label>
-                    <input
-                        type="text"
-                        placeholder="Last Name"
-                        name="lname"
-                        className="formtextfield"
-                        value={lname}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
+                        <label> Employee Last Name: </label>
+                        <input
+                            type="text"
+                            placeholder="Last Name"
+                            name="lname"
+                            className="formtextfield"
+                            value={lname}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
 
-                    <label> Amount $: </label>
-                    <p />
-                    <input
-                        type="number"
-                        placeholder="Current Pay"
-                        name="amount"
-                        className="formtextfield"
-                        value={amount}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
+                        <label> Amount $: </label>
+                        <p />
+                        <input
+                            type="number"
+                            placeholder="Current Pay"
+                            name="amount"
+                            className="formtextfield"
+                            value={amount}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
 
-                    <label> Bonus $: </label>
-                    <p />
-                    <input
-                        type="number"
-                        placeholder="Bonus"
-                        name="bonus"
-                        className="formtextfield"
-                        value={bonus}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
+                        <label> Bonus $: </label>
+                        <p />
+                        <input
+                            type="number"
+                            placeholder="Bonus"
+                            name="bonus"
+                            className="formtextfield"
+                            value={bonus}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
 
-                    <label> Payment Method: </label> <br />
-                    <select name="paymethod" className="formtextfield" value={paymethod} onChange={e => onInputChange(e)}>
-                        <option value="select"> -- Select one -- </option>
-                        <option value="cash"> Cash </option>
-                        <option value="cheque"> Cheque </option>
-                        <option value="eftpos"> EFTPOS </option>
-                        <option value="others"> Others </option>
-                    </select>{' '}
-                    <p />
+                        <label> Payment Method: </label> <br />
+                        <select name="paymethod" className="formtextfield" value={paymethod} onChange={e => onInputChange(e)}>
+                            <option value="select"> -- Select one -- </option>
+                            <option value="cash"> Cash </option>
+                            <option value="cheque"> Cheque </option>
+                            <option value="eftpos"> EFTPOS </option>
+                            <option value="others"> Others </option>
+                        </select>{' '}
+                        <p />
 
-                    <label> Description </label>
-                    <p />
-                    <textarea
-                        type="text"
-                        placeholder="Payment Reason"
-                        name="description"
-                        className="formtextfield"
-                        value={description}
-                        onChange={e => onInputChange(e)}
-                    />{' '}
-                    <br />
-                    <div style={{ textAlign: 'center', paddingTop: 10 }}>
-                        <button type="submit" id="submit" className="button" onClick={handleSubmit}> Create New Payroll </button>{' '}
-                    </div>
-                </form>
-            </div>
-        </>
-    );
+                        <label> Description </label>
+                        <p />
+                        <textarea
+                            type="text"
+                            placeholder="Payment Reason"
+                            name="description"
+                            className="formtextfield"
+                            value={description}
+                            onChange={e => onInputChange(e)}
+                        />{' '}
+                        <br />
+                        <div style={{ textAlign: 'center', paddingTop: 10 }}>
+                            <button type="submit" id="submit" className="button" onClick={handleSubmit}> Create New Payroll </button>
+                        </div>
+                    </form>
+                </div>
+            </>
+        );
+    } else {
+        return <Redirect to={{ pathname: '/' }} />
+    }
 };
 
 const AddPayroll = () => {
-    return <WebLayout  content={Content()} />;
+    return <WebLayout content={Content()} />;
 };
 
 export default AddPayroll;

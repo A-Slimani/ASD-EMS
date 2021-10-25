@@ -1,8 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import EmployeeWebLayout from './components/EmployeeWebLayout';
-import { useRouteMatch } from 'react-router-dom'
 
 const TestText = () => {
+  if (localStorage.getItem("id") !== null) {
   return (
     <div>
       <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Employee </h1>
@@ -52,6 +53,9 @@ const TestText = () => {
 
     </div>
   );
+  } else {
+    return <Redirect to={{ pathname: '/' }} />
+  }
 };
 
 const EmployeeDashboard = () => {

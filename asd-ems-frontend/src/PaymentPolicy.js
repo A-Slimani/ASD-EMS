@@ -1,7 +1,7 @@
 import React from 'react';
 import WebLayout from './components/WebLayout';
 import { Link } from 'react-router-dom';
-import { useRouteMatch } from 'react-router';
+import { Redirect } from 'react-router';
 import paymentPolicyText from './paymentPolicyText.json';
 
 let text = '';
@@ -10,7 +10,7 @@ paymentPolicyText.data.forEach(element => {
 });
 
 const Content = () => {
-  const match = useRouteMatch('/PaymentPolicy/:id');
+  if (localStorage.getItem("id") !== null) {
   return (
     <div>
       <h1 style={{ fontSize: '30px', textAlign: 'center' }}>
@@ -20,10 +20,13 @@ const Content = () => {
       <div dangerouslySetInnerHTML={{ __html: text }}></div>
 
       <div style={{ textAlign: 'center', paddingTop: 10 }}>
-        <Link to="/UpdatePolicy/"> <button className="button"> Update Policy </button> </Link>
+        <Link to={`/UpdatePolicy`}> <button className="button"> Update Policy </button> </Link>
       </div>
     </div>
   );
+} else {
+  return <Redirect to={{ pathname: '/' }} />
+}
 };
 
 const PaymentPolicy = () => {

@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Divider, Space, Table } from 'antd';
 import WebLayout from './components/WebLayout';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import employeeService from './services/Employee';
 
 const Content = () => {
-    const match = useRouteMatch('/Personal/:id');
+    const empid = localStorage.getItem("id");
     const history = useHistory();
+
     const [employee, setEmployee] = useState({});
-    
-    const [logtime, setLogTime] = useState([]);
     const [payroll, setPayroll] = useState([]);
 
     const MaskData = require('maskdata');
+
+    useEffect(() => {
+        employeeService.get(empid).then(emp => setEmployee(emp));
+    }, []);
 
     const maskPasswordOptions = {
         maskWith: "*", //default masking value 
@@ -32,13 +35,13 @@ const Content = () => {
 
     const bankno = employee["accnum"];
     const maskedBankNo = MaskData.maskPassword(bankno, maskCardOptions); //mask bank number details
-    
+
     const sbs = employee["accbsb"];
     const maskedSBS = MaskData.maskPassword(sbs, maskCardOptions); //mask sbs number details
 
     const handleEditRoute = e => {
         history.push({
-            pathname: `/UpdateUser/${employee.id}`
+            pathname: `/UpdateEmployee/${empid}`
         })
     }
 
@@ -59,19 +62,19 @@ const Content = () => {
     //     });
     // })
 
+    if (localStorage.getItem("id") !== null) {
     return (
         <>
             <div style={{ textAlign: 'center' }}>
                 <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Welcome, {employee.fname} </h1>
                 <h2>
-                    {/* <a href="#logtime"> Logtime </a> | */}
                     <a href="#payhistory"> Pay History </a>
                 </h2>
             </div>
 
             <div id='personal'>
                 <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 15, }}> Personal Information </h2>
-                <Button style={{ float: 'right' }} type='submit' className="update" onClick={handleEditRoute} > Update Details </Button>
+                <button style={{ float: 'right' }} type='submit' className="update" onClick={handleEditRoute} > Update Details </button>
 
                 <h3> Employee ID: {employee["id"]}</h3>
                 <h3> Full Name: {employee["fname"] + " " + employee["lname"]}</h3>
@@ -105,24 +108,11 @@ const Content = () => {
                     </tr>
                 </table>
             </div>
-
-            {/* <div id='logtime'>
-                <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingTop: 15, paddingBottom: 15, }}> Logtime </h2>
-                <table className="table">
-                    <tr>
-                        <th> Login ID </th>
-                        <th> Login Date and Time </th>
-                        <th> Logout Date and Time </th>
-                    </tr>
-                    <tr>
-                        <td> 1 </td>
-                        <td> 10 am </td>
-                        <td> 10 pm </td>
-                    </tr>
-                </table>
-            </div> */}
         </>
     );
+} else {
+    return <Redirect to={{ pathname: '/' }} />
+  }
 };
 
 const Personal = () => {
