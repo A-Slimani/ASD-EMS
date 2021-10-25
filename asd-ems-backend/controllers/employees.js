@@ -25,30 +25,30 @@ employeeRouter.post('/', (request, response, next) => {
     return response.status(400).json({ error: 'content missing' });
   }
 
-  const person = new Employee({
+  const employee = new Employee({
     fname: body.fname,
     lname: body.lname,
-    // dob: body.dob,
-    // phoneno: body.phoneno,
-    // username: body.username,
-    // pwd: body.pwd,
-    // accname: body.accname,
-    // accnum: body.accnum,
-    // accbsb: body.accbsb,
-    // address: body.address,
-    // suburb: body.suburb,
-    // state: body.state,
-    // pcode: body.pcode,
-    // employdate: body.employdate,
-    // dept: body.dept,
-    // employtype: body.employtype,
-    // id: body.id,
+    dob: body.dob,
+    phoneno: body.phoneno,
+    username: body.username,
+    pwd: body.pwd,
+    accname: body.accname,
+    accnum: body.accnum,
+    accbsb: body.accbsb,
+    address: body.address,
+    suburb: body.suburb,
+    state: body.state,
+    pcode: body.pcode,
+    employdate: body.employdate,
+    dept: body.dept,
+    employtype: body.employtype,
+    id: body.id,
   });
 
-  person
+  employee
     .save()
-    .then(savedPerson => {
-      return savedPerson.toJSON();
+    .then(savedEmployee => {
+      return savedEmployee.toJSON();
     })
     .then(savedAndFormattedNote => {
       response.json(savedAndFormattedNote);
@@ -79,4 +79,4 @@ employeeRouter.put('/:id', (request, response, next) => {
     .catch(error => next(error));
 });
 
-module.exports = employeeRouter 
+module.exports = employeeRouter;

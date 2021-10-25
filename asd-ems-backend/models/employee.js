@@ -100,11 +100,11 @@ const employeeSchema = new mongoose.Schema({
 		required: true,
 		minLength: 2,
 	},
-  id : {
+	id: {
 		type: String,
 		required: true,
-		minLength: 1
-	},
+		minLength: 2
+	}
 });
 
 //Application of unique validator
@@ -112,7 +112,8 @@ employeeSchema.plugin(uniqueValidator, { message: 'Error, expected unique employ
 
 employeeSchema.set('toJSON', {
   transform: (document, returnedObj) => {
-    delete returnedObj._id;
+    // returnedObj.id = returnedObj._id.toString();
+		delete returnedObj._id;
     delete returnedObj.__v;
   },
 });
