@@ -22,16 +22,6 @@ const Content = (event) => {
     })
   }, [])
 
-  const handleDelete = e => {
-    var option = window.confirm("Do you want to delete employee with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
-    if (option === true) {
-      axios.delete(`https://asd-ems-db.herokuapp.com/roster/${e.currentTarget.id}`);
-      history.push({
-        pathname: `/Dashboard`,
-      })
-    }
-  }
-
   const filteredList = () => {
     return roster.filter(
       c =>
@@ -96,13 +86,6 @@ const Content = (event) => {
           <Column title="First Name" dataIndex="fname" key="firstName" />
           <Column title="Last Name" dataIndex="lname" key="lastName" />
           <Column title="Rostered Dates (dd/mm/yyyy)" dataIndex="rosterdate" key="rosterdate" />
-          <Column title="Options" key="id" render={(p) => (
-            <>
-              <Space split={<Divider type="vertical" />}>
-                <Button id={p.id} onClick={handleDelete}>delete</Button>
-              </Space>
-            </>
-          )} />
         </Table>
       </>
     );
