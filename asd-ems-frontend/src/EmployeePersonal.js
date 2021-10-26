@@ -64,40 +64,120 @@ const Content = () => {
             Welcome, {showEmployee().fname + " " + showEmployee().lname}
           </h1>
           <h2>
-            <a href="#applicationsubmit"> Application Submitted </a> |
-            <a href="#complaintsubmit"> Complaint Submitted </a> |
-            <a href="#payhistory"> Pay History </a>
+            <a href="#personal"> Personal Information </a> |
+            <a href="#bankdetails"> Bank Details </a> |
+            <a href="#employmentdetails"> Employment Details </a>
           </h2>
         </div>
 
-        <div id="personal">
+        <div id="personal" style={{ paddingTop: 20 }}>
           <h2
             style={{
               textAlign: 'left',
               fontSize: 20,
-              textDecorationLine: 'underline',
+              textDecorationLine: 'overline',
               paddingBottom: 15,
             }}>
-            Personal Information{' '}
+            Personal Information
           </h2>
-          <button style={{ float: 'right' }} type="submit" className="update" onClick={handleEditRoute}>
-            {' '}
-            Update Details{' '}
-          </button>
-          <h3> <b>Employee ID:</b> {showEmployee().id}</h3>
-          <h3> <b>Full Name:</b> {showEmployee().fname + " " + showEmployee().lname}</h3>
-          <h3> <b>Date of Birth:</b> {showEmployee().dob}</h3>
-          <h3> <b>Address:</b> {showEmployee().address + " " + showEmployee().suburb + " " + showEmployee().pcode}</h3>
-          <h3> <b>Bank Number:</b>. {maskedBankNo} </h3>
-          <h3> <b>SBS Number:</b>. {maskedSBS} </h3>
-          <h3> <b>Department:</b> {showEmployee().dept}</h3>
-          <h3> <b>Employment Date:</b> {showEmployee().employdate}</h3>
-          <h3> <b>Username:</b> {showEmployee().username}</h3>
-          <h3> <b>Password:</b> {maskedPassword}</h3>
-          <h3> <b>Employment Type:</b> {showEmployee().employtype}</h3>
+          <table className="table">
+            <tr>
+              <td> First Name </td>
+              <td> {showEmployee().fname} </td>
+            </tr>
+            <tr>
+              <td> Last Name </td>
+              <td> {showEmployee().lname} </td>
+            </tr>
+            <tr>
+              <td> Date of Birth </td>
+              <td> {showEmployee().dob} </td>
+            </tr>
+            <tr>
+              <td> Address </td>
+              <td> {showEmployee().address} </td>
+            </tr>
+            <tr>
+              <td> Suburb </td>
+              <td> {showEmployee().suburb} </td>
+            </tr>
+            <tr>
+              <td> Post Code </td>
+              <td> {showEmployee().pcode} </td>
+            </tr>
+          </table>
         </div>
 
-        {/* <div id="applicationsubmit">
+        <div id="bankdetails" style={{ paddingTop: 20 }}>
+          <h2
+            style={{
+              textAlign: 'left',
+              fontSize: 20,
+              textDecorationLine: 'overline',
+              paddingBottom: 15,
+            }}>
+            Bank Details
+          </h2>
+          <table className="table">
+            <tr>
+              <td> Account Name </td>
+              <td> {showEmployee().accname} </td>
+            </tr>
+            <tr>
+              <td> Bank Account Number </td>
+              <td> {maskedBankNo} </td>
+            </tr>
+            <tr>
+              <td> SBS Number </td>
+              <td> {maskedSBS} </td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="employmentdetails" style={{ paddingTop: 20 }}>
+          <h2
+            style={{
+              textAlign: 'left',
+              fontSize: 20,
+              textDecorationLine: 'overline',
+              paddingBottom: 15,
+            }}>
+            Employement Details
+          </h2>
+
+          <table className="table">
+            <tr>
+              <td> Employee ID </td>
+              <td> {showEmployee().id} </td>
+            </tr>
+            <tr>
+              <td> Employment Date </td>
+              <td> {showEmployee().employdate} </td>
+            </tr>
+            <tr>
+              <td> Deaprtment </td>
+              <td> {showEmployee().dept} </td>
+            </tr>
+            <tr>
+              <td> Employment Type </td>
+              <td> {showEmployee().employtype} </td>
+            </tr>
+            <tr>
+              <td> Username </td>
+              <td> {showEmployee().username} </td>
+            </tr>
+            <tr>
+              <td> Password </td>
+              <td> {maskedPassword} </td>
+            </tr>
+          </table>
+        </div>
+
+        <div style={{ textAlign: "center", paddingTop: 20 }}>
+          <button type="submit" className="update" onClick={handleEditRoute}> Update Details </button>
+        </div>
+
+        {/* {/* <div id="applicationsubmit">
           <h2
             style={{
               textAlign: 'left',
@@ -128,9 +208,9 @@ const Content = () => {
               </td>
             </tr>
           </table>
-        </div>
+        </div> */}
 
-        <div id="complaintsubmit">
+        {/* <div id="complaintsubmit">
           <h2
             style={{
               textAlign: 'left',
@@ -161,9 +241,9 @@ const Content = () => {
               </td>
             </tr>
           </table>
-        </div>
+        </div> */}
 
-        <div id="payhistory">
+        {/* <div id="payhistory">
           <h2
             style={{
               textAlign: 'left',

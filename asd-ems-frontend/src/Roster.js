@@ -54,26 +54,31 @@ const Content = (event) => {
         <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee Roster </h1>
 
-          <Input.Group compact>
-            <Input
-              size="large"
-              style={{ width: '20%' }}
-              placeholder="First Name"
-              onChange={({ target }) => {
-                setFNameFilter(target.value);
-              }}
-            />
-            <Input
-              size="large"
-              style={{ width: '20%' }}
-              placeholder="Last Name"
-              onChange={({ target }) => {
-                setLNameFilter(target.value);
-              }}
-            />
-            <DatePicker size="large" onChange={handleChangeDate} />
-          </Input.Group>
-          <Link to="./AddRoster"> <button className="button"> Add New Roster </button></Link>
+          <div style={{ paddingTop: 15 }}>
+            <Input.Group compact>
+              <Input
+                size="large"
+                style={{ width: '20%' }}
+                placeholder="First Name"
+                onChange={({ target }) => {
+                  setFNameFilter(target.value);
+                }}
+              />
+              <Input
+                size="large"
+                style={{ width: '20%' }}
+                placeholder="Last Name"
+                onChange={({ target }) => {
+                  setLNameFilter(target.value);
+                }}
+              />
+              <DatePicker size="large" onChange={handleChangeDate} />
+            </Input.Group>
+          </div>
+
+          <div style={{ paddingTop: 15 }}>
+            <Link to="./AddRoster"> <button className="button"> Add New Roster </button></Link>
+          </div>
         </div>
 
         {/* Contains table with current roster information */}

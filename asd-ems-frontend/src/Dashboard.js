@@ -7,7 +7,7 @@ const testText = () => {
     return (
       <div>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Hello, Admin </h1>
-        <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, }}> Announcement </h2>
+        <h2 style={{ textAlign: 'left', fontSize: 20, textDecorationLine: 'overline', paddingBottom: 5, color: "maroon", fontStyle: "italic", fontWeight: "bold" }}> Announcement </h2>
         <li>
           System maintenance is due at midnight to tomorrow 7am. Ensure not to use the system during the maintenance time
           as changed information may not be saved.

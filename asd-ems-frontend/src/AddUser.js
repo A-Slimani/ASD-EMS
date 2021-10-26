@@ -92,196 +92,234 @@ const Content = () => {
         <div>
           <form id='registerform' name='registerform' onSubmit={e => onSubmit(e)}>
             <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Add New User </h1>
-            <p style={{ textAlign: 'center' }}> {' '} Please fill out the details below, all fields are required{' '} </p>
+            <p style={{ textAlign: 'center' }}> Please fill out the details below, all fields are required </p>
 
-            <label> First Name: </label>
-            <small>Up to 255 Characters </small> <p> </p>
-            <input
-              type="text"
-              placeholder="First Name"
-              name="fname"
-              className="formtextfield"
-              value={fname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> First Name: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <input
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                className="formtextfield"
+                value={fname}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lname"
-              className="formtextfield"
-              value={lname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                className="formtextfield"
+                value={lname}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Date of Birth: </label>{' '}
-            <small> Use the calendar on the right </small> <p />
-            <input
-              type="date"
-              placeholder="DD/MM/YYYY"
-              name="dob"
-              className="formtextfield"
-              value={dob}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Date of Birth: </label>
+              <small> Use the calendar on the right </small> <p />
+              <input
+                type="date"
+                placeholder="DD/MM/YYYY"
+                name="dob"
+                className="formtextfield"
+                value={dob}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Username: </label> <br />
-            <small>
-              <i> After @ must be the system name 'EMS' followed by one department  initial:
-                HR - Human Resource, OP - Operation, MK - Marketing, FN - Finance </i>
-            </small>{' '}
-            <p />
-            <input
-              type="email"
-              placeholder="example@EMSHR"
-              name="username"
-              className="formtextfield"
-              value={username}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Username: </label> <br />
+              <small>
+                <i> After @ must be the system name 'EMS' followed by one department  initial:
+                  HR - Human Resource, OP - Operation, MK - Marketing, FN - Finance </i>
+              </small>
+              <p />
+              <input
+                type="email"
+                placeholder="example@EMSHR"
+                name="username"
+                className="formtextfield"
+                value={username}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Password: </label>{' '}
-            <small> Maximum password length is 16 Characters </small> <p />
-            <input
-              type="password"
-              placeholder="Password"
-              maxLength="16" name="pwd"
-              className="formtextfield"
-              value={pwd}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Password: </label>
+              <small> Maximum password length is 16 Characters </small> <p />
+              <input
+                type="password"
+                placeholder="Password"
+                maxLength="16" name="pwd"
+                className="formtextfield"
+                value={pwd}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Contact Number: </label> <small> Up to 10 digits </small> <p />
-            <input
-              type="text"
-              placeholder="Phone Number"
-              name="phoneno"
-              maxLength="10"
-              className="formtextfield"
-              value={phoneno}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Contact Number: </label>
+              <small> Up to 10 digits </small> <p />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                name="phoneno"
+                maxLength="10"
+                className="formtextfield"
+                value={phoneno}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Bank Account Name: </label> <small> Up to 255 Characters </small>
-            <p />
-            <input
-              type="text"
-              placeholder="Full Name"
-              name="accname"
-              className="formtextfield"
-              value={accname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Bank Account Name: </label>
+              <small> Up to 255 Characters </small>
+              <p />
+              <input
+                type="text"
+                placeholder="Full Name"
+                name="accname"
+                className="formtextfield"
+                value={accname}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Bank Account Number: </label>
-            <small> Up to 10 Digits </small>
-            <p />
-            <input
-              type="text"
-              placeholder="Account Number without space"
-              name="accnum"
-              minLength="6" maxLength="10"
-              className="formtextfield"
-              value={accnum}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Bank Account Number: </label>
+              <small> Up to 10 Digits </small>
+              <p />
+              <input
+                type="text"
+                placeholder="Account Number without space"
+                name="accnum"
+                minLength="6" maxLength="10"
+                className="formtextfield"
+                value={accnum}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> BSB: </label>
-            <small> Up to 6 Digits </small>
-            <p />
-            <input
-              type="password"
-              placeholder="BSB without space"
-              name="accbsb" maxLength="6"
-              className="formtextfield"
-              value={accbsb}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> BSB: </label>
+              <small> Up to 6 Digits </small>
+              <p />
+              <input
+                type="password"
+                placeholder="BSB without space"
+                name="accbsb" maxLength="6"
+                className="formtextfield"
+                value={accbsb}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Address: </label> <small> Up to 255 Characters </small> <p />
-            <input
-              type="text"
-              placeholder="Address"
-              maxLength="255"
-              name="address"
-              className="formtextfield"
-              value={address}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Address: </label>
+              <small> Up to 255 Characters </small> <p />
+              <input
+                type="text"
+                placeholder="Address"
+                maxLength="255"
+                name="address"
+                className="formtextfield"
+                value={address}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Suburb: </label> <small>Up to 255 Characters </small> <p />
-            <input
-              type="text"
-              placeholder="Suburb"
-              maxLength="255"
-              name="suburb"
-              className="formtextfield"
-              value={suburb}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Suburb: </label>
+              <small>Up to 255 Characters </small> <p />
+              <input
+                type="text"
+                placeholder="Suburb"
+                maxLength="255"
+                name="suburb"
+                className="formtextfield"
+                value={suburb}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> State: </label> <small> Up 3 Character </small> <p />
-            <input
-              type="text"
-              placeholder="State"
-              name="state" maxLength="3"
-              className="formtextfield"
-              value={state}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> State: </label>
+              <small> Up 3 Character </small> <p />
+              <input
+                type="text"
+                placeholder="State"
+                name="state" maxLength="3"
+                className="formtextfield"
+                value={state}
+                onChange={e => onInputChange(e)}
+              />
+              <br />
+            </div>
 
-            <label> Post Code: </label> <small> Up 4 Digits </small> <p />
-            <input
-              type="text"
-              placeholder="Post Code"
-              name="pcode" maxLength="4"
-              className="formtextfield"
-              value={pcode}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Post Code: </label>
+              <small> Up 4 Digits </small> <p />
+              <input
+                type="text"
+                placeholder="Post Code"
+                name="pcode" maxLength="4"
+                className="formtextfield"
+                value={pcode}
+                onChange={e => onInputChange(e)}
+              />
+              <p />
+            </div>
 
-            <label> Employment Type: </label> <p />
-            <select name="employtype" className="formtextfield" value={employtype} onChange={e => onInputChange(e)} >
-              <option value="select"> -- Select one -- </option>
-              <option value="Full-Time"> Full-Time </option>
-              <option value="Part-Time"> Part-Time </option>
-              <option value="Casual"> Casual </option>
-            </select>{' '}
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Employment Type: </label> <p />
+              <select name="employtype" className="formtextfield" value={employtype} onChange={e => onInputChange(e)} >
+                <option value="select"> -- Select one -- </option>
+                <option value="Full-Time"> Full-Time </option>
+                <option value="Part-Time"> Part-Time </option>
+                <option value="Casual"> Casual </option>
+              </select>
+            </div>
 
-            <label> Employment Date: </label>{' '}
-            <small> Use the calendar on the right </small> <p />
-            <input
-              type="date"
-              placeholder="DD/MM/YYYY"
-              name="employdate"
-              className="formtextfield"
-              value={employdate}
-              onChange={e => onInputChange(e)} />{' '}
-            <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Employment Date: </label>
+              <small> Use the calendar on the right </small> <p />
+              <input
+                type="date"
+                placeholder="DD/MM/YYYY"
+                name="employdate"
+                className="formtextfield"
+                value={employdate}
+                onChange={e => onInputChange(e)} />
+              <p />
+            </div>
 
-            <label> Department: </label> <br />
-            <select name="dept" className="formtextfield" value={dept} onChange={e => onInputChange(e)} required>
-              <option value="select"> -- Select one -- </option>
-              <option value="finance"> Finance </option>
-              <option value="HR"> Human Resource </option>
-              <option value="marketing"> Marketing </option>
-              <option value="operation"> Operation </option>
-            </select>{' '}
-            <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Department: </label> <br />
+              <select name="dept" className="formtextfield" value={dept} onChange={e => onInputChange(e)} required>
+                <option value="select"> -- Select one -- </option>
+                <option value="Finance"> Finance </option>
+                <option value="HR"> Human Resource </option>
+                <option value="Marketing"> Marketing </option>
+                <option value="Operation"> Operation </option>
+              </select>
+              <p />
+            </div>
 
             <div style={{ textAlign: 'center', paddingTop: 10 }}>
               <button type="submit" id="submit" className="button" onClick={handleSubmit} > Create New User </button>{' '}
