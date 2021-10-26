@@ -57,8 +57,10 @@ const Content = () => {
   const handleDelete = e => {
     var option = window.confirm("Do you want to delete payroll with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
     if (option === true) {
-      axios.delete(`http://localhost:3001/payrolldb/${e.currentTarget.id}`);
-      window.location.reload();
+      axios.delete(`https://asd-ems-db.herokuapp.com/payrolldb/${e.currentTarget.id}`);
+      history.push({
+        pathname: `/Dashboard`,
+      })
     }
   }
 
@@ -83,7 +85,7 @@ const Content = () => {
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Payroll History </h1>
           <p />
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', paddingTop: 20 }}>
             <Input.Group compact>
               <Input
                 size="large"
@@ -109,13 +111,12 @@ const Content = () => {
               <DatePicker size="large" onChange={handleChangeDate} />
 
             </Input.Group>
-            <br />
-            <p />
           </div>
-
-          <button className="button" name="addnew" type="submit">
-            <Link to="./AddPayroll"> <button> Add New Payroll</button></Link>
-          </button>
+          <div style={{ paddingTop: 15 }}>
+            <button className="button" name="addnew" type="submit">
+              <Link to="./AddPayroll"> <button> Add New Payroll</button></Link>
+            </button>
+          </div>
         </div>
 
         <div style={{ paddingTop: 10 }}>

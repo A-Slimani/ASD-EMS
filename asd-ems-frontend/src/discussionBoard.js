@@ -16,9 +16,11 @@ const Content = () => {
   };
 
   const onSubmit = async e => {
-    await axios.post("http://localhost:3001/voiceconcern", voiceconcern);
+    await axios.post("https://asd-ems-db.herokuapp.com/voiceconcern", voiceconcern);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
-    window.location = `/EmployeeDashboard`;
+    history.push({
+      pathname: `/EmployeeDashboard`,
+    })
   };
 
   const handleSubmit = e => {
@@ -44,59 +46,71 @@ const Content = () => {
   if (localStorage.getItem("id") !== null) {
     return (
       <div>
-        <form id='dicussform' className='form' name='dicussform' onSubmit={e => onSubmit(e)}>
+        <form id='dicussform' name='dicussform' onSubmit={e => onSubmit(e)}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Voice Concern </h1>
           <p style={{ textAlign: 'center' }}> We are hearing your voice !!! </p>
           <p />
 
-          <label> Date: </label> <br />
-          <input
-            type="date"
-            placeholder="DD/MM/YYYY"
-            name="discussdate"
-            className="formtextfield"
-            value={discussdate}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
+          <div style={{ paddingTop: 20 }}>
+            <label style={{ fontWeight: "bold" }}> Date: </label>
+            <small> Use the calendar on the right </small> <p />
+            <input
+              type="date"
+              placeholder="DD/MM/YYYY"
+              name="discussdate"
+              className="formtextfield"
+              value={discussdate}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+          </div>
 
-          <label> Name: </label> <br />
-          <input
-            type="text"
-            name="name"
-            placeholder="Name can be anonymous"
-            className="formtextfield"
-            value={name}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
+          <div style={{ paddingTop: 20 }}>
+            <label style={{ fontWeight: "bold" }}> Anonymous Name: </label>
+            <small>Up to 255 Characters </small> <p> </p>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              className="formtextfield"
+              value={name}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+          </div>
 
-          <label> Topic: </label> <br />
-          <input
-            type="text"
-            placeholder="Topic of the concern?"
-            name="topic"
-            className="formtextfield"
-            value={topic}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
+          <div style={{ paddingTop: 20 }}>
+            <label style={{ fontWeight: "bold" }}> Topic: </label>
+            <small>Up to 255 Characters </small> <p> </p>
+            <input
+              type="text"
+              placeholder="Topic of the concern?"
+              name="topic"
+              className="formtextfield"
+              value={topic}
+              onChange={e => onInputChange(e)}
+            />{' '}
+            <br /> <p />
+          </div>
 
-          <label> Description: </label> <br />
-          <textarea
-            type="text"
-            placeholder="Message"
-            name="description"
-            className="formtextfield"
-            value={description}
-            onChange={e => onInputChange(e)}
-          />{' '}
-          <br /> <p />
+          <div style={{ paddingTop: 20 }}>
+            <label style={{ fontWeight: "bold" }}> Description: </label>
+            <small>Up to 255 Characters </small> <p> </p>
+            <textarea
+              type="text"
+              placeholder="Message"
+              name="description"
+              className="formtextfield"
+              value={description}
+              onChange={e => onInputChange(e)}
+            />
+            <br /> <p />
+          </div>
 
-          <div style={{ textAlign: 'center', paddingTop: 10 }}>
+          <div style={{ textAlign: 'center', paddingTop: 10, fontSize: 15, fontStyle: "italic", fontWeight: "bold" }}>
             <small>
               The process may takes up to 3-5 business days <br />
-              User may check their submitted applications in the personal file
+              Employee will be informed when their concern has been resolved
             </small> <br />
             <button type="submit" id="submit" className="button" onClick={handleSubmit} > Post </button>{' '}
           </div>

@@ -50,19 +50,21 @@ const Content = () => {
   };
 
   //execute function to change the status from "pending" to "solved"
-  const handleSolve = async e => {
-    var option = window.confirm("Do you want to resolve concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+  const handleSolved = async e => {
+    var option = window.confirm("Do you want to delete Concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
 
     if (option === true) {
       for (let i of voiceconcern) {
-        if (e.currentTarget.id === i.id) {
+        if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
-          concern.status = "solved";
-          await axios.put(`http://localhost:3001/voiceconcern/${e.currentTarget.id}`, concern);
+          concern.status = "Solved";
+          await axios.put(`https://asd-ems-db.herokuapp.com/voiceconcern/${e.currentTarget.id}`, concern);
           break;
         }
       }
-      window.location.reload();
+      history.push({
+        pathname: `/Dashboard`,
+      })
     }
   }
 
@@ -111,7 +113,7 @@ const Content = () => {
             <Column title="Options" key="id" render={(p) => (
               <>
                 <Space split={<Divider type="vertical" />}>
-                  <Button id={p.id} onClick={handleSolve}> Solved</Button>
+                  <Button id={p.id} onClick={handleSolved}> Solved</Button>
                 </Space>
               </>
             )} />

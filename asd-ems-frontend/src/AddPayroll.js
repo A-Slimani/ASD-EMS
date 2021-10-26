@@ -19,8 +19,10 @@ const Content = () => {
 
     //execute add function to create new payroll
     const onSubmit = async e => {
-        await axios.post("http://localhost:3001/payrolldb", payroll);
-        window.location = "./PayrollHistory";
+        await axios.post("https://asd-ems-db.herokuapp.com/payrolldb", payroll);
+        history.push({
+            pathname: `/PayrollHistory`,
+        })
     };
 
     //handle create payroll form validation
@@ -59,84 +61,106 @@ const Content = () => {
                 <div>
                     <form id='payrollform' name='payrollform' onSubmit={e => onSubmit(e)} >
                         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Create New Payroll </h1>
-                        <p style={{ textAlign: 'center' }}> {' '} Please fill out the payroll details </p>
-                        <label> Pay Date: </label>
-                        <input
-                            type="date"
-                            name="paydate"
-                            className="formtextfield"
-                            value={paydate}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
+                        <p style={{ textAlign: 'center' }}> Please fill out the payroll details </p>
 
-                        <label> First Name: </label>
-                        <input
-                            type="text"
-                            placeholder="First Name"
-                            name="fname"
-                            className="formtextfield"
-                            value={fname}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> Pay Date: </label>
+                            <small> Use the calendar on the right </small> <p />
+                            <input
+                                type="date"
+                                name="paydate"
+                                className="formtextfield"
+                                value={paydate}
+                                onChange={e => onInputChange(e)}
+                            />{' '}
+                            <br />
+                        </div>
 
-                        <label> Last Name: </label>
-                        <input
-                            type="text"
-                            placeholder="Last Name"
-                            name="lname"
-                            className="formtextfield"
-                            value={lname}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> First Name: </label>
+                            <small>Up to 255 Characters </small> <p> </p>
+                            <input
+                                type="text"
+                                placeholder="First Name"
+                                name="fname"
+                                className="formtextfield"
+                                value={fname}
+                                onChange={e => onInputChange(e)}
+                            />{' '}
+                            <br />
+                        </div>
 
-                        <label> Amount $: </label>
-                        <p />
-                        <input
-                            type="number"
-                            placeholder="Current Pay"
-                            name="amount"
-                            className="formtextfield"
-                            value={amount}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> Last Name: </label>
+                            <small>Up to 255 Characters </small> <p> </p>
+                            <input
+                                type="text"
+                                placeholder="Last Name"
+                                name="lname"
+                                className="formtextfield"
+                                value={lname}
+                                onChange={e => onInputChange(e)}
+                            />{' '}
+                            <br />
+                        </div>
 
-                        <label> Bonus $: </label>
-                        <p />
-                        <input
-                            type="number"
-                            placeholder="Bonus"
-                            name="bonus"
-                            className="formtextfield"
-                            value={bonus}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> Amount $: </label>
+                            <small> Digits only </small> <p> </p>
+                            <p />
+                            <input
+                                type="number"
+                                placeholder="Current Pay"
+                                name="amount"
+                                className="formtextfield"
+                                value={amount}
+                                onChange={e => onInputChange(e)}
+                            />{' '}
+                            <br />
+                        </div>
 
-                        <label> Payment Method: </label> <br />
-                        <select name="paymethod" className="formtextfield" value={paymethod} onChange={e => onInputChange(e)}>
-                            <option value="select"> -- Select one -- </option>
-                            <option value="Cash"> Cash </option>
-                            <option value="Cheque"> Cheque </option>
-                            <option value="EFTPOS"> EFTPOS </option>
-                            <option value="Others"> Others </option>
-                        </select>{' '}
-                        <p />
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> Bonus $: </label>
+                            <small> Digits only </small> <p> </p>
+                            <p />
+                            <input
+                                type="number"
+                                placeholder="Bonus"
+                                name="bonus"
+                                className="formtextfield"
+                                value={bonus}
+                                onChange={e => onInputChange(e)}
+                            />{' '}
+                            <br />
+                        </div>
 
-                        <label> Description </label>
-                        <p />
-                        <textarea
-                            type="text"
-                            placeholder="Payment Reason"
-                            name="description"
-                            className="formtextfield"
-                            value={description}
-                            onChange={e => onInputChange(e)}
-                        />{' '}
-                        <br />
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> Payment Method: </label> <br />
+                            <select name="paymethod" className="formtextfield" value={paymethod} onChange={e => onInputChange(e)}>
+                                <option value="select"> -- Select one -- </option>
+                                <option value="Cash"> Cash </option>
+                                <option value="Cheque"> Cheque </option>
+                                <option value="EFTPOS"> EFTPOS </option>
+                                <option value="Others"> Others </option>
+                            </select>{' '}
+                            <p />
+                        </div>
+
+                        <div style={{ paddingTop: 20 }}>
+                            <label style={{ fontWeight: "bold" }}> Description </label>
+                            <small>Up to 255 Characters </small> <p> </p>
+                            <p />
+                            <textarea
+                                type="text"
+                                placeholder="Payment Reason"
+                                name="description"
+                                className="formtextfield"
+                                value={description}
+                                onChange={e => onInputChange(e)}
+                            />{' '}
+                            <br />
+                        </div>
+
                         <div style={{ textAlign: 'center', paddingTop: 10 }}>
                             <button type="submit" id="submit" className="button" onClick={handleSubmit}> Create New Payroll </button>
                         </div>

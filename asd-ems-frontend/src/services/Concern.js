@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = "/api/voiceconcern"
+const baseUrl = "https://asd-ems-db.herokuapp.com/voiceconcern"
+
 
 const getAll = () => {
   const request = axios.get(baseUrl);

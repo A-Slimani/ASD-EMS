@@ -24,6 +24,10 @@ function updatePreview() {
     preview.innerHTML = formTextField.value;
 }
 
+// const [paymentpolicy, setPaymentPolicy] = useState({
+//     fname: formTextField.value,
+//   });
+
 const Content = () => {
     const [policy, setPolicy] = useState({ policytext: "" });
 

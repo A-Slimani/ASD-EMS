@@ -22,6 +22,7 @@ import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
 import AddRoster from './AddRoster';
+// import UpdateUser from './UpdateUser';
 import './App.less'
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         <Route exact path="/AddUser"> <AddUser /> </Route>
         <Route exact path="/UserList"> <UserList /> </Route>
         <Route exact path="/UpdateEmployee/:id"> <UpdateEmployee /> </Route>
+        {/* <Route exact path="/UpdateUser/:id"> <UpdateUser /> </Route> */}
 
         <Route exact path="/Application"> <Application /> </Route>
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>

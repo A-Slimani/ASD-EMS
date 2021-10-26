@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
 
 require('dotenv').config();
 
@@ -106,9 +105,6 @@ const employeeSchema = new mongoose.Schema({
 		minLength: 2
 	}
 });
-
-//Application of unique validator
-employeeSchema.plugin(uniqueValidator, { message: 'Error, expected unique employee' });
 
 employeeSchema.set('toJSON', {
   transform: (document, returnedObj) => {

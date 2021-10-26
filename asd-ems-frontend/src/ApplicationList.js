@@ -53,14 +53,16 @@ const Content = () => {
 
     if (option === true) {
       for (let i of applicationform) {
-        if (e.currentTarget.id === i.id) {
+        if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
           concern.status = "Approved";
-          await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
+          await axios.put(`https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`, concern);
           break;
         }
       }
-      window.location.reload();
+      history.push({
+        pathname: `/Dashboard`,
+      })
     }
   }
 
@@ -69,14 +71,16 @@ const Content = () => {
 
     if (option === true) {
       for (let i of applicationform) {
-        if (e.currentTarget.id === i.id) {
+        if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
           concern.status = "Rejected";
-          await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
+          await axios.put(`https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`, concern);
           break;
         }
       }
-      window.location.reload();
+      history.push({
+        pathname: `/Dashboard`,
+      })
     }
   }
 

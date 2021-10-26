@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "/api/payrolldb"
+const baseUrl = "https://asd-ems-db.herokuapp.com/payrolldb"
 
 const getAll = () => {
   const request = axios.get(baseUrl);

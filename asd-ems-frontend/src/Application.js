@@ -34,11 +34,13 @@ const Content = () => {
   const onSubmit = async e => {
     // await axios.post("http://localhost:3002/applicationform", application);
     //change me back to :3002 when using Mongo. 3001 for local
-    await axios.post('http://localhost:3001/applicationform', application);
+    await axios.post('https://asd-ems-db.herokuapp.com/applicationform', application);
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
-    window.location = `/EmployeeDashboard`;
+    history.push({
+      pathname: `/EmployeeDashboard`,
+    })
   };
 
   const handleSubmit = e => {
@@ -79,88 +81,102 @@ const Content = () => {
     return (
       <>
         <div>
-          <form
-            id="applicationform"
-            className="form"
-            name="applicationform"
-            onSubmit={e => onSubmit(e)}>
-            <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
-              {' '}
-              Launch Application{' '}
-            </h1>
+          <form id="applicationform" name="applicationform" onSubmit={e => onSubmit(e)}>
+            <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}> Launch Application </h1>
             <p />
-            <label> Date: </label> <br />
-            <input
-              type="date"
-              placeholder="DD/MM/YYYY"
-              name="applicationdate"
-              className="formtextfield"
-              value={applicationdate}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
-            <label> First Name: </label> <br />
-            <input
-              type="text"
-              name="fname"
-              className="formtextfield"
-              value={fname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
-            <label> Last Name: </label> <br />
-            <input
-              type="text"
-              name="lname"
-              className="formtextfield"
-              value={lname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
-            <label> Type of Application: </label> <br />
-            <select
-              name="applicationtype"
-              className="formtextfield"
-              value={applicationtype}
-              onChange={e => onInputChange(e)}>
-              <option value="select"> -- Select one -- </option>
-              <option value="Transfer between Departments"> Transfer between Departments </option>
-              <option value="Business Claims"> Business Claims </option>
-              <option value="Apply Leave"> Apply Leave </option>
-              <option value="Resignation"> Resignation </option>
-              <option value="Others"> Others </option>
-            </select>{' '}
-            <br /> <p />
-            <label> Sub-Category: </label> <br />
-            <textarea
-              type="text"
-              placeholder="Provide detailed description of the application"
-              name="subcategory"
-              className="formtextfield"
-              value={subcategory}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
-            <label> Reason </label> <br />
-            <textarea
-              type="text"
-              placeholder="Provide detailed and valid reason"
-              name="reason"
-              className="formtextfield"
-              value={reason}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
-            <div style={{ textAlign: 'center', paddingTop: 10 }}>
+
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Date: </label>
+              <small> Use the calendar on the right </small> <p />
+              <input
+                type="date"
+                placeholder="DD/MM/YYYY"
+                name="applicationdate"
+                className="formtextfield"
+                value={applicationdate}
+                onChange={e => onInputChange(e)}
+              />
+              <br /> <p />
+            </div>
+
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> First Name: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <input
+                type="text"
+                name="fname"
+                className="formtextfield"
+                value={fname}
+                onChange={e => onInputChange(e)}
+              />
+              <br /> <p />
+            </div>
+
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Last Name: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <input
+                type="text"
+                name="lname"
+                className="formtextfield"
+                value={lname}
+                onChange={e => onInputChange(e)}
+              />
+              <br /> <p />
+            </div>
+
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Type of Application: </label>
+              <select
+                name="applicationtype"
+                className="formtextfield"
+                value={applicationtype}
+                onChange={e => onInputChange(e)}>
+                <option value="select"> -- Select one -- </option>
+                <option value="Transfer between Departments"> Transfer between Departments </option>
+                <option value="Business Claims"> Business Claims </option>
+                <option value="Apply Leave"> Apply Leave </option>
+                <option value="Resignation"> Resignation </option>
+                <option value="Others"> Others </option>
+              </select>
+              <br /> <p />
+            </div>
+
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Sub-Category: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <textarea
+                type="text"
+                placeholder="Provide detailed description of the application"
+                name="subcategory"
+                className="formtextfield"
+                value={subcategory}
+                onChange={e => onInputChange(e)}
+              />
+              <br /> <p />
+            </div>
+
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Reason </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <textarea
+                type="text"
+                placeholder="Provide detailed and valid reason"
+                name="reason"
+                className="formtextfield"
+                value={reason}
+                onChange={e => onInputChange(e)}
+              />
+              <br /> <p />
+            </div>
+
+            <div style={{ textAlign: 'center', paddingTop: 10, fontSize: 15, fontStyle: "italic", fontWeight: "bold" }}>
               <small>
                 The application process may takes up to 3-5 business days <br />
-                User may check their submitted applications in the personal file
-              </small>{' '}
+                Employee will be informed when the application is approved or rejected
+              </small>
               <br />
-              <button type="submit" id="submit" className="button" onClick={handleSubmit}>
-                {' '}
-                Submit{' '}
-              </button>{' '}
+              <button type="submit" id="submit" className="button" onClick={handleSubmit}> Submit </button>
             </div>
           </form>
         </div>

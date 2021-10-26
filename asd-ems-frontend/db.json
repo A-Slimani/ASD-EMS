@@ -15,15 +15,9 @@
       "state": "NSW",
       "pcode": "1111",
       "employdate": "2011-10-10",
-      "dept": "Operation",
+      "dept": "HR",
       "employtype": "Full-Time",
-      "dateworking": [
-        "01/11/2021",
-        "02/11/2021",
-        "03/11/2021",
-        "04/11/2021",
-        "06/11/2021"
-      ]
+      "id": 3
     },
     {
       "fname": "Jonny",
@@ -40,7 +34,7 @@
       "state": "NSW",
       "pcode": "1111",
       "employdate": "2011-10-10",
-      "dept": "HR",
+      "dept": "Marketing",
       "employtype": "Full-Time",
       "id": 4
     },
@@ -97,7 +91,7 @@
       "state": "NSW",
       "pcode": "1231",
       "employdate": "2021-10-25",
-      "dept": "HR",
+      "dept": "Marketing",
       "employtype": "Part-Time",
       "id": 7
     },
@@ -116,7 +110,7 @@
       "state": "NSW",
       "pcode": "1231",
       "employdate": "2021-10-25",
-      "dept": "HR",
+      "dept": "Operation",
       "employtype": "Casual",
       "id": 8
     },
@@ -135,7 +129,7 @@
       "state": "NSW",
       "pcode": "1231",
       "employdate": "2021-10-25",
-      "dept": "HR",
+      "dept": "Finance",
       "employtype": "Part-Time",
       "id": 9
     },
@@ -154,7 +148,7 @@
       "state": "NSW",
       "pcode": "1234",
       "employdate": "2021-10-25",
-      "dept": "finance",
+      "dept": "Finance",
       "employtype": "Casual",
       "id": 10
     }
@@ -279,7 +273,7 @@
       "lname": "rob",
       "applicationtype": "Business Claim",
       "applicationdate": "2021-10-11",
-      "status": "Pending",
+      "status": "Approved",
       "subcategory": "business trip",
       "reason": "busines",
       "id": 2
@@ -531,6 +525,22 @@
       "status": "Pending",
       "description": "Nothing to discuss",
       "id": 7
+    },
+    {
+      "name": "KK",
+      "discussdate": "2021-10-27",
+      "topic": "Wired",
+      "status": "solved",
+      "description": "LoL",
+      "id": 8
+    },
+    {
+      "name": "ABCD",
+      "discussdate": "2021-10-26",
+      "topic": "EFG",
+      "status": "solved",
+      "description": "HIJ",
+      "id": 9
     }
   ],
   "roster": [
