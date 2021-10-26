@@ -9,11 +9,12 @@ const { Column } = Table;
 const { Option } = Select;
 
 const Content = () => {
-  const history = useHistory();
   const [employees, setEmployees] = useState([])
   const [deptFilter, setDeptFilter] = useState('');
   const [nameFilter, setNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
+
+  const history = useHistory();
 
   useEffect(() => {
     employeeService.getAll().then(employees => {
@@ -68,10 +69,16 @@ const Content = () => {
   const handleDelete = e => {
     var option = window.confirm("Do you want to delete employee with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
     if (option === true) {
+<<<<<<< HEAD
       axios.delete(`http://localhost:3001/employees/${e.currentTarget.id}`);
       //window.location.reload();
       history.push({
         pathname: `/UserList`
+=======
+      axios.delete(`https://asd-ems-db.herokuapp.com/employees/${e.currentTarget.id}`);
+      history.push({
+        pathname: `/Dashboard`,
+>>>>>>> 75dc9a124fc9e9b9a569c9b3fdfa0e5bf25b39c1
       })
     }
   }
@@ -154,4 +161,3 @@ const UserList = () => {
 };
 
 export default UserList;
-

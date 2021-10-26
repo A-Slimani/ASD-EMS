@@ -45,7 +45,7 @@ const Login = () => {
     if (isAdmin(username) && getAccount()) {
       localStorage.setItem('id', user.id);
       history.push({
-        pathname: `/Dashboard`,
+        pathname: `./Dashboard`,
       });      
     }
     else if (isEmployee(username) && getAccount()) {

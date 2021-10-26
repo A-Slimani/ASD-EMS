@@ -34,11 +34,13 @@ const Content = () => {
   const onSubmit = async e => {
     // await axios.post("http://localhost:3002/applicationform", application);
     //change me back to :3002 when using Mongo. 3001 for local
-    await axios.post('http://localhost:3001/applicationform', application);
+    await axios.post('https://asd-ems-db.herokuapp.com/applicationform', application);
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
-    window.location = `/EmployeeDashboard`;
+    history.push({
+      pathname: `/EmployeeDashboard`,
+    })
   };
 
   const handleSubmit = e => {

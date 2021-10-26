@@ -19,8 +19,10 @@ const Content = () => {
 
     //execute add function to create new payroll
     const onSubmit = async e => {
-        await axios.post("http://localhost:3001/payrolldb", payroll);
-        window.location = "./PayrollHistory";
+        await axios.post("https://asd-ems-db.herokuapp.com/payrolldb", payroll);
+        history.push({
+            pathname: `/PayrollHistory`,
+        })
     };
 
     //handle create payroll form validation
@@ -63,7 +65,7 @@ const Content = () => {
 
                         <div style={{ paddingTop: 20 }}>
                             <label style={{ fontWeight: "bold" }}> Pay Date: </label>
-                            <small> Use the calendar on the right (dd/mm/yyyy) </small> <p />
+                            <small> Use the calendar on the right </small> <p />
                             <input
                                 type="date"
                                 name="paydate"
@@ -103,8 +105,8 @@ const Content = () => {
                         </div>
 
                         <div style={{ paddingTop: 20 }}>
-                            <label style={{ fontWeight: "bold" }}> Amount: </label>
-                            <small> Digits only ($)</small> <p> </p>
+                            <label style={{ fontWeight: "bold" }}> Amount $: </label>
+                            <small> Digits only </small> <p> </p>
                             <p />
                             <input
                                 type="number"
@@ -118,8 +120,8 @@ const Content = () => {
                         </div>
 
                         <div style={{ paddingTop: 20 }}>
-                            <label style={{ fontWeight: "bold" }}> Bonus: </label>
-                            <small> Digits only ($) </small> <p> </p>
+                            <label style={{ fontWeight: "bold" }}> Bonus $: </label>
+                            <small> Digits only </small> <p> </p>
                             <p />
                             <input
                                 type="number"

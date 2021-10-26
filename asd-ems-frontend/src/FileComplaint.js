@@ -20,9 +20,11 @@ const Content = () => {
   const onSubmit = async e => {
     // await axios.post("http://localhost:3002/filecomplaint", filecomplaint);
     //change me back to :3002 when using Mongo. 3001 for local
-    await axios.post("http://localhost:3001/filecomplaint", filecomplaint);
+    await axios.post("https://asd-ems-db.herokuapp.com/filecomplaint", filecomplaint);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
-    window.location = `/EmployeeDashboard`;
+    history.push({
+      pathname: `/EmployeeDashboard`,
+    })
   };
 
   const handleSubmit = e => {

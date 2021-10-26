@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Logout from './Logout';
@@ -22,12 +22,12 @@ import ConcernList from './ConcernList'
 import Profile from './Profile'
 import EmployeePersonal from './EmployeePersonal';
 import AddRoster from './AddRoster';
+// import UpdateUser from './UpdateUser';
 import './App.less'
 
 function App() {
-  const history = useHistory();
   return (
-    <BrowserRouter history={history}>
+    <BrowserRouter>
       <Switch>
         <Route path="/" exact> <Login /> </Route>
         <Route exact path="/Logout"> <Logout /> </Route>
@@ -35,7 +35,7 @@ function App() {
         <Route exact path="/ComplaintList"> <ComplaintList /> </Route>
         <Route exact path="/FileComplaint"> <FileComplaint /> </Route>
 
-        <Route path="/Dashboard"> <Dashboard /> </Route>
+        <Route exact path="/Dashboard"> <Dashboard /> </Route>
         <Route exact path="/EmployeeDashboard"> <EmployeeDashboard /> </Route>
         <Route exact path="/AddRoster"> <AddRoster /> </Route>
         <Route exact path="/Roster"> <Roster /> </Route>
@@ -50,6 +50,7 @@ function App() {
         <Route exact path="/AddUser"> <AddUser /> </Route>
         <Route exact path="/UserList"> <UserList /> </Route>
         <Route exact path="/UpdateEmployee/:id"> <UpdateEmployee /> </Route>
+        {/* <Route exact path="/UpdateUser/:id"> <UpdateUser /> </Route> */}
 
         <Route exact path="/Application"> <Application /> </Route>
         <Route exact path="/ApplicationList"> <ApplicationList /> </Route>

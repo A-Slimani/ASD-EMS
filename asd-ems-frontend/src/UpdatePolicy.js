@@ -24,6 +24,10 @@ function updatePreview() {
     preview.innerHTML = "<div style='font-size: 20px; padding-left: 45px; padding-top: 50px; text-align: left'>" + formTextField.value + "</div>";
 }
 
+// const [paymentpolicy, setPaymentPolicy] = useState({
+//     fname: formTextField.value,
+//   });
+
 const Content = () => {
     if (localStorage.getItem("id") !== null) {
         return (

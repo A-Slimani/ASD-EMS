@@ -19,8 +19,10 @@ const Content = () => {
 
   // execute the add function after form validation is complete
   const onSubmit = async e => {
-    await axios.post("http://localhost:3001/roster", roster);
-    window.location = "/AddRoster";
+    await axios.post("https://asd-ems-db.herokuapp.com/roster", roster);
+    history.push({
+      pathname: `/Roster`,
+    })
   };
 
   //validate form to ensure correct data in entered before submit the form or execute the add function
