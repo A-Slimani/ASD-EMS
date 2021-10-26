@@ -30,7 +30,7 @@ const Content = () => {
 
   const handleEditRoute = e => {
     history.push({
-      pathname: `/UpdateEmployee/${empid}`
+      pathname: `/UpdateUser/${empid}`
     })
   }
 

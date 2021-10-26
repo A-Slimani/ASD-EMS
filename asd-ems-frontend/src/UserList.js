@@ -70,7 +70,6 @@ const Content = () => {
     var option = window.confirm("Do you want to delete employee with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
     if (option === true) {
       axios.delete(`https://asd-ems-db.herokuapp.com/employees/${e.currentTarget.id}`);
-      // window.location.reload();
       history.push({
         pathname: `/Dashboard`,
       })

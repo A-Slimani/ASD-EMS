@@ -16,9 +16,11 @@ const Content = () => {
   };
 
   const onSubmit = async e => {
-    await axios.post("http://localhost:3001/voiceconcern", voiceconcern);
+    await axios.post("https://asd-ems-db.herokuapp.com/voiceconcern", voiceconcern);
     alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
-    window.location = `/EmployeeDashboard`;
+    history.push({
+      pathname: `/EmployeeDashboard`,
+    })
   };
 
   const handleSubmit = e => {

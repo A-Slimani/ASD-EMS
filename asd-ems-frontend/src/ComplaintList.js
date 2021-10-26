@@ -57,11 +57,13 @@ const Content = () => {
         if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
           concern.status = "Solved";
-          await axios.put(`http://localhost:3001/filecomplaint/${e.currentTarget.id}`, concern);
+          await axios.put(`https://asd-ems-db.herokuapp.com/filecomplaint/${e.currentTarget.id}`, concern);
           break;
         }
       }
-      window.location = "./ConcernList"
+      history.push({
+        pathname: `/Dashboard`,
+      })
     }
   }
 
