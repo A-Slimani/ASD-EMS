@@ -82,7 +82,7 @@ const Content = () => {
           <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Update {showPayroll().fname}'s Payroll Details </h1>
           <p style={{ textAlign: 'center' }}> {' '} Please fill out the payroll details{' '} </p>
-          <label> First Name: </label>
+          <label style={{ fontWeight: "bold" }}> First Name: </label>
           <small>Up to 255 Characters </small> <p> </p>
           <input
             type="text"
@@ -94,7 +94,8 @@ const Content = () => {
           />{' '}
           <br />
 
-          <label> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
+          <label style={{ fontWeight: "bold" }}> Last Name: </label>
+          <small>Up to 255 Characters </small> <p></p>
           <input
             type="text"
             name="lname"
@@ -105,7 +106,8 @@ const Content = () => {
           />{' '}
           <br />
 
-          <label> Amount: ($) </label> <small> Up to 15 Digits </small> <p />
+          <label style={{ fontWeight: "bold" }}> Amount: </label>
+          <small> Up to 15 Digits ($) </small> <p />
           <input
             type="text"
             defaultValue={showPayroll().amount}
@@ -117,7 +119,8 @@ const Content = () => {
           />{' '}
           <br />
 
-          <label> Bonus: ($) </label> <small> Up to 6 Digits </small> <p />
+          <label style={{ fontWeight: "bold" }}> Bonus: </label>
+            <small> Up to 6 Digits ($) </small> <p> </p>
           <input
             type="text"
             defaultValue={showPayroll().bonus}
@@ -128,8 +131,8 @@ const Content = () => {
           />{' '}
           <p />
 
-          <label> Pay Date: </label>{' '}
-          <small> Use the calendar on the right </small> <p />
+          <label style={{ fontWeight: "bold" }}> Pay Date: </label>{' '}
+          <small> Use the calendar on the right (dd/mm/yyyy)</small> <p />
           <input
             type="date"
             defaultValue={showPayroll().paydate}
@@ -139,7 +142,7 @@ const Content = () => {
             onChange={e => onInputChange(e)} />{' '}
           <p />
 
-          <label> Payment Method: </label> <br />
+          <label style={{ fontWeight: "bold" }}> Payment Method: </label> <br />
           <select name="paymethod" className="formtextfield" value={paymethod} defaultValue={showPayroll().paymethod} onChange={e => onInputChange(e)} required>
             <option value="select"> -- Select one -- </option>
             <option value="cash"> Cash </option>
@@ -149,7 +152,7 @@ const Content = () => {
           </select>{' '}
           <p />
 
-          <label> Description: </label> <small> Up to 500 Characters. Type 'n/a' if unapplicable. </small> <p />
+          <label style={{ fontWeight: "bold" }}>Description: </label> <small> Up to 500 Characters. Type 'n/a' if unapplicable. </small> <p />
           <input
             type="text"
             defaultValue={showPayroll().description}
