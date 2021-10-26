@@ -2,8 +2,7 @@
   "name": "ASD-EMS",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd asd-ems-frontend && npm start",
-    "install": "cd asd-ems-frontend && npm install"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -13,6 +12,7 @@
     "mongo-mock": "^4.1.0",
     "mongoose": "^6.0.8",
     "mongoose-unique-validator": "^2.0.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.14"
   }
 }
