@@ -63,7 +63,7 @@ const Content = () => {
 
                         <div style={{ paddingTop: 20 }}>
                             <label style={{ fontWeight: "bold" }}> Pay Date: </label>
-                            <small> Use the calendar on the right </small> <p />
+                            <small> Use the calendar on the right (dd/mm/yyyy) </small> <p />
                             <input
                                 type="date"
                                 name="paydate"
@@ -103,8 +103,8 @@ const Content = () => {
                         </div>
 
                         <div style={{ paddingTop: 20 }}>
-                            <label style={{ fontWeight: "bold" }}> Amount $: </label>
-                            <small> Digits only </small> <p> </p>
+                            <label style={{ fontWeight: "bold" }}> Amount: </label>
+                            <small> Digits only ($)</small> <p> </p>
                             <p />
                             <input
                                 type="number"
@@ -118,8 +118,8 @@ const Content = () => {
                         </div>
 
                         <div style={{ paddingTop: 20 }}>
-                            <label style={{ fontWeight: "bold" }}> Bonus $: </label>
-                            <small> Digits only </small> <p> </p>
+                            <label style={{ fontWeight: "bold" }}> Bonus: </label>
+                            <small> Digits only ($) </small> <p> </p>
                             <p />
                             <input
                                 type="number"

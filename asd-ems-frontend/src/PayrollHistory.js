@@ -83,7 +83,7 @@ const Content = () => {
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Payroll History </h1>
           <p />
-          <div style={{ textAlign: 'center', paddingTop: 20 }}>
+          <div style={{ textAlign: 'center' }}>
             <Input.Group compact>
               <Input
                 size="large"
@@ -109,12 +109,13 @@ const Content = () => {
               <DatePicker size="large" onChange={handleChangeDate} />
 
             </Input.Group>
+            <br />
+            <p />
           </div>
-          <div style={{ paddingTop: 15 }}>
-            <button className="button" name="addnew" type="submit">
-              <Link to="./AddPayroll"> <button> Add New Payroll</button></Link>
-            </button>
-          </div>
+
+          <button className="button" name="addnew" type="submit">
+            <Link to="./AddPayroll"> <button> Add New Payroll</button></Link>
+          </button>
         </div>
 
         <div style={{ paddingTop: 10 }}>
@@ -122,16 +123,16 @@ const Content = () => {
             <Column title="Payroll ID" dataIndex="id" key="id" value="id" />
             <Column title="First Name" dataIndex="fname" key="firstName" />
             <Column title="Last Name" dataIndex="lname" key="lastName" />
-            <Column title="Amount" dataIndex="amount" key="amount" />
-            <Column title="Bonus" dataIndex="bonus" key="bonus" />
+            <Column title="Amount ($)" dataIndex="amount" key="amount" />
+            <Column title="Bonus ($)" dataIndex="bonus" key="bonus" />
             <Column title="Payment Method" dataIndex="paymethod" key="paymethod" />
-            <Column title="Pay Date" dataIndex="paydate" key="paydate" />
+            <Column title="Pay Date (yyyy/mm/dd)" dataIndex="paydate" key="paydate" />
             <Column title="Description" dataIndex="description" key="Description" />
             <Column title="Options" key="id" render={(p) => (
               <>
                 <Space split={<Divider type="vertical" />}>
-                  <Button id={p.id} onClick={handleDelete}> delete</Button>
                   <Button id={p.id} onClick={handleEditRoute}>update</Button>
+                  <Button id={p.id} onClick={handleDelete}> delete</Button>
                 </Space>
               </>
             )} />
