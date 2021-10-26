@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "/applicationform"
+const baseUrl = "https://asd-ems-db.herokuapp.com/applicationform"
 
 const getAll = () => {
   const request = axios.get(baseUrl);

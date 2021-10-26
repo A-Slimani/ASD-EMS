@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "/api/filecomplaint"
+const baseUrl = "https://asd-ems-db.herokuapp.com/filecomplaint"
 
 const getAll = () => {
   const request = axios.get(baseUrl);

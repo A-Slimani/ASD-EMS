@@ -9,12 +9,11 @@ const { Column } = Table;
 const { Option } = Select;
 
 const Content = () => {
+  const history = useHistory();
   const [employees, setEmployees] = useState([])
   const [deptFilter, setDeptFilter] = useState('');
   const [nameFilter, setNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
-
-  const history = useHistory();
 
   useEffect(() => {
     employeeService.getAll().then(employees => {
@@ -152,3 +151,4 @@ const UserList = () => {
 };
 
 export default UserList;
+

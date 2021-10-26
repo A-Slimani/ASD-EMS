@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Logout from './Logout';
@@ -25,8 +25,9 @@ import AddRoster from './AddRoster';
 import './App.less'
 
 function App() {
+  const history = useHistory();
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Switch>
         <Route path="/" exact> <Login /> </Route>
         <Route exact path="/Logout"> <Logout /> </Route>
@@ -34,7 +35,7 @@ function App() {
         <Route exact path="/ComplaintList"> <ComplaintList /> </Route>
         <Route exact path="/FileComplaint"> <FileComplaint /> </Route>
 
-        <Route exact path="/Dashboard"> <Dashboard /> </Route>
+        <Route path="/Dashboard"> <Dashboard /> </Route>
         <Route exact path="/EmployeeDashboard"> <EmployeeDashboard /> </Route>
         <Route exact path="/AddRoster"> <AddRoster /> </Route>
         <Route exact path="/Roster"> <Roster /> </Route>
