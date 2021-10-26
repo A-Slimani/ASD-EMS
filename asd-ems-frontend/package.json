@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "test": "jest --ci --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject",
-    "server": "json-server -p3001 --routes routes.json --watch db.json"
+    "server": "json-server --routes routes.json --watch https://asd-ems-db.herokuapp.com/"
   },
   "eslintConfig": {
     "extends": [
