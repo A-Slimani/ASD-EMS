@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "cd asd-ems-backend && npm install && npm start",
-    "build": "cd asd-ems-frontend && npm run build"
+    "install-client": "cd asd-ems-frontend && npm install",
+    "build": "cd asd-ems-frontend && npm run build",
+    "heroku-postbuild":"npm run install-cliend && npm run build"
   },
   "dependencies": {
     "cors": "^2.8.5",
