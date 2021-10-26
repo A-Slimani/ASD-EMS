@@ -1,6 +1,6 @@
-import React from 'react';
 import WebLayout from './components/WebLayout';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import paymentPolicyText from './paymentPolicyText.json';
 
@@ -21,10 +21,30 @@ function updatePreview() {
     let formTextField = document.getElementsByClassName("formtextfield")[0];
     let preview = document.getElementsByClassName("preview")[0];
 
-    preview.innerHTML = "<div style='font-size: 20px; padding-left: 45px; padding-top: 50px; text-align: left'>" + formTextField.value + "</div>";
+    preview.innerHTML = formTextField.value;
 }
 
 const Content = () => {
+    const [policy, setPolicy] = useState({ policytext: "" });
+
+    const { policytext } = policy;
+
+    const onInputChange = e => {
+        setPolicy({ ...policy, [e.target.name]: e.target.value });
+    };
+
+    const onSubmit = async e => {
+        // policy.policytext has the info I want, though the below does nothing
+        await axios.post("http://localhost:3001/policy", policy);
+        window.location = "/PaymentPolicy";
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        var policyText = document.forms["policyform"]["policytext"].value;
+        window.location.reload(); 
+    };
+
     if (localStorage.getItem("id") !== null) {
         return (
             <div className="container">
@@ -36,7 +56,7 @@ const Content = () => {
                 </div>
                 <div className="navbar" style={{margin: "1em 5em"}}>
                     <ul>
-                        <li> <button onClick={() => {setText("\n<ul>\n\t<li style='padding-left: 20px'>...</li>\n</ul>")}}> Bullet Point </button> </li>
+                        <li> <button onClick={() => {setText("\n<ul style='margin-left: 40px'>\n\t<li style='padding-left: 10px'>...</li>\n</ul>")}}> Bullet Point </button> </li>
                         <li> <button onClick={() => {setText("\n<b>\n\t\n</b>")}}><b>Bold</b></button> </li>
                         <li> <button onClick={() => {setText("\n<i>\n\t\n</i>")}}><i>Italic</i></button> </li>
                         <li> <button onClick={() => {setText("\n<u>\n\t\n</u>")}}><u>Underline</u></button> </li>
@@ -46,23 +66,24 @@ const Content = () => {
                     </ul>
                 </div>
                 <div style={{display: "flex"}}>
-                    <div className="thing" style={{margin: "0 2.5em 0 5em", width: "50%"}}>
-                        <form>
+                    <div className="thing" style={{margin: "0 1.5em 0 5em", width: "50%"}}>
+                        <form id="policyform" onSubmit={e => onSubmit(e)}>
                             <textarea
                                 type="text"
+                                name="policytext"
                                 className="formtextfield"
-                                onChange={() => updatePreview()}
-                                style={{resize: "none"}}
+                                onChange={e => {onInputChange(e); updatePreview()}}
                                 cols="50" rows="20">
+                                    {text}
                             </textarea>
+                            <div style={{ textAlign: 'center', paddingTop: "3em" }}>
+                                <button type="submit" className="button" onClick={handleSubmit}>Update Policy</button>
+                            </div>
                         </form>
                     </div>
-                    <div className="preview-container" style={{margin: "0 5em 0 2.5em", width: "50%"}}>
-                        <div className="preview" style={{backgroundColor: "white", height: "100%", padding: "3em 5em"}}></div>
+                    <div className="preview-container" style={{margin: "0 5em 0 1.5em", width: "50%"}}>
+                        <div className="preview" style={{backgroundColor: "white", height: "100%", padding: "0 5em 3em 5em"}}></div>
                     </div>
-                </div>
-                <div style={{ textAlign: 'center', paddingTop: "3em" }}>
-                    <Link to={`/PaymentPolicy`}> <button className="button"> Updated New Policy </button> </Link>
                 </div>
             </div>
         );
