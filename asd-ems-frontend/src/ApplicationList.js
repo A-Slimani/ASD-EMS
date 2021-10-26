@@ -53,30 +53,46 @@ const Content = () => {
 
     if (option === true) {
       for (let i of applicationform) {
-        if (e.currentTarget.id === i.id) {
+        if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
           concern.status = "Approved";
           await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
           break;
         }
       }
-      window.location.reload();
+      window.location = "./ApplicationList"
     }
   }
+
+  // const handleReject = async e => {
+  //   var option = window.confirm("Do you want to reject application with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+
+  //   if (option === true) {
+  //     for (let i of applicationform) {
+  //       if (e.currentTarget.id === i.id) {
+  //         var concern = Object.assign({}, i);
+  //         concern.status = "Rejected";
+  //         await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
+  //         break;
+  //       }
+  //     }
+  //     window.location.reload();
+  //   }
+  // }
 
   const handleReject = async e => {
     var option = window.confirm("Do you want to reject application with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
 
     if (option === true) {
       for (let i of applicationform) {
-        if (e.currentTarget.id === i.id) {
+        if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
           concern.status = "Rejected";
           await axios.put(`http://localhost:3001/applicationform/${e.currentTarget.id}`, concern);
           break;
         }
       }
-      window.location.reload();
+      window.location = "./ApplicationList"
     }
   }
 
