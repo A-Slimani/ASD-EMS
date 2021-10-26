@@ -71,7 +71,9 @@ const Content = () => {
     if (option === true) {
       axios.delete(`https://asd-ems-db.herokuapp.com/employees/${e.currentTarget.id}`);
       // window.location.reload();
-      window.location = "https://asd-ems.herokuapp.com/UserList"
+      history.push({
+        pathname: `/Dashboard`,
+      })
     }
   }
 

@@ -54,7 +54,7 @@ const Content = () => {
   }
 
   const onSubmit = async e => {
-    await axios.put(`http://localhost:3001/employees/${match.params.id}`, employee)
+    await axios.put(`https://asd-ems-db.herokuapp.com/employees/${match.params.id}`, employee)
     window.location = "/userList"
   }
 
