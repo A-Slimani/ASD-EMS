@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "scripts": {
     "start": "cd asd-ems-frontend && npm install && npm start",
-    "install-client": "cd asd-ems-frontend && npm install"
   },
   "dependencies": {
     "cors": "^2.8.5",
