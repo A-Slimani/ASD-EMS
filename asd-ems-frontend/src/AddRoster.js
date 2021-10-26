@@ -56,43 +56,50 @@ const Content = () => {
       <>
         <div>
           <form id='rosterform' name='rosterform' onSubmit={e => onSubmit(e)}>
-          <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button>
+            <button style={{ float: 'left' }} type='submit' className="update" onClick={goBack} > Back </button>
             <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Add New Roster </h1>
             <p style={{ textAlign: 'center' }}>  Please fill out the details below, all fields are required </p>
 
-            <label> First Name: </label>
-            <small>Up to 255 Characters </small> <p> </p>
-            <input
-              type="text"
-              placeholder="First Name"
-              name="fname"
-              className="formtextfield"
-              value={fname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> First Name: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <input
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                className="formtextfield"
+                value={fname}
+                onChange={e => onInputChange(e)}
+              />{' '}
+              <br />
+            </div>
 
-            <label> Last Name: </label> <small>Up to 255 Characters </small> <p></p>
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lname"
-              className="formtextfield"
-              value={lname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Last Name: </label> 
+              <small>Up to 255 Characters </small> <p></p>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                className="formtextfield"
+                value={lname}
+                onChange={e => onInputChange(e)}
+              />{' '}
+              <br />
+            </div>
 
-            <label> Roster Date: </label>
-            <small> Use the calendar on the right </small>
-            <input
-              type="date"
-              placeholder="DD/MM/YYYY"
-              name="rosterdate"
-              className="formtextfield"
-              value={rosterdate}
-              onChange={e => onInputChange(e)} />{' '}
-            <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Roster Date: </label>
+              <small> Use the calendar on the right </small>
+              <input
+                type="date"
+                placeholder="DD/MM/YYYY"
+                name="rosterdate"
+                className="formtextfield"
+                value={rosterdate}
+                onChange={e => onInputChange(e)} />{' '}
+              <p />
+            </div>
 
             <div style={{ textAlign: 'center', paddingTop: 10 }}>
               <button type="submit" id="submit" className="button" onClick={handleSubmit} > Create New Roster </button>{' '}

@@ -49,65 +49,80 @@ const Content = () => {
     return (
       <>
         <div>
-          <form id='complaintform' className='form' name='complaintform' onSubmit={e => onSubmit(e)}>
+          <form id='complaintform' name='complaintform' onSubmit={e => onSubmit(e)}>
             <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> File Complaints </h1>
             <p />
-            <label> Date: </label> <br />
-            <input
-              type="date"
-              placeholder="DD/MM/YYYY"
-              name="complaintdate"
-              className="formtextfield"
-              value={complaintdate}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
 
-            <label> First Name: </label> <br />
-            <input
-              type="text"
-              name="fname"
-              className="formtextfield"
-              value={fname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Date: </label>
+              <small> Use the calendar on the right </small> <p />
+              <input
+                type="date"
+                placeholder="DD/MM/YYYY"
+                name="complaintdate"
+                className="formtextfield"
+                value={complaintdate}
+                onChange={e => onInputChange(e)}
+              />{' '}
+              <br /> <p />
+            </div>
 
-            <label> Last Name: </label> <br />
-            <input
-              type="text"
-              name="lname"
-              className="formtextfield"
-              value={lname}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> First Name: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <input
+                type="text"
+                name="fname"
+                className="formtextfield"
+                value={fname}
+                onChange={e => onInputChange(e)}
+              />{' '}
+              <br /> <p />
+            </div>
 
-            <label> Type of Complaint: </label> <br />
-            <select name="complainttype" className="formtextfield" value={complainttype} onChange={e => onInputChange(e)}>
-              <option value="select"> -- Select one -- </option>
-              <option value="Personal"> Personal </option>
-              <option value="Work"> Work </option>
-              <option value="General"> General </option>
-              <option value="Suggestion"> Suggestion </option>
-            </select>{' '}
-            <br /> <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Last Name: </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <input
+                type="text"
+                name="lname"
+                className="formtextfield"
+                value={lname}
+                onChange={e => onInputChange(e)}
+              />{' '}
+              <br /> <p />
+            </div>
 
-            <label> Description </label> <br />
-            <textarea
-              type="text"
-              placeholder="Message"
-              name="complaintdescription"
-              className="formtextfield"
-              value={complaintdescription}
-              onChange={e => onInputChange(e)}
-            />{' '}
-            <br /> <p />
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Type of Complaint: </label> <br />
+              <select name="complainttype" className="formtextfield" value={complainttype} onChange={e => onInputChange(e)}>
+                <option value="select"> -- Select one -- </option>
+                <option value="Personal"> Personal </option>
+                <option value="Work"> Work </option>
+                <option value="General"> General </option>
+                <option value="Suggestion"> Suggestion </option>
+              </select>{' '}
+              <br /> <p />
+            </div>
 
-            <div style={{ textAlign: 'center', paddingTop: 10 }}>
+            <div style={{ paddingTop: 20 }}>
+              <label style={{ fontWeight: "bold" }}> Description </label>
+              <small>Up to 255 Characters </small> <p> </p>
+              <textarea
+                type="text"
+                placeholder="Message"
+                name="complaintdescription"
+                className="formtextfield"
+                value={complaintdescription}
+                onChange={e => onInputChange(e)}
+              />{' '}
+              <br /> <p />
+            </div>
+
+            <div style={{ textAlign: 'center', paddingTop: 10, fontSize: 15, fontStyle: "italic", fontWeight: "bold" }}>
               <small>
                 The application process may takes up to 3-5 business days <br />
-                User may check their submitted applications in the personal file
+                Employee will be informed when the complaint has been resolved
               </small> <br />
               <button type="submit" id="submit" className="button" onClick={handleSubmit} > Submit </button>{' '}
             </div>

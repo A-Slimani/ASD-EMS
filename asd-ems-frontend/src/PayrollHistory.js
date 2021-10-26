@@ -83,7 +83,7 @@ const Content = () => {
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Payroll History </h1>
           <p />
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', paddingTop: 20 }}>
             <Input.Group compact>
               <Input
                 size="large"
@@ -109,13 +109,12 @@ const Content = () => {
               <DatePicker size="large" onChange={handleChangeDate} />
 
             </Input.Group>
-            <br />
-            <p />
           </div>
-
-          <button className="button" name="addnew" type="submit">
-            <Link to="./AddPayroll"> <button> Add New Payroll</button></Link>
-          </button>
+          <div style={{ paddingTop: 15 }}>
+            <button className="button" name="addnew" type="submit">
+              <Link to="./AddPayroll"> <button> Add New Payroll</button></Link>
+            </button>
+          </div>
         </div>
 
         <div style={{ paddingTop: 10 }}>
