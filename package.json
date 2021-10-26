@@ -4,7 +4,6 @@
   "scripts": {
     "start": "cd asd-ems-frontend && npm install && npm start",
     "install-client": "cd asd-ems-frontend && npm install",
-    "build": "cd asd-ems-frontend && npm run build",
     "heroku-postbuild":"npm run install-client && npm run build"
   },
   "dependencies": {
