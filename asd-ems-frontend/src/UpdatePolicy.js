@@ -2,12 +2,12 @@ import WebLayout from './components/WebLayout';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
-import paymentPolicyText from './paymentPolicyText.json';
+// import paymentPolicyText from './paymentPolicyText.json';
 
 let text = '';
-paymentPolicyText.data.forEach(element => {
-    text += element + '\n';
-});
+// paymentPolicyText.data.forEach(element => {
+//     text += element + '\n';
+// });
 
 function setText(str) {
     let formTextField = document.getElementsByClassName("formtextfield")[0];
@@ -29,24 +29,30 @@ function updatePreview() {
 //   });
 
 const Content = () => {
-    const [policy, setPolicy] = useState({ policytext: "" });
+    const [paymentpolicy, setPolicy] = useState({ policytext: "" });
 
-    const { policytext } = policy;
+    const { policytext } = paymentpolicy;
 
     const onInputChange = e => {
-        setPolicy({ ...policy, [e.target.name]: e.target.value });
+        setPolicy({ ...paymentpolicy, [e.target.name]: e.target.value });
     };
 
     const onSubmit = async e => {
         // policy.policytext has the info I want, though the below does nothing
-        await axios.post("http://localhost:3001/policy", policy);
+        //await axios.post("http://localhost:3001/paymentpolicy", paymentpolicy);
+        await axios.post("https://asd-ems-db.herokuapp.com/paymentpolicy", paymentpolicy);
         window.location = "/PaymentPolicy";
     };
 
     const handleSubmit = e => {
         e.preventDefault();
         var policyText = document.forms["policyform"]["policytext"].value;
-        window.location.reload(); 
+        if (policyText.includes("<script")) {
+            alert("Error: script tag found in editor text, this may give you a bad time")
+            window.location.reload(); 
+        } else {
+            onSubmit(e);
+        }
     };
 
     if (localStorage.getItem("id") !== null) {
