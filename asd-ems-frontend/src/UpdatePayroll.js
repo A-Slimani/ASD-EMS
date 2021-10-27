@@ -33,7 +33,7 @@ const Content = () => {
 
   // takes id from payroll history
   const onSubmit = async e => {
-    await axios.put(`http://localhost:3001/payrolldb/${match.params.id}`, payroll)
+    await axios.put(`https://asd-ems.herokuapp.com/payrolldb/${match.params.id}`, payroll)
     window.location = "/PayrollHistory"
   }
 
