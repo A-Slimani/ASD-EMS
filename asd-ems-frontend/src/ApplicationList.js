@@ -60,9 +60,6 @@ const Content = () => {
           break;
         }
       }
-      history.push({
-        pathname: `/Dashboard`,
-      })
     }
   }
 
@@ -78,9 +75,6 @@ const Content = () => {
           break;
         }
       }
-      history.push({
-        pathname: `/Dashboard`,
-      })
     }
   }
 

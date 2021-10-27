@@ -34,9 +34,6 @@ const Content = () => {
   // takes id from payroll history
   const onSubmit = async e => {
     await axios.put(`https://asd-ems-db.herokuapp.com/payrolldb/${match.params.id}`, payroll)
-    history.push({
-      pathname: `/PayrollHistory`,
-    })
   }
 
   function goBack(e) {

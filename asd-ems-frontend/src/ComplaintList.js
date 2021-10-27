@@ -61,9 +61,6 @@ const Content = () => {
           break;
         }
       }
-      history.push({
-        pathname: `/Dashboard`,
-      })
     }
   }
 

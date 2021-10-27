@@ -38,9 +38,6 @@ const Content = () => {
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
-    history.push({
-      pathname: `/EmployeeDashboard`,
-    })
   };
 
   const handleSubmit = e => {

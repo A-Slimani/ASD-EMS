@@ -55,9 +55,6 @@ const Content = () => {
 
   const onSubmit = async e => {
     await axios.put(`https://asd-ems-db.herokuapp.com/employees/${match.params.id}`, employee)
-    history.push({
-      pathname: `/UserList`,
-    })
   }
 
   function goBack(e) {
