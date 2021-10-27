@@ -127,13 +127,13 @@ const Content = () => {
             <Column title="Amount ($)" dataIndex="amount" key="amount" />
             <Column title="Bonus ($)" dataIndex="bonus" key="bonus" />
             <Column title="Payment Method" dataIndex="paymethod" key="paymethod" />
-            <Column title="Pay Date (yyyy/mm/dd)" dataIndex="paydate" key="paydate" />
+            <Column title="Pay Date (YYYY/MM/DD)" dataIndex="paydate" key="paydate" />
             <Column title="Description" dataIndex="description" key="Description" />
             <Column title="Options" key="id" render={(p) => (
               <>
                 <Space split={<Divider type="vertical" />}>
-                  <Button id={p.id} onClick={handleDelete}> delete</Button>
                   <Button id={p.id} onClick={handleEditRoute}>update</Button>
+                  <Button id={p.id} onClick={handleDelete}> delete</Button>
                 </Space>
               </>
             )} />
