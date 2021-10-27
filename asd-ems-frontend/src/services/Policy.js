@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "/api/policy"
+const baseUrl = "/api/paymentpolicy"
 
 const getAll = () => {
     const request = axios.get(baseUrl);

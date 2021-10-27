@@ -551,6 +551,7 @@
       "id": 10
     }
   ],
+<<<<<<< HEAD
   "Payment": {
     "data": [
       "<div style='font-size: 20px; padding-left: 45px; padding-top: 50px; text-align: left'>",
@@ -605,5 +606,9 @@
       "        <b>Enterprise Management Systems</b>",
       "</div>"
     ]
+=======
+  "paymentpolicy": {
+    "policytext": "\n<b>\n\thello  htere\n</b>"
+>>>>>>> a59878ae63bfb216ae8980ea970862bbbc3f29a6
   }
 }
