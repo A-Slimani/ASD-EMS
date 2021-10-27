@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import { useHistory } from 'react-router-dom';
 
-const history = useHistory();
-
 const Content = () => {
   const [employees, setEmployee] = useState({
     fname: "", lname: "", dob: "", phoneno: "",
