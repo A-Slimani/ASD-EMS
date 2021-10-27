@@ -1,7 +1,7 @@
 import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
-import voiceconcernService from "./services/Concern";
+import voiceconcernService from './services/Concern';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 
@@ -21,8 +21,8 @@ const Content = () => {
     voiceconcernService.getAll().then(voiceconcern => {
       setConcern(voiceconcern);
       // setDisplayList(voiceconcern);
-    })
-  }, [])
+    });
+  }, []);
 
   // filters the values with all the inputs
   const filteredList = () => {
@@ -30,7 +30,7 @@ const Content = () => {
       c =>
         c.status.match(statusFilter) &&
         c.discussdate.match(dateFilter) &&
-        (c.name.toLowerCase().match(nameFilter.toLowerCase()))
+        c.name.toLowerCase().match(nameFilter.toLowerCase())
     );
   };
 
@@ -51,25 +51,36 @@ const Content = () => {
 
   //execute function to change the status from "pending" to "solved"
   const handleSolved = async e => {
-    var option = window.confirm("Do you want to delete Concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+    var option = window.confirm(
+      'Do you want to delete Concern with ID ' +
+        e.currentTarget.id +
+        '? \n\n Select OK to delete or CANCEL action'
+    );
 
     if (option === true) {
       for (let i of voiceconcern) {
-        if (e.currentTarget.id == i.id) {
+        if (e.currentTarget.id === i.id) {
           var concern = Object.assign({}, i);
-          concern.status = "Solved";
-          await axios.put(`https://asd-ems-db.herokuapp.com/voiceconcern/${e.currentTarget.id}`, concern);
+          concern.status = 'Solved';
+          await axios.put(
+            `https://asd-ems-db.herokuapp.com/voiceconcern/${e.currentTarget.id}`,
+            concern
+          );
           break;
         }
       }
     }
-  }
+    window.location.reload();
+  };
 
-  if (localStorage.getItem("id") !== null) {
+  if (localStorage.getItem('id') !== null) {
     return (
       <>
         <div style={{ textAlign: 'center' }}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Employee Concerns </h1>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
+            {' '}
+            Employee Concerns{' '}
+          </h1>
           <br />
           <Input.Group compact>
             <Input
@@ -98,28 +109,38 @@ const Content = () => {
           <p />
         </div>
 
-
         <div style={{ paddingTop: 10 }}>
           <Table dataSource={filteredList()}>
             <Column title="Concern ID" dataIndex="id" key="id" />
             <Column title="Name" dataIndex="name" key="name" />
             <Column title="Topic" dataIndex="topic" key="topic" />
-            <Column title="Enquiry/Description" dataIndex="description" key="description" />
+            <Column
+              title="Enquiry/Description"
+              dataIndex="description"
+              key="description"
+            />
             <Column title="Discuss Date" dataIndex="discussdate" key="discussdate" />
             <Column title="Status" dataIndex="status" key="status" />
-            <Column title="Options" key="id" render={(p) => (
-              <>
-                <Space split={<Divider type="vertical" />}>
-                  <Button id={p.id} onClick={handleSolved}> Solved</Button>
-                </Space>
-              </>
-            )} />
+            <Column
+              title="Options"
+              key="id"
+              render={p => (
+                <>
+                  <Space split={<Divider type="vertical" />}>
+                    <Button id={p.id} onClick={handleSolved}>
+                      {' '}
+                      Solved
+                    </Button>
+                  </Space>
+                </>
+              )}
+            />
           </Table>
         </div>
       </>
     );
   } else {
-    return <Redirect to={{ pathname: '/' }} />
+    return <Redirect to={{ pathname: '/' }} />;
   }
 };
 

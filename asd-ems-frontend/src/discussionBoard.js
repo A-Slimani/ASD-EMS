@@ -1,55 +1,75 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-import EmployeeWebLayout from "./components/EmployeeWebLayout";
+import EmployeeWebLayout from './components/EmployeeWebLayout';
 
 const Content = () => {
   const [voiceconcern, setConcern] = useState({
-    name: "", discussdate: "", topic: "",
-    status: "Pending", description: ""
+    name: '',
+    discussdate: '',
+    topic: '',
+    status: 'Pending',
+    description: '',
   });
 
   const { name, discussdate, topic, status, description } = voiceconcern;
 
   const onInputChange = e => {
-    setConcern({ ...voiceconcern, [e.target.name]: e.target.value })
+    setConcern({ ...voiceconcern, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => {
-    await axios.post("https://asd-ems-db.herokuapp.com/voiceconcern", voiceconcern);
-    alert("File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard");
+    await axios.post('https://asd-ems-db.herokuapp.com/voiceconcern', voiceconcern);
+    alert(
+      'File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard'
+    );
+    window.location = '/EmployeeDashboard';
   };
 
   const handleSubmit = e => {
-    function isText(text) { return (/^[A-Za-z]+$/).test(text) }
+    function isText(text) {
+      return /^[A-Za-z]+$/.test(text);
+    }
 
     e.preventDefault();
-    var s = window.confirm("Do you want submit the application with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form");
+    var s = window.confirm(
+      'Do you want submit the application with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form'
+    );
     if (s === true) {
-      var name = document.forms["dicussform"]["name"].value;
-      var description = document.forms["dicussform"]["description"].value;
-      var discussdate = document.forms["dicussform"]["discussdate"].value;
-      var topic = document.forms["dicussform"]["topic"].value;
+      var name = document.forms['dicussform']['name'].value;
+      var description = document.forms['dicussform']['description'].value;
+      var discussdate = document.forms['dicussform']['discussdate'].value;
+      var topic = document.forms['dicussform']['topic'].value;
 
-      if (name === "" || isText(name) === false) { alert("Name field is empty or invalid format input"); }
-      else if (description === "") { alert("Description field is empty"); }
-      else if (topic === "") { alert("Topic field is empty"); }
-      else if (discussdate === "") { alert("Date  must be select"); }
-      else { onSubmit(); }
+      if (name === '' || isText(name) === false) {
+        alert('Name field is empty or invalid format input');
+      } else if (description === '') {
+        alert('Description field is empty');
+      } else if (topic === '') {
+        alert('Topic field is empty');
+      } else if (discussdate === '') {
+        alert('Date  must be select');
+      } else {
+        onSubmit();
+      }
+    } else {
+      window.location.reload();
     }
-    else { window.location.reload(); }
-  }
+  };
 
-  if (localStorage.getItem("id") !== null) {
+  if (localStorage.getItem('id') !== null) {
     return (
       <div>
-        <form id='dicussform' name='dicussform' onSubmit={e => onSubmit(e)}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> Voice Concern </h1>
+        <form id="dicussform" name="dicussform" onSubmit={e => onSubmit(e)}>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
+            {' '}
+            Voice Concern{' '}
+          </h1>
           <p style={{ textAlign: 'center' }}> We are hearing your voice !!! </p>
           <p />
 
           <div style={{ paddingTop: 20 }}>
-            <label style={{ fontWeight: "bold" }}> Date: </label>
+            <label style={{ fontWeight: 'bold' }}> Date: </label>
             <small> Use the calendar on the right </small> <p />
             <input
               type="date"
@@ -63,7 +83,7 @@ const Content = () => {
           </div>
 
           <div style={{ paddingTop: 20 }}>
-            <label style={{ fontWeight: "bold" }}> Anonymous Name: </label>
+            <label style={{ fontWeight: 'bold' }}> Anonymous Name: </label>
             <small>Up to 255 Characters </small> <p> </p>
             <input
               type="text"
@@ -77,7 +97,7 @@ const Content = () => {
           </div>
 
           <div style={{ paddingTop: 20 }}>
-            <label style={{ fontWeight: "bold" }}> Topic: </label>
+            <label style={{ fontWeight: 'bold' }}> Topic: </label>
             <small>Up to 255 Characters </small> <p> </p>
             <input
               type="text"
@@ -91,7 +111,7 @@ const Content = () => {
           </div>
 
           <div style={{ paddingTop: 20 }}>
-            <label style={{ fontWeight: "bold" }}> Description: </label>
+            <label style={{ fontWeight: 'bold' }}> Description: </label>
             <small>Up to 255 Characters </small> <p> </p>
             <textarea
               type="text"
@@ -104,19 +124,29 @@ const Content = () => {
             <br /> <p />
           </div>
 
-          <div style={{ textAlign: 'center', paddingTop: 10, fontSize: 15, fontStyle: "italic", fontWeight: "bold" }}>
+          <div
+            style={{
+              textAlign: 'center',
+              paddingTop: 10,
+              fontSize: 15,
+              fontStyle: 'italic',
+              fontWeight: 'bold',
+            }}>
             <small>
               The process may takes up to 3-5 business days <br />
               Employee will be informed when their concern has been resolved
-            </small> <br />
-            <button type="submit" id="submit" className="button" onClick={handleSubmit} > Post </button>{' '}
+            </small>{' '}
+            <br />
+            <button type="submit" id="submit" className="button" onClick={handleSubmit}>
+              {' '}
+              Post{' '}
+            </button>{' '}
           </div>
         </form>
-
       </div>
     );
   } else {
-    return <Redirect to={{ pathname: '/' }} />
+    return <Redirect to={{ pathname: '/' }} />;
   }
 };
 

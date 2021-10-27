@@ -20,6 +20,7 @@ const Content = () => {
     //execute add function to create new payroll
     const onSubmit = async e => {
         await axios.post("https://asd-ems-db.herokuapp.com/payrolldb", payroll);
+        window.location = "/PayrollHistory"
     };
 
     //handle create payroll form validation

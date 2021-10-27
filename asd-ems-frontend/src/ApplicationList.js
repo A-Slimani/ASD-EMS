@@ -1,7 +1,7 @@
 import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from './components/WebLayout';
-import applicationService from "./services/Application";
+import applicationService from './services/Application';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 
@@ -17,9 +17,9 @@ const Content = () => {
 
   useEffect(() => {
     applicationService.getAll().then(applicationform => {
-      setApplications(applicationform)
-    })
-  }, [])
+      setApplications(applicationform);
+    });
+  }, []);
 
   // filters the values with all the inputs
   const filteredList = () => {
@@ -49,40 +49,59 @@ const Content = () => {
   };
 
   const handleApprove = async e => {
-    var option = window.confirm("Do you want to approve application with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+    var option = window.confirm(
+      'Do you want to approve application with ID ' +
+        e.currentTarget.id +
+        '? \n\n Select OK to delete or CANCEL action'
+    );
 
     if (option === true) {
       for (let i of applicationform) {
         if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
-          concern.status = "Approved";
-          await axios.put(`https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`, concern);
+          concern.status = 'Approved';
+          await axios.put(
+            `https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`,
+            concern
+          );
           break;
         }
       }
     }
-  }
+    window.location.reload();
+  };
 
   const handleReject = async e => {
-    var option = window.confirm("Do you want to reject application with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+    var option = window.confirm(
+      'Do you want to reject application with ID ' +
+        e.currentTarget.id +
+        '? \n\n Select OK to delete or CANCEL action'
+    );
 
     if (option === true) {
       for (let i of applicationform) {
         if (e.currentTarget.id == i.id) {
           var concern = Object.assign({}, i);
-          concern.status = "Rejected";
-          await axios.put(`https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`, concern);
+          concern.status = 'Rejected';
+          await axios.put(
+            `https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`,
+            concern
+          );
           break;
         }
       }
     }
-  }
+    window.location.reload();
+  };
 
-  if (localStorage.getItem("id") !== null) {
+  if (localStorage.getItem('id') !== null) {
     return (
       <>
         <div style={{ textAlign: 'center' }}>
-          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold', }}> All Applications </h1>
+          <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
+            {' '}
+            All Applications{' '}
+          </h1>
           <br />
           <Input.Group compact>
             <Input
@@ -100,7 +119,9 @@ const Content = () => {
               style={{ width: '20%' }}
               onChange={handleChangeType}
               allowClear>
-              <Option value="Transfer between Department">Transfer between Department</Option>
+              <Option value="Transfer between Department">
+                Transfer between Department
+              </Option>
               <Option value="Business Claim">Business Claim</Option>
               <Option value="Apply Leave">Apply Leave</Option>
               <Option value="Resignation">Resignation</Option>
@@ -130,25 +151,43 @@ const Content = () => {
             <Column title="Application ID" dataIndex="id" key="id" />
             <Column title="First Name" dataIndex="fname" key="firstName" />
             <Column title="Last Name" dataIndex="lname" key="lastName" />
-            <Column title="Application Type" dataIndex="applicationtype" key="applicationtype" />
+            <Column
+              title="Application Type"
+              dataIndex="applicationtype"
+              key="applicationtype"
+            />
             <Column title="Sub-Category" dataIndex="subcategory" key="subcategory" />
             <Column title="Reason" dataIndex="reason" key="reason" />
-            <Column title="Date Submitted" dataIndex="applicationdate" key="applicationdate" />
+            <Column
+              title="Date Submitted"
+              dataIndex="applicationdate"
+              key="applicationdate"
+            />
             <Column title="Status" dataIndex="status" key="status" />
-            <Column title="Options" key="id" render={(p) => (
-              <>
-                <Space split={<Divider type="vertical" />}>
-                  <Button id={p.id} onClick={handleApprove}> Approve </Button>
-                  <Button id={p.id} onClick={handleReject}> Reject </Button>
-                </Space>
-              </>
-            )} />
+            <Column
+              title="Options"
+              key="id"
+              render={p => (
+                <>
+                  <Space split={<Divider type="vertical" />}>
+                    <Button id={p.id} onClick={handleApprove}>
+                      {' '}
+                      Approve{' '}
+                    </Button>
+                    <Button id={p.id} onClick={handleReject}>
+                      {' '}
+                      Reject{' '}
+                    </Button>
+                  </Space>
+                </>
+              )}
+            />
           </Table>
         </div>
       </>
     );
   } else {
-    return <Redirect to={{ pathname: '/' }} />
+    return <Redirect to={{ pathname: '/' }} />;
   }
 };
 

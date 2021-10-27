@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 const Content = () => {
-  const empid = localStorage.getItem("id");
+  const empid = localStorage.getItem('id');
   const [application, setApplication] = useState({
     userid: empid,
     fname: '',
@@ -38,6 +38,7 @@ const Content = () => {
     alert(
       'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
+    window.location = '/EmployeeDashboard';
   };
 
   const handleSubmit = e => {
@@ -74,16 +75,19 @@ const Content = () => {
     }
   };
 
-  if (localStorage.getItem("id") !== null) {
+  if (localStorage.getItem('id') !== null) {
     return (
       <>
         <div>
           <form id="applicationform" name="applicationform" onSubmit={e => onSubmit(e)}>
-            <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}> Launch Application </h1>
+            <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
+              {' '}
+              Launch Application{' '}
+            </h1>
             <p />
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: "bold" }}> Date: </label>
+              <label style={{ fontWeight: 'bold' }}> Date: </label>
               <small> Use the calendar on the right </small> <p />
               <input
                 type="date"
@@ -97,7 +101,7 @@ const Content = () => {
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: "bold" }}> First Name: </label>
+              <label style={{ fontWeight: 'bold' }}> First Name: </label>
               <small>Up to 255 Characters </small> <p> </p>
               <input
                 type="text"
@@ -110,7 +114,7 @@ const Content = () => {
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: "bold" }}> Last Name: </label>
+              <label style={{ fontWeight: 'bold' }}> Last Name: </label>
               <small>Up to 255 Characters </small> <p> </p>
               <input
                 type="text"
@@ -123,14 +127,17 @@ const Content = () => {
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: "bold" }}> Type of Application: </label>
+              <label style={{ fontWeight: 'bold' }}> Type of Application: </label>
               <select
                 name="applicationtype"
                 className="formtextfield"
                 value={applicationtype}
                 onChange={e => onInputChange(e)}>
                 <option value="select"> -- Select one -- </option>
-                <option value="Transfer between Departments"> Transfer between Departments </option>
+                <option value="Transfer between Departments">
+                  {' '}
+                  Transfer between Departments{' '}
+                </option>
                 <option value="Business Claims"> Business Claims </option>
                 <option value="Apply Leave"> Apply Leave </option>
                 <option value="Resignation"> Resignation </option>
@@ -140,7 +147,7 @@ const Content = () => {
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: "bold" }}> Sub-Category: </label>
+              <label style={{ fontWeight: 'bold' }}> Sub-Category: </label>
               <small>Up to 255 Characters </small> <p> </p>
               <textarea
                 type="text"
@@ -154,7 +161,7 @@ const Content = () => {
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: "bold" }}> Reason </label>
+              <label style={{ fontWeight: 'bold' }}> Reason </label>
               <small>Up to 255 Characters </small> <p> </p>
               <textarea
                 type="text"
@@ -167,20 +174,30 @@ const Content = () => {
               <br /> <p />
             </div>
 
-            <div style={{ textAlign: 'center', paddingTop: 10, fontSize: 15, fontStyle: "italic", fontWeight: "bold" }}>
+            <div
+              style={{
+                textAlign: 'center',
+                paddingTop: 10,
+                fontSize: 15,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+              }}>
               <small>
                 The application process may takes up to 3-5 business days <br />
                 Employee will be informed when the application is approved or rejected
               </small>
               <br />
-              <button type="submit" id="submit" className="button" onClick={handleSubmit}> Submit </button>
+              <button type="submit" id="submit" className="button" onClick={handleSubmit}>
+                {' '}
+                Submit{' '}
+              </button>
             </div>
           </form>
         </div>
       </>
     );
   } else {
-    return <Redirect to={{ pathname: '/' }} />
+    return <Redirect to={{ pathname: '/' }} />;
   }
 };
 

@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import { useHistory } from 'react-router-dom';
 
-const history = useHistory();
-
 const Content = () => {
   const [employees, setEmployee] = useState({
     fname: "", lname: "", dob: "", phoneno: "",
@@ -33,9 +31,7 @@ const Content = () => {
   // execute the add function after form validation is complete
   const onSubmit = async e => {
     await axios.post("https://asd-ems-db.herokuapp.com/employees", employees);
-    history.push({
-      pathname: `/UserList`,
-    })
+    window.location = "/UserList";
   };
 
   //validate register form to ensure correct data in entered before submit the form or execute the add function
