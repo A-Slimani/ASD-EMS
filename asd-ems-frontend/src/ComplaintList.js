@@ -10,6 +10,7 @@ const { Option } = Select;
 
 const Content = () => {
   const [complaints, setComplaints] = useState([]);
+  const [currentComplaint, setCurrentComplaint] = useState('');
   const [nameFilter, setNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
@@ -49,22 +50,26 @@ const Content = () => {
   };
 
   // Handled solved / pending complaints
-  const handleSolved = async e => {
-    var option = window.confirm("Do you want to delete Concern with ID " + e.currentTarget.id + "? \n\n Select OK to delete or CANCEL action");
+  const handleSolved = e => {
+    var option = window.confirm(
+      'Do you want to this to solved' +
+        e.currentTarget.id +
+        '? \n\n Select OK to delete or CANCEL action'
+    );
 
     if (option === true) {
-      for (let i of complaints) {
-        if (e.currentTarget.id == i.id) {
-          var concern = Object.assign({}, i);
-          concern.status = "Solved";
-          await axios.put(`https://asd-ems-db.herokuapp.com/filecomplaint/${e.currentTarget.id}`, concern);
-          break;
-        }
-      }
-    }
-  }
+      setCurrentComplaint(
+        complaints.find(complaint => {
+          return complaint.id === e.currentTarget.id;
+        })
+      );
 
-  if (localStorage.getItem("id") !== null) {
+
+    }
+    window.location.reload();
+  };
+
+  if (localStorage.getItem('id') !== null) {
     return (
       <>
         <div style={{ textAlign: 'center' }}>
@@ -121,7 +126,11 @@ const Content = () => {
               dataIndex="complaintdescription"
               key="complaintdescription"
             />
-            <Column title="Date Submitted" dataIndex="complaintdate" key="complaintdate" />
+            <Column
+              title="Date Submitted"
+              dataIndex="complaintdate"
+              key="complaintdate"
+            />
             <Column title="Status" dataIndex="status" key="status" />
             <Column
               title="Options"
@@ -142,7 +151,7 @@ const Content = () => {
       </>
     );
   } else {
-    return <Redirect to={{ pathname: '/' }} />
+    return <Redirect to={{ pathname: '/' }} />;
   }
 };
 

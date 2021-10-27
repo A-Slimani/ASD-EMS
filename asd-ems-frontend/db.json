@@ -1,25 +1,6 @@
 {
   "employees": [
     {
-      "fname": "Jon",
-      "lname": "Jones",
-      "dob": "1980-10-05",
-      "phoneno": "0404",
-      "username": "JonJones@EMSHR",
-      "pwd": "jon123",
-      "accname": "jjones",
-      "accnum": "1234",
-      "accbsb": "111",
-      "address": "12 Test st",
-      "suburb": "Liverpool",
-      "state": "NSW",
-      "pcode": "1111",
-      "employdate": "2011-10-10",
-      "dept": "HR",
-      "employtype": "Full-Time",
-      "id": 3
-    },
-    {
       "fname": "Jonny",
       "lname": "Bigbones",
       "dob": "1980-10-05",
@@ -75,25 +56,6 @@
       "dept": "HR",
       "employtype": "Part-Time",
       "id": 6
-    },
-    {
-      "fname": "hello",
-      "lname": "Jones",
-      "dob": "1969-06-27",
-      "phoneno": "1231232131",
-      "username": "asdasd@EMSMK",
-      "pwd": "qweqwe",
-      "accname": "asdas",
-      "accnum": "2131212412",
-      "accbsb": "412412",
-      "address": "2 ultimo",
-      "suburb": "ultima",
-      "state": "NSW",
-      "pcode": "1231",
-      "employdate": "2021-10-25",
-      "dept": "Marketing",
-      "employtype": "Part-Time",
-      "id": 7
     },
     {
       "fname": "hello",
@@ -642,6 +604,6 @@
       "        Human Resources Manager <br>",
       "        <b>Enterprise Management Systems</b>",
       "</div>"
-      ]
+    ]
   }
 }

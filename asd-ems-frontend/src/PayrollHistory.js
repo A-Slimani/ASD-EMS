@@ -59,7 +59,7 @@ const Content = () => {
     if (option === true) {
       axios.delete(`https://asd-ems-db.herokuapp.com/payrolldb/${e.currentTarget.id}`);
       history.push({
-        pathname: `/Dashboard`,
+        pathname: `/PayrollHistory`,
       })
     }
   }
