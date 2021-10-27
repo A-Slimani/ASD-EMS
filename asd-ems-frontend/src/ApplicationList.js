@@ -119,7 +119,7 @@ const Content = () => {
               style={{ width: '20%' }}
               onChange={handleChangeType}
               allowClear>
-              <Option value="Transfer between Department">
+              <Option value="Transfer Between Department">
                 Transfer between Department
               </Option>
               <Option value="Business Claim">Business Claim</Option>
