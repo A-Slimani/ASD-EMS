@@ -2,6 +2,9 @@ import axios from 'axios';
 import WebLayout from './components/WebLayout';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
+
+const history = useHistory();
 
 const Content = () => {
   const [employees, setEmployee] = useState({
@@ -20,6 +23,8 @@ const Content = () => {
     employdate, dept, employtype
   } = employees;
 
+  const history = useHistory();
+
   //collect data entered into the register form
   const onInputChange = e => {
     setEmployee({ ...employees, [e.target.name]: e.target.value })
@@ -28,6 +33,9 @@ const Content = () => {
   // execute the add function after form validation is complete
   const onSubmit = async e => {
     await axios.post("https://asd-ems-db.herokuapp.com/employees", employees);
+    history.push({
+      pathname: `/UserList`,
+    })
   };
 
   //validate register form to ensure correct data in entered before submit the form or execute the add function

@@ -35,13 +35,13 @@ const WebLayout = ({ content }) => {
             <Link to={`/Dashboard`}> <button> Home </button></Link>
           </Menu.Item>
 
-          <SubMenu key="sub1" icon={<UserOutlined />} title="Employee Manage">
+          <SubMenu key="sub1" icon={<UserOutlined />} title="Manage Employee">
             <Menu.Item key="1"><Link to={`/AddUser`}> <button> Add Employee</button></Link></Menu.Item>
             <Menu.Item key="2"> <Link to={`/UserList`}> <button> Employee List </button></Link></Menu.Item>
             <Menu.Item key="3"><Link to={`/Roster`}> <button> Roster </button></Link></Menu.Item>
           </SubMenu>
 
-          <SubMenu key="sub2" icon={<TeamOutlined />} title="Payroll Manage">
+          <SubMenu key="sub2" icon={<TeamOutlined />} title="Manage Payroll">
             <Menu.Item key="4"> <Link to={`/AddPayroll`}> <button> New Payroll </button></Link></Menu.Item>
             <Menu.Item key="5"> <Link to={`/PayrollHistory`}> <button> Payroll History </button> </Link> </Menu.Item>
             <Menu.Item key="6"> <Link to={`/PaymentPolicy`}> <button> Payment Policy</button></Link></Menu.Item>
@@ -52,11 +52,11 @@ const WebLayout = ({ content }) => {
           </Menu.Item>
 
           <Menu.Item key="menu3" icon={<CommentOutlined />}>
-            <Link to={`/ComplaintList`}><button> Manage Complaints </button></Link>
+            <Link to={`/ComplaintList`}><button> Manage Complaint </button></Link>
           </Menu.Item>
 
           <Menu.Item key="menu4" icon={<DesktopOutlined />}>
-            <Link to={`/ConcernList`}> <button> Concern Manage </button> </Link>
+            <Link to={`/ConcernList`}> <button> Manage Concern </button> </Link>
           </Menu.Item>
 
           <Menu.Item key="menu5" icon={<RobotOutlined />}>

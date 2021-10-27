@@ -124,10 +124,10 @@ const Content = () => {
             <Column title="Payroll ID" dataIndex="id" key="id" value="id" />
             <Column title="First Name" dataIndex="fname" key="firstName" />
             <Column title="Last Name" dataIndex="lname" key="lastName" />
-            <Column title="Amount" dataIndex="amount" key="amount" />
-            <Column title="Bonus" dataIndex="bonus" key="bonus" />
+            <Column title="Amount ($)" dataIndex="amount" key="amount" />
+            <Column title="Bonus ($)" dataIndex="bonus" key="bonus" />
             <Column title="Payment Method" dataIndex="paymethod" key="paymethod" />
-            <Column title="Pay Date" dataIndex="paydate" key="paydate" />
+            <Column title="Pay Date (yyyy/mm/dd)" dataIndex="paydate" key="paydate" />
             <Column title="Description" dataIndex="description" key="Description" />
             <Column title="Options" key="id" render={(p) => (
               <>
