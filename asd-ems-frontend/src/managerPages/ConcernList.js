@@ -1,42 +1,42 @@
 import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
+import WebLayout from '../components/WebLayout';
+import voiceconcernService from '../services/Concern';
 import axios from 'axios';
-import WebLayout from './components/WebLayout';
-import complaintService from './services/Complaint';
 import { Redirect } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
 
 const Content = () => {
-  const [complaints, setComplaints] = useState([]);
-  const [currentComplaint, setCurrentComplaint] = useState('');
+  const [voiceconcern, setConcern] = useState([]);
+
   const [nameFilter, setNameFilter] = useState('');
-  const [typeFilter, setTypeFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [dateFilter, setDateFilter] = useState('');
 
+  // const [displayList, setDisplayList] = useState([])
+
   useEffect(() => {
-    complaintService.getAll().then(filecomplaint => {
-      setComplaints(filecomplaint);
+    voiceconcernService.getAll().then(voiceconcern => {
+      setConcern(voiceconcern);
+      // setDisplayList(voiceconcern);
     });
   }, []);
 
   // filters the values with all the inputs
   const filteredList = () => {
-    return complaints.filter(
+    return voiceconcern.filter(
       c =>
-        c.complainttype.match(typeFilter) &&
         c.status.match(statusFilter) &&
-        c.complaintdate.match(dateFilter) &&
-        (c.fname.toLowerCase().match(nameFilter.toLowerCase()) ||
-          c.lname.toLowerCase().match(nameFilter.toLowerCase))
+        c.discussdate.match(dateFilter) &&
+        c.name.toLowerCase().match(nameFilter.toLowerCase())
     );
   };
 
   // updates each input
   const handleChangeType = event => {
-    setTypeFilter(event);
+    setNameFilter(event);
   };
 
   const handleChangeStatus = event => {
@@ -49,22 +49,26 @@ const Content = () => {
     console.log('date filter: ', dateFilter);
   };
 
-  // Handled solved / pending complaints
-  const handleSolved = e => {
+  //execute function to change the status from "pending" to "solved"
+  const handleSolved = async e => {
     var option = window.confirm(
-      'Do you want to this to solved' +
+      'Do you want to delete Concern with ID ' +
         e.currentTarget.id +
         '? \n\n Select OK to delete or CANCEL action'
     );
 
     if (option === true) {
-      setCurrentComplaint(
-        complaints.find(complaint => {
-          return complaint.id === e.currentTarget.id;
-        })
-      );
-
-
+      for (let i of voiceconcern) {
+        if (e.currentTarget.id === i.id) {
+          var concern = Object.assign({}, i);
+          concern.status = 'Solved';
+          await axios.put(
+            `https://asd-ems-db.herokuapp.com/voiceconcern/${e.currentTarget.id}`,
+            concern
+          );
+          break;
+        }
+      }
     }
     window.location.reload();
   };
@@ -75,7 +79,7 @@ const Content = () => {
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
             {' '}
-            All File Complaints{' '}
+            Employee Concerns{' '}
           </h1>
           <br />
           <Input.Group compact>
@@ -87,19 +91,9 @@ const Content = () => {
                 setNameFilter(target.value);
               }}
             />
-            <Select
-              id="type"
-              placeholder="Complaint Type"
-              size="large"
-              style={{ width: '20%' }}
-              onChange={handleChangeType}
-              allowClear>
-              <Option value="General">General</Option>
-              <Option value="Work">Work</Option>
-              <Option value="Personal">Personal</Option>
-              <Option value="Suggestion">Suggestion</Option>
-            </Select>
+
             <DatePicker size="large" onChange={handleChangeDate} />
+
             <Select
               id="type"
               placeholder="Status"
@@ -117,20 +111,15 @@ const Content = () => {
 
         <div style={{ paddingTop: 10 }}>
           <Table dataSource={filteredList()}>
-            <Column title="Complaint ID" dataIndex="id" key="id" />
-            <Column title="First Name" dataIndex="fname" key="firstName" />
-            <Column title="Last Name" dataIndex="lname" key="lastName" />
-            <Column title="Type" dataIndex="complainttype" key="complainttype" />
+            <Column title="Concern ID" dataIndex="id" key="id" />
+            <Column title="Name" dataIndex="name" key="name" />
+            <Column title="Topic" dataIndex="topic" key="topic" />
             <Column
-              title="Description"
-              dataIndex="complaintdescription"
-              key="complaintdescription"
+              title="Enquiry/Description"
+              dataIndex="description"
+              key="description"
             />
-            <Column
-              title="Date Submitted"
-              dataIndex="complaintdate"
-              key="complaintdate"
-            />
+            <Column title="Discuss Date" dataIndex="discussdate" key="discussdate" />
             <Column title="Status" dataIndex="status" key="status" />
             <Column
               title="Options"
@@ -140,7 +129,7 @@ const Content = () => {
                   <Space split={<Divider type="vertical" />}>
                     <Button id={p.id} onClick={handleSolved}>
                       {' '}
-                      Solved{' '}
+                      Solved
                     </Button>
                   </Space>
                 </>
@@ -155,8 +144,8 @@ const Content = () => {
   }
 };
 
-const ComplaintList = () => {
+const ConcernList = () => {
   return <WebLayout content={Content()} />;
 };
 
-export default ComplaintList;
+export default ConcernList;

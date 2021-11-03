@@ -1,7 +1,7 @@
 import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
-import WebLayout from './components/WebLayout';
-import applicationService from './services/Application';
+import WebLayout from '../components/WebLayout';
+import applicationService from '../services/Application';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 

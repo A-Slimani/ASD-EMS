@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-import EmployeeWebLayout from './components/EmployeeWebLayout';
+import EmployeeWebLayout from '../components/EmployeeWebLayout';
 
 const Content = () => {
   const [voiceconcern, setConcern] = useState({

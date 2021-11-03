@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import WebLayout from './components/WebLayout';
+import WebLayout from '../components/WebLayout';
 import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router';
-import employeeService from './services/Employee';
+import employeeService from '../services/Employee';
 
 const Content = () => {
     const empid = localStorage.getItem("id");

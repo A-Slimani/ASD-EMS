@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import WebLayout from './components/WebLayout';
-import employeeService from './services/Employee';
+import WebLayout from '../components/WebLayout';
+import employeeService from '../services/Employee';
 import { useHistory } from 'react-router-dom';
 import { Redirect, useRouteMatch } from 'react-router';
 

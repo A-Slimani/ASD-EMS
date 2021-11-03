@@ -1,5 +1,5 @@
 import axios from 'axios';
-import WebLayout from './components/WebLayout';
+import WebLayout from '../components/WebLayout';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import { useHistory } from 'react-router-dom';

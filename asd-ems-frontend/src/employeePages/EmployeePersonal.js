@@ -1,10 +1,10 @@
 // import { Button, Divider, Space, Table, Input, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
-import EmployeeWebLayout from './components/EmployeeWebLayout';
-import employeeService from './services/Employee';
+import EmployeeWebLayout from '../components/EmployeeWebLayout';
+import employeeService from '../services/Employee';
 import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router';
-import payrollService from './services/Payroll'
+import payrollService from '../services/Payroll'
 
 const Content = () => {
   const empid = localStorage.getItem("id");

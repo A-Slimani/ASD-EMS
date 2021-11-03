@@ -1,42 +1,33 @@
-import EmployeeWebLayout from './components/EmployeeWebLayout';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import EmployeeWebLayout from '../components/EmployeeWebLayout';
+import { Redirect } from 'react-router';
 
 const Content = () => {
   const empid = localStorage.getItem('id');
-  const [application, setApplication] = useState({
+  const [filecomplaint, setComplaint] = useState({
     userid: empid,
     fname: '',
     lname: '',
-    applicationtype: '',
-    applicationdate: '',
+    complaintdescription: '',
+    complaintdate: '',
     status: 'Pending',
-    subcategory: '',
-    reason: '',
+    complainttype: '',
   });
 
-  const {
-    userid,
-    fname,
-    lname,
-    applicationtype,
-    applicationdate,
-    status,
-    subcategory,
-    reason,
-  } = application;
+  const { userid, fname, lname, complaintdescription, complainttype, complaintdate } =
+    filecomplaint;
 
   const onInputChange = e => {
-    setApplication({ ...application, [e.target.name]: e.target.value });
+    setComplaint({ ...filecomplaint, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => {
-    // await axios.post("http://localhost:3002/applicationform", application);
+    // await axios.post("http://localhost:3002/filecomplaint", filecomplaint);
     //change me back to :3002 when using Mongo. 3001 for local
-    await axios.post('https://asd-ems-db.herokuapp.com/applicationform', application);
+    await axios.post('https://asd-ems-db.herokuapp.com/filecomplaint', filecomplaint);
     alert(
-      'Application Submitted \n\n process takes up to 5 business days \n\n Select OK to navigate to dashboard'
+      'File Complaint Submitted \n\n The process takes up to 5 business days \n\n Select OK to navigate to dashboard'
     );
     window.location = '/EmployeeDashboard';
   };
@@ -51,22 +42,20 @@ const Content = () => {
       'Do you want submit the application with the entered information?\n\nSelect OK to proceed\n\nSelect CANCEL to reset form'
     );
     if (s === true) {
-      var fname = document.forms['applicationform']['fname'].value;
-      var lname = document.forms['applicationform']['lname'].value;
-      var subcategory = document.forms['applicationform']['subcategory'].value;
-      var reason = document.forms['applicationform']['reason'].value;
-      var applicationdate = document.forms['applicationform']['applicationdate'].value;
+      var fname = document.forms['complaintform']['fname'].value;
+      var lname = document.forms['complaintform']['lname'].value;
+      var complaintdescription =
+        document.forms['complaintform']['complaintdescription'].value;
+      var complaintdate = document.forms['complaintform']['complaintdate'].value;
 
       if (fname === '' || isText(fname) === false) {
         alert('First Name field is empty or invalid format input');
       } else if (lname === '' || isText(lname) === false) {
         alert('Last Name field is empty or invalid format input');
-      } else if (subcategory === '') {
-        alert('Subcategory field is empty');
-      } else if (reason === '') {
-        alert('Reason field is empty');
-      } else if (applicationdate === '') {
-        alert('Application Date  must be select');
+      } else if (complaintdescription === '') {
+        alert('Description field is empty');
+      } else if (complaintdate === '') {
+        alert('Complaint Date  must be select');
       } else {
         onSubmit();
       }
@@ -79,10 +68,10 @@ const Content = () => {
     return (
       <>
         <div>
-          <form id="applicationform" name="applicationform" onSubmit={e => onSubmit(e)}>
+          <form id="complaintform" name="complaintform" onSubmit={e => onSubmit(e)}>
             <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
               {' '}
-              Launch Application{' '}
+              File Complaints{' '}
             </h1>
             <p />
 
@@ -92,11 +81,11 @@ const Content = () => {
               <input
                 type="date"
                 placeholder="DD/MM/YYYY"
-                name="applicationdate"
+                name="complaintdate"
                 className="formtextfield"
-                value={applicationdate}
+                value={complaintdate}
                 onChange={e => onInputChange(e)}
-              />
+              />{' '}
               <br /> <p />
             </div>
 
@@ -109,7 +98,7 @@ const Content = () => {
                 className="formtextfield"
                 value={fname}
                 onChange={e => onInputChange(e)}
-              />
+              />{' '}
               <br /> <p />
             </div>
 
@@ -122,55 +111,37 @@ const Content = () => {
                 className="formtextfield"
                 value={lname}
                 onChange={e => onInputChange(e)}
-              />
+              />{' '}
               <br /> <p />
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: 'bold' }}> Type of Application: </label>
+              <label style={{ fontWeight: 'bold' }}> Type of Complaint: </label> <br />
               <select
-                name="applicationtype"
+                name="complainttype"
                 className="formtextfield"
-                value={applicationtype}
+                value={complainttype}
                 onChange={e => onInputChange(e)}>
                 <option value="select"> -- Select one -- </option>
-                <option value="Transfer between Departments">
-                  {' '}
-                  Transfer between Departments{' '}
-                </option>
-                <option value="Business Claims"> Business Claims </option>
-                <option value="Apply Leave"> Apply Leave </option>
-                <option value="Resignation"> Resignation </option>
-                <option value="Others"> Others </option>
-              </select>
+                <option value="Personal"> Personal </option>
+                <option value="Work"> Work </option>
+                <option value="General"> General </option>
+                <option value="Suggestion"> Suggestion </option>
+              </select>{' '}
               <br /> <p />
             </div>
 
             <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: 'bold' }}> Sub-Category: </label>
+              <label style={{ fontWeight: 'bold' }}> Description </label>
               <small>Up to 255 Characters </small> <p> </p>
               <textarea
                 type="text"
-                placeholder="Provide detailed description of the application"
-                name="subcategory"
+                placeholder="Message"
+                name="complaintdescription"
                 className="formtextfield"
-                value={subcategory}
+                value={complaintdescription}
                 onChange={e => onInputChange(e)}
-              />
-              <br /> <p />
-            </div>
-
-            <div style={{ paddingTop: 20 }}>
-              <label style={{ fontWeight: 'bold' }}> Reason </label>
-              <small>Up to 255 Characters </small> <p> </p>
-              <textarea
-                type="text"
-                placeholder="Provide detailed and valid reason"
-                name="reason"
-                className="formtextfield"
-                value={reason}
-                onChange={e => onInputChange(e)}
-              />
+              />{' '}
               <br /> <p />
             </div>
 
@@ -184,13 +155,13 @@ const Content = () => {
               }}>
               <small>
                 The application process may takes up to 3-5 business days <br />
-                Employee will be informed when the application is approved or rejected
-              </small>
+                Employee will be informed when the complaint has been resolved
+              </small>{' '}
               <br />
               <button type="submit" id="submit" className="button" onClick={handleSubmit}>
                 {' '}
                 Submit{' '}
-              </button>
+              </button>{' '}
             </div>
           </form>
         </div>
@@ -201,8 +172,8 @@ const Content = () => {
   }
 };
 
-const Application = () => {
+const FileComplaint = () => {
   return <EmployeeWebLayout content={Content()} />;
 };
 
-export default Application;
+export default FileComplaint;

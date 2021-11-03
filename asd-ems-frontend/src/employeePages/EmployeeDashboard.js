@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import EmployeeWebLayout from './components/EmployeeWebLayout';
+import EmployeeWebLayout from '../components/EmployeeWebLayout';
 
 const TestText = () => {
   if (localStorage.getItem("id") !== null) {

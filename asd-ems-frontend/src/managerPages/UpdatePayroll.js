@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useRouteMatch } from 'react-router-dom';
 import { Redirect } from 'react-router';
-import WebLayout from './components/WebLayout';
-import payrollService from './services/Payroll';
-import './style.css';
+import WebLayout from '../components/WebLayout';
+import payrollService from '../services/Payroll';
+import '../style.css';
 
 const Content = () => {
   const match = useRouteMatch('/UpdatePayroll/:id');

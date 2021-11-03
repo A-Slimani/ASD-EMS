@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import WebLayout from './components/WebLayout';
+import WebLayout from '../components/WebLayout';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
-import paymentPolicyText from './paymentPolicyText.json';
+import paymentPolicyText from '../paymentPolicyText.json';
 import axios from 'axios';
 
 const Content = () => {

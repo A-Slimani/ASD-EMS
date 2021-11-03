@@ -1,7 +1,7 @@
 import { Table, Input, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
-import WebLayout from './components/WebLayout';
-import rosterService from "./services/Roster";
+import WebLayout from '../components/WebLayout';
+import rosterService from "../services/Roster";
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 

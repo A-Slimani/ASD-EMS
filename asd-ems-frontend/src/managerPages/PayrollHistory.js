@@ -1,8 +1,8 @@
 import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
-import WebLayout from './components/WebLayout';
+import WebLayout from '../components/WebLayout';
 import { Link, useHistory } from 'react-router-dom';
-import payrollService from "./services/Payroll";
+import payrollService from "../services/Payroll";
 import { Redirect } from 'react-router';
 import axios from 'axios';
 

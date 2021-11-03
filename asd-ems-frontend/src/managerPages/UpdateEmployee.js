@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useRouteMatch } from 'react-router-dom';
-import WebLayout from './components/WebLayout';
-import employeeService from './services/Employee';
-import './style.css';
+import WebLayout from '../components/WebLayout';
+import employeeService from '../services/Employee';
+import '../style.css';
 
 const Content = () => {
   const match = useRouteMatch('/UpdateEmployee/:id');

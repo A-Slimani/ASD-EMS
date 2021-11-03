@@ -1,28 +1,28 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dashboard from './Dashboard';
+import Dashboard from './managerPages/Dashboard';
 import Login from './Login';
 import Logout from './Logout';
-import UserList from './UserList';
-import AddUser from './AddUser';
-import Roster from './Roster';
-import DiscussionBoard from './discussionBoard';
-import PaymentPolicy from './PaymentPolicy';
-import FileComplaint from './FileComplaint';
-import Application from './Application';
-import ApplicationList from './ApplicationList';
-import PayrollHistory from './PayrollHistory';
-import UpdateEmployee from './UpdateEmployee';
-import ComplaintList from './ComplaintList';
-import Personal from './Personal';
-import UpdatePayroll from './UpdatePayroll';
-import EmployeeDashboard from './EmployeeDashboard';
-import UpdatePolicy from './UpdatePolicy';
-import AddPayroll from './AddPayroll';
-import ConcernList from './ConcernList'
-import Profile from './Profile'
-import EmployeePersonal from './EmployeePersonal';
-import AddRoster from './AddRoster';
-// import UpdateUser from './UpdateUser';
+import UserList from './managerPages/UserList';
+import AddUser from './managerPages/AddUser';
+import Roster from './managerPages/Roster';
+import DiscussionBoard from './employeePages/discussionBoard';
+import PaymentPolicy from './managerPages/PaymentPolicy';
+import FileComplaint from './employeePages/FileComplaint';
+import Application from './employeePages/Application';
+import ApplicationList from './managerPages/ApplicationList';
+import PayrollHistory from './managerPages/PayrollHistory';
+import UpdateEmployee from './managerPages/UpdateEmployee';
+import ComplaintList from './managerPages/ComplaintList';
+import Personal from './managerPages/Personal';
+import UpdatePayroll from './managerPages/UpdatePayroll';
+import EmployeeDashboard from './employeePages/EmployeeDashboard';
+import UpdatePolicy from './managerPages/UpdatePolicy';
+import AddPayroll from './managerPages/AddPayroll';
+import ConcernList from './managerPages/ConcernList'
+import Profile from './managerPages/Profile'
+import EmployeePersonal from './employeePages/EmployeePersonal';
+import AddRoster from './managerPages/AddRoster';
+import UpdateUser from './employeePages/UpdateUser';
 import './App.less'
 
 function App() {

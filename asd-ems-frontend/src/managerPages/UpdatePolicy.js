@@ -1,4 +1,4 @@
-import WebLayout from './components/WebLayout';
+import WebLayout from '../components/WebLayout';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
