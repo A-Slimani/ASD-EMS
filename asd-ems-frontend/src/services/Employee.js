@@ -1,5 +1,5 @@
-import axios from "axios";
-const baseUrl = "https://asd-ems-db.herokuapp.com/employees"
+import axios from 'axios';
+const baseUrl = 'https://asd-ems-db.herokuapp.com/employees';
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -7,9 +7,9 @@ const getAll = () => {
 };
 
 const get = id => {
-  const request = axios.get(`${baseUrl}/${id}`)
-  return request.then(response => response.data)
-}
+  const request = axios.get(`${baseUrl}/${id}`);
+  return request.then(response => response.data);
+};
 
 const create = newObj => {
   return axios.post(baseUrl, newObj);
@@ -23,4 +23,6 @@ const remove = id => {
   return axios.delete(`${baseUrl}/${id}`);
 };
 
-export default { get, getAll, create, update, remove };
+const employeeObject = { get, getAll, create, update, remove };
+
+export default employeeObject;

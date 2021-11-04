@@ -31,34 +31,35 @@ function App() {
         <Route path="/" exact> <Login /> </Route>
         <Route exact path="/Logout"> <Logout /> </Route>
 
-        <Route exact path="/ComplaintList"> <ComplaintList /> </Route>
-        <Route exact path="/FileComplaint"> <FileComplaint /> </Route>
+        <Route exact path="/Dashboard" component={Dashboard} />
+        <Route exact path="/EmployeeDashboard" component={EmployeeDashboard} /> 
 
-        <Route exact path="/Dashboard"> <Dashboard /> </Route>
-        <Route exact path="/EmployeeDashboard"> <EmployeeDashboard /> </Route>
-        <Route exact path="/AddRoster"> <AddRoster /> </Route>
-        <Route exact path="/Roster"> <Roster /> </Route>
+        <Route exact path="/ComplaintList" component={ComplaintList} />
+        <Route exact path="/FileComplaint" component={FileComplaint} />
 
-        <Route exact path="/discussionBoard"> <DiscussionBoard /> </Route>
-        <Route exact path="/ConcernList"> <ConcernList /> </Route>
+        <Route exact path="/AddRoster" component={AddRoster} /> 
+        <Route exact path="/Roster" component={Roster} />
 
-        <Route exact path="/Personal"> <Personal /> </Route>
-        <Route exact path="/EmployeePersonal"> <EmployeePersonal /> </Route>
+        <Route exact path="/discussionBoard" component={DiscussionBoard} /> 
+        <Route exact path="/ConcernList" component={ConcernList} /> 
 
-        <Route exact path="/Profile/:id"> <Profile /> </Route>
-        <Route exact path="/AddUser"> <AddUser /> </Route>
-        <Route exact path="/UserList"> <UserList /> </Route>
-        <Route exact path="/UpdateEmployee/:id"> <UpdateEmployee /> </Route>
+        <Route exact path="/Personal" component={Personal} /> 
+        <Route exact path="/EmployeePersonal" component={EmployeePersonal} />
 
-        <Route exact path="/Application"> <Application /> </Route>
-        <Route exact path="/ApplicationList"> <ApplicationList /> </Route>
+        <Route exact path="/Profile/:id" component={Profile} />
+        <Route exact path="/AddUser" component={AddUser} /> 
+        <Route exact path="/UserList" component={UserList} /> 
+        <Route exact path="/UpdateEmployee/:id" component={UpdateEmployee} /> 
 
-        <Route exact path="/AddPayroll"> <AddPayroll /> </Route>
-        <Route exact path="/UpdatePayroll/:id"> <UpdatePayroll /> </Route>
-        <Route exact path="/PayrollHistory"> <PayrollHistory /> </Route>
+        <Route exact path="/Application" component={Application} /> 
+        <Route exact path="/ApplicationList" component={ApplicationList} />
 
-        <Route exact path="/PaymentPolicy"> <PaymentPolicy /> </Route>
-        <Route exact path="/UpdatePolicy"> <UpdatePolicy /> </Route>
+        <Route exact path="/AddPayroll" component={AddPayroll} />
+        <Route exact path="/UpdatePayroll/:id" component={UpdatePayroll} /> 
+        <Route exact path="/PayrollHistory" component={PayrollHistory} /> 
+
+        <Route exact path="/PaymentPolicy" component={PaymentPolicy} />
+        <Route exact path="/UpdatePolicy" component={UpdatePolicy} /> 
 
         <Route path="*" component={() => "404 Not Found"} />
       </Switch>

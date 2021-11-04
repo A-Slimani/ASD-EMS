@@ -1,5 +1,5 @@
-import axios from "axios";
-const baseUrl = "https://asd-ems-db.herokuapp.com/filecomplaint"
+import axios from 'axios';
+const baseUrl = 'https://asd-ems-db.herokuapp.com/filecomplaint';
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -18,4 +18,6 @@ const remove = id => {
   return axios.delete(`${baseUrl}/${id}`);
 };
 
-export default { getAll, create, update, remove };
+const complaintObjects = { getAll, create, update, remove };
+
+export default complaintObjects;
