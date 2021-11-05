@@ -18,5 +18,21 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.14"
-  }
+  },
+  "description": "## About EMS project This project is an Employee Management System (EMS) created by ASD-Group 6 using Node.js React. The system aims to provide business employer with an environement to manage their employees.",
+  "main": "app.js",
+  "devDependencies": {
+    "prisma": "^3.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdullahS98/ASD-EMS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdullahS98/ASD-EMS/issues"
+  },
+  "homepage": "https://github.com/AbdullahS98/ASD-EMS#readme"
 }
