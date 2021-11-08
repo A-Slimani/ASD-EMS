@@ -2,7 +2,7 @@
   "name": "ASD-EMS",
   "version": "1.0.0",
   "scripts": {
-    "start": "node app.js",
+    "start": "node App.js",
     "build": "cd asd-ems-frontend && npm run build",
     "install-client": "cd asd-ems-frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
