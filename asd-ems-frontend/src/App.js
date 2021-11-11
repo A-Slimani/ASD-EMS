@@ -28,10 +28,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact> <Login /> </Route>
-        <Route exact path="/Logout"> <Logout /> </Route>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/Logout" component={Logout} /> 
 
-        <Route exact path="/Dashboard" component={Dashboard} />
+        <Route path="/Dashboard" component={Dashboard} />
         <Route exact path="/EmployeeDashboard" component={EmployeeDashboard} /> 
 
         <Route exact path="/ComplaintList" component={ComplaintList} />

@@ -1,34 +1,40 @@
 import { Button, Flex, Heading, Input, FormControl, Spacer } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import employeeService from './services/Employee'
+import employeeService from './services/Employee';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [employees, setEmployees] = useState([])
+  const [employees, setEmployees] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
     employeeService.getAll().then(employees => {
-      setEmployees(employees)
-    })
-  }, [])
+      setEmployees(employees);
+    });
+  }, []);
+
+  console.log(employees);
 
   const validateForm = () => {
     return username.length > 0 && password.length > 0;
   };
 
-  const user = employees.find(x => x.username === username)
+  const user = employees.find(x => x.username === username);
 
   const getAccount = () => {
     if (user === undefined) return false;
-    return user.pwd === password
-  }
+    return user.pwd === password;
+  };
 
   const handleSubmit = e => {
-    function isAdmin(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name); }
-    function isEmployee(name) { return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name); }
+    function isAdmin(name) {
+      return /^-?[a-zA-Z0-9._%+-]+@EMS[HR]{2}$/.test(name);
+    }
+    function isEmployee(name) {
+      return /^-?[a-zA-Z0-9._%+-]+@EMS[OP,MK,FN]{2}$/.test(name);
+    }
 
     // this is a login validate to redirect to 2 different dashboard
     // before this validate will have to verify username and password with the database
@@ -46,15 +52,13 @@ const Login = () => {
       localStorage.setItem('id', user.id);
       history.push({
         pathname: `./Dashboard`,
-      });      
-    }
-    else if (isEmployee(username) && getAccount()) {
+      });
+    } else if (isEmployee(username) && getAccount()) {
       localStorage.setItem('id', user.id);
       history.push({
         pathname: `./EmployeeDashboard`,
       });
-    }
-    else {
+    } else {
       alert('Incorrect username and/or password');
     }
   };
@@ -64,7 +68,7 @@ const Login = () => {
       <Heading mb={20}> Employee Management System </Heading>
       <Flex direction="column" background="gray.100" p={12} rounded={6}>
         <Heading mb={6}>Log in</Heading>
-        <FormControl onSubmit={handleSubmit} id="loginform" name="loginform" >
+        <FormControl onSubmit={handleSubmit} id="loginform" name="loginform">
           <Input
             placeholder="Username"
             name="username"

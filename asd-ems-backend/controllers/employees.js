@@ -5,7 +5,6 @@ const Employee = require('../models/employee');
 employeeRouter.get('/', (req, res) => {
   Employee.find({})
     .then(employee => {
-      console.log('test');
       res.json(employee);
     })
     .catch(error => next(error));
@@ -13,6 +12,7 @@ employeeRouter.get('/', (req, res) => {
 
 employeeRouter.post('/Dashboard', (req, res) => {
   res.json('Dashboard');
+  console.log("test dashboard")
 });
 
 employeeRouter.get('/:id', (req, res, next) => {

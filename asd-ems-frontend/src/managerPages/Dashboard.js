@@ -7,8 +7,7 @@ const testText = () => {
     return (
       <div>
         <h1 style={{ textAlign: 'center', fontSize: 30, fontWeight: 'bold' }}>
-          {' '}
-          Hello, Admin{' '}
+          Hello, Admin
         </h1>
         <h2
           style={{
@@ -20,17 +19,15 @@ const testText = () => {
             fontStyle: 'italic',
             fontWeight: 'bold',
           }}>
-          {' '}
-          Announcement{' '}
+          Announcement
         </h2>
         <li>
           System maintenance is due at midnight to tomorrow 7am. Ensure not to use the
           system during the maintenance time as changed information may not be saved.
         </li>
         <li>
-          {' '}
           Starting next year, a new payment policy is apply. Please read the new policy in
-          the "Payment Policy" page.{' '}
+          the "Payment Policy" page.
         </li>
         <li> End of year party ticket is open, date and time is to be annouce. </li>
         <br />
