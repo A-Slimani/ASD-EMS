@@ -1,6 +1,6 @@
 const employeeRouter = require('express').Router();
 const { response } = require('express');
-const Employee = require('../../models/employee');
+const Employee = require('../models/employee');
 
 employeeRouter.get('/', (req, res) => {
   Employee.find({})
@@ -10,7 +10,7 @@ employeeRouter.get('/', (req, res) => {
     .catch(error => next(error));
 });
 
-employeeRouter.post('/Dashboard', (req, res) => {
+employeeRouter.post('/Dashboard/', (req, res) => {
   res.json('Dashboard');
   console.log("test dashboard")
 });

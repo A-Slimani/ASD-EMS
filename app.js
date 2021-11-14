@@ -1,13 +1,36 @@
+const config = require('./utils/config');
+const http = require('http');
 const express = require('express');
+const app = express();
+const cors = require('cors');
+const employeeRouter = require('./controllers/employees');
+const middleware = require('./utils/middleware');
+const logger = require('./utils/logger');
 const path = require('path');
 
-const app = express();
-const port = process.env.PORT || 3000;
-app.use(express.static(path.join('asd-ems-frontend', 'build')));
-app.use('*', express.static(path.join('asd-ems-frontend', 'build')))
+logger.info('connecting to', config.MONGODB_URI);
 
-app.get('*', (request, response) => {
-	response.sendFile(path.join('./asd-ems-frontend', 'build', 'index.html'))
-})
+app.set('etag', 'strong')
 
-app.listen(port, () => console.log(`Server is running on port ${port}!`));
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, './asd-ems-client/build')));
+app.use('*', express.static(path.join(__dirname, './asd-ems-client/build')));
+
+app.get('*', (req, res) => {
+  // dont serve api routes to the react app
+  res.sendFile(path.join(__dirname, 'build'));
+});
+
+app.use(middleware.requestLogger);
+
+app.use('/api/employees', employeeRouter);
+
+app.use(middleware.unknownEndpoint);
+app.use(middleware.errorHandler);
+
+const server = http.createServer(app);
+
+server.listen(config.PORT, () => {
+  logger.info(`Server running on port ${config.PORT}`);
+});
