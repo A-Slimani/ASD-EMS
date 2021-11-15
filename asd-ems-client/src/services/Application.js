@@ -6,10 +6,10 @@ const getAll = () => {
   return request.then(response => response.data);
 };
 
-const get = id => {
-  const request = axios.get(`${baseUrl}/${id}`)
-  return request.then(response => response.data)
-}
+// const get = id => {
+//   const request = axios.get(`${baseUrl}/${id}`)
+//   return request.then(response => response.data)
+// }
 
 const create = newObj => {
   return axios.post(baseUrl, newObj);

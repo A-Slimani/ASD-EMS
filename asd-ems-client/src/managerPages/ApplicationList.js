@@ -2,28 +2,30 @@ import { Button, Divider, Space, Table, Input, Select, DatePicker } from 'antd';
 import React, { useEffect, useState } from 'react';
 import WebLayout from '../components/WebLayout';
 import applicationService from '../services/Application';
-import axios from 'axios';
 import { Redirect } from 'react-router';
 
 const { Column } = Table;
 const { Option } = Select;
 
 const Content = () => {
-  const [applicationform, setApplications] = useState([]);
+  const [applicationList, setApplicationList] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [dateFilter, setDateFilter] = useState('');
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    applicationService.getAll().then(applicationform => {
-      setApplications(applicationform);
+    applicationService.getAll().then(applications => {
+      setApplicationList(applications);
     });
-  }, []);
+  }, [refresh]);
+
+  console.log(applicationList);
 
   // filters the values with all the inputs
   const filteredList = () => {
-    return applicationform.filter(
+    return applicationList.filter(
       c =>
         c.applicationtype.match(typeFilter) &&
         c.status.match(statusFilter) &&
@@ -48,50 +50,45 @@ const Content = () => {
     console.log('date filter: ', dateFilter);
   };
 
-  const handleApprove = async e => {
-    var option = window.confirm(
+  // sets the status of an application to approve
+  const handleApprove = e => {
+    const option = window.confirm(
       'Do you want to approve application with ID ' +
         e.currentTarget.id +
         '? \n\n Select OK to delete or CANCEL action'
     );
 
-    if (option === true) {
-      for (let i of applicationform) {
-        if (e.currentTarget.id === i.id) {
-          var concern = Object.assign({}, i);
-          concern.status = 'Approved';
-          await axios.put(
-            `https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`,
-            concern
-          );
-          break;
-        }
-      }
+    console.log(e.currentTarget.id);
+    const matchingApp = applicationList.find(app => app.userid === e.currentTarget.id);
+    console.log(matchingApp);
+
+    if (option) {
+      const updatedApp = Object.assign(applicationList[e.currentTarget.id], e.currentTarget.id);
+      updatedApp.status = 'Approve';
+      applicationService.update(e.currentTarget.id, updatedApp);
+
+      setRefresh(true);
     }
-    window.location.reload();
   };
 
-  const handleReject = async e => {
-    var option = window.confirm(
+  // sets the status of an application to reject
+  const handleReject = e => {
+    const option = window.confirm(
       'Do you want to reject application with ID ' +
         e.currentTarget.id +
         '? \n\n Select OK to delete or CANCEL action'
     );
 
-    if (option === true) {
-      for (let i of applicationform) {
-        if (e.currentTarget.id == i.id) {
-          var concern = Object.assign({}, i);
-          concern.status = 'Rejected';
-          await axios.put(
-            `https://asd-ems-db.herokuapp.com/applicationform/${e.currentTarget.id}`,
-            concern
-          );
-          break;
-        }
-      }
+    if (option) {
+      const updatedApp = Object.assign(
+        applicationList[e.currentTarget.id],
+        e.currentTarget.id
+      );
+      updatedApp.status = 'Rejected';
+      applicationService.update(e.currentTarget.id, updatedApp);
+
+      setRefresh(true);
     }
-    window.location.reload();
   };
 
   if (localStorage.getItem('id') !== null) {
@@ -171,12 +168,10 @@ const Content = () => {
                 <>
                   <Space split={<Divider type="vertical" />}>
                     <Button id={p.id} onClick={handleApprove}>
-                      {' '}
-                      Approve{' '}
+                      Approve
                     </Button>
                     <Button id={p.id} onClick={handleReject}>
-                      {' '}
-                      Reject{' '}
+                      Reject
                     </Button>
                   </Space>
                 </>
